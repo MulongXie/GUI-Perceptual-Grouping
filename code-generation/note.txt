@@ -1,0 +1,36 @@
+HTML & CSS generation:
+
+1. gather_lists_by_pair_and_group(compos.compos_dataframe[1:])
+    a. For non-list compos
+        i. css: backgroiund, width, height
+        ii. HTML: compo skeleton with css class and html id and compo clip image
+    b. For List as a whole
+        i. Add compos_df, list type and list alignment
+        ii. No HTML and CSS generated at this satge
+
+2. generate_lists_html_css(lists)
+    a. HTML (skeleton with css class and html id and compo clip image):
+        i. For each compos in a List
+        ii. For each Li (group of list items) in a list
+        iii. For the entire List (Ul)
+    b. CSS
+        i. generate_css_by_element_group()
+            Define the width, height and background for all compos in the same group
+        ii. generate_css_by_item_group()
+            For multiple type of List, margin between list items
+        iii. generate_css_list_item()
+            Define the margin for all the Li in a List as the max gap ***
+
+3. slice_blocks(compos_html, 'v')
+    a. HTML
+        i. HTML skeleton for each block
+        ii. Recurssively slice for sub-blocks
+    b. CSS
+        i. Margin and border for each block
+        ii. Recurssively slice for sub-blocks
+
+4. Block.init_children_css()
+    a. Ul children
+        Padding nad margin
+    b. Vertical alignment
+        left float for
