@@ -22,6 +22,7 @@ class ComposDF:
         self.img_file = img_file
         self.img = cv2.imread(self.img_file)
         self.img_shape = (self.compos_dataframe.iloc[0].width, self.compos_dataframe.iloc[0].height)
+        self.img_resized = cv2.resize(self.img, self.img_shape[:2])
 
     def copy(self):
         return copy.deepcopy(self)
@@ -49,20 +50,6 @@ class ComposDF:
             compo['center_row'] = compo['center'][1]
             df.loc[i] = compo
         return df
-
-    def select_by_class(self, categories, replace=False):
-        df = self.compos_dataframe
-        df = df[df['class'].isin(categories)]
-        if replace:
-            self.compos_dataframe = df
-        else:
-            return df
-
-    def visualize(self, gather_attr='class', name='board'):
-        draw.visualize(self.img, self.compos_dataframe, self.img_shape, gather_attr, name)
-
-    def visualize_block(self, gather_attr='class', name='board'):
-        draw.visualize_block(self.img, self.compos_dataframe, self.img_shape, gather_attr, name)
 
     def to_csv(self, file):
         self.compos_dataframe.to_csv(file)
@@ -100,8 +87,6 @@ class ComposDF:
 
         # df = rep.rm_invalid_groups(df)
         self.compos_dataframe = df
-
-    # def cluster_check_correct_by_gap(self, by_attr):
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='line'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
@@ -218,21 +203,19 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_block(gather_attr='group', name=name)
 
+    def select_by_class(self, categories, replace=False):
+        df = self.compos_dataframe
+        df = df[df['class'].isin(categories)]
+        if replace:
+            self.compos_dataframe = df
+        else:
+            return df
+
     '''
     ******************************
     ******** Pair groups *********
     ******************************
     '''
-    def split_groups(self, group_name):
-        compos = self.compos_dataframe
-        groups = []
-        g = compos.groupby(group_name).groups
-        for i in g:
-            if i == -1 or len(g[i]) <= 1:
-                continue
-            groups.append(compos.loc[g[i]])
-        return groups
-
     def pair_groups(self):
         # gather by same groups
         groups_nontext = self.split_groups('group_nontext')
@@ -242,15 +225,15 @@ class ComposDF:
 
         # pairing between groups
         pairs = pairing.pair_matching_within_groups(all_groups)
-
-        # combine together
+        # merge the pairing result into the original dataframe
         df_all = self.compos_dataframe.merge(pairs, how='left')
+        # tidy up
+        df_all = df_all.drop(columns=['group_nontext', 'group_text'])
 
         # add alignment between list items
         # df_all.rename({'alignment': 'alignment_list'}, axis=1, inplace=True)
         # df_all.loc[list(df_all[df_all['alignment_list'] == 'v']['id']), 'alignment_item'] = 'h'
         # df_all.loc[list(df_all[df_all['alignment_list'] == 'h']['id']), 'alignment_item'] = 'v'
-        df_all = df_all.drop(columns=['group_nontext', 'group_text'])
 
         # fill nan and change type
         df_all = df_all.fillna(-1)
@@ -258,6 +241,16 @@ class ComposDF:
         df_all['group_pair'] = df_all['group_pair'].astype(int)
         df_all['pair_to'] = df_all['pair_to'].astype(int)
         self.compos_dataframe = df_all
+
+    def split_groups(self, group_name):
+        compos = self.compos_dataframe
+        groups = []
+        g = compos.groupby(group_name).groups
+        for i in g:
+            if i == -1 or len(g[i]) <= 1:
+                continue
+            groups.append(compos.loc[g[i]])
+        return groups
 
     '''
     ******************************
@@ -278,3 +271,14 @@ class ComposDF:
 
         self.compos_dataframe = self.compos_dataframe.merge(listed_compos, how='left')
         self.compos_dataframe['list_item'] = self.compos_dataframe['list_item'].fillna(-1).astype(int)
+
+    '''
+    *****************************
+    ******* Visualization *******
+    *****************************
+    '''
+    def visualize(self, gather_attr='class', name='board'):
+        draw.visualize(self.img, self.compos_dataframe, self.img_shape, gather_attr, name)
+
+    def visualize_block(self, gather_attr='class', name='board'):
+        draw.visualize_block(self.img, self.compos_dataframe, self.img_shape, gather_attr, name)
