@@ -1,7 +1,5 @@
 import pandas as pd
-from obj.List import List
-from obj.CSS import CSS
-from obj.Compo_HTML import CompoHTML
+from obj.Compo import Compo
 
 item_id = 0
 tag_map = {'Compo': 'div', 'Text': 'div', 'Block': 'div'}
@@ -20,6 +18,7 @@ def search_list_item_by_compoid(item_ids, compo_id):
 def gather_list_items(compos):
     '''
         gather compos into a list item in the same row/column of a same pair(list)
+        the reason for this is that some list contain more than 2 items, while the 'pair_to' attr only contains relation of two
     '''
     list_items = {}
     item_ids = {}
@@ -62,42 +61,41 @@ def gather_list_items(compos):
     return list_items
 
 
-def gather_lists_by_pair_and_group(compos):
+def gather_lists_by_pair_and_group(compos_df):
     '''
-    :param compos: type of dataframe
+    :param compos_df: type of dataframe
     :return: lists: [list_obj]
              non_list_compos: [compoHTML]
     '''
     lists = []
     non_list_compos = []
     # list type of multiple (multiple compos in each list item) for paired groups
-    groups = compos.groupby('group_pair').groups
-    list_id = 0
+    groups = compos_df.groupby('group_pair').groups
+    compo_id = 0
     for i in groups:
         if i == -1 or len(groups[i]) == 1:
             continue
-        lists.append(List(list_id, compos.loc[groups[i]], 'multiple', compos.loc[groups[i][0]]['alignment_in_group']))
-        list_id += 1
+        lists.append(Compo(compo_id=compo_id, compo_class='list-multi', compo_df=compos_df.loc[groups[i]], list_alignment=compos_df.loc[groups[i][0]]['alignment_in_group']))
+        compo_id += 1
         # remove selected compos
-        compos = compos.drop(list(groups[i]))
+        compos_df = compos_df.drop(list(groups[i]))
 
     # list type of single (single compo in each list item) for non-paired groups
-    groups = compos.groupby('group').groups
+    groups = compos_df.groupby('group').groups
     for i in groups:
         if i == -1 or len(groups[i]) == 1:
             continue
-        lists.append(List(list_id, compos.loc[groups[i]], 'single', compos.loc[groups[i][0]]['alignment_in_group']))
-        list_id += 1
+        lists.append(Compo(compo_id=compo_id, compo_class='list-single', compo_df=compos_df.loc[groups[i]], list_alignment=compos_df.loc[groups[i][0]]['alignment_in_group']))
+        compo_id += 1
         # remove selected compos
-        compos = compos.drop(list(groups[i]))
+        compos_df = compos_df.drop(list(groups[i]))
 
     # not count as list for non-grouped compos
-    for i in range(len(compos)):
-        compo = compos.iloc[i]
-        html_id = tag_map[compo['class']] + '-' + str(compo['id'])
+    for i in range(len(compos_df)):
+        compo_df = compos_df.iloc[i]
         # fake compo presented by colored div
-        css = CSS(name='#' + html_id, background=backgrounds[compo['class']], width=str(compo['width']) + 'px', height=str(compo['height']) + 'px')
-        compo_html = CompoHTML(compo_class=compo['class'], compo_id=compo['id'], compo_df=compo, html_tag=tag_map[compo['class']], html_id=html_id, css={css.name: css})
-        non_list_compos.append(compo_html)
+        compo = Compo(compo_id=compo_id, compo_class=compo_df['class'], compo_df=compo_df)
+        compo_id += 1
+        non_list_compos.append(compo)
     return lists, non_list_compos
 

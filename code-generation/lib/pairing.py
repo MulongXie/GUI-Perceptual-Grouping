@@ -54,7 +54,7 @@ def pair_matching_between_multi_groups(groups1, groups2):
 
 
 def pair_matching_within_groups(groups, new_pairs=True):
-    pairs = {}
+    pairs = {}  # {'pair_id': [dataframe of grouped by certain attr]}
     pair_id = 0
     mark = np.full(len(groups), False)
     if new_pairs:
