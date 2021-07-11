@@ -1,6 +1,24 @@
 import pandas as pd
 import json
 import cv2
+import os
+
+
+def export_compos_as_tree(compos, export_dir='data/output/tree'):
+    def build_branch(compo):
+        branch = compo.put_info()
+        if len(compo.children) > 0:
+            branch['children'] = []
+            for c in compo.children:
+                branch['children'].append(build_branch(c))
+        return branch
+
+    os.makedirs(export_dir, exist_ok=True)
+    tree = []
+    for cp in compos:
+        tree.append(build_branch(cp))
+    json.dump(tree, open(export_dir + '/tree.json', 'w'), indent=4)
+    return tree
 
 
 def visualize_Compos(compos_html, img):
@@ -38,6 +56,7 @@ class Compo:
         self.img_shape = img_shape
 
         self.list_alignment = list_alignment
+        self.init_boundary()
 
     def init_boundary(self):
         compo = self.compo_df
