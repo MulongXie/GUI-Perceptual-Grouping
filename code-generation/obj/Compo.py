@@ -30,6 +30,45 @@ def visualize_Compos(compos_html, img):
     cv2.destroyWindow('compos')
 
 
+def cvt_list_and_compos_by_pair_and_group(compos_df):
+    '''
+    :param compos_df: type of dataframe
+    :return: lists: [Compo obj]
+             non_list_compos: [Compo obj]
+    '''
+    lists = []
+    non_list_compos = []
+    # list type of multiple (multiple compos in each list item) for paired groups
+    groups = compos_df.groupby('group_pair').groups
+    compo_id = 0
+    for i in groups:
+        if i == -1 or len(groups[i]) == 1:
+            continue
+        lists.append(Compo(compo_id=compo_id, compo_class='List-multi', compo_df=compos_df.loc[groups[i]], list_alignment=compos_df.loc[groups[i][0]]['alignment_in_group']))
+        compo_id += 1
+        # remove selected compos
+        compos_df = compos_df.drop(list(groups[i]))
+
+    # list type of single (single compo in each list item) for non-paired groups
+    groups = compos_df.groupby('group').groups
+    for i in groups:
+        if i == -1 or len(groups[i]) == 1:
+            continue
+        lists.append(Compo(compo_id=compo_id, compo_class='List-single', compo_df=compos_df.loc[groups[i]], list_alignment=compos_df.loc[groups[i][0]]['alignment_in_group']))
+        compo_id += 1
+        # remove selected compos
+        compos_df = compos_df.drop(list(groups[i]))
+
+    # not count as list for non-grouped compos
+    for i in range(len(compos_df)):
+        compo_df = compos_df.iloc[i]
+        # fake compo presented by colored div
+        compo = Compo(compo_id=compo_id, compo_class=compo_df['class'], compo_df=compo_df)
+        compo_id += 1
+        non_list_compos.append(compo)
+    return lists, non_list_compos
+
+
 class Compo:
     def __init__(self, compo_id, compo_class,
                  compo_df=None, children=None, parent=None, img=None, img_shape=None, list_alignment=None):

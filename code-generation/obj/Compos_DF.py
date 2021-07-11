@@ -9,7 +9,6 @@ from sklearn.cluster import DBSCAN
 import lib.repetition_recognition as rep
 import lib.draw as draw
 import lib.pairing as pairing
-import lib.list_item_gethering as lst
 
 
 class ComposDF:
@@ -23,6 +22,8 @@ class ComposDF:
         self.img = cv2.imread(self.img_file)
         self.img_shape = (self.compos_dataframe.iloc[0].width, self.compos_dataframe.iloc[0].height)
         self.img_resized = cv2.resize(self.img, self.img_shape[:2])
+
+        self.item_id = 0    # id of list item
 
     def copy(self):
         return copy.deepcopy(self)
@@ -266,11 +267,64 @@ class ComposDF:
                 continue
             group = groups[i]
             paired_compos = self.compos_dataframe.loc[list(group)]
-            lst.gather_list_items(paired_compos)
+            self.gather_list_items(paired_compos)
             listed_compos = listed_compos.append(paired_compos)
 
         self.compos_dataframe = self.compos_dataframe.merge(listed_compos, how='left')
         self.compos_dataframe['list_item'] = self.compos_dataframe['list_item'].fillna(-1).astype(int)
+
+    def gather_list_items(self, compos):
+        '''
+            gather compos into a list item in the same row/column of a same pair(list)
+            the reason for this is that some list contain more than 2 items, while the 'pair_to' attr only contains relation of two
+        '''
+
+        def search_list_item_by_compoid(compo_id):
+            """
+                list_items: dictionary => {id of first compo: ListItem}
+            """
+            for i in item_ids:
+                if compo_id in item_ids[i]:
+                    return i
+
+        list_items = {}
+        item_ids = {}
+        mark = []
+        for i in range(len(compos)):
+            compo = compos.iloc[i]
+            if compo['pair_to'] == -1:
+                compos.loc[compo['id'], 'list_item'] = self.item_id
+                self.item_id += 1
+            # new item
+            elif compo['id'] not in mark and compo['pair_to'] not in mark:
+                compo_paired = compos.loc[compo['pair_to']]
+
+                list_items[self.item_id] = [compo, compo_paired]
+                item_ids[self.item_id] = [compo['id'], compo['pair_to']]
+
+                compos.loc[compo['id'], 'list_item'] = self.item_id
+                compos.loc[compo['pair_to'], 'list_item'] = self.item_id
+                mark += [compo['id'], compo['pair_to']]
+                self.item_id += 1
+
+            elif compo['id'] in mark and compo['pair_to'] not in mark:
+                index = search_list_item_by_compoid(compo['id'])
+                list_items[index].append(compos.loc[compo['pair_to']])
+                item_ids[index].append(compo['pair_to'])
+
+                compos.loc[compo['pair_to'], 'list_item'] = index
+                mark.append(compo['pair_to'])
+
+            elif compo['id'] not in mark and compo['pair_to'] in mark:
+                index = search_list_item_by_compoid(compo['pair_to'])
+                list_items[index].append(compos.loc[compo['id']])
+                item_ids[index].append(compo['id'])
+
+                compos.loc[compo['id'], 'list_item'] = index
+                mark.append(compo['id'])
+
+        compos['list_item'] = compos['list_item'].astype(int)
+        return list_items
 
     '''
     *****************************
