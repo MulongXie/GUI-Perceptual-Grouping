@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 
-import uied.detect_compo.lib_ip.ip_draw as draw
-import uied.detect_compo.lib_ip.ip_preprocessing as pre
-from uied.detect_compo.lib_ip.Component import Component
-import uied.detect_compo.lib_ip.Component as Compo
-from uied.config.CONFIG_UIED import Config
+import element.detect_compo.lib_ip.ip_draw as draw
+import element.detect_compo.lib_ip.ip_preprocessing as pre
+from element.detect_compo.lib_ip.Component import Component
+import element.detect_compo.lib_ip.Component as Compo
+from element.config.CONFIG_UIED import Config
 C = Config()
 
 

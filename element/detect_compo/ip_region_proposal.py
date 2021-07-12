@@ -4,12 +4,12 @@ import time
 import json
 import numpy as np
 
-import uied.detect_compo.lib_ip.ip_preprocessing as pre
-import uied.detect_compo.lib_ip.ip_draw as draw
-import uied.detect_compo.lib_ip.ip_detection as det
-import uied.detect_compo.lib_ip.file_utils as file
-import uied.detect_compo.lib_ip.Component as Compo
-from uied.config.CONFIG_UIED import Config
+import element.detect_compo.lib_ip.ip_preprocessing as pre
+import element.detect_compo.lib_ip.ip_draw as draw
+import element.detect_compo.lib_ip.ip_detection as det
+import element.detect_compo.lib_ip.file_utils as file
+import element.detect_compo.lib_ip.Component as Compo
+from element.config.CONFIG_UIED import Config
 C = Config()
 
 
