@@ -1,0 +1,18 @@
+v11
+1. Export Tree
+2. Add class to CompoHTML
+
+v12
+1. Update group_by_clusters_conflict by average area and size of cluster
+2. Count invalid group consisting one interleaving
+3. Add compo image clips in CompoHTML and HTML skeleton
+
+v13
+1. Refactoring: decouple component's CSS (especially margin) generation in a certain stage
+2. Add height and width for blocks (commented as not working properly)
+3. Only set height for blocks
+4. Add gap checking for clustering
+5. Fix bug of independent compos margin
+6. Build all css in one place (Block)
+7. Build the outest blocks separatly
+8. Set the margin of nested compo
