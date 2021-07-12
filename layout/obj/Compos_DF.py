@@ -16,7 +16,7 @@ class ComposDF:
         self.json_file = json_file
         self.json_data = json_data if json_data is not None else json.load(open(self.json_file))
         self.compos_json = self.json_data['compos']
-        self.compos_dataframe = self.trans_as_df()
+        self.compos_dataframe = self.cvt_json_to_df()
 
         self.img_file = img_file
         self.img = cv2.imread(self.img_file)
@@ -33,22 +33,33 @@ class ComposDF:
             json_file = self.json_file
         self.json_data = json.load(open(json_file))
         self.compos_json = self.json_data['compos']
-        self.compos_dataframe = self.trans_as_df()
+        self.compos_dataframe = self.cvt_json_to_df()
 
-    def trans_as_df(self):
-        # df = pd.DataFrame(columns=['id', 'column_min', 'column_max', 'row_min', 'row_max',
-        #                            'center', 'center_column', 'center_row', 'height', 'width', 'area', 'class', 'clip'])
-        df = pd.DataFrame(columns=list(self.compos_json[0].keys()) + ['area', 'center', 'center_column', 'center_row'])
+    def cvt_json_to_df(self, rm_children=True):
+        df = pd.DataFrame(columns=['id', 'class', 'column_min', 'column_max', 'row_min', 'row_max',
+                                   'height', 'width', 'area', 'center', 'center_column', 'center_row', 'text_content'])
         for i, compo in enumerate(self.compos_json):
-            compo['height'], compo['width'] = int(compo['height']), int(compo['width'])
-            compo['column_min'], compo['column_max'] = int(compo['column_min']), int(compo['column_max'])
-            compo['row_min'], compo['row_max'] = int(compo['row_min']), int(compo['row_max'])
-
+            if rm_children and 'children' in compo:
+                compo.pop('children')
+            if 'clip_path' in compo:
+                compo.pop('clip_path')
+            if 'text_content' not in compo:
+                compo['text_content'] = None
+            if 'position' in compo:
+                pos = compo['position']
+                compo['column_min'], compo['column_max'] = int(pos['column_min']), int(pos['column_max'])
+                compo['row_min'], compo['row_max'] = int(pos['row_min']), int(pos['row_max'])
+                compo.pop('position')
+            else:
+                compo['column_min'], compo['column_max'] = int(compo['column_min']), int(compo['column_max'])
+                compo['row_min'], compo['row_max'] = int(compo['row_min']), int(compo['row_max'])
             compo['id'] = i
+            compo['height'], compo['width'] = int(compo['height']), int(compo['width'])
             compo['area'] = compo['height'] * compo['width']
             compo['center'] = ((compo['column_min'] + compo['column_max']) / 2, (compo['row_min'] + compo['row_max']) / 2)
             compo['center_column'] = compo['center'][0]
             compo['center_row'] = compo['center'][1]
+
             df.loc[i] = compo
         return df
 
