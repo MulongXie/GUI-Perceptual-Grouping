@@ -37,12 +37,10 @@ def nesting_inspection(org, grey, compos, ffl_block):
     return nesting_compos
 
 
-def compo_detection(input_img_path, output_root, uied_params,
+def compo_detection(input_img_path, ip_root, uied_params,
                     resize_by_height=800, classifier=None, show=False, wai_key=0):
 
     start = time.clock()
-    name = input_img_path.split('/')[-1][:-4]
-    ip_root = file.build_directory(pjoin(output_root, "ip"))
 
     # *** Step 1 *** pre-processing: read img -> get binary map
     org, grey = pre.read_img(input_img_path, resize_by_height)
@@ -77,12 +75,13 @@ def compo_detection(input_img_path, output_root, uied_params,
     #     uicompos = det.rm_noise_compos(uicompos)
 
     # *** Step 6 *** element classification: all category classification
-    if classifier is not None:
-        classifier['Elements'].predict([compo.compo_clipping(org) for compo in uicompos], uicompos)
-        draw.draw_bounding_box_class(org, uicompos, show=show, name='cls', write_path=pjoin(ip_root, 'result.jpg'))
-        draw.draw_bounding_box_class(org, uicompos, write_path=pjoin(output_root, 'result.jpg'))
+    # if classifier is not None:
+    #     classifier['Elements'].predict([compo.compo_clipping(org) for compo in uicompos], uicompos)
+    #     draw.draw_bounding_box_class(org, uicompos, show=show, name='cls', write_path=pjoin(ip_root, 'result.jpg'))
+    #     draw.draw_bounding_box_class(org, uicompos, write_path=pjoin(output_root, 'result.jpg'))
 
     # *** Step 7 *** save detection result
     Compo.compos_update(uicompos, org.shape)
+    name = input_img_path.split('/')[-1][:-4]
     file.save_corners_json(pjoin(ip_root, name + '.json'), uicompos)
     print("[Compo Detection Completed in %.3f s] %s" % (time.clock() - start, input_img_path))

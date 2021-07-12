@@ -33,6 +33,7 @@ def save_elements(output_file, elements, img_shape):
         c['id'] = i
         components['compos'].append(c)
     json.dump(components, open(output_file, 'w'), indent=4)
+    return components
 
 
 def refine_texts(texts, img_shape):
@@ -130,7 +131,7 @@ def compos_clip_and_fill(clip_root, org, compos):
     cv2.imwrite(pjoin(clip_root, 'bkg.png'), bkg)
 
 
-def merge(img_path, compo_path, text_path, output_root=None, is_remove_top=True, show=False, wait_key=0):
+def merge(img_path, compo_path, text_path, merge_root=None, is_remove_top=True, show=False, wait_key=0):
     compo_json = json.load(open(compo_path, 'r'))
     text_json = json.load(open(text_path, 'r'))
 
@@ -160,10 +161,8 @@ def merge(img_path, compo_path, text_path, output_root=None, is_remove_top=True,
     board = show_elements(img_resize, elements, show=show, win_name='elements after merging', wait_key=wait_key)
 
     # save all merged elements, clips and blank background
-    if output_root is not None:
-        name = img_path.split('/')[-1][:-4]
-        save_elements(pjoin(output_root, 'uied', name + '.json'), elements, img_resize.shape)
-        cv2.imwrite(pjoin(output_root, 'uied', name + '.jpg'), board)
-        print('Merge Complete and Save to', pjoin(output_root, 'uied', name + '.jpg'), time.ctime(), '\n')
-    else:
-        print('Merge Complete', time.ctime(), '\n')
+    name = img_path.split('/')[-1][:-4]
+    components = save_elements(pjoin(merge_root, name + '.json'), elements, img_resize.shape)
+    cv2.imwrite(pjoin(merge_root, name + '.jpg'), board)
+    print('Merge Complete and Save to', pjoin(merge_root, name + '.jpg'), time.ctime(), '\n')
+    return components
