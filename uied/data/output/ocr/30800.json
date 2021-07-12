@@ -1,0 +1,99 @@
+{
+    "img_shape": [
+        1747,
+        1080,
+        3
+    ],
+    "texts": [
+        {
+            "column_max": 311,
+            "column_min": 44,
+            "height": 62,
+            "row_min": 52,
+            "content": "Relax Night",
+            "width": 267,
+            "id": 0,
+            "row_max": 114
+        },
+        {
+            "column_max": 1027,
+            "column_min": 1018,
+            "height": 57,
+            "row_min": 48,
+            "content": ":",
+            "width": 9,
+            "id": 1,
+            "row_max": 105
+        },
+        {
+            "column_max": 860,
+            "column_min": 220,
+            "height": 51,
+            "row_min": 186,
+            "content": "Brahms Lullaby and crickets",
+            "width": 640,
+            "id": 2,
+            "row_max": 237
+        },
+        {
+            "column_max": 565,
+            "column_min": 503,
+            "height": 50,
+            "row_min": 454,
+            "content": "7 &",
+            "width": 62,
+            "id": 3,
+            "row_max": 504
+        },
+        {
+            "column_max": 333,
+            "column_min": 35,
+            "height": 55,
+            "row_min": 1620,
+            "content": "Dog House On",
+            "width": 298,
+            "id": 4,
+            "row_max": 1675
+        },
+        {
+            "column_max": 300,
+            "column_min": 65,
+            "height": 38,
+            "row_min": 1675,
+            "content": "The Prairie .",
+            "width": 235,
+            "id": 5,
+            "row_max": 1713
+        },
+        {
+            "column_max": 559,
+            "column_min": 501,
+            "height": 43,
+            "row_min": 1612,
+            "content": "Dog",
+            "width": 58,
+            "id": 6,
+            "row_max": 1655
+        },
+        {
+            "column_max": 1080,
+            "column_min": 557,
+            "height": 81,
+            "row_min": 1608,
+            "content": "boarding dog's home and away Dog training home . YUIX from .",
+            "width": 523,
+            "id": 7,
+            "row_max": 1689
+        },
+        {
+            "column_max": 853,
+            "column_min": 686,
+            "height": 29,
+            "row_min": 1687,
+            "content": "facebook.com",
+            "width": 167,
+            "id": 8,
+            "row_max": 1716
+        }
+    ]
+}
