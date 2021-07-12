@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 from random import randint as rint
-from config.CONFIG_UIED import Config
+from uied.config.CONFIG_UIED import Config
 
 
 C = Config()

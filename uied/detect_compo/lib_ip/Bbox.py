@@ -1,5 +1,4 @@
 import numpy as np
-import detect_compo.lib_ip.ip_draw as draw
 
 
 class Bbox:
