@@ -26,18 +26,13 @@ def show_elements(org_img, eles, show=False, win_name='element', wait_key=0, sho
     return img_resize
 
 
-def save_elements(output_dir, elements, img_shape):
+def save_elements(output_file, elements, img_shape):
     components = {'compos': [], 'img_shape': img_shape}
-    clip_dir = pjoin(output_dir, 'clips')
-
     for i, ele in enumerate(elements):
         c = ele.wrap_info()
         c['id'] = i
-        c['clip_path'] = pjoin(clip_dir, c['class'], str(i) + '.jpg')
         components['compos'].append(c)
-
-    json.dump(components, open(pjoin(output_dir, 'compo.json'), 'w'), indent=4)
-    return components['compos']
+    json.dump(components, open(output_file, 'w'), indent=4)
 
 
 def refine_texts(texts, img_shape):
@@ -166,11 +161,9 @@ def merge(img_path, compo_path, text_path, output_root=None, is_remove_top=True,
 
     # save all merged elements, clips and blank background
     if output_root is not None:
-        compos_json = save_elements(output_root, elements, img_resize.shape)
-        compos_clip_and_fill(pjoin(output_root, 'clips'), img_resize, compos_json)
-        cv2.imwrite(pjoin(output_root, 'result.jpg'), board)
-        print('Merge Complete and Save to', pjoin(output_root, 'result.jpg'), time.ctime(), '\n')
+        name = img_path.split('/')[-1][:-4]
+        save_elements(pjoin(output_root, 'uied', name + '.json'), elements, img_resize.shape)
+        cv2.imwrite(pjoin(output_root, 'uied', name + '.jpg'), board)
+        print('Merge Complete and Save to', pjoin(output_root, 'uied', name + '.jpg'), time.ctime(), '\n')
     else:
         print('Merge Complete', time.ctime(), '\n')
-
-# merge('../data/input/2.jpg', '../data/output/ip/2.json', '../data/output/ocr/2.json', '../data/output', show=True)
