@@ -6,9 +6,9 @@ import cv2
 from random import randint as rint
 from sklearn.cluster import DBSCAN
 
-import lib.repetition_recognition as rep
-import lib.draw as draw
-import lib.pairing as pairing
+import layout.lib.repetition_recognition as rep
+import layout.lib.draw as draw
+import layout.lib.pairing as pairing
 
 
 class ComposDF:
