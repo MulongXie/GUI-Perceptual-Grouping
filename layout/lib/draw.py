@@ -25,7 +25,7 @@ def visualize(img, compos_df, resize_shape=None, attr='class', name='board', sho
     return board
 
 
-def visualize_block(img, compos_df, resize_shape=None, attr='class', name='board', show=True):
+def visualize_fill(img, compos_df, resize_shape=None, attr='class', name='board', show=True):
     if resize_shape is not None:
         img = cv2.resize(img, resize_shape)
 
@@ -44,5 +44,5 @@ def visualize_block(img, compos_df, resize_shape=None, attr='class', name='board
     if show:
         cv2.imshow(name, board)
         cv2.waitKey()
-        cv2.destroyAllWindows()
+        cv2.destroyWindow(name)
     return board

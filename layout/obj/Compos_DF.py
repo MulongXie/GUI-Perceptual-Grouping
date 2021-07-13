@@ -12,16 +12,11 @@ import layout.lib.pairing as pairing
 
 
 class ComposDF:
-    def __init__(self, json_file=None, img_file=None, json_data=None):
+    def __init__(self, json_file=None, json_data=None):
         self.json_file = json_file
         self.json_data = json_data if json_data is not None else json.load(open(self.json_file))
         self.compos_json = self.json_data['compos']
         self.compos_dataframe = self.cvt_json_to_df()
-
-        self.img_file = img_file
-        self.img = cv2.imread(self.img_file)
-        self.img_shape = (self.compos_dataframe.iloc[0].width, self.compos_dataframe.iloc[0].height)
-        self.img_resized = cv2.resize(self.img, self.img_shape[:2])
 
         self.item_id = 0    # id of list item
 
@@ -342,8 +337,8 @@ class ComposDF:
     ******* Visualization *******
     *****************************
     '''
-    def visualize(self, gather_attr='class', name='board'):
-        draw.visualize(self.img, self.compos_dataframe, self.img_shape, gather_attr, name)
+    def visualize(self, img, gather_attr='class', name='board'):
+        draw.visualize(img, self.compos_dataframe, attr=gather_attr, name=name)
 
-    def visualize_block(self, gather_attr='class', name='board'):
-        draw.visualize_block(self.img, self.compos_dataframe, self.img_shape, gather_attr, name)
+    def visualize_fill(self, img, gather_attr='class', name='board'):
+        draw.visualize_fill(img, self.compos_dataframe, attr=gather_attr, name=name)

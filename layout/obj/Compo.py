@@ -30,38 +30,38 @@ def visualize_Compos(compos_html, img):
     cv2.destroyWindow('compos')
 
 
-def cvt_list_and_compos_by_pair_and_group(compos_df):
+def cvt_list_and_compos_by_pair_and_group(df):
     '''
-    :param compos_df: type of dataframe
+    :param df: type of dataframe
     :return: lists: [Compo obj]
              non_list_compos: [Compo obj]
     '''
     lists = []
     non_list_compos = []
     # list type of multiple (multiple compos in each list item) for paired groups
-    groups = compos_df.groupby('group_pair').groups
+    groups = df.groupby('group_pair').groups
     compo_id = 0
     for i in groups:
         if i == -1 or len(groups[i]) == 1:
             continue
-        lists.append(Compo(compo_id=compo_id, compo_class='List-multi', compo_df=compos_df.loc[groups[i]], list_alignment=compos_df.loc[groups[i][0]]['alignment_in_group']))
+        lists.append(Compo(compo_id=compo_id, compo_class='List-multi', compo_df=df.loc[groups[i]], list_alignment=df.loc[groups[i][0]]['alignment_in_group']))
         compo_id += 1
         # remove selected compos
-        compos_df = compos_df.drop(list(groups[i]))
+        df = df.drop(list(groups[i]))
 
     # list type of single (single compo in each list item) for non-paired groups
-    groups = compos_df.groupby('group').groups
+    groups = df.groupby('group').groups
     for i in groups:
         if i == -1 or len(groups[i]) == 1:
             continue
-        lists.append(Compo(compo_id=compo_id, compo_class='List-single', compo_df=compos_df.loc[groups[i]], list_alignment=compos_df.loc[groups[i][0]]['alignment_in_group']))
+        lists.append(Compo(compo_id=compo_id, compo_class='List-single', compo_df=df.loc[groups[i]], list_alignment=df.loc[groups[i][0]]['alignment_in_group']))
         compo_id += 1
         # remove selected compos
-        compos_df = compos_df.drop(list(groups[i]))
+        df = df.drop(list(groups[i]))
 
     # not count as list for non-grouped compos
-    for i in range(len(compos_df)):
-        compo_df = compos_df.iloc[i]
+    for i in range(len(df)):
+        compo_df = df.iloc[i]
         # fake compo presented by colored div
         compo = Compo(compo_id=compo_id, compo_class=compo_df['class'], compo_df=compo_df)
         compo_id += 1
@@ -71,7 +71,7 @@ def cvt_list_and_compos_by_pair_and_group(compos_df):
 
 class Compo:
     def __init__(self, compo_id, compo_class,
-                 compo_df=None, children=None, parent=None, img=None, img_shape=None, list_alignment=None):
+                 compo_df=None, children=None, parent=None, list_alignment=None):
         self.compo_df = compo_df
         self.compo_id = compo_id
         self.compo_class = compo_class
@@ -90,9 +90,6 @@ class Compo:
         self.right = None
         self.width = None
         self.height = None
-
-        self.img = img
-        self.img_shape = img_shape
 
         self.list_alignment = list_alignment
         self.init_boundary()
@@ -122,7 +119,6 @@ class Compo:
 
     def visualize(self, img=None, flag='line', show=False, color=(0,255,0)):
         fill_type = {'line':2, 'block':-1}
-        img = self.img if img is None else img
         board = img.copy()
         board = cv2.rectangle(board, (self.left, self.top), (self.right, self.bottom), color, fill_type[flag])
         if show:

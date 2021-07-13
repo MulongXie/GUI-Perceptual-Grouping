@@ -1,0 +1,267 @@
+{
+    "compos": [
+        {
+            "class": "Compo",
+            "children": [
+                {
+                    "class": "Text",
+                    "position": {
+                        "row_max": 43,
+                        "column_min": 345,
+                        "column_max": 409,
+                        "row_min": 26
+                    },
+                    "height": 17,
+                    "text_content": "newsbeast",
+                    "width": 64
+                },
+                {
+                    "class": "Text",
+                    "position": {
+                        "row_max": 140,
+                        "column_min": 70,
+                        "column_max": 84,
+                        "row_min": 125
+                    },
+                    "height": 15,
+                    "text_content": "15",
+                    "width": 14
+                },
+                {
+                    "class": "Text",
+                    "position": {
+                        "row_max": 136,
+                        "column_min": 279,
+                        "column_max": 322,
+                        "row_min": 123
+                    },
+                    "height": 13,
+                    "text_content": "newsb",
+                    "width": 43
+                },
+                {
+                    "class": "Text",
+                    "position": {
+                        "row_max": 161,
+                        "column_min": 391,
+                        "column_max": 417,
+                        "row_min": 141
+                    },
+                    "height": 20,
+                    "text_content": "04",
+                    "width": 26
+                }
+            ],
+            "width": 466,
+            "position": {
+                "row_max": 300,
+                "column_min": 0,
+                "column_max": 466,
+                "row_min": 0
+            },
+            "id": 0,
+            "height": 300
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 401,
+                "column_min": 146,
+                "column_max": 161,
+                "row_min": 382
+            },
+            "id": 1,
+            "height": 19,
+            "width": 15
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 538,
+                "column_min": 190,
+                "column_max": 271,
+                "row_min": 456
+            },
+            "id": 2,
+            "height": 82,
+            "width": 81
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 659,
+                "column_min": 179,
+                "column_max": 251,
+                "row_min": 587
+            },
+            "id": 3,
+            "height": 72,
+            "width": 72
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 659,
+                "column_min": 256,
+                "column_max": 327,
+                "row_min": 588
+            },
+            "id": 4,
+            "height": 71,
+            "width": 71
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 659,
+                "column_min": 413,
+                "column_max": 466,
+                "row_min": 588
+            },
+            "id": 5,
+            "height": 71,
+            "width": 53
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 652,
+                "column_min": 23,
+                "column_max": 78,
+                "row_min": 594
+            },
+            "id": 6,
+            "height": 58,
+            "width": 55
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 659,
+                "column_min": 337,
+                "column_max": 392,
+                "row_min": 608
+            },
+            "id": 7,
+            "height": 51,
+            "width": 55
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 763,
+                "column_min": 179,
+                "column_max": 248,
+                "row_min": 691
+            },
+            "id": 8,
+            "height": 72,
+            "width": 69
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 763,
+                "column_min": 256,
+                "column_max": 327,
+                "row_min": 691
+            },
+            "id": 9,
+            "height": 72,
+            "width": 71
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 763,
+                "column_min": 333,
+                "column_max": 404,
+                "row_min": 691
+            },
+            "id": 10,
+            "height": 72,
+            "width": 71
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 762,
+                "column_min": 412,
+                "column_max": 466,
+                "row_min": 691
+            },
+            "id": 11,
+            "height": 71,
+            "width": 54
+        },
+        {
+            "class": "Compo",
+            "position": {
+                "row_max": 756,
+                "column_min": 23,
+                "column_max": 78,
+                "row_min": 699
+            },
+            "id": 12,
+            "height": 57,
+            "width": 55
+        },
+        {
+            "class": "Text",
+            "text_content": "DALIA MONTERO .",
+            "width": 191,
+            "position": {
+                "row_max": 360,
+                "column_min": 140,
+                "column_max": 331,
+                "row_min": 342
+            },
+            "id": 13,
+            "height": 18
+        },
+        {
+            "class": "Text",
+            "text_content": "+91 912 512 368",
+            "width": 107,
+            "position": {
+                "row_max": 400,
+                "column_min": 192,
+                "column_max": 299,
+                "row_min": 379
+            },
+            "id": 14,
+            "height": 21
+        },
+        {
+            "class": "Text",
+            "text_content": "PHOTOS",
+            "width": 68,
+            "position": {
+                "row_max": 629,
+                "column_min": 93,
+                "column_max": 161,
+                "row_min": 612
+            },
+            "id": 15,
+            "height": 17
+        },
+        {
+            "class": "Text",
+            "text_content": "VIDEOS",
+            "width": 63,
+            "position": {
+                "row_max": 735,
+                "column_min": 94,
+                "column_max": 157,
+                "row_min": 717
+            },
+            "id": 16,
+            "height": 18
+        }
+    ],
+    "img_shape": [
+        800,
+        467,
+        3
+    ]
+}

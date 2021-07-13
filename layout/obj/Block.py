@@ -9,7 +9,7 @@ def slice_blocks(compos, direction='v', border='none'):
     '''
     Vertically or horizontally scan compos
     :param direction: slice vertically or horizontally
-    :param compos: CompoHTML objects, including elements and lists
+    :param compos: Compo objects, including elements and lists
     :param border: block CSS border # solid 2px black
     :return blocks: list of [Block objs]
     :return compos: list of compos not blocked: list of [CompoHTML objects]
