@@ -28,7 +28,7 @@ class GUI:
         self.compos_df = None    # dataframe for efficient processing
         self.compos = []         # list of Compo objects
 
-        self.detect_result_img_ocr = None       # visualize text
+        self.detect_result_img_text = None       # visualize text
         self.detect_result_img_non_text = None  # visualize non-text
         self.detect_result_img_merge = None     # visualize all elements
 
@@ -56,7 +56,7 @@ class GUI:
             height_re = int(img_resize_longest_side * (height / width))
             return img_resize_longest_side, height_re, self.img.shape[2]
 
-    def element_detection(self, is_ocr=True, is_non_text=True, is_merge=True, img_resize_longest_side=800):
+    def element_detection(self, is_ocr=True, is_non_text=True, is_merge=True, img_resize_longest_side=800, show=False):
         if self.img_file is None:
             print('No GUI image is input')
             return
@@ -72,19 +72,17 @@ class GUI:
                       'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-top-bar': True}
         if is_ocr:
             os.makedirs(self.ocr_dir, exist_ok=True)
-            text.text_detection(self.img_file, self.ocr_dir, show=False)
+            self.detect_result_img_text = text.text_detection(self.img_file, self.ocr_dir, show=show)
 
         if is_non_text:
             os.makedirs(self.non_text_dir, exist_ok=True)
-            ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=False)
+            self.detect_result_img_non_text = ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=show)
 
         if is_merge:
             os.makedirs(self.merge_dir, exist_ok=True)
             compo_path = pjoin(self.non_text_dir, self.file_name + '.json')
             ocr_path = pjoin(self.ocr_dir, self.file_name + '.json')
-            compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_top=key_params['remove-top-bar'], show=True)
-            self.compos_json = compos_json
-            return compos_json
+            self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_top=key_params['remove-top-bar'], show=show)
 
     '''
     *************************************
@@ -128,6 +126,13 @@ class GUI:
     *** Visualization ***
     *********************
     '''
+    def visualize_element_detection(self):
+        cv2.imshow('text', self.detect_result_img_text)
+        cv2.imshow('non-text', self.detect_result_img_non_text)
+        cv2.imshow('merge', self.detect_result_img_merge)
+        cv2.waitKey()
+        cv2.destroyAllWindows()
+
     def visualize_compos_df(self, visualize_attr):
         board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
         self.compos_df.visualize_fill(board, gather_attr=visualize_attr)
@@ -142,7 +147,7 @@ class GUI:
 
     def visualize_block(self, block_id):
         board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
-        self.blocks[block_id].visualize_block(board)
+        self.blocks[block_id].visualize_sub_blocks_and_compos(board, show=True)
 
     def visualize_blocks(self):
         board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))

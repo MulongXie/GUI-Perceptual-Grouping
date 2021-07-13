@@ -35,6 +35,7 @@ def visualize_texts(org_img, texts, shown_resize_height=None, show=False, write_
         cv2.destroyWindow('texts')
     if write_path is not None:
         cv2.imwrite(write_path, img)
+    return img_resize
 
 
 def text_sentences_recognition(texts):
@@ -125,9 +126,10 @@ def text_detection(input_file='../data/input/30800.jpg', ocr_root='../data/outpu
     texts = merge_intersected_texts(texts)
     texts = text_filter_noise(texts)
     texts = text_sentences_recognition(texts)
-    visualize_texts(img, texts, shown_resize_height=800, show=show, write_path=pjoin(ocr_root, name+'.png'))
+    res_img = visualize_texts(img, texts, shown_resize_height=800, show=show, write_path=pjoin(ocr_root, name+'.png'))
     save_detection_json(pjoin(ocr_root, name+'.json'), texts, img.shape)
     print("[Text Detection Completed in %.3f s] %s" % (time.clock() - start, input_file))
+    return res_img
 
 
 # text_detection()

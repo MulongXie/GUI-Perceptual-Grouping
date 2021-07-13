@@ -81,7 +81,7 @@ class Compo:
             if compo_df is not None and children is None and 'clip_path' in compo_df.index else None
         self.children = children if children is not None else []    # CompoHTML objs
         self.parent = parent                                        # CompoHTML obj
-        self.type = 'compo'
+        self.type = 'Compo'
 
         # compo boundary
         self.top = None
@@ -117,10 +117,11 @@ class Compo:
         self.compo_df.append(child.compo_df)
         self.init_boundary()
 
-    def visualize(self, img=None, flag='line', show=False, color=(0,255,0)):
+    def visualize(self, img=None, flag='line', show=False):
         fill_type = {'line':2, 'block':-1}
+        color_map = {'Text': (0, 0, 255), 'Compo': (0, 255, 0), 'Text Content': (255, 0, 255)}
         board = img.copy()
-        board = cv2.rectangle(board, (self.left, self.top), (self.right, self.bottom), color, fill_type[flag])
+        board = cv2.rectangle(board, (self.left, self.top), (self.right, self.bottom), color_map[self.type], fill_type[flag])
         if show:
             cv2.imshow('compo', board)
             cv2.waitKey()

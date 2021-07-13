@@ -165,4 +165,4 @@ def merge(img_path, compo_path, text_path, merge_root=None, is_remove_top=True, 
     components = save_elements(pjoin(merge_root, name + '.json'), elements, img_resize.shape)
     cv2.imwrite(pjoin(merge_root, name + '.jpg'), board)
     print('Merge Complete and Save to', pjoin(merge_root, name + '.jpg'), time.ctime(), '\n')
-    return components
+    return board, components
