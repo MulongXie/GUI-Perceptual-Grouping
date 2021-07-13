@@ -51,10 +51,10 @@ class GUI:
         height, width = self.img.shape[:2]
         if height > width:
             width_re = int(img_resize_longest_side * (width / height))
-            return width_re, img_resize_longest_side, self.img.shape[2]
+            return img_resize_longest_side, width_re, self.img.shape[2]
         else:
             height_re = int(img_resize_longest_side * (height / width))
-            return img_resize_longest_side, height_re, self.img.shape[2]
+            return height_re, img_resize_longest_side, self.img.shape[2]
 
     def element_detection(self, is_ocr=True, is_non_text=True, is_merge=True, img_resize_longest_side=800, show=False):
         if self.img_file is None:
@@ -63,7 +63,7 @@ class GUI:
         # resize GUI image by the longest side while detecting non-text elements
         if img_resize_longest_side is not None:
             self.img_reshape = self.resize_by_longest_side(img_resize_longest_side)
-            resize_height = self.img_reshape[1]
+            resize_height = self.img_reshape[0]
         else:
             self.img_reshape = self.img.shape
             resize_height = None
@@ -132,6 +132,11 @@ class GUI:
         cv2.imshow('merge', self.detect_result_img_merge)
         cv2.waitKey()
         cv2.destroyAllWindows()
+
+    def visualize_layout_recognition(self):
+        self.visualize_compos_df('group')
+        self.visualize_compos_df('group_pair')
+        self.visualize_all_compos()
 
     def visualize_compos_df(self, visualize_attr):
         board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
