@@ -30,12 +30,11 @@ class ComposDF:
         self.compos_json = self.json_data['compos']
         self.compos_dataframe = self.cvt_json_to_df()
 
-    def cvt_json_to_df(self, rm_children=True):
+    def cvt_json_to_df(self):
         df = pd.DataFrame(columns=['id', 'class', 'column_min', 'column_max', 'row_min', 'row_max',
-                                   'height', 'width', 'area', 'center', 'center_column', 'center_row', 'text_content'])
+                                   'height', 'width', 'area', 'center', 'center_column', 'center_row', 'text_content',
+                                   'children', 'parent'])
         for i, compo in enumerate(self.compos_json):
-            if rm_children and 'children' in compo:
-                compo.pop('children')
             if 'clip_path' in compo:
                 compo.pop('clip_path')
             if 'text_content' not in compo:
@@ -48,6 +47,10 @@ class ComposDF:
             else:
                 compo['column_min'], compo['column_max'] = int(compo['column_min']), int(compo['column_max'])
                 compo['row_min'], compo['row_max'] = int(compo['row_min']), int(compo['row_max'])
+            if 'children' not in compo:
+                compo['children'] = None
+            if 'parent' not in compo:
+                compo['parent'] = None
             compo['id'] = i
             compo['height'], compo['width'] = int(compo['height']), int(compo['width'])
             compo['area'] = compo['height'] * compo['width']
