@@ -94,6 +94,14 @@ class GUI:
     *** Repetitive Layout Recognition ***
     *************************************
     '''
+    # convert all compo_df to compo objects
+    def cvt_compo_df_to_obj(self):
+        df = self.compos_df.compos_dataframe
+        self.compos = []
+        for i in range(len(df)):
+            compo = Compo(df.iloc[i]['id'], df.iloc[i]['class'], df.iloc[i])
+            self.compos.append(compo)
+
     # *** step1 ***
     def cvt_compos_json_to_dataframe(self):
         self.compos_df = ComposDF(json_data=self.compos_json)
@@ -122,10 +130,9 @@ class GUI:
         self.blocks = blocks
 
     # entry method
-    def layout_recognition(self):
-        if self.compos_df is None:
-            self.cvt_compos_json_to_dataframe()
-        self.recognize_repetitive_layout()
+    def layout_recognition(self, check_valid_group=True):
+        self.cvt_compos_json_to_dataframe()
+        self.recognize_repetitive_layout(check_valid_group)
         self.cvt_list_and_compos_df_to_obj()
         self.slice_block()
 
