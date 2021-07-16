@@ -112,6 +112,8 @@ class Compo:
             self.center_row, self.center_column = compo['center_row'], compo['center_column']
             self.width, self.height = compo['width'], compo['height']
             self.text_content = compo['text_content']
+            self.children = compo['children']
+            self.parent = compo['parent']
 
     def put_info(self):
         info = {'class': self.compo_class,
