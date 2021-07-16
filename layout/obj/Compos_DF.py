@@ -49,6 +49,8 @@ class ComposDF:
                 compo['row_min'], compo['row_max'] = int(compo['row_min']), int(compo['row_max'])
             if 'children' not in compo:
                 compo['children'] = None
+            else:
+                compo['children'] = tuple(compo['children'])
             if 'parent' not in compo:
                 compo['parent'] = None
             compo['id'] = i

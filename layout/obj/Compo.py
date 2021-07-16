@@ -70,15 +70,13 @@ def cvt_list_and_compos_by_pair_and_group(df):
 
 
 class Compo:
-    def __init__(self, compo_id, compo_class,
-                 compo_df=None, children=None, parent=None, list_alignment=None):
-        self.compo_df = compo_df
+    def __init__(self, compo_id, compo_class, compo_df,
+                 children=None, parent=None, list_alignment=None):
+        self.compo_df = compo_df   # df can contain one or more elements (list items)
         self.compo_id = compo_id
         self.compo_class = compo_class
 
         # get the clip for single element
-        self.compo_clip = compo_df['clip_path'].replace('data/output\clips\\', '') \
-            if compo_df is not None and children is None and 'clip_path' in compo_df.index else None
         self.children = children if children is not None else []    # CompoHTML objs
         self.parent = parent                                        # CompoHTML obj
         self.type = 'Compo'
@@ -88,6 +86,8 @@ class Compo:
         self.left = None
         self.bottom = None
         self.right = None
+        self.center_row = None
+        self.center_column = None
         self.width = None
         self.height = None
 
@@ -100,6 +100,8 @@ class Compo:
         self.left = int(compo['column_min'].min())
         self.bottom = int(compo['row_max'].max())
         self.right = int(compo['column_max'].max())
+        self.center_row = (self.top + self.bottom) / 2
+        self.center_column = (self.left + self.right) / 2
         self.width = int(self.right - self.left)
         self.height = int(self.bottom - self.top)
 
@@ -108,14 +110,6 @@ class Compo:
                 'column_min': self.left, 'column_max': self.right, 'row_min': self.top, 'row_max': self.bottom,
                 'height': self.height, 'width': self.width}
         return info
-
-    def add_child(self, child):
-        '''
-        :param child: CompoHTML object
-        '''
-        self.children.append(child)
-        self.compo_df.append(child.compo_df)
-        self.init_boundary()
 
     def visualize(self, img=None, flag='line', show=False):
         fill_type = {'line':2, 'block':-1}
