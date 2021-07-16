@@ -74,7 +74,7 @@ class Compo:
                  children=None, parent=None, list_alignment=None):
         self.compo_df = compo_df   # df can contain one or more elements (list items)
         self.compo_id = compo_id
-        self.compo_class = compo_class
+        self.compo_class = compo_class  # List-multi, List-single, Compo, Text
 
         # get the clip for single element
         self.children = children if children is not None else []    # CompoHTML objs
@@ -91,19 +91,27 @@ class Compo:
         self.width = None
         self.height = None
 
-        self.list_alignment = list_alignment
-        self.init_boundary()
+        self.list_alignment = list_alignment  # for List
+        self.text_content = None  # for Text
 
-    def init_boundary(self):
+        self.init_info()
+
+    def init_info(self):
         compo = self.compo_df
-        self.top = int(compo['row_min'].min())
-        self.left = int(compo['column_min'].min())
-        self.bottom = int(compo['row_max'].max())
-        self.right = int(compo['column_max'].max())
-        self.center_row = (self.top + self.bottom) / 2
-        self.center_column = (self.left + self.right) / 2
-        self.width = int(self.right - self.left)
-        self.height = int(self.bottom - self.top)
+        if self.compo_class in ['List-multi', 'List-single']:
+            self.top = int(compo['row_min'].min())
+            self.left = int(compo['column_min'].min())
+            self.bottom = int(compo['row_max'].max())
+            self.right = int(compo['column_max'].max())
+            self.center_row = (self.top + self.bottom) / 2
+            self.center_column = (self.left + self.right) / 2
+            self.width = int(self.right - self.left)
+            self.height = int(self.bottom - self.top)
+        else:
+            self.top, self.left, self.bottom, self.right = compo['row_min'], compo['column_min'], compo['row_max'], compo['column_max']
+            self.center_row, self.center_column = compo['center_row'], compo['center_column']
+            self.width, self.height = compo['width'], compo['height']
+            self.text_content = compo['text_content']
 
     def put_info(self):
         info = {'class': self.compo_class,
