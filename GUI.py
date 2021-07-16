@@ -10,6 +10,7 @@ import element.detect_merge.merge as merge
 from layout.obj.Compos_DF import ComposDF
 from layout.obj.Compo import *
 from layout.obj.Block import *
+from layout.obj.Group import *
 
 
 class GUI:
@@ -18,6 +19,7 @@ class GUI:
         self.img = cv2.imread(img_file)
         self.file_name = self.img_file.split('/')[-1][:-4] if img_file is not None else None
         self.img_reshape = self.img.shape
+        self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
 
         self.output_dir = output_dir
         self.ocr_dir = pjoin(self.output_dir, 'ocr') if output_dir is not None else None
@@ -41,6 +43,7 @@ class GUI:
         if compos_json_file is not None:
             self.compos_json = json.load(open(compos_json_file))
             self.img_reshape = self.compos_json['img_shape']
+            self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
 
     '''
     *****************************
@@ -63,12 +66,14 @@ class GUI:
         # resize GUI image by the longest side while detecting non-text elements
         if img_resize_longest_side is not None:
             self.img_reshape = self.resize_by_longest_side(img_resize_longest_side)
+            self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
             resize_height = self.img_reshape[0]
         else:
             self.img_reshape = self.img.shape
+            self.img_resized = self.img.copy()
             resize_height = None
 
-        key_params = {'min-grad': 10, 'ffl-block': 5, 'min-ele-area': 50, 'merge-contained-ele': True,
+        key_params = {'min-grad': 10, 'ffl-block': 5, 'min-ele-area': 50, 'merge-contained-ele': False,
                       'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-top-bar': True}
         if is_ocr:
             os.makedirs(self.ocr_dir, exist_ok=True)
@@ -94,16 +99,19 @@ class GUI:
         self.compos_df = ComposDF(json_data=self.compos_json)
 
     # *** step2 ***
-    def recognize_repetitive_layout(self):
+    def recognize_repetitive_layout(self, check_valid_group=True):
         # cluster elements into groups according to position and area
         self.compos_df.repetitive_group_recognition()   # group, alignment_in_group, group_nontext, group_text
+        # check invalid group
+        if check_valid_group:
+            check_valid_group_by_interleaving(self.compos_df.compos_dataframe)
         # pair clusters (groups)
         self.compos_df.pair_groups()                    # group_pair, pair_to
         # identify list items in each paired group
         self.compos_df.list_item_partition()            # list_item
 
     # *** step3 ***
-    def cvt_compos_df_to_obj(self):
+    def cvt_list_and_compos_df_to_obj(self):
         lists, non_list_compos = cvt_list_and_compos_by_pair_and_group(self.compos_df.compos_dataframe)
         self.lists = lists
         self.compos = lists + non_list_compos
@@ -118,7 +126,7 @@ class GUI:
         if self.compos_df is None:
             self.cvt_compos_json_to_dataframe()
         self.recognize_repetitive_layout()
-        self.cvt_compos_df_to_obj()
+        self.cvt_list_and_compos_df_to_obj()
         self.slice_block()
 
     '''
@@ -139,11 +147,11 @@ class GUI:
         self.visualize_all_compos()
 
     def visualize_compos_df(self, visualize_attr):
-        board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        board = self.img_resized.copy()
         self.compos_df.visualize_fill(board, gather_attr=visualize_attr)
 
     def visualize_all_compos(self):
-        board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        board = self.img_resized.copy()
         for compo in self.compos:
             board = compo.visualize(board)
         cv2.imshow('compos', board)
@@ -151,11 +159,11 @@ class GUI:
         cv2.destroyWindow('compos')
 
     def visualize_block(self, block_id):
-        board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        board = self.img_resized.copy()
         self.blocks[block_id].visualize_sub_blocks_and_compos(board, show=True)
 
     def visualize_blocks(self):
-        board = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        board = self.img_resized.copy()
         for block in self.blocks:
             board = block.visualize_block(board)
         cv2.imshow('compos', board)
