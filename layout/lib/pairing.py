@@ -47,13 +47,13 @@ def match_two_groups_distance(g1, g2):
         for i in range(len(g1)):
             c1 = g1.iloc[i]
             c2 = g2.iloc[i]
-            distance = math.sqrt((c1['center_column'] - c2['center_column'])**2 + (c1['center_row'] - c2['center_row'])**2)
+            distance = int(math.sqrt((c1['center_column'] - c2['center_column'])**2 + (c1['center_row'] - c2['center_row'])**2))
             # mismatch if too far
             if distance > max_side * 2:
                 return False
             # mismatch if it's too different from others
             if i > 0:
-                if max(distance, distances[i-1]) > 2 * min(distance, distances[i-1]):
+                if max(distance, distances[i-1]) > 1.5 * min(distance, distances[i-1]):
                     return False
             pairs[c1['id']] = c2['id']
             distances.append(distance)
@@ -64,18 +64,27 @@ def match_two_groups_distance(g1, g2):
             distance = None
             for j in range(len(g2)):
                 c2 = g2.iloc[j]
-                d_cur = math.sqrt((c1['center_column'] - c2['center_column']) ** 2 + (c1['center_row'] - c2['center_row']) ** 2)
-                if distance is None or distance < d_cur:
+                d_cur = int(math.sqrt((c1['center_column'] - c2['center_column']) ** 2 + (c1['center_row'] - c2['center_row']) ** 2))
+                if distance is None or distance > d_cur:
                     distance = d_cur
                     pairs[c1['id']] = c2['id']
-            # mismatch if too far
-            if distance > max_side * 2:
-                return False
-            # mismatch if it's too different from others
-            if i > 0:
-                if max(distance, distances[i-1]) > 2 * min(distance, distances[i-1]):
-                    return False
             distances.append(distance)
+        # match the distances
+        match_num = 1
+        for i in range(len(distances)):
+            dis_i = distances[i]
+            for j in range(len(distances)):
+                if i == j:
+                    continue
+                dis_j = distances[j]
+                if max(dis_i, dis_j) < max_side * 1.5 and max(dis_i, dis_j) < 1.5 * min(dis_i, dis_j):
+                    match_num += 1
+                    break
+        # print(g1.iloc[0]['group'], g2.iloc[0]['group'], match_num, distances, max_side)
+        if match_num < min(len(g1), len(g2)):
+            return False
+
+    # print('Success:', g1.iloc[0]['group'], g2.iloc[0]['group'], distances, max_side)
     for i in pairs:
         g1.loc[i, 'pair_to'] = pairs[i]
         g2.loc[pairs[i], 'pair_to'] = i
@@ -103,7 +112,7 @@ def pair_matching_between_multi_groups(groups1, groups2):
     return pairs
 
 
-def pair_matching_within_groups(groups, new_pairs=True):
+def pair_matching_within_groups(groups, new_pairs=True, max_group_diff=2):
     pairs = {}  # {'pair_id': [dataframe of grouped by certain attr]}
     pair_id = 0
     mark = np.full(len(groups), False)
@@ -117,7 +126,7 @@ def pair_matching_within_groups(groups, new_pairs=True):
         for j in range(i + 1, len(groups)):
             g2 = groups[j]
             alignment2 = g2.iloc[0]['alignment_in_group']
-            if alignment1 == alignment2:
+            if alignment1 == alignment2 and abs(len(g1) - len(g2)) < max_group_diff:
                 if match_two_groups_distance(g1, g2):
                     # print(i, list(g1['group'])[0], mark[i], '-', j, list(g2['group'])[0], mark[j])
                     if not mark[i]:
@@ -129,6 +138,7 @@ def pair_matching_within_groups(groups, new_pairs=True):
                         mark[i] = True
                         mark[j] = True
                     else:
+                        # if gi is marked while gj isn't marked
                         if not mark[j]:
                             g2['group_pair'] = g1.iloc[0]['group_pair']
                             pairs[g1.iloc[0]['group_pair']].append(g2)
@@ -136,10 +146,13 @@ def pair_matching_within_groups(groups, new_pairs=True):
                         # if gi and gj are all already marked in different group_pair, merge the two group_pairs together
                         else:
                             # merge all g2's pairing groups with g1's
-                            for g in pairs[g2.iloc[0]['group_pair']]:
-                                g['group_pair'] = g1.iloc[0]['group_pair']
-                                pairs[g1.iloc[0]['group_pair']].append(g)
-                            pairs.pop(g2.iloc[0]['group_pair'])
+                            if g1.iloc[0]['group_pair'] != g2.iloc[0]['group_pair']:
+                                g1_pair_id = g1.iloc[0]['group_pair']
+                                g2_pair_id = g2.iloc[0]['group_pair']
+                                for g in pairs[g2_pair_id]:
+                                    g['group_pair'] = g1_pair_id
+                                    pairs[g1_pair_id].append(g)
+                                pairs.pop(g2_pair_id)
 
     merged_pairs = None
     for i in pairs:
