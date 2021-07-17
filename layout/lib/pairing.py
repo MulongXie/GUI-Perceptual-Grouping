@@ -38,9 +38,9 @@ def match_two_groups_distance(g1, g2):
     alignment = g1.iloc[0]['alignment_in_group']
     pairs = {}
     if alignment == 'h':
-        min_side = min(list(g1['height']) + list(g2['height']))
+        max_side = max(list(g1['height']) + list(g2['height']))
     else:
-        min_side = min(list(g1['width']) + list(g2['width']))
+        max_side = max(list(g1['width']) + list(g2['width']))
 
     if len(g1) == len(g2):
         distances = []
@@ -49,7 +49,7 @@ def match_two_groups_distance(g1, g2):
             c2 = g2.iloc[i]
             distance = math.sqrt((c1['center_column'] - c2['center_column'])**2 + (c1['center_row'] - c2['center_row'])**2)
             # mismatch if too far
-            if distance > min_side * 2:
+            if distance > max_side * 2:
                 return False
             # mismatch if it's too different from others
             if i > 0:
@@ -69,7 +69,7 @@ def match_two_groups_distance(g1, g2):
                     distance = d_cur
                     pairs[c1['id']] = c2['id']
             # mismatch if too far
-            if distance > min_side * 2:
+            if distance > max_side * 2:
                 return False
             # mismatch if it's too different from others
             if i > 0:
