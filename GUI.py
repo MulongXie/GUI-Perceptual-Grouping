@@ -104,7 +104,7 @@ class GUI:
 
     # *** step1 ***
     def cvt_compos_json_to_dataframe(self):
-        self.compos_df = ComposDF(json_data=self.compos_json)
+        self.compos_df = ComposDF(json_data=self.compos_json, gui_img=self.img_resized.copy())
 
     # *** step2 ***
     def recognize_repetitive_layout(self, check_valid_group=True):
