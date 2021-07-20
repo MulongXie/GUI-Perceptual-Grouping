@@ -20,9 +20,9 @@ def check_equal_gap_in_group(compos_df, group_by_attr, pos_anchor):
                 section.append(g[i])
 
 
-def recog_repetition_nontext(compos, show=True, inplace=True):
+def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True, inplace=True):
     compos_cp = compos.copy()
-    compos_cp.select_by_class(['Compo', 'Background'], no_parent=True, replace=True)
+    compos_cp.select_by_class(['Compo', 'Background'], no_parent=only_non_contained_compo, replace=True)
 
     compos_cp.cluster_dbscan_by_attr('center_column', eps=5, show=show, show_method='block')
     compos_cp.cluster_dbscan_by_attr('center_row', eps=5, show=show, show_method='block')
@@ -40,9 +40,9 @@ def recog_repetition_nontext(compos, show=True, inplace=True):
     return df
 
 
-def recog_repetition_text(compos, show=True, inplace=True):
+def recog_repetition_text(compos, show=True, only_non_contained_compo=True, inplace=True):
     compos_cp = compos.copy()
-    compos_cp.select_by_class(['Text'], no_parent=True, replace=True)
+    compos_cp.select_by_class(['Text'], no_parent=only_non_contained_compo, replace=True)
 
     compos_cp.cluster_dbscan_by_attr('row_min', 10, show=show, show_method='block')
     compos_cp.cluster_dbscan_by_attr('column_min', 10, show=show, show_method='block')

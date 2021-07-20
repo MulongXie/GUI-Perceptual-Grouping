@@ -54,7 +54,6 @@ class ComposDF:
                 compo['children'] = tuple(compo['children'])
             if 'parent' not in compo:
                 compo['parent'] = None
-            compo['id'] = i
             compo['height'], compo['width'] = int(compo['height']), int(compo['width'])
             compo['area'] = compo['height'] * compo['width']
             compo['center'] = ((compo['column_min'] + compo['column_max']) / 2, (compo['row_min'] + compo['row_max']) / 2)
@@ -73,8 +72,11 @@ class ComposDF:
     ******************************
     '''
     def repetitive_group_recognition(self, show=False, clean_attrs=True):
-        df_nontext = rep.recog_repetition_nontext(self, show)
-        df_text = rep.recog_repetition_text(self, show)
+        '''
+        Recognize repetitive layout of elements that are not contained in Block by clustering
+        '''
+        df_nontext = rep.recog_repetition_nontext(self, show, only_non_contained_compo=True)
+        df_text = rep.recog_repetition_text(self, show, only_non_contained_compo=True)
         df = self.compos_dataframe
 
         df = df.merge(df_nontext, how='left')
