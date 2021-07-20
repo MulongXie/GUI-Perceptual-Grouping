@@ -215,9 +215,11 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_block(gather_attr='group', name=name)
 
-    def select_by_class(self, categories, replace=False):
+    def select_by_class(self, categories, no_parent=False, replace=False):
         df = self.compos_dataframe
         df = df[df['class'].isin(categories)]
+        if no_parent:
+            df = df[pd.isna(df['parent'])]
         if replace:
             self.compos_dataframe = df
         else:

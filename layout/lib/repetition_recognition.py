@@ -22,7 +22,7 @@ def check_equal_gap_in_group(compos_df, group_by_attr, pos_anchor):
 
 def recog_repetition_nontext(compos, show=True, inplace=True):
     compos_cp = compos.copy()
-    compos_cp.select_by_class(['Compo', 'Background'], replace=True)
+    compos_cp.select_by_class(['Compo', 'Background'], no_parent=True, replace=True)
 
     compos_cp.cluster_dbscan_by_attr('center_column', eps=5, show=show, show_method='block')
     compos_cp.cluster_dbscan_by_attr('center_row', eps=5, show=show, show_method='block')
@@ -42,7 +42,7 @@ def recog_repetition_nontext(compos, show=True, inplace=True):
 
 def recog_repetition_text(compos, show=True, inplace=True):
     compos_cp = compos.copy()
-    compos_cp.select_by_class(['Text'], replace=True)
+    compos_cp.select_by_class(['Text'], no_parent=True, replace=True)
 
     compos_cp.cluster_dbscan_by_attr('row_min', 5, show=show, show_method='line')
     compos_cp.cluster_dbscan_by_attr('column_min', 5, show=show, show_method='line')
