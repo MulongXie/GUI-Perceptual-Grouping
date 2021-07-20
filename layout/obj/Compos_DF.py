@@ -155,8 +155,8 @@ class ComposDF:
         compos = compos[compos['id'] != compo['id']]
         cl1 = compos[compos[cluster1] == compo[cluster1]]
         cl2 = compos[compos[cluster2] == compo[cluster2]]
-        if len(cl2) == 1: return 1
-        elif len(cl1) == 1: return 2
+        # if len(cl2) == 1: return 1
+        # elif len(cl1) == 1: return 2
 
         mean_area1 = cl1['area'].mean()
         mean_area2 = cl2['area'].mean()
