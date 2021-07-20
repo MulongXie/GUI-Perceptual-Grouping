@@ -26,7 +26,7 @@ def recog_repetition_nontext(compos, show=True, inplace=True):
 
     compos_cp.cluster_dbscan_by_attr('center_column', eps=5, show=show, show_method='block')
     compos_cp.cluster_dbscan_by_attr('center_row', eps=5, show=show, show_method='block')
-    compos_cp.cluster_dbscan_by_attr('area', eps=200, show=show, show_method='block')
+    compos_cp.cluster_dbscan_by_attr('area', eps=500, show=show, show_method='block')
 
     check_equal_gap_in_group(compos_cp.compos_dataframe, 'cluster_center_column', 'row_min')
     check_equal_gap_in_group(compos_cp.compos_dataframe, 'cluster_center_row', 'column_min')
@@ -44,8 +44,8 @@ def recog_repetition_text(compos, show=True, inplace=True):
     compos_cp = compos.copy()
     compos_cp.select_by_class(['Text'], no_parent=True, replace=True)
 
-    compos_cp.cluster_dbscan_by_attr('row_min', 5, show=show, show_method='line')
-    compos_cp.cluster_dbscan_by_attr('column_min', 5, show=show, show_method='line')
+    compos_cp.cluster_dbscan_by_attr('row_min', 5, show=show, show_method='block')
+    compos_cp.cluster_dbscan_by_attr('column_min', 5, show=show, show_method='block')
 
     check_equal_gap_in_group(compos_cp.compos_dataframe, 'cluster_row_min', 'column_min')
     check_equal_gap_in_group(compos_cp.compos_dataframe, 'cluster_column_min', 'row_min')

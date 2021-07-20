@@ -12,11 +12,12 @@ import layout.lib.pairing as pairing
 
 
 class ComposDF:
-    def __init__(self, json_file=None, json_data=None):
+    def __init__(self, json_file=None, json_data=None, gui_img=None):
         self.json_file = json_file
         self.json_data = json_data if json_data is not None else json.load(open(self.json_file))
         self.compos_json = self.json_data['compos']
         self.compos_dataframe = self.cvt_json_to_df()
+        self.img = gui_img
 
         self.item_id = 0    # id of list item
 
@@ -108,9 +109,9 @@ class ComposDF:
         self.compos_dataframe[tag].astype(int)
         if show:
             if show_method == 'line':
-                self.visualize(tag, tag)
+                self.visualize(gather_attr=tag, name=tag)
             elif show_method == 'block':
-                self.visualize_block(tag, tag)
+                self.visualize_fill(gather_attr=tag, name=tag)
 
     def cluster_dbscan_by_attrs(self, attrs, eps, min_samples=1, show=True, show_method='line'):
         x = list(self.compos_dataframe[attrs].values)
@@ -120,9 +121,9 @@ class ComposDF:
         self.compos_dataframe[tag].astype(int)
         if show:
             if show_method == 'line':
-                self.visualize(tag, tag)
+                self.visualize(gather_attr=tag, name=tag)
             elif show_method == 'block':
-                self.visualize_block(tag, tag)
+                self.visualize_fill(gather_attr=tag, name=tag)
 
     def group_by_clusters(self, cluster, alignment,
                           new_groups=True, show=True, show_method='block'):
@@ -146,7 +147,7 @@ class ComposDF:
             if show_method == 'line':
                 self.visualize(gather_attr='group', name=name)
             elif show_method == 'block':
-                self.visualize_block(gather_attr='group', name=name)
+                self.visualize_fill(gather_attr='group', name=name)
 
     def closer_cluster_by_mean_area(self, compo_index, cluster1, cluster2):
         compos = self.compos_dataframe
@@ -213,7 +214,7 @@ class ComposDF:
             if show_method == 'line':
                 self.visualize(gather_attr='group', name=name)
             elif show_method == 'block':
-                self.visualize_block(gather_attr='group', name=name)
+                self.visualize_fill(gather_attr='group', name=name)
 
     def select_by_class(self, categories, no_parent=False, replace=False):
         df = self.compos_dataframe
@@ -344,8 +345,12 @@ class ComposDF:
     ******* Visualization *******
     *****************************
     '''
-    def visualize(self, img, gather_attr='class', name='board'):
+    def visualize(self, img=None, gather_attr='class', name='board'):
+        if img is None:
+            img = self.img.copy()
         draw.visualize(img, self.compos_dataframe, attr=gather_attr, name=name)
 
-    def visualize_fill(self, img, gather_attr='class', name='board'):
+    def visualize_fill(self, img=None, gather_attr='class', name='board'):
+        if img is None:
+            img = self.img.copy()
         draw.visualize_fill(img, self.compos_dataframe, attr=gather_attr, name=name)
