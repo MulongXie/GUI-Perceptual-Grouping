@@ -71,6 +71,30 @@ class ComposDF:
     *** Repetition Recognition ***
     ******************************
     '''
+    def repetitive_block_recognition(self):
+        '''
+        Recognize repetitive layout of blocks that contains multiple elements in them
+        '''
+        df = self.compos_dataframe
+        blocks = df[~pd.isna(df['children'])]
+        children_list = []
+        connections_list = []
+        for i in range(len(blocks)):
+            children = df[df['id'].isin(blocks.iloc[i]['children'])].sort_values('center_row')
+            children_list.append(children)
+            connections_list.append(rep.calc_connections(children))
+
+        if 'pair_id' in self.compos_dataframe:
+            start_pair_id = max(self.compos_dataframe['pair_id'])
+        else:
+            start_pair_id = 0
+        paired_blocks = rep.recog_repetition_block_by_children_connections(children_list, connections_list, start_pair_id)
+        df_all = self.compos_dataframe.merge(paired_blocks, how='left')
+
+        df_all = df_all.fillna(-1)
+        df_all['group_pair'] = df_all['group_pair'].astype(int)
+        self.compos_dataframe = df_all
+
     def repetitive_group_recognition(self, show=False, clean_attrs=True):
         '''
         Recognize repetitive layout of elements that are not contained in Block by clustering
@@ -241,7 +265,11 @@ class ComposDF:
         # all_groups = self.split_groups('group')
 
         # pairing between groups
-        pairs = pairing.pair_matching_within_groups(all_groups)
+        if 'pair_id' in self.compos_dataframe:
+            start_pair_id = max(self.compos_dataframe['pair_id'])
+        else:
+            start_pair_id = 0
+        pairs = pairing.pair_matching_within_groups(all_groups, start_pair_id)
         # merge the pairing result into the original dataframe
         df_all = self.compos_dataframe.merge(pairs, how='left')
         # tidy up
