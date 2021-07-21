@@ -64,7 +64,7 @@ def recog_repetition_text(compos, show=True, only_non_contained_compo=True, inpl
 
 def calc_connections(compos):
     '''
-    connection of two compos: (length, slope, id_1, id_2) of the connecting line between two compos' centers
+    connection of two compos: (length, id_1, id_2) of the connecting line between two compos' centers
     return: connections between all compos
     '''
     connections = []
@@ -79,13 +79,18 @@ def calc_connections(compos):
     return connections
 
 
-def is_connections_matched(cons1, cons2):
+def match_two_connections(cons1, cons2):
+    '''
+    input: two lists of connections [(length, id_1, id_2)]
+        for a block having n elements, it has n*(n-1)/2 connections (full connection of all nodes)
+    '''
     if abs(len(cons1) - len(cons2)) > 1:
         return False
     marked = np.full(len(cons2), False)
     matched_num = 0
     for c1 in cons1:
         for k, c2 in enumerate(cons2):
+            # the two connections are matched
             if not marked[k] and max(c1[0], c2[0]) < min(c1[0], c2[0]) * 1.5:
                 marked[k] = True
                 matched_num += 1
@@ -106,7 +111,7 @@ def recog_repetition_block_by_children_connections(children_list, connections_li
         for j in range(i + 1, len(children_list)):
             connections2 = connections_list[j]
             children2 = children_list[j]
-            if is_connections_matched(connections1, connections2):
+            if match_two_connections(connections1, connections2):
                 if not mark[i]:
                     # hasn't paired yet, creat a new pair
                     if not mark[j]:
