@@ -1,0 +1,49 @@
+{
+    "img_shape": [
+        838,
+        522,
+        3
+    ],
+    "texts": [
+        {
+            "height": 143,
+            "width": 179,
+            "column_max": 175,
+            "row_min": -11,
+            "id": 0,
+            "content": "Bubble Deluxe",
+            "column_min": -4,
+            "row_max": 132
+        },
+        {
+            "height": 23,
+            "width": 21,
+            "column_max": 383,
+            "row_min": 342,
+            "id": 1,
+            "content": "85",
+            "column_min": 362,
+            "row_max": 365
+        },
+        {
+            "height": 29,
+            "width": 312,
+            "column_max": 495,
+            "row_min": 544,
+            "id": 2,
+            "content": "Bubble Shooter Deluxe",
+            "column_min": 183,
+            "row_max": 573
+        },
+        {
+            "height": 29,
+            "width": 140,
+            "column_max": 347,
+            "row_min": 719,
+            "id": 3,
+            "content": "DOWNLOAD",
+            "column_min": 207,
+            "row_max": 748
+        }
+    ]
+}

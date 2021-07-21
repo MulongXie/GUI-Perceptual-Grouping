@@ -1,0 +1,152 @@
+{
+    "img_shape": [
+        800,
+        498,
+        3
+    ],
+    "compos": [
+        {
+            "height": 475,
+            "class": "Compo",
+            "width": 497,
+            "id": 0,
+            "position": {
+                "column_max": 497,
+                "row_min": 0,
+                "column_min": 0,
+                "row_max": 475
+            },
+            "children": [
+                15
+            ]
+        },
+        {
+            "id": 1,
+            "height": 104,
+            "position": {
+                "column_max": 150,
+                "row_min": 510,
+                "column_min": 47,
+                "row_max": 614
+            },
+            "class": "Compo",
+            "width": 103
+        },
+        {
+            "id": 2,
+            "height": 39,
+            "position": {
+                "column_max": 212,
+                "row_min": 568,
+                "column_min": 172,
+                "row_max": 607
+            },
+            "class": "Compo",
+            "width": 40
+        },
+        {
+            "id": 3,
+            "height": 39,
+            "position": {
+                "column_max": 265,
+                "row_min": 568,
+                "column_min": 226,
+                "row_max": 607
+            },
+            "class": "Compo",
+            "width": 39
+        },
+        {
+            "id": 4,
+            "height": 39,
+            "position": {
+                "column_max": 318,
+                "row_min": 568,
+                "column_min": 278,
+                "row_max": 607
+            },
+            "class": "Compo",
+            "width": 40
+        },
+        {
+            "id": 5,
+            "height": 39,
+            "position": {
+                "column_max": 370,
+                "row_min": 568,
+                "column_min": 332,
+                "row_max": 607
+            },
+            "class": "Compo",
+            "width": 38
+        },
+        {
+            "id": 6,
+            "height": 39,
+            "position": {
+                "column_max": 423,
+                "row_min": 568,
+                "column_min": 384,
+                "row_max": 607
+            },
+            "class": "Compo",
+            "width": 39
+        },
+        {
+            "height": 70,
+            "class": "Compo",
+            "width": 401,
+            "id": 7,
+            "position": {
+                "column_max": 449,
+                "row_min": 668,
+                "column_min": 48,
+                "row_max": 738
+            },
+            "children": [
+                17
+            ]
+        },
+        {
+            "height": 22,
+            "class": "Text",
+            "text_content": "85",
+            "parent": 0,
+            "id": 8,
+            "width": 20,
+            "position": {
+                "column_max": 365,
+                "row_min": 326,
+                "column_min": 345,
+                "row_max": 348
+            }
+        },
+        {
+            "height": 28,
+            "class": "Text",
+            "text_content": "Bubble Shooter Deluxe",
+            "id": 9,
+            "width": 298,
+            "position": {
+                "column_max": 472,
+                "row_min": 519,
+                "column_min": 174,
+                "row_max": 547
+            }
+        },
+        {
+            "height": 28,
+            "class": "Text",
+            "text_content": "DOWNLOAD",
+            "parent": 13,
+            "id": 10,
+            "width": 134,
+            "position": {
+                "column_max": 331,
+                "row_min": 686,
+                "column_min": 197,
+                "row_max": 714
+            }
+        }
+    ]
+}

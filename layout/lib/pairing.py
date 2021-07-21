@@ -112,9 +112,9 @@ def pair_matching_between_multi_groups(groups1, groups2):
     return pairs
 
 
-def pair_matching_within_groups(groups, new_pairs=True, max_group_diff=2):
+def pair_matching_within_groups(groups, start_pair_id, new_pairs=True, max_group_diff=2):
     pairs = {}  # {'pair_id': [dataframe of grouped by certain attr]}
-    pair_id = 0
+    pair_id = start_pair_id
     mark = np.full(len(groups), False)
     if new_pairs:
         for group in groups:
@@ -131,12 +131,18 @@ def pair_matching_within_groups(groups, new_pairs=True, max_group_diff=2):
                     # print(i, list(g1['group'])[0], mark[i], '-', j, list(g2['group'])[0], mark[j])
                     if not mark[i]:
                         # hasn't paired yet, creat a new pair
-                        pair_id += 1
-                        g1['group_pair'] = pair_id
-                        g2['group_pair'] = pair_id
-                        pairs[pair_id] = [g1, g2]
-                        mark[i] = True
-                        mark[j] = True
+                        if not mark[j]:
+                            pair_id += 1
+                            g1['group_pair'] = pair_id
+                            g2['group_pair'] = pair_id
+                            pairs[pair_id] = [g1, g2]
+                            mark[i] = True
+                            mark[j] = True
+                        # if g2 is already paired, set g1's pair_id as g2's
+                        else:
+                            g1['group_pair'] = g2.iloc[0]['group_pair']
+                            pairs[g2.iloc[0]['group_pair']].append(g1)
+                            mark[i] = True
                     else:
                         # if gi is marked while gj isn't marked
                         if not mark[j]:
