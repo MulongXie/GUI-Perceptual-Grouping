@@ -76,21 +76,24 @@ class ComposDF:
         Recognize repetitive layout of blocks that contains multiple elements in them
         '''
         df = self.compos_dataframe
-        blocks = df[~pd.isna(df['children'])]
+        blocks = df[(~pd.isna(df['children'])) & (df['children']!=-1)]
         children_list = []
         connections_list = []
+        # calculate children connections in each block
         for i in range(len(blocks)):
             children = df[df['id'].isin(blocks.iloc[i]['children'])].sort_values('center_row')
             children_list.append(children)
             connections_list.append(rep.calc_connections(children))
-
-        if 'pair_id' in self.compos_dataframe:
-            start_pair_id = max(self.compos_dataframe['pair_id'])
-        else:
-            start_pair_id = 0
+        # match children connections
+        start_pair_id = max(self.compos_dataframe['group_pair']) if 'group_pair' in self.compos_dataframe else 0
         paired_blocks = rep.recog_repetition_block_by_children_connections(children_list, connections_list, start_pair_id)
-        df_all = self.compos_dataframe.merge(paired_blocks, how='left')
 
+        # merge the pairing result into the original dataframe
+        if 'group_pair' not in self.compos_dataframe:
+            df_all = self.compos_dataframe.merge(paired_blocks, how='left')
+        else:
+            df_all = self.compos_dataframe
+            df_all.loc[df_all[df_all['id'].isin(paired_blocks['id'])]['id'], 'group_pair'] = paired_blocks['group_pair']
         df_all = df_all.fillna(-1)
         df_all['group_pair'] = df_all['group_pair'].astype(int)
         self.compos_dataframe = df_all
@@ -265,13 +268,18 @@ class ComposDF:
         # all_groups = self.split_groups('group')
 
         # pairing between groups
-        if 'pair_id' in self.compos_dataframe:
-            start_pair_id = max(self.compos_dataframe['pair_id'])
+        if 'group_pair' in self.compos_dataframe:
+            start_pair_id = max(self.compos_dataframe['group_pair'])
         else:
             start_pair_id = 0
         pairs = pairing.pair_matching_within_groups(all_groups, start_pair_id)
         # merge the pairing result into the original dataframe
-        df_all = self.compos_dataframe.merge(pairs, how='left')
+        if 'group_pair' not in self.compos_dataframe:
+            df_all = self.compos_dataframe.merge(pairs, how='left')
+        else:
+            df_all = self.compos_dataframe
+            df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'group_pair'] = pairs['group_pair']
+            df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'pair_to'] = pairs['pair_to']
         # tidy up
         df_all = df_all.drop(columns=['group_nontext', 'group_text'])
 
