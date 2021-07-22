@@ -218,6 +218,16 @@ class ComposDF:
             return 1
         return 2
 
+    def check_group_of_two_compos_validity_by_areas(self):
+        groups = self.compos_dataframe.groupby('group').groups
+        for i in groups:
+            # if the group only has two elements, check if it's valid by elements' areas
+            if i != -1 and len(groups[i]) == 2:
+                compos = self.compos_dataframe.loc[groups[i]]
+                # if the two are too different in area, mark the group as invalid
+                if compos['area'].max() > compos['area'].min() * 2:
+                    self.compos_dataframe.loc[groups[i], 'group'] = -1
+
     def group_by_clusters_conflict(self, cluster, prev_cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
         group_id = compos['group'].max() + 1
