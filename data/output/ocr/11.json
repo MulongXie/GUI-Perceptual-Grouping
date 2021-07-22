@@ -1,0 +1,149 @@
+{
+    "img_shape": [
+        837,
+        520,
+        3
+    ],
+    "texts": [
+        {
+            "id": 0,
+            "width": 60,
+            "row_max": 48,
+            "content": "Deals",
+            "row_min": 26,
+            "column_min": 83,
+            "column_max": 143,
+            "height": 22
+        },
+        {
+            "id": 1,
+            "width": 36,
+            "row_max": 114,
+            "content": "NEW",
+            "row_min": 93,
+            "column_min": 111,
+            "column_max": 147,
+            "height": 21
+        },
+        {
+            "id": 2,
+            "width": 76,
+            "row_max": 114,
+            "content": "POPULAR",
+            "row_min": 91,
+            "column_min": 353,
+            "column_max": 429,
+            "height": 23
+        },
+        {
+            "id": 3,
+            "width": 52,
+            "row_max": 186,
+            "content": "Lindsay",
+            "row_min": 165,
+            "column_min": 77,
+            "column_max": 129,
+            "height": 21
+        },
+        {
+            "id": 4,
+            "width": 140,
+            "row_max": 201,
+            "content": "Posted -172 minutes ago",
+            "row_min": 185,
+            "column_min": 77,
+            "column_max": 217,
+            "height": 16
+        },
+        {
+            "id": 5,
+            "width": 275,
+            "row_max": 245,
+            "content": "Bon Ton : Pink Rose Dresses",
+            "row_min": 225,
+            "column_min": 198,
+            "column_max": 473,
+            "height": 20
+        },
+        {
+            "id": 6,
+            "width": 124,
+            "row_max": 277,
+            "content": "$ 17 Shipped",
+            "row_min": 248,
+            "column_min": 198,
+            "column_max": 322,
+            "height": 29
+        },
+        {
+            "id": 7,
+            "width": 32,
+            "row_max": 437,
+            "content": "Julie",
+            "row_min": 420,
+            "column_min": 76,
+            "column_max": 108,
+            "height": 17
+        },
+        {
+            "id": 8,
+            "width": 140,
+            "row_max": 457,
+            "content": "Posted -147 minutes ago",
+            "row_min": 439,
+            "column_min": 77,
+            "column_max": 217,
+            "height": 18
+        },
+        {
+            "id": 9,
+            "width": 265,
+            "row_max": 498,
+            "content": "WHBM : Extra 40 % Off Sale",
+            "row_min": 477,
+            "column_min": 199,
+            "column_max": 464,
+            "height": 21
+        },
+        {
+            "id": 10,
+            "width": 33,
+            "row_max": 689,
+            "content": "Chris",
+            "row_min": 672,
+            "column_min": 76,
+            "column_max": 109,
+            "height": 17
+        },
+        {
+            "id": 11,
+            "width": 140,
+            "row_max": 712,
+            "content": "Posted -106 minutes ago",
+            "row_min": 693,
+            "column_min": 77,
+            "column_max": 217,
+            "height": 19
+        },
+        {
+            "id": 12,
+            "width": 282,
+            "row_max": 756,
+            "content": "12 Ribbed Cotton Tank Tops",
+            "row_min": 730,
+            "column_min": 200,
+            "column_max": 482,
+            "height": 26
+        },
+        {
+            "id": 13,
+            "width": 122,
+            "row_max": 784,
+            "content": "$ 25 Shipped",
+            "row_min": 757,
+            "column_min": 199,
+            "column_max": 321,
+            "height": 27
+        }
+    ]
+}

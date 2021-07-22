@@ -1,0 +1,119 @@
+{
+    "img_shape": [
+        1920,
+        1080,
+        3
+    ],
+    "texts": [
+        {
+            "column_min": 94,
+            "column_max": 757,
+            "height": 43,
+            "row_min": 8,
+            "content": "fffffffffff",
+            "id": 0,
+            "row_max": 51,
+            "width": 663
+        },
+        {
+            "column_min": 941,
+            "column_max": 1051,
+            "height": 37,
+            "row_min": 12,
+            "content": "$ 6:21",
+            "id": 1,
+            "row_max": 49,
+            "width": 110
+        },
+        {
+            "column_min": 396,
+            "column_max": 841,
+            "height": 70,
+            "row_min": 141,
+            "content": "WELCOME BACK",
+            "id": 2,
+            "row_max": 211,
+            "width": 445
+        },
+        {
+            "column_min": 519,
+            "column_max": 717,
+            "height": 64,
+            "row_min": 229,
+            "content": "GRACE !",
+            "id": 3,
+            "row_max": 293,
+            "width": 198
+        },
+        {
+            "column_min": 258,
+            "column_max": 822,
+            "height": 44,
+            "row_min": 1203,
+            "content": "Is this order for delivery or collection ?",
+            "id": 4,
+            "row_max": 1247,
+            "width": 564
+        },
+        {
+            "column_min": 488,
+            "column_max": 674,
+            "height": 68,
+            "row_min": 1287,
+            "content": "DELIVERY",
+            "id": 5,
+            "row_max": 1355,
+            "width": 186
+        },
+        {
+            "column_min": 453,
+            "column_max": 689,
+            "height": 71,
+            "row_min": 1416,
+            "content": "COLLECTION",
+            "id": 6,
+            "row_max": 1487,
+            "width": 236
+        },
+        {
+            "column_min": 228,
+            "column_max": 476,
+            "height": 42,
+            "row_min": 1538,
+            "content": "PIZZA PROFILE",
+            "id": 7,
+            "row_max": 1580,
+            "width": 248
+        },
+        {
+            "column_min": 664,
+            "column_max": 813,
+            "height": 42,
+            "row_min": 1537,
+            "content": "TRACKER",
+            "id": 8,
+            "row_max": 1579,
+            "width": 149
+        },
+        {
+            "column_min": 76,
+            "column_max": 453,
+            "height": 33,
+            "row_min": 1745,
+            "content": "2016 DOMINO'S IP HOLDER LLC",
+            "id": 9,
+            "row_max": 1778,
+            "width": 377
+        },
+        {
+            "column_min": 934,
+            "column_max": 1036,
+            "height": 32,
+            "row_min": 1743,
+            "content": "PRIVACY",
+            "id": 10,
+            "row_max": 1775,
+            "width": 102
+        }
+    ]
+}

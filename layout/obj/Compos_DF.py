@@ -76,7 +76,7 @@ class ComposDF:
         Recognize repetitive layout of blocks that contains multiple elements in them
         '''
         df = self.compos_dataframe
-        blocks = df[(~pd.isna(df['children'])) & (df['children']!=-1)]
+        blocks = df[(df['class']=='Block') & (~pd.isna(df['children'])) & (df['children']!=-1)]
         children_list = []
         connections_list = []
         # calculate children connections in each block
@@ -89,13 +89,16 @@ class ComposDF:
         paired_blocks = rep.recog_repetition_block_by_children_connections(children_list, connections_list, start_pair_id)
 
         # merge the pairing result into the original dataframe
-        if 'group_pair' not in self.compos_dataframe:
-            df_all = self.compos_dataframe.merge(paired_blocks, how='left')
+        df_all = self.compos_dataframe
+        if paired_blocks is not None:
+            if 'group_pair' not in self.compos_dataframe:
+                df_all = self.compos_dataframe.merge(paired_blocks, how='left')
+            else:
+                df_all.loc[df_all[df_all['id'].isin(paired_blocks['id'])]['id'], 'group_pair'] = paired_blocks['group_pair']
+            df_all = df_all.fillna(-1)
+            df_all['group_pair'] = df_all['group_pair'].astype(int)
         else:
-            df_all = self.compos_dataframe
-            df_all.loc[df_all[df_all['id'].isin(paired_blocks['id'])]['id'], 'group_pair'] = paired_blocks['group_pair']
-        df_all = df_all.fillna(-1)
-        df_all['group_pair'] = df_all['group_pair'].astype(int)
+            df_all['group_pair'] = -1
         self.compos_dataframe = df_all
 
     def repetitive_group_recognition(self, show=False, clean_attrs=True):
@@ -106,8 +109,12 @@ class ComposDF:
         df_text = rep.recog_repetition_text(self, show, only_non_contained_compo=True)
         df = self.compos_dataframe
 
+        df['alignment'] = np.nan
+        if 'alignment' in df_nontext:
+            df.loc[df['alignment'].isna(), 'alignment'] = df_nontext['alignment']
         df = df.merge(df_nontext, how='left')
-        df.loc[df['alignment'].isna(), 'alignment'] = df_text['alignment']
+        if 'alignment' in df_text:
+            df.loc[df['alignment'].isna(), 'alignment'] = df_text['alignment']
         df = df.merge(df_text, how='left')
         df.rename({'alignment': 'alignment_in_group'}, axis=1, inplace=True)
 
@@ -274,25 +281,29 @@ class ComposDF:
             start_pair_id = 0
         pairs = pairing.pair_matching_within_groups(all_groups, start_pair_id)
         # merge the pairing result into the original dataframe
-        if 'group_pair' not in self.compos_dataframe:
-            df_all = self.compos_dataframe.merge(pairs, how='left')
+        df_all = self.compos_dataframe
+        if pairs is not None:
+            if 'group_pair' not in self.compos_dataframe:
+                df_all = self.compos_dataframe.merge(pairs, how='left')
+            else:
+                df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'group_pair'] = pairs['group_pair']
+                df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'pair_to'] = pairs['pair_to']
+            # tidy up
+            df_all = df_all.drop(columns=['group_nontext', 'group_text'])
+
+            # add alignment between list items
+            # df_all.rename({'alignment': 'alignment_list'}, axis=1, inplace=True)
+            # df_all.loc[list(df_all[df_all['alignment_list'] == 'v']['id']), 'alignment_item'] = 'h'
+            # df_all.loc[list(df_all[df_all['alignment_list'] == 'h']['id']), 'alignment_item'] = 'v'
+
+            # fill nan and change type
+            df_all = df_all.fillna(-1)
+            # df_all[list(df_all.filter(like='group'))] = df_all[list(df_all.filter(like='group'))].astype(int)
+            df_all['group_pair'] = df_all['group_pair'].astype(int)
+            df_all['pair_to'] = df_all['pair_to'].astype(int)
         else:
-            df_all = self.compos_dataframe
-            df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'group_pair'] = pairs['group_pair']
-            df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'pair_to'] = pairs['pair_to']
-        # tidy up
-        df_all = df_all.drop(columns=['group_nontext', 'group_text'])
-
-        # add alignment between list items
-        # df_all.rename({'alignment': 'alignment_list'}, axis=1, inplace=True)
-        # df_all.loc[list(df_all[df_all['alignment_list'] == 'v']['id']), 'alignment_item'] = 'h'
-        # df_all.loc[list(df_all[df_all['alignment_list'] == 'h']['id']), 'alignment_item'] = 'v'
-
-        # fill nan and change type
-        df_all = df_all.fillna(-1)
-        # df_all[list(df_all.filter(like='group'))] = df_all[list(df_all.filter(like='group'))].astype(int)
-        df_all['group_pair'] = df_all['group_pair'].astype(int)
-        df_all['pair_to'] = df_all['pair_to'].astype(int)
+            df_all['group_pair'] = -1
+            df_all['pair_to'] = -1
         self.compos_dataframe = df_all
 
     def split_groups(self, group_name):
@@ -311,6 +322,11 @@ class ComposDF:
     ******************************
     '''
     def list_item_partition(self):
+        '''
+        track paired compos' "pair_to" attr to assign "list_item" id
+        '''
+        if 'pair_to' not in self.compos_dataframe:
+            return
         compos = self.compos_dataframe
         groups = compos.groupby("group_pair").groups
         listed_compos = pd.DataFrame()
@@ -322,8 +338,11 @@ class ComposDF:
             self.gather_list_items(paired_compos)
             listed_compos = listed_compos.append(paired_compos)
 
-        self.compos_dataframe = self.compos_dataframe.merge(listed_compos, how='left')
-        self.compos_dataframe['list_item'] = self.compos_dataframe['list_item'].fillna(-1).astype(int)
+        if len(listed_compos) > 0:
+            self.compos_dataframe = self.compos_dataframe.merge(listed_compos, how='left')
+            self.compos_dataframe['list_item'] = self.compos_dataframe['list_item'].fillna(-1).astype(int)
+        else:
+            self.compos_dataframe['list_item'] = -1
 
     def gather_list_items(self, compos):
         '''

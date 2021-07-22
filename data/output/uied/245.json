@@ -1,0 +1,323 @@
+{
+    "img_shape": [
+        800,
+        450,
+        3
+    ],
+    "compos": [
+        {
+            "position": {
+                "column_min": 10,
+                "row_max": 57,
+                "column_max": 438,
+                "row_min": 34
+            },
+            "id": 0,
+            "height": 23,
+            "width": 428,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 93,
+                "row_max": 120,
+                "column_max": 148,
+                "row_min": 64
+            },
+            "id": 1,
+            "height": 56,
+            "width": 55,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 9,
+                "row_max": 149,
+                "column_max": 439,
+                "row_min": 127
+            },
+            "id": 2,
+            "height": 22,
+            "width": 430,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 0,
+                "row_max": 235,
+                "column_max": 449,
+                "row_min": 157
+            },
+            "id": 3,
+            "height": 78,
+            "width": 449,
+            "class": "Compo"
+        },
+        {
+            "height": 335,
+            "class": "Compo",
+            "position": {
+                "column_min": 0,
+                "row_max": 574,
+                "column_max": 449,
+                "row_min": 239
+            },
+            "id": 4,
+            "children": [
+                13,
+                14,
+                17,
+                18
+            ],
+            "width": 449
+        },
+        {
+            "height": 49,
+            "class": "Compo",
+            "position": {
+                "column_min": 93,
+                "row_max": 629,
+                "column_max": 355,
+                "row_min": 580
+            },
+            "id": 5,
+            "children": [
+                19
+            ],
+            "width": 262
+        },
+        {
+            "position": {
+                "column_min": 203,
+                "row_max": 657,
+                "column_max": 214,
+                "row_min": 647
+            },
+            "id": 6,
+            "height": 10,
+            "width": 11,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 344,
+                "row_max": 657,
+                "column_max": 356,
+                "row_min": 647
+            },
+            "id": 7,
+            "height": 10,
+            "width": 12,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 16,
+                "row_max": 740,
+                "column_max": 29,
+                "row_min": 728
+            },
+            "id": 8,
+            "height": 12,
+            "width": 13,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 434,
+                "row_max": 740,
+                "column_max": 443,
+                "row_min": 731
+            },
+            "id": 9,
+            "height": 9,
+            "width": 9,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 88,
+                "row_max": 786,
+                "column_max": 108,
+                "row_min": 763
+            },
+            "id": 10,
+            "height": 23,
+            "width": 20,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 214,
+                "row_max": 784,
+                "column_max": 235,
+                "row_min": 763
+            },
+            "id": 11,
+            "height": 21,
+            "width": 21,
+            "class": "Compo"
+        },
+        {
+            "position": {
+                "column_min": 341,
+                "row_max": 783,
+                "column_max": 361,
+                "row_min": 763
+            },
+            "id": 12,
+            "height": 20,
+            "width": 20,
+            "class": "Compo"
+        },
+        {
+            "parent": 4,
+            "height": 42,
+            "class": "Compo",
+            "position": {
+                "column_min": 100,
+                "row_max": 569,
+                "column_max": 349,
+                "row_min": 527
+            },
+            "id": 13,
+            "children": [
+                18
+            ],
+            "width": 249
+        },
+        {
+            "parent": 4,
+            "height": 44,
+            "class": "Compo",
+            "position": {
+                "column_min": 348,
+                "row_max": 573,
+                "column_max": 448,
+                "row_min": 529
+            },
+            "id": 14,
+            "width": 100
+        },
+        {
+            "height": 29,
+            "class": "Text",
+            "position": {
+                "column_min": 165,
+                "row_max": 87,
+                "column_max": 350,
+                "row_min": 58
+            },
+            "id": 15,
+            "text_content": "WELCOME BACK",
+            "width": 185
+        },
+        {
+            "height": 27,
+            "class": "Text",
+            "position": {
+                "column_min": 216,
+                "row_max": 122,
+                "column_max": 298,
+                "row_min": 95
+            },
+            "id": 16,
+            "text_content": "GRACE !",
+            "width": 82
+        },
+        {
+            "parent": 4,
+            "height": 18,
+            "class": "Text",
+            "position": {
+                "column_min": 107,
+                "row_max": 519,
+                "column_max": 342,
+                "row_min": 501
+            },
+            "id": 17,
+            "text_content": "Is this order for delivery or collection ?",
+            "width": 235
+        },
+        {
+            "parent": 13,
+            "height": 28,
+            "class": "Text",
+            "position": {
+                "column_min": 203,
+                "row_max": 564,
+                "column_max": 280,
+                "row_min": 536
+            },
+            "id": 18,
+            "text_content": "DELIVERY",
+            "width": 77
+        },
+        {
+            "parent": 5,
+            "height": 29,
+            "class": "Text",
+            "position": {
+                "column_min": 188,
+                "row_max": 619,
+                "column_max": 287,
+                "row_min": 590
+            },
+            "id": 19,
+            "text_content": "COLLECTION",
+            "width": 99
+        },
+        {
+            "height": 18,
+            "class": "Text",
+            "position": {
+                "column_min": 95,
+                "row_max": 658,
+                "column_max": 198,
+                "row_min": 640
+            },
+            "id": 20,
+            "text_content": "PIZZA PROFILE",
+            "width": 103
+        },
+        {
+            "height": 17,
+            "class": "Text",
+            "position": {
+                "column_min": 276,
+                "row_max": 657,
+                "column_max": 338,
+                "row_min": 640
+            },
+            "id": 21,
+            "text_content": "TRACKER",
+            "width": 62
+        },
+        {
+            "height": 13,
+            "class": "Text",
+            "position": {
+                "column_min": 31,
+                "row_max": 740,
+                "column_max": 188,
+                "row_min": 727
+            },
+            "id": 22,
+            "text_content": "2016 DOMINO'S IP HOLDER LLC",
+            "width": 157
+        },
+        {
+            "height": 13,
+            "class": "Text",
+            "position": {
+                "column_min": 389,
+                "row_max": 739,
+                "column_max": 431,
+                "row_min": 726
+            },
+            "id": 23,
+            "text_content": "PRIVACY",
+            "width": 42
+        }
+    ]
+}

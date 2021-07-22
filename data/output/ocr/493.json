@@ -1,0 +1,79 @@
+{
+    "img_shape": [
+        1920,
+        1080,
+        3
+    ],
+    "texts": [
+        {
+            "column_min": 364,
+            "column_max": 533,
+            "height": 91,
+            "row_min": 159,
+            "content": "Pod",
+            "id": 0,
+            "row_max": 250,
+            "width": 169
+        },
+        {
+            "column_min": 282,
+            "column_max": 797,
+            "height": 37,
+            "row_min": 307,
+            "content": "LISTEN , WATCH , LEARN , ENJOY",
+            "id": 1,
+            "row_max": 344,
+            "width": 515
+        },
+        {
+            "column_min": 348,
+            "column_max": 731,
+            "height": 31,
+            "row_min": 364,
+            "content": "PODCASTS ON THE GO",
+            "id": 2,
+            "row_max": 395,
+            "width": 383
+        },
+        {
+            "column_min": 366,
+            "column_max": 832,
+            "height": 47,
+            "row_min": 1286,
+            "content": "Continue with Facebook",
+            "id": 3,
+            "row_max": 1333,
+            "width": 466
+        },
+        {
+            "column_min": 419,
+            "column_max": 776,
+            "height": 55,
+            "row_min": 1459,
+            "content": "Sign Up with Email",
+            "id": 4,
+            "row_max": 1514,
+            "width": 357
+        },
+        {
+            "column_min": 271,
+            "column_max": 477,
+            "height": 49,
+            "row_min": 1683,
+            "content": "Log in now",
+            "id": 5,
+            "row_max": 1732,
+            "width": 206
+        },
+        {
+            "column_min": 577,
+            "column_max": 811,
+            "height": 49,
+            "row_min": 1687,
+            "content": "Try as guest",
+            "id": 6,
+            "row_max": 1736,
+            "width": 234
+        }
+    ]
+}
