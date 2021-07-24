@@ -33,6 +33,43 @@ def match_two_groups(g1, g2, max_pos_bias):
     return False
 
 
+def calc_compos_distance(compo1, compo2):
+    # compo1 is on the left of compo2
+    if compo1['column_max'] <= compo2['column_min']:
+        dist_h = compo2['column_min'] - compo1['column_max']
+    # compo1 is on the right of compo2
+    elif compo2['column_max'] <= compo1['column_min']:
+        dist_h = compo1['column_min'] - compo2['column_max']
+    # compo1 and compo2 align vertically
+    else:
+        dist_h = -1
+
+    # compo1 is on the top of compo2
+    if compo1['row_max'] <= compo2['row_min']:
+        dist_v = compo2['row_min'] - compo1['row_max']
+    # compo1 is below compo2
+    elif compo2['row_max'] <= compo1['row_min']:
+        dist_v = compo1['row_min'] - compo2['row_max']
+    # compo1 and compo2 align horizontally
+    else:
+        dist_v = -1
+
+    if dist_h == -1:
+        # compo1 and compo2 are intersected, which is impossible as UIED has merged all intersected compoments
+        if dist_v == -1:
+            print('Impossible due to all intersected compos were merged')
+            return False
+        else:
+            return dist_v
+    else:
+        if dist_v == -1:
+            return dist_h
+        # compo1 and compo2 dont align neither vertically nor horizontally
+        else:
+            dist = math.sqrt(dist_v ** 2 + dist_h ** 2)
+            return dist
+
+
 def match_two_groups_distance(g1, g2):
     assert g1.iloc[0]['alignment_in_group'] == g2.iloc[0]['alignment_in_group']
     alignment = g1.iloc[0]['alignment_in_group']
@@ -47,7 +84,7 @@ def match_two_groups_distance(g1, g2):
         for i in range(len(g1)):
             c1 = g1.iloc[i]
             c2 = g2.iloc[i]
-            distance = int(math.sqrt((c1['center_column'] - c2['center_column'])**2 + (c1['center_row'] - c2['center_row'])**2))
+            distance = calc_compos_distance(c1, c2)
             # mismatch if too far
             if distance > max_side * 2:
                 return False
@@ -59,12 +96,13 @@ def match_two_groups_distance(g1, g2):
             distances.append(distance)
     else:
         distances = []
+        # calculate the distances between each c1 in g1 and all c2 in g2
         for i in range(len(g1)):
             c1 = g1.iloc[i]
             distance = None
             for j in range(len(g2)):
                 c2 = g2.iloc[j]
-                d_cur = int(math.sqrt((c1['center_column'] - c2['center_column']) ** 2 + (c1['center_row'] - c2['center_row']) ** 2))
+                d_cur = calc_compos_distance(c1, c2)
                 if distance is None or distance > d_cur:
                     distance = d_cur
                     pairs[c1['id']] = c2['id']
