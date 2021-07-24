@@ -186,17 +186,15 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name=name)
 
-    def closer_cluster_by_mean_area(self, compo_index, cluster1, cluster2):
-        compos = self.compos_dataframe
-        compo = compos.loc[compo_index]
-        compos = compos[compos['id'] != compo['id']]
-        cl1 = compos[compos[cluster1] == compo[cluster1]]
-        cl2 = compos[compos[cluster2] == compo[cluster2]]
+    def closer_group_by_mean_area(self, compo_index, group1, group2):
+        compo = self.compos_dataframe.loc[compo_index]
+        g1 = group1[group1['id'] != compo['id']]
+        g2 = group2[group2['id'] != compo['id']]
         # if len(cl2) == 1: return 1
         # elif len(cl1) == 1: return 2
 
-        mean_area1 = cl1['area'].mean()
-        mean_area2 = cl2['area'].mean()
+        mean_area1 = g1['area'].mean()
+        mean_area2 = g2['area'].mean()
 
         compo_area = compo['area']
         if abs(compo_area - mean_area1) < abs(compo_area - mean_area2):
@@ -229,7 +227,7 @@ class ComposDF:
                 if compos['area'].max() > compos['area'].min() * 2:
                     self.compos_dataframe.loc[groups[i], 'group'] = -1
 
-    def group_by_clusters_conflict(self, cluster, prev_cluster, alignment, show=True, show_method='block'):
+    def group_by_clusters_conflict(self, cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
         group_id = compos['group'].max() + 1
 
@@ -248,7 +246,8 @@ class ComposDF:
                         if member_num <= 1:
                             continue
                         # close to the current cluster
-                        if self.closer_cluster_by_mean_area(j, cluster, prev_cluster) == 1:
+                        prev_group = compos[compos['group'] == compos.loc[j, 'group']]
+                        if self.closer_group_by_mean_area(j, compos.loc[list(groups[i])], prev_group) == 1:
                             compos.loc[j, 'group'] = group_id
                             compos.loc[j, 'alignment'] = alignment
                         else:
