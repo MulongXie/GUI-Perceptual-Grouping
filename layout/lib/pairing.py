@@ -70,7 +70,39 @@ def calc_compos_distance(compo1, compo2):
             return dist
 
 
-def match_two_groups_distance(g1, g2):
+def is_two_compos_align(compo1, compo2):
+    # aligned vertically (top & below)
+    if max(compo1['column_min'], compo2['column_min']) < min(compo1['column_max'], compo2['column_max']):
+        return True
+    if max(compo1['row_min'], compo2['row_min']) < min(compo1['row_max'], compo2['row_max']):
+        return True
+    return False
+
+
+def match_two_groups_by_alignment(g1, g2):
+    if g1.iloc[0]['alignment_in_group'] == 'h':
+        max_side = max(list(g1['height']) + list(g2['height']))
+    else:
+        max_side = max(list(g1['width']) + list(g2['width']))
+    max_side = max_side * 2
+
+    marked = np.full(len(g2), False)
+    alignments = []  # for each compo in the g1, record how many matched compos in the g2 it has
+    for i in range(len(g1)):
+        aligned_compos = 0
+        c1 = g1.iloc[i]
+        for j in range(len(g2)):
+            c2 = g2.iloc[j]
+            if not marked[j] and calc_compos_distance(c1, c2) < max_side and is_two_compos_align(c1, c2):
+                marked[j] = True
+                aligned_compos += 1
+    print(alignments)
+
+    # {"the number of matched g2 compos for a g1 compo": "how many g1 compos has the same number of matched g2 compos"}
+    count = dict((i, alignments.count(i)) for i in alignments)
+
+
+def match_two_groups_by_distance(g1, g2):
     assert g1.iloc[0]['alignment_in_group'] == g2.iloc[0]['alignment_in_group']
     alignment = g1.iloc[0]['alignment_in_group']
     pairs = {}
@@ -129,27 +161,6 @@ def match_two_groups_distance(g1, g2):
     return True
 
 
-def pair_matching_between_multi_groups(groups1, groups2):
-    pairs = {}
-    pair_id = 0
-    for i, g1 in enumerate(groups1):
-        for j, g2 in enumerate(groups2):
-            if g1.alignment == g2.alignment and abs(g1.compos_number - g2.compos_number) <= 2:
-                if match_two_groups(g1, g2, 10):
-                    if 'group_pair' not in g1.compos_dataframe.columns:
-                        # hasn't paired yet, creat a new pair
-                        pair_id += 1
-                        g1.compos_dataframe['group_pair'] = pair_id
-                        g1.compos_dataframe['group_pair'].astype(int)
-                        pairs[pair_id] = [g1, g2]
-                    else:
-                        # existing group_pair
-                        pairs[g1.compos_dataframe.iloc[0]['group_pair']].append(g2)
-                    g2.compos_dataframe['group_pair'] = pair_id
-                    g2.compos_dataframe['group_pair'].astype(int)
-    return pairs
-
-
 def pair_matching_within_groups(groups, start_pair_id, new_pairs=True, max_group_diff=2):
     pairs = {}  # {'pair_id': [dataframe of grouped by certain attr]}
     pair_id = start_pair_id
@@ -164,39 +175,40 @@ def pair_matching_within_groups(groups, start_pair_id, new_pairs=True, max_group
         for j in range(i + 1, len(groups)):
             g2 = groups[j]
             alignment2 = g2.iloc[0]['alignment_in_group']
-            if alignment1 == alignment2 and abs(len(g1) - len(g2)) < max_group_diff:
-                if match_two_groups_distance(g1, g2):
-                    # print(i, list(g1['group'])[0], mark[i], '-', j, list(g2['group'])[0], mark[j])
-                    if not mark[i]:
-                        # hasn't paired yet, creat a new pair
-                        if not mark[j]:
-                            pair_id += 1
-                            g1['group_pair'] = pair_id
-                            g2['group_pair'] = pair_id
-                            pairs[pair_id] = [g1, g2]
-                            mark[i] = True
-                            mark[j] = True
-                        # if g2 is already paired, set g1's pair_id as g2's
-                        else:
-                            g1['group_pair'] = g2.iloc[0]['group_pair']
-                            pairs[g2.iloc[0]['group_pair']].append(g1)
-                            mark[i] = True
+            # if alignment1 == alignment2:
+            #     match_two_groups_by_alignment(g1, g2)
+            if alignment1 == alignment2 and match_two_groups_by_distance(g1, g2):
+                # print(i, list(g1['group'])[0], mark[i], '-', j, list(g2['group'])[0], mark[j])
+                if not mark[i]:
+                    # hasn't paired yet, creat a new pair
+                    if not mark[j]:
+                        pair_id += 1
+                        g1['group_pair'] = pair_id
+                        g2['group_pair'] = pair_id
+                        pairs[pair_id] = [g1, g2]
+                        mark[i] = True
+                        mark[j] = True
+                    # if g2 is already paired, set g1's pair_id as g2's
                     else:
-                        # if gi is marked while gj isn't marked
-                        if not mark[j]:
-                            g2['group_pair'] = g1.iloc[0]['group_pair']
-                            pairs[g1.iloc[0]['group_pair']].append(g2)
-                            mark[j] = True
-                        # if gi and gj are all already marked in different group_pair, merge the two group_pairs together
-                        else:
-                            # merge all g2's pairing groups with g1's
-                            if g1.iloc[0]['group_pair'] != g2.iloc[0]['group_pair']:
-                                g1_pair_id = g1.iloc[0]['group_pair']
-                                g2_pair_id = g2.iloc[0]['group_pair']
-                                for g in pairs[g2_pair_id]:
-                                    g['group_pair'] = g1_pair_id
-                                    pairs[g1_pair_id].append(g)
-                                pairs.pop(g2_pair_id)
+                        g1['group_pair'] = g2.iloc[0]['group_pair']
+                        pairs[g2.iloc[0]['group_pair']].append(g1)
+                        mark[i] = True
+                else:
+                    # if gi is marked while gj isn't marked
+                    if not mark[j]:
+                        g2['group_pair'] = g1.iloc[0]['group_pair']
+                        pairs[g1.iloc[0]['group_pair']].append(g2)
+                        mark[j] = True
+                    # if gi and gj are all already marked in different group_pair, merge the two group_pairs together
+                    else:
+                        # merge all g2's pairing groups with g1's
+                        if g1.iloc[0]['group_pair'] != g2.iloc[0]['group_pair']:
+                            g1_pair_id = g1.iloc[0]['group_pair']
+                            g2_pair_id = g2.iloc[0]['group_pair']
+                            for g in pairs[g2_pair_id]:
+                                g['group_pair'] = g1_pair_id
+                                pairs[g1_pair_id].append(g)
+                            pairs.pop(g2_pair_id)
 
     merged_pairs = None
     for i in pairs:
