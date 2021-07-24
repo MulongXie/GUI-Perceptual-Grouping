@@ -272,6 +272,26 @@ class ComposDF:
         else:
             return df
 
+    def calc_gap_in_group(self):
+        compos = self.compos_dataframe
+        compos['gap'] = -1
+        groups = compos.groupby('group').groups
+        for i in groups:
+            group = groups[i]
+            if i != -1 and len(group) > 1:
+                group_compos = compos.loc[list(groups[i])]
+                alignment_in_group = group_compos.iloc[0]['alignment_in_group']
+                if alignment_in_group == 'v':
+                    group_compos = group_compos.sort_values('center_column')
+                    for j in range(len(group_compos) - 1):
+                        id = group_compos.iloc[j]['id']
+                        compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['row_min'] - group_compos.iloc[j]['row_max']
+                else:
+                    group_compos = group_compos.sort_values('center_row')
+                    for j in range(len(group_compos) - 1):
+                        id = group_compos.iloc[j]['id']
+                        compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['column_min'] - group_compos.iloc[j]['column_max']
+
     '''
     ******************************
     ******** Pair groups *********
