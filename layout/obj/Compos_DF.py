@@ -98,7 +98,8 @@ class ComposDF:
             df_all = df_all.fillna(-1)
             df_all['group_pair'] = df_all['group_pair'].astype(int)
         else:
-            df_all['group_pair'] = -1
+            if 'group_pair' not in self.compos_dataframe:
+                df_all['group_pair'] = -1
         self.compos_dataframe = df_all
 
     def repetitive_group_recognition(self, show=False, clean_attrs=True):
