@@ -224,8 +224,29 @@ class ComposDF:
             if i != -1 and len(groups[i]) == 2:
                 compos = self.compos_dataframe.loc[groups[i]]
                 # if the two are too different in area, mark the group as invalid
-                if compos['area'].max() > compos['area'].min() * 2:
+                if compos['area'].max() - compos['area'].min() > 500 and compos['area'].max() > compos['area'].min() * 2:
                     self.compos_dataframe.loc[groups[i], 'group'] = -1
+
+    def check_group_validity_by_compos_gap(self):
+        self.calc_gap_in_group()
+        compos = self.compos_dataframe
+        groups = compos.groupby('group').groups
+        for i in groups:
+            if i != -1 and len(groups[i]) > 2:
+                group = groups[i]  # list of component ids in the group
+                gaps = list(compos.loc[group]['gap'])
+
+                # cluster compos gaps
+                clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
+                labels = list(clustering.labels_)
+                label_count = dict((i, labels.count(i)) for i in labels)  # {label: frequency of label}
+
+                for label in label_count:
+                    # invalid compo
+                    if label_count[label] < 2:
+                        for j, lab in enumerate(labels):
+                            if lab == label:
+                                compos.loc[group[j], 'group'] = -1
 
     def group_by_clusters_conflict(self, cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
@@ -280,7 +301,10 @@ class ComposDF:
             group = groups[i]
             if i != -1 and len(group) > 1:
                 group_compos = compos.loc[list(groups[i])]
-                alignment_in_group = group_compos.iloc[0]['alignment_in_group']
+                if 'alignment_in_group' in group_compos:
+                    alignment_in_group = group_compos.iloc[0]['alignment_in_group']
+                else:
+                    alignment_in_group = group_compos.iloc[0]['alignment']
                 if alignment_in_group == 'v':
                     group_compos = group_compos.sort_values('center_row')
                     for j in range(len(group_compos) - 1):

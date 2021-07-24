@@ -36,8 +36,10 @@ def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True, i
 
     compos_cp.group_by_clusters(cluster=['cluster_area', 'cluster_center_column'], alignment='v', show=show, new_groups=True)
     compos_cp.check_group_of_two_compos_validity_by_areas()
+    compos_cp.check_group_validity_by_compos_gap()
     compos_cp.group_by_clusters_conflict(cluster=['cluster_area', 'cluster_center_row'], alignment='h', show=show, show_method='block')
     compos_cp.check_group_of_two_compos_validity_by_areas()
+    compos_cp.check_group_validity_by_compos_gap()
     compos_cp.compos_dataframe.rename({'group':'group_nontext'}, axis=1, inplace=True)
 
     df = compos_cp.compos_dataframe
