@@ -186,6 +186,35 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name=name)
 
+    def regroup_left_compos_by_cluster(self, cluster, alignment, show=True, show_method='block'):
+        compos = self.compos_dataframe
+        group_id = compos['group'].max() + 1
+
+        # select left compos that in a group only containing itself
+        groups = compos.groupby('group').groups
+        left_compos_id = []
+        for i in groups:
+            if i != -1 and len(groups[i]) == 1:
+                left_compos_id += list(groups[i])
+        left_compos = compos.loc[left_compos_id]
+
+        # regroup the left compos by given cluster
+        groups = left_compos.groupby(cluster).groups
+        print(groups)
+        for i in groups:
+            if len(groups[i]) > 1:
+                self.compos_dataframe.loc[list(groups[i]), 'group'] = group_id
+                self.compos_dataframe.loc[list(groups[i]), 'alignment'] = alignment
+                group_id += 1
+        self.compos_dataframe['group'].astype(int)
+
+        if show:
+            name = cluster if type(cluster) != list else '+'.join(cluster)
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name=name)
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name=name)
+
     def closer_group_by_mean_area(self, compo_index, group1, group2):
         compo = self.compos_dataframe.loc[compo_index]
         g1 = group1[group1['id'] != compo['id']]
