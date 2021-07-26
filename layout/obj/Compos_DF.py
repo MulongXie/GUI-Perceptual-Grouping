@@ -242,7 +242,7 @@ class ComposDF:
                 label_count = dict((i, labels.count(i)) for i in labels)  # {label: frequency of label}
 
                 for label in label_count:
-                    # invalid compo
+                    # invalid compo if the compo's gap with others is different from others
                     if label_count[label] < 2:
                         for j, lab in enumerate(labels):
                             if lab == label:
