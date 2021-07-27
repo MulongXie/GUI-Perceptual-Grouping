@@ -200,7 +200,6 @@ class ComposDF:
 
         # regroup the left compos by given cluster
         groups = left_compos.groupby(cluster).groups
-        print(groups)
         for i in groups:
             if len(groups[i]) > 1:
                 self.compos_dataframe.loc[list(groups[i]), 'group'] = group_id
