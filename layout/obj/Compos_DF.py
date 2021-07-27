@@ -316,6 +316,7 @@ class ComposDF:
 
         for i in compo_new_group:
             compos.loc[i, 'group'] = compo_new_group[i]
+            compos.loc[i, 'alignment'] = alignment
         self.compos_dataframe['group'].astype(int)
 
         if show:

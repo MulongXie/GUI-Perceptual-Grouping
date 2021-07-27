@@ -107,15 +107,19 @@ def match_two_groups_by_distance(g1, g2):
     alignment = g1.iloc[0]['alignment_in_group']
     pairs = {}
     if alignment == 'h':
+        g1_sort = g1.sort_values('center_column')
+        g2_sort = g2.sort_values('center_column')
         max_side = max(list(g1['height']) + list(g2['height']))
     else:
+        g1_sort = g1.sort_values('center_row')
+        g2_sort = g2.sort_values('center_row')
         max_side = max(list(g1['width']) + list(g2['width']))
 
     if len(g1) == len(g2):
         distances = []
-        for i in range(len(g1)):
-            c1 = g1.iloc[i]
-            c2 = g2.iloc[i]
+        for i in range(len(g1_sort)):
+            c1 = g1_sort.iloc[i]
+            c2 = g2_sort.iloc[i]
             distance = calc_compos_distance(c1, c2)
             # mismatch if too far
             if distance > max_side * 2:
@@ -129,11 +133,11 @@ def match_two_groups_by_distance(g1, g2):
     else:
         distances = []
         # calculate the distances between each c1 in g1 and all c2 in g2
-        for i in range(len(g1)):
-            c1 = g1.iloc[i]
+        for i in range(len(g1_sort)):
+            c1 = g1_sort.iloc[i]
             distance = None
-            for j in range(len(g2)):
-                c2 = g2.iloc[j]
+            for j in range(len(g2_sort)):
+                c2 = g2_sort.iloc[j]
                 d_cur = calc_compos_distance(c1, c2)
                 if distance is None or distance > d_cur:
                     distance = d_cur

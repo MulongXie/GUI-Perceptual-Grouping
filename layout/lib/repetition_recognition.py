@@ -61,7 +61,7 @@ def recog_repetition_text(compos, show=True, only_non_contained_compo=True, inpl
     compos_cp.check_group_of_two_compos_validity_by_areas()
     compos_cp.group_by_clusters_conflict('cluster_column_min', alignment='v', show=show, show_method='block')
     compos_cp.check_group_of_two_compos_validity_by_areas()
-    compos_cp.regroup_left_compos_by_cluster('cluster_column_min', alignment='h', show=show, show_method='block')
+    compos_cp.regroup_left_compos_by_cluster('cluster_column_min', alignment='v', show=show, show_method='block')
     compos_cp.compos_dataframe.rename({'group':'group_text'}, axis=1, inplace=True)
 
     df = compos_cp.compos_dataframe
