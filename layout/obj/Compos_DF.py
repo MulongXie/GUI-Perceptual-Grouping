@@ -140,7 +140,7 @@ class ComposDF:
                 df_all['group_pair'] = -1
         self.compos_dataframe = df_all
 
-    def repetitive_group_recognition(self, show=False, clean_attrs=True):
+    def repetitive_group_recognition(self, show=False, check_missed_compo=True):
         '''
         Recognize repetitive layout of elements that are not contained in Block by clustering
         '''
@@ -157,24 +157,24 @@ class ComposDF:
         df = df.merge(df_text, how='left')
         df.rename({'alignment': 'alignment_in_group'}, axis=1, inplace=True)
 
-        if clean_attrs:
-            df = df.drop(list(df.filter(like='cluster')), axis=1)
-            df = df.fillna(-1)
-
-            for i in range(len(df)):
-                if df.iloc[i]['group_nontext'] != -1:
-                    df.loc[i, 'group'] = 'nt-' + str(int(df.iloc[i]['group_nontext']))
-                elif df.iloc[i]['group_text'] != -1:
-                    df.loc[i, 'group'] = 't-' + str(int(df.iloc[i]['group_text']))
-
-            groups = df.groupby('group').groups
-            for i in groups:
-                if len(groups[i]) == 1:
-                    df.loc[groups[i], 'group'] = -1
-            df.group = df.group.fillna(-1)
-
-        # df = rep.rm_invalid_groups(df)
+        # clean and rename attributes
+        df = df.drop(list(df.filter(like='cluster')), axis=1)
+        df = df.fillna(-1)
+        for i in range(len(df)):
+            if df.iloc[i]['group_nontext'] != -1:
+                df.loc[i, 'group'] = 'nt-' + str(int(df.iloc[i]['group_nontext']))
+            elif df.iloc[i]['group_text'] != -1:
+                df.loc[i, 'group'] = 't-' + str(int(df.iloc[i]['group_text']))
+        groups = df.groupby('group').groups
+        for i in groups:
+            if len(groups[i]) == 1:
+                df.loc[groups[i], 'group'] = -1
+        df.group = df.group.fillna(-1)
         self.compos_dataframe = df
+
+        # check and add missed compos according to compo gaps in group
+        if check_missed_compo:
+            self.add_missed_compo_to_group_by_gaps()
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='line'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
@@ -322,7 +322,7 @@ class ComposDF:
     def check_group_validity_by_compos_gap(self):
         self.calc_gap_in_group()
         compos = self.compos_dataframe
-        groups = compos.groupby('group').groups
+        groups = compos.groupby('group').groups  # {group name: list of compo ids}
         for i in groups:
             if i != -1 and len(groups[i]) > 2:
                 group = groups[i]  # list of component ids in the group
@@ -330,15 +330,70 @@ class ComposDF:
 
                 # cluster compos gaps
                 clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
-                labels = list(clustering.labels_)
-                label_count = dict((i, labels.count(i)) for i in labels)  # {label: frequency of label}
+                gap_labels = list(clustering.labels_)
+                gap_label_count = dict((i, gap_labels.count(i)) for i in gap_labels)  # {label: frequency of label}
 
-                for label in label_count:
+                for label in gap_label_count:
                     # invalid compo if the compo's gap with others is different from others
-                    if label_count[label] < 2:
-                        for j, lab in enumerate(labels):
+                    if gap_label_count[label] < 2:
+                        for j, lab in enumerate(gap_labels):
                             if lab == label:
                                 compos.loc[group[j], 'group'] = -1
+
+    def search_possible_compo(self, anchor_compo, approximate_gap):
+        compos = self.compos_dataframe
+        if 'alignment_in_group' in anchor_compo:
+            alignment_in_group = anchor_compo['alignment_in_group']
+        else:
+            alignment_in_group = anchor_compo['alignment']
+
+        if alignment_in_group == 'v':
+            approx_row = anchor_compo['row_max'] + approximate_gap + 0.5 * anchor_compo['height']
+            for i in range(len(compos)):
+                compo = compos.iloc[i]
+                if compo['row_min'] < approx_row < compo['row_max'] and \
+                        max(compo['column_min'], anchor_compo['column_min']) < min(compo['column_max'], anchor_compo['column_max']):
+                    return compo
+        else:
+            approx_column = anchor_compo['column_max'] + approximate_gap + 0.5 * anchor_compo['width']
+            for i in range(len(compos)):
+                compo = compos.iloc[i]
+                if compo['column_min'] < approx_column < compo['column_max'] and \
+                        max(compo['row_min'], anchor_compo['row_min']) < min(compo['row_max'], anchor_compo['row_max']):
+                    return compo
+        return None
+
+    def add_missed_compo_to_group_by_gaps(self):
+        self.calc_gap_in_group()
+        self.calc_gap_in_group()
+        compos = self.compos_dataframe
+        groups = compos.groupby('group').groups  # {group name: list of compo ids}
+        for i in groups:
+            if i != -1 and len(groups[i]) > 2:
+                group = groups[i]  # list of component ids in the group
+                gaps = list(compos.loc[group]['gap'])
+
+                # cluster compos gaps
+                clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
+                gap_labels = list(clustering.labels_)
+                gap_label_count = dict((i, gap_labels.count(i)) for i in gap_labels)  # {label: frequency of label}
+                # get the most counted label
+                max_label = max(gap_label_count.items(), key=lambda k: k[1])  # (label id, count number)
+                if max_label[1] > len(group) * 0.5:
+                    anchor_label = max_label[0]
+                    # calculate the mean gap with the
+                    mean_gap = 0
+                    for k, l in enumerate(gap_labels):
+                        if gap_labels[k] == anchor_label:
+                            mean_gap += gaps[k]
+                    mean_gap = int(mean_gap / max_label[1])
+
+                    for k, gap_label in enumerate(gap_labels):
+                        # search possible compo from the compo with a different label
+                        if gap_label != anchor_label:
+                            possible_compo = self.search_possible_compo(anchor_compo=compos.loc[group[k]], approximate_gap=mean_gap)
+                            if possible_compo is not None:
+                                compos.loc[possible_compo['id'], 'group'] = i
 
     '''
     ******************************
