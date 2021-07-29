@@ -176,7 +176,7 @@ class ComposDF:
         if check_missed_compo:
             self.add_missed_compo_to_group_by_gaps()
 
-    def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='line'):
+    def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
         clustering = DBSCAN(eps=eps, min_samples=min_samples).fit(x)
         tag = 'cluster_' + attr
@@ -188,9 +188,9 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr=tag, name=tag)
 
-    def group_by_clusters(self, cluster, alignment, new_groups=True, show=True, show_method='block'):
+    def group_by_clusters(self, cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
-        if 'group' not in compos.columns or new_groups:
+        if 'group' not in compos.columns:
             self.compos_dataframe['group'] = -1
             group_id = 0
         else:
@@ -309,7 +309,7 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name=name)
 
-    def check_group_of_two_compos_validity_by_areas(self):
+    def check_group_of_two_compos_validity_by_areas(self, show=True, show_method='block'):
         groups = self.compos_dataframe.groupby('group').groups
         for i in groups:
             # if the group only has two elements, check if it's valid by elements' areas
@@ -318,8 +318,13 @@ class ComposDF:
                 # if the two are too different in area, mark the group as invalid
                 if compos['area'].max() - compos['area'].min() > 500 and compos['area'].max() > compos['area'].min() * 2:
                     self.compos_dataframe.loc[groups[i], 'group'] = -1
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name='valid')
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name='valid')
 
-    def check_group_validity_by_compos_gap(self):
+    def check_group_validity_by_compos_gap(self, show=True, show_method='block'):
         self.calc_gap_in_group()
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
@@ -339,6 +344,11 @@ class ComposDF:
                         for j, lab in enumerate(gap_labels):
                             if lab == label:
                                 compos.loc[group[j], 'group'] = -1
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name='valid')
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name='valid')
 
     def search_possible_compo(self, anchor_compo, approximate_gap):
         compos = self.compos_dataframe
