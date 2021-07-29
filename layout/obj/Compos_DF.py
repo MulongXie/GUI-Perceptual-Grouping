@@ -140,7 +140,7 @@ class ComposDF:
                 df_all['group_pair'] = -1
         self.compos_dataframe = df_all
 
-    def repetitive_group_recognition(self, show=False, check_missed_compo=True):
+    def repetitive_group_recognition(self, show=False):
         '''
         Recognize repetitive layout of elements that are not contained in Block by clustering
         '''
@@ -178,8 +178,9 @@ class ComposDF:
         self.compos_dataframe = df
 
         # check and add missed compos according to compo gaps in group
-        if check_missed_compo:
-            self.add_missed_compo_to_group_by_gaps()
+        self.add_missed_compo_to_group_by_gaps()
+        # check group validity by compos gaps
+        self.check_group_validity_by_compos_gap()
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))

@@ -14,10 +14,8 @@ def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True):
     # step2. group compos according to clustering
     compos_cp.group_by_clusters(cluster=['cluster_area', 'cluster_center_column'], alignment='v', show=show)
     compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
-    compos_cp.check_group_validity_by_compos_gap(show=show)
     compos_cp.group_by_clusters_conflict(cluster=['cluster_area', 'cluster_center_row'], alignment='h', show=show)
     compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
-    compos_cp.check_group_validity_by_compos_gap(show=show)
     compos_cp.compos_dataframe.rename({'group': 'group_nontext'}, axis=1, inplace=True)
 
     return compos_cp.compos_dataframe
@@ -34,10 +32,8 @@ def recog_repetition_text(compos, show=True, only_non_contained_compo=True):
     # step2. group compos according to clustering
     compos_cp.group_by_clusters('cluster_row_min', alignment='h', show=show)
     compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
-    compos_cp.check_group_validity_by_compos_gap(show=show)
     compos_cp.group_by_clusters_conflict('cluster_column_min', alignment='v', show=show)
     compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
-    compos_cp.check_group_validity_by_compos_gap(show=show)
     compos_cp.regroup_left_compos_by_cluster('cluster_column_min', alignment='v', show=show)
     compos_cp.compos_dataframe.rename({'group': 'group_text'}, axis=1, inplace=True)
 
