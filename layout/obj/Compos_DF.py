@@ -149,11 +149,16 @@ class ComposDF:
         df = self.compos_dataframe
 
         df['alignment'] = np.nan
+        df['gap'] = np.nan
         if 'alignment' in df_nontext:
             df.loc[df['alignment'].isna(), 'alignment'] = df_nontext['alignment']
+        if 'gap' in df_nontext:
+            df.loc[df['gap'].isna(), 'gap'] = df_nontext['gap']
         df = df.merge(df_nontext, how='left')
         if 'alignment' in df_text:
             df.loc[df['alignment'].isna(), 'alignment'] = df_text['alignment']
+        if 'gap' in df_text:
+            df.loc[df['gap'].isna(), 'gap'] = df_text['gap']
         df = df.merge(df_text, how='left')
         df.rename({'alignment': 'alignment_in_group'}, axis=1, inplace=True)
 
@@ -374,7 +379,6 @@ class ComposDF:
         return None
 
     def add_missed_compo_to_group_by_gaps(self):
-        self.calc_gap_in_group()
         self.calc_gap_in_group()
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
