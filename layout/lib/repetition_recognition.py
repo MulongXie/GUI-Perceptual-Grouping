@@ -2,47 +2,44 @@ import math
 import numpy as np
 
 
-def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True, inplace=True):
+def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True):
     compos_cp = compos.copy()
     compos_cp.select_by_class(['Compo', 'Background'], no_parent=only_non_contained_compo, replace=True)
 
     # step1. cluster compos
-    compos_cp.cluster_dbscan_by_attr('center_column', eps=10, show=show, show_method='block')
-    compos_cp.cluster_dbscan_by_attr('center_row', eps=10, show=show, show_method='block')
-    compos_cp.cluster_dbscan_by_attr('area', eps=500, show=show, show_method='block')
+    compos_cp.cluster_dbscan_by_attr('center_column', eps=10, show=show)
+    compos_cp.cluster_dbscan_by_attr('center_row', eps=10, show=show)
+    compos_cp.cluster_dbscan_by_attr('area', eps=500, show=show)
 
     # step2. group compos according to clustering
-    compos_cp.group_by_clusters(cluster=['cluster_area', 'cluster_center_column'], alignment='v', show=show, new_groups=True)
-    compos_cp.check_group_of_two_compos_validity_by_areas()
-    compos_cp.check_group_validity_by_compos_gap()
-    compos_cp.group_by_clusters_conflict(cluster=['cluster_area', 'cluster_center_row'], alignment='h', show=show, show_method='block')
-    compos_cp.check_group_of_two_compos_validity_by_areas()
-    compos_cp.check_group_validity_by_compos_gap()
+    compos_cp.group_by_clusters(cluster=['cluster_area', 'cluster_center_column'], alignment='v', show=show)
+    compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
+    compos_cp.check_group_validity_by_compos_gap(show=show)
+    compos_cp.group_by_clusters_conflict(cluster=['cluster_area', 'cluster_center_row'], alignment='h', show=show)
+    compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
+    compos_cp.check_group_validity_by_compos_gap(show=show)
     compos_cp.compos_dataframe.rename({'group': 'group_nontext'}, axis=1, inplace=True)
 
-    df = compos_cp.compos_dataframe
-    return df
+    return compos_cp.compos_dataframe
 
 
-def recog_repetition_text(compos, show=True, only_non_contained_compo=True, inplace=True):
+def recog_repetition_text(compos, show=True, only_non_contained_compo=True):
     compos_cp = compos.copy()
     compos_cp.select_by_class(['Text'], no_parent=only_non_contained_compo, replace=True)
 
     # step1. cluster compos
-    compos_cp.cluster_dbscan_by_attr('row_min', 10, show=show, show_method='block')
-    compos_cp.cluster_dbscan_by_attr('column_min', 10, show=show, show_method='block')
+    compos_cp.cluster_dbscan_by_attr('row_min', 10, show=show)
+    compos_cp.cluster_dbscan_by_attr('column_min', 10, show=show)
     
     # step2. group compos according to clustering
-    compos_cp.group_by_clusters('cluster_row_min', alignment='h', new_groups=True, show=show, show_method='block')
-    compos_cp.check_group_of_two_compos_validity_by_areas()
-    compos_cp.group_by_clusters_conflict('cluster_column_min', alignment='v', show=show, show_method='block')
-    compos_cp.check_group_of_two_compos_validity_by_areas()
-    compos_cp.regroup_left_compos_by_cluster('cluster_column_min', alignment='v', show=show, show_method='block')
+    compos_cp.group_by_clusters('cluster_row_min', alignment='h', show=show)
+    compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
+    compos_cp.group_by_clusters_conflict('cluster_column_min', alignment='v', show=show)
+    compos_cp.check_group_of_two_compos_validity_by_areas(show=show)
+    compos_cp.regroup_left_compos_by_cluster('cluster_column_min', alignment='v', show=show)
     compos_cp.compos_dataframe.rename({'group': 'group_text'}, axis=1, inplace=True)
 
-    df = compos_cp.compos_dataframe
-    # df = df.drop(columns=['cluster_column_min', 'cluster_row_min'])
-    return df
+    return compos_cp.compos_dataframe
 
 
 def calc_connections(compos):
