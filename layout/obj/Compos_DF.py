@@ -21,6 +21,11 @@ class ComposDF:
 
         self.item_id = 0    # id of list item
 
+    '''
+    ***********************
+    *** Basic Operation ***
+    ***********************
+    '''
     def copy(self):
         return copy.deepcopy(self)
 
@@ -65,6 +70,39 @@ class ComposDF:
 
     def to_csv(self, file):
         self.compos_dataframe.to_csv(file)
+
+    def select_by_class(self, categories, no_parent=False, replace=False):
+        df = self.compos_dataframe
+        df = df[df['class'].isin(categories)]
+        if no_parent:
+            df = df[pd.isna(df['parent'])]
+        if replace:
+            self.compos_dataframe = df
+        else:
+            return df
+
+    def calc_gap_in_group(self):
+        compos = self.compos_dataframe
+        compos['gap'] = -1
+        groups = compos.groupby('group').groups
+        for i in groups:
+            group = groups[i]
+            if i != -1 and len(group) > 1:
+                group_compos = compos.loc[list(groups[i])]
+                if 'alignment_in_group' in group_compos:
+                    alignment_in_group = group_compos.iloc[0]['alignment_in_group']
+                else:
+                    alignment_in_group = group_compos.iloc[0]['alignment']
+                if alignment_in_group == 'v':
+                    group_compos = group_compos.sort_values('center_row')
+                    for j in range(len(group_compos) - 1):
+                        id = group_compos.iloc[j]['id']
+                        compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['row_min'] - group_compos.iloc[j]['row_max']
+                else:
+                    group_compos = group_compos.sort_values('center_column')
+                    for j in range(len(group_compos) - 1):
+                        id = group_compos.iloc[j]['id']
+                        compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['column_min'] - group_compos.iloc[j]['column_max']
 
     '''
     ******************************
@@ -150,20 +188,7 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr=tag, name=tag)
 
-    def cluster_dbscan_by_attrs(self, attrs, eps, min_samples=1, show=True, show_method='line'):
-        x = list(self.compos_dataframe[attrs].values)
-        clustering = DBSCAN(eps=eps, min_samples=min_samples).fit(x)
-        tag = 'cluster_' + '_'.join(attrs)
-        self.compos_dataframe[tag] = clustering.labels_
-        self.compos_dataframe[tag].astype(int)
-        if show:
-            if show_method == 'line':
-                self.visualize(gather_attr=tag, name=tag)
-            elif show_method == 'block':
-                self.visualize_fill(gather_attr=tag, name=tag)
-
-    def group_by_clusters(self, cluster, alignment,
-                          new_groups=True, show=True, show_method='block'):
+    def group_by_clusters(self, cluster, alignment, new_groups=True, show=True, show_method='block'):
         compos = self.compos_dataframe
         if 'group' not in compos.columns or new_groups:
             self.compos_dataframe['group'] = -1
@@ -172,34 +197,6 @@ class ComposDF:
             group_id = compos['group'].max() + 1
 
         groups = self.compos_dataframe.groupby(cluster).groups
-        for i in groups:
-            if len(groups[i]) > 1:
-                self.compos_dataframe.loc[list(groups[i]), 'group'] = group_id
-                self.compos_dataframe.loc[list(groups[i]), 'alignment'] = alignment
-                group_id += 1
-        self.compos_dataframe['group'].astype(int)
-
-        if show:
-            name = cluster if type(cluster) != list else '+'.join(cluster)
-            if show_method == 'line':
-                self.visualize(gather_attr='group', name=name)
-            elif show_method == 'block':
-                self.visualize_fill(gather_attr='group', name=name)
-
-    def regroup_left_compos_by_cluster(self, cluster, alignment, show=True, show_method='block'):
-        compos = self.compos_dataframe
-        group_id = compos['group'].max() + 1
-
-        # select left compos that in a group only containing itself
-        groups = compos.groupby('group').groups
-        left_compos_id = []
-        for i in groups:
-            if i != -1 and len(groups[i]) == 1:
-                left_compos_id += list(groups[i])
-        left_compos = compos.loc[left_compos_id]
-
-        # regroup the left compos by given cluster
-        groups = left_compos.groupby(cluster).groups
         for i in groups:
             if len(groups[i]) > 1:
                 self.compos_dataframe.loc[list(groups[i]), 'group'] = group_id
@@ -236,53 +233,6 @@ class ComposDF:
         if abs(compo_area - mean_area1) < abs(compo_area - mean_area2):
             return 1
         return 2
-
-    def closer_cluster_by_mean_distance(self, compo_index, cluster1, cluster2):
-        def min_distance(c, cl):
-            return np.mean(np.square(abs(cl['center_row'] - c['center_row'])) + np.square(abs(cl['center_column'] - c['center_column'])))
-        compos = self.compos_dataframe
-        compo = compos.loc[compo_index]
-        compos = compos[compos['id'] != compo['id']]
-        cl1 = compos[compos[cluster1] == compo[cluster1]]
-        cl2 = compos[compos[cluster2] == compo[cluster2]]
-        if len(cl2) == 1: return 1
-        elif len(cl1) == 1: return 2
-
-        print(min_distance(compo, cl1), min_distance(compo, cl2))
-        if min_distance(compo, cl1) < min_distance(compo, cl2):
-            return 1
-        return 2
-
-    def check_group_of_two_compos_validity_by_areas(self):
-        groups = self.compos_dataframe.groupby('group').groups
-        for i in groups:
-            # if the group only has two elements, check if it's valid by elements' areas
-            if i != -1 and len(groups[i]) == 2:
-                compos = self.compos_dataframe.loc[groups[i]]
-                # if the two are too different in area, mark the group as invalid
-                if compos['area'].max() - compos['area'].min() > 500 and compos['area'].max() > compos['area'].min() * 2:
-                    self.compos_dataframe.loc[groups[i], 'group'] = -1
-
-    def check_group_validity_by_compos_gap(self):
-        self.calc_gap_in_group()
-        compos = self.compos_dataframe
-        groups = compos.groupby('group').groups
-        for i in groups:
-            if i != -1 and len(groups[i]) > 2:
-                group = groups[i]  # list of component ids in the group
-                gaps = list(compos.loc[group]['gap'])
-
-                # cluster compos gaps
-                clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
-                labels = list(clustering.labels_)
-                label_count = dict((i, labels.count(i)) for i in labels)  # {label: frequency of label}
-
-                for label in label_count:
-                    # invalid compo if the compo's gap with others is different from others
-                    if label_count[label] < 2:
-                        for j, lab in enumerate(labels):
-                            if lab == label:
-                                compos.loc[group[j], 'group'] = -1
 
     def group_by_clusters_conflict(self, cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
@@ -326,38 +276,69 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name=name)
 
-    def select_by_class(self, categories, no_parent=False, replace=False):
-        df = self.compos_dataframe
-        df = df[df['class'].isin(categories)]
-        if no_parent:
-            df = df[pd.isna(df['parent'])]
-        if replace:
-            self.compos_dataframe = df
-        else:
-            return df
-
-    def calc_gap_in_group(self):
+    '''
+    ********************************
+    *** Refine Repetition Result ***
+    ********************************
+    '''
+    def regroup_left_compos_by_cluster(self, cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
-        compos['gap'] = -1
+        group_id = compos['group'].max() + 1
+
+        # select left compos that in a group only containing itself
+        groups = compos.groupby('group').groups
+        left_compos_id = []
+        for i in groups:
+            if i != -1 and len(groups[i]) == 1:
+                left_compos_id += list(groups[i])
+        left_compos = compos.loc[left_compos_id]
+
+        # regroup the left compos by given cluster
+        groups = left_compos.groupby(cluster).groups
+        for i in groups:
+            if len(groups[i]) > 1:
+                self.compos_dataframe.loc[list(groups[i]), 'group'] = group_id
+                self.compos_dataframe.loc[list(groups[i]), 'alignment'] = alignment
+                group_id += 1
+        self.compos_dataframe['group'].astype(int)
+
+        if show:
+            name = cluster if type(cluster) != list else '+'.join(cluster)
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name=name)
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name=name)
+
+    def check_group_of_two_compos_validity_by_areas(self):
+        groups = self.compos_dataframe.groupby('group').groups
+        for i in groups:
+            # if the group only has two elements, check if it's valid by elements' areas
+            if i != -1 and len(groups[i]) == 2:
+                compos = self.compos_dataframe.loc[groups[i]]
+                # if the two are too different in area, mark the group as invalid
+                if compos['area'].max() - compos['area'].min() > 500 and compos['area'].max() > compos['area'].min() * 2:
+                    self.compos_dataframe.loc[groups[i], 'group'] = -1
+
+    def check_group_validity_by_compos_gap(self):
+        self.calc_gap_in_group()
+        compos = self.compos_dataframe
         groups = compos.groupby('group').groups
         for i in groups:
-            group = groups[i]
-            if i != -1 and len(group) > 1:
-                group_compos = compos.loc[list(groups[i])]
-                if 'alignment_in_group' in group_compos:
-                    alignment_in_group = group_compos.iloc[0]['alignment_in_group']
-                else:
-                    alignment_in_group = group_compos.iloc[0]['alignment']
-                if alignment_in_group == 'v':
-                    group_compos = group_compos.sort_values('center_row')
-                    for j in range(len(group_compos) - 1):
-                        id = group_compos.iloc[j]['id']
-                        compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['row_min'] - group_compos.iloc[j]['row_max']
-                else:
-                    group_compos = group_compos.sort_values('center_column')
-                    for j in range(len(group_compos) - 1):
-                        id = group_compos.iloc[j]['id']
-                        compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['column_min'] - group_compos.iloc[j]['column_max']
+            if i != -1 and len(groups[i]) > 2:
+                group = groups[i]  # list of component ids in the group
+                gaps = list(compos.loc[group]['gap'])
+
+                # cluster compos gaps
+                clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
+                labels = list(clustering.labels_)
+                label_count = dict((i, labels.count(i)) for i in labels)  # {label: frequency of label}
+
+                for label in label_count:
+                    # invalid compo if the compo's gap with others is different from others
+                    if label_count[label] < 2:
+                        for j, lab in enumerate(labels):
+                            if lab == label:
+                                compos.loc[group[j], 'group'] = -1
 
     '''
     ******************************
