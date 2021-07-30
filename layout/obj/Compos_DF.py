@@ -81,8 +81,9 @@ class ComposDF:
         else:
             return df
 
-    def calc_gap_in_group(self):
-        compos = self.compos_dataframe
+    def calc_gap_in_group(self, compos=None):
+        if compos is None:
+            compos = self.compos_dataframe
         compos['gap'] = -1
         groups = compos.groupby('group').groups
         for i in groups:
@@ -180,7 +181,7 @@ class ComposDF:
         # check and add missed compos according to compo gaps in group
         self.add_missed_compo_to_group_by_gaps()
         # check group validity by compos gaps
-        self.check_group_validity_by_compos_gap()
+        # self.check_group_validity_by_compos_gap()
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
@@ -355,6 +356,51 @@ class ComposDF:
                 self.visualize(gather_attr='group', name='valid')
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name='valid')
+
+    def regroup_compos_by_compos_gap(self):
+        self.calc_gap_in_group()
+        compos = self.compos_dataframe
+        groups = compos.groupby('group').groups  # {group name: list of compo ids}
+        for i in groups:
+            if i != -1 and len(groups[i]) > 2:
+                group = groups[i]  # list of component ids in the group
+                gaps = list(compos.loc[group]['gap'])
+                # cluster compos gaps
+                clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
+                gap_labels = list(clustering.labels_)   # [lists of labels for different gaps]
+                gap_label_count = dict((i, gap_labels.count(i)) for i in gap_labels)  # {label: frequency of label}
+
+                new_group_num = 0
+                for label in gap_label_count:
+                    if gap_label_count[label] > 2:
+                        new_group = pd.DataFrame()
+                        for j, lab in enumerate(gap_labels):
+                            if lab == label:
+                                new_group = new_group.append(compos.loc[group[j]])
+                                self.calc_gap_in_group(new_group)
+                        new_gap = list(new_group['gap'])
+                        # check if the new group is valid by gaps (should have the same gaps between compos)
+                        is_valid_group = True
+                        for j in range(1, len(new_gap) - 1):
+                            if abs(new_gap[j] - new_gap[j - 1]) > 10:
+                                is_valid_group = False
+                                break
+                        if is_valid_group:
+                            # do not change the first group
+                            if new_group_num >= 1:
+                                compos.loc[new_group['id'], 'group'] += '-' + str(new_group_num)
+
+                                # check the last compo
+                                last_compo = compos.loc[group[-1]]
+                                if new_group.iloc[-1]['alignment_in_group'] == 'v':
+                                    new_group.sort_values('center_row')
+                                    gap_with_the_last = last_compo['row_min'] - new_group.iloc[-1]['row_max']
+                                else:
+                                    new_group.sort_values('center_column')
+                                    gap_with_the_last = last_compo['column_min'] - new_group.iloc[-1]['column_max']
+                                if abs(gap_with_the_last - new_group.iloc[0]['gap']) < 10:
+                                    compos.loc[last_compo['id'], 'group'] += '-' + str(new_group_num)
+                            new_group_num += 1
 
     def search_possible_compo(self, anchor_compo, approximate_gap):
         compos = self.compos_dataframe
