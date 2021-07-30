@@ -30,7 +30,7 @@ def visualize_fill(img, compos_df, resize_shape=None, attr='class', name='board'
         img = cv2.resize(img, resize_shape)
 
     board = img.copy()
-    for i in range(1, len(compos_df)):
+    for i in range(len(compos_df)):
         compo = compos_df.iloc[i]
         if compo[attr] == -1:
             # board = cv2.rectangle(board, (compo.column_min, compo.row_min), (compo.column_max, compo.row_max), random_color(), -1)

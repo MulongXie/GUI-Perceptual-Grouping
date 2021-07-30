@@ -320,7 +320,7 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name=name)
 
-    def check_group_of_two_compos_validity_by_areas(self, show=True, show_method='block'):
+    def check_group_of_two_compos_validity_by_areas(self, show=False, show_method='block'):
         groups = self.compos_dataframe.groupby('group').groups
         for i in groups:
             # if the group only has two elements, check if it's valid by elements' areas
@@ -336,6 +336,7 @@ class ComposDF:
                 self.visualize_fill(gather_attr='group', name='valid-two-compos')
 
     def check_group_validity_by_compos_gap(self, show=False, show_method='block'):
+        changed = False
         self.calc_gap_in_group()
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
@@ -355,7 +356,14 @@ class ComposDF:
                         for j, lab in enumerate(gap_labels):
                             if lab == label:
                                 compos.loc[group[j], 'group'] = -1
+                                changed = True
         self.check_group_of_two_compos_validity_by_areas(show=show)
+
+        # recursively run till no changes
+        if changed:
+            print('recursion')
+            self.check_group_validity_by_compos_gap()
+
         if show:
             if show_method == 'line':
                 self.visualize(gather_attr='group', name='valid')
