@@ -178,10 +178,12 @@ class ComposDF:
         df.group = df.group.fillna(-1)
         self.compos_dataframe = df
 
+        # slip group according to compo gaps if needed
+        self.regroup_compos_by_compos_gap()
         # check and add missed compos according to compo gaps in group
         self.add_missed_compo_to_group_by_gaps()
         # check group validity by compos gaps
-        # self.check_group_validity_by_compos_gap()
+        self.check_group_validity_by_compos_gap()
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
@@ -331,7 +333,7 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name='valid')
 
-    def check_group_validity_by_compos_gap(self, show=True, show_method='block'):
+    def check_group_validity_by_compos_gap(self, show=False, show_method='block'):
         self.calc_gap_in_group()
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
