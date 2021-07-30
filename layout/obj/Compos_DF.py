@@ -166,6 +166,7 @@ class ComposDF:
         # clean and rename attributes
         df = df.drop(list(df.filter(like='cluster')), axis=1)
         df = df.fillna(-1)
+        df['group'] = -1
         for i in range(len(df)):
             if df.iloc[i]['group_nontext'] != -1:
                 df.loc[i, 'group'] = 'nt-' + str(int(df.iloc[i]['group_nontext']))
