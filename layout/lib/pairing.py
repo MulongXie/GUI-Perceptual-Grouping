@@ -6,33 +6,6 @@ import math
 import layout.lib.draw as draw
 
 
-def match_two_groups(g1, g2, max_pos_bias):
-    assert g1.iloc[0]['alignment_in_group'] == g2.iloc[0]['alignment_in_group']
-    alignment = g1.iloc[0]['alignment_in_group']
-    match_num = 0
-    pairs = {}
-    for i in range(len(g1)):
-        c1 = g1.iloc[i]
-        for j in range(len(g2)):
-            c2 = g2.iloc[j]
-            if alignment == 'h':
-                if abs(c1.column_min - c2.column_min) < max_pos_bias:
-                    pairs[c1['id']] = c2['id']
-                    match_num += 1
-                    break
-            elif alignment == 'v':
-                if abs(c1.row_min - c2.row_min) < max_pos_bias:
-                    pairs[c1['id']] = c2['id']
-                    match_num += 1
-                    break
-    if match_num >= min(len(g1), len(g2)):
-        for i in pairs:
-            g1.loc[i, 'pair_to'] = pairs[i]
-            g2.loc[pairs[i], 'pair_to'] = i
-        return True
-    return False
-
-
 def calc_compos_distance(compo1, compo2):
     # compo1 is on the left of compo2
     if compo1['column_max'] <= compo2['column_min']:
@@ -102,7 +75,7 @@ def match_two_groups_by_alignment(g1, g2):
     count = dict((i, alignments.count(i)) for i in alignments)
 
 
-def match_two_groups_by_distance(g1, g2):
+def match_two_groups_by_distance(g1, g2, diff_distance=1.5, diff_angle=15):
     assert g1.iloc[0]['alignment_in_group'] == g2.iloc[0]['alignment_in_group']
     alignment = g1.iloc[0]['alignment_in_group']
     pairs = {}
@@ -117,41 +90,54 @@ def match_two_groups_by_distance(g1, g2):
 
     if len(g1) == len(g2):
         distances = []
+        angles = []
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             c2 = g2_sort.iloc[i]
             distance = calc_compos_distance(c1, c2)
+            angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
             # mismatch if too far
-            if distance > max_side * 2:
+            if distance > max_side * diff_distance:
                 return False
-            # mismatch if it's too different from others
+            # compare the pair's distance and angle between the line and the x-axis
             if i > 0:
-                if max(distance, distances[i-1]) > 1.5 * min(distance, distances[i-1]):
+                if max(distance, distances[i-1]) > diff_distance * min(distance, distances[i-1]) and \
+                        abs(angle - angles[i - 1]) < diff_angle:
                     return False
             pairs[c1['id']] = c2['id']
             distances.append(distance)
+            angles.append(angle)
     else:
         distances = []
+        angles = []
         # calculate the distances between each c1 in g1 and all c2 in g2
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             distance = None
+            angle = None
             for j in range(len(g2_sort)):
                 c2 = g2_sort.iloc[j]
                 d_cur = calc_compos_distance(c1, c2)
                 if distance is None or distance > d_cur:
                     distance = d_cur
+                    angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
                     pairs[c1['id']] = c2['id']
             distances.append(distance)
-        # match the distances
+            angles.append(angle)
+        # match the distances and angles
         match_num = 1
         for i in range(len(distances)):
             dis_i = distances[i]
+            angle_i = angles[i]
             for j in range(len(distances)):
                 if i == j:
                     continue
                 dis_j = distances[j]
-                if max(dis_i, dis_j) < max_side * 1.5 and max(dis_i, dis_j) < 1.5 * min(dis_i, dis_j):
+                angle_j = angles[j]
+                # compare the pair's distance and angle between the line and the x-axis
+                if max(dis_i, dis_j) < max_side * diff_distance and\
+                        max(dis_i, dis_j) < diff_distance * min(dis_i, dis_j) and\
+                        abs(angle_i - angle_j) < diff_angle:
                     match_num += 1
                     break
         # print(g1.iloc[0]['group'], g2.iloc[0]['group'], match_num, distances, max_side)
@@ -240,14 +226,3 @@ def pair_visualization(pairs, img, img_shape, show_method='line'):
     cv2.waitKey()
     cv2.destroyAllWindows()
 
-
-# def pair_cvt_df(pairs):
-#     df = pd.DataFrame()
-#     for i in pairs:
-#         pair = pairs[i]
-#         for group in pair:
-#             df = df.append(group.compos_dataframe, sort=False)
-#     # df = df.sort_index()
-#     df[list(df.filter(like='group'))] = df[list(df.filter(like='group'))].fillna(-1).astype(int)
-#     df['pair'] = df['pair'].fillna(-1).astype(int)
-#     return df

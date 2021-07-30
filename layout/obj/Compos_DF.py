@@ -183,7 +183,7 @@ class ComposDF:
         # check and add missed compos according to compo gaps in group
         self.add_missed_compo_to_group_by_gaps()
         # check group validity by compos gaps
-        self.check_group_validity_by_compos_gap()
+        # self.check_group_validity_by_compos_gap()
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
