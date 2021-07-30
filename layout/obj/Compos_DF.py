@@ -374,7 +374,7 @@ class ComposDF:
 
                 new_group_num = 0
                 for label in gap_label_count:
-                    if gap_label_count[label] > 2:
+                    if gap_label_count[label] >= 2:
                         new_group = pd.DataFrame()
                         for j, lab in enumerate(gap_labels):
                             if lab == label:

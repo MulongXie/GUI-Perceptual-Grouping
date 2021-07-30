@@ -141,7 +141,7 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.5, diff_angle=15):
                     match_num += 1
                     break
         # print(g1.iloc[0]['group'], g2.iloc[0]['group'], match_num, distances, max_side)
-        if match_num < min(len(g1), len(g2)):
+        if match_num < min(len(g1), len(g2)) * 0.8:
             return False
 
     # print('Success:', g1.iloc[0]['group'], g2.iloc[0]['group'], distances, max_side)
