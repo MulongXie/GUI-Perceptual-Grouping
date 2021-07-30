@@ -164,7 +164,6 @@ class ComposDF:
         df.rename({'alignment': 'alignment_in_group'}, axis=1, inplace=True)
 
         # clean and rename attributes
-        df = df.drop(list(df.filter(like='cluster')), axis=1)
         df = df.fillna(-1)
         df['group'] = -1
         for i in range(len(df)):
@@ -176,7 +175,9 @@ class ComposDF:
         for i in groups:
             if len(groups[i]) == 1:
                 df.loc[groups[i], 'group'] = -1
-        df.group = df.group.fillna(-1)
+
+        df = df.drop(list(df.filter(like='cluster')), axis=1)
+        df = df.drop(columns=['group_nontext', 'group_text'])
         self.compos_dataframe = df
 
         # slip group according to compo gaps if needed
@@ -184,7 +185,7 @@ class ComposDF:
         # check and add missed compos according to compo gaps in group
         self.add_missed_compo_to_group_by_gaps()
         # check group validity by compos gaps
-        # self.check_group_validity_by_compos_gap()
+        self.check_group_validity_by_compos_gap()
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
@@ -330,9 +331,9 @@ class ComposDF:
                     self.compos_dataframe.loc[groups[i], 'group'] = -1
         if show:
             if show_method == 'line':
-                self.visualize(gather_attr='group', name='valid')
+                self.visualize(gather_attr='group', name='valid-two-compos')
             elif show_method == 'block':
-                self.visualize_fill(gather_attr='group', name='valid')
+                self.visualize_fill(gather_attr='group', name='valid-two-compos')
 
     def check_group_validity_by_compos_gap(self, show=False, show_method='block'):
         self.calc_gap_in_group()
@@ -354,6 +355,7 @@ class ComposDF:
                         for j, lab in enumerate(gap_labels):
                             if lab == label:
                                 compos.loc[group[j], 'group'] = -1
+        self.check_group_of_two_compos_validity_by_areas(show=show)
         if show:
             if show_method == 'line':
                 self.visualize(gather_attr='group', name='valid')
@@ -466,10 +468,7 @@ class ComposDF:
     '''
     def pair_groups(self):
         # gather by same groups
-        groups_nontext = self.split_groups('group_nontext')
-        groups_text = self.split_groups('group_text')
-        all_groups = groups_nontext + groups_text
-        # all_groups = self.split_groups('group')
+        all_groups = self.split_groups('group')
 
         # pairing between groups
         if 'group_pair' in self.compos_dataframe:
@@ -485,8 +484,6 @@ class ComposDF:
             else:
                 df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'group_pair'] = pairs['group_pair']
                 df_all.loc[df_all[df_all['id'].isin(pairs['id'])]['id'], 'pair_to'] = pairs['pair_to']
-            # tidy up
-            df_all = df_all.drop(columns=['group_nontext', 'group_text'])
 
             # add alignment between list items
             # df_all.rename({'alignment': 'alignment_list'}, axis=1, inplace=True)
