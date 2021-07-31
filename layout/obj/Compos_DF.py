@@ -361,7 +361,6 @@ class ComposDF:
 
         # recursively run till no changes
         if changed:
-            print('recursion')
             self.check_group_validity_by_compos_gap()
 
         if show:
@@ -386,6 +385,7 @@ class ComposDF:
                 new_group_num = 0
                 for label in gap_label_count:
                     if gap_label_count[label] >= 2:
+                        # select compos with same gaps to form a new group
                         new_group = pd.DataFrame()
                         for j, lab in enumerate(gap_labels):
                             if lab == label:
@@ -415,7 +415,7 @@ class ComposDF:
                                     compos.loc[last_compo['id'], 'group'] += '-' + str(new_group_num)
                             new_group_num += 1
 
-    def search_possible_compo(self, anchor_compo, approximate_gap):
+    def search_possible_compo(self, anchor_compo, approximate_gap, direction='next'):
         compos = self.compos_dataframe
         if 'alignment_in_group' in anchor_compo:
             alignment_in_group = anchor_compo['alignment_in_group']
@@ -423,17 +423,33 @@ class ComposDF:
             alignment_in_group = anchor_compo['alignment']
 
         if alignment_in_group == 'v':
-            approx_row = anchor_compo['row_max'] + approximate_gap + 0.5 * anchor_compo['height']
+            # search below
+            if direction == 'next':
+                approx_row = anchor_compo['row_max'] + approximate_gap + 0.5 * anchor_compo['height']
+            # search above
+            else:
+                approx_row = anchor_compo['row_min'] - (approximate_gap + 0.5 * anchor_compo['height'])
+            if approx_row >= self.img.shape[0] or approx_row <= 0: return None
+
             for i in range(len(compos)):
                 compo = compos.iloc[i]
-                if compo['row_min'] < approx_row < compo['row_max'] and \
+                if max(compo['area'], anchor_compo['area']) < min(compo['area'], anchor_compo['area']) * 3 and\
+                        compo['row_min'] < approx_row < compo['row_max'] and \
                         max(compo['column_min'], anchor_compo['column_min']) < min(compo['column_max'], anchor_compo['column_max']):
                     return compo
         else:
-            approx_column = anchor_compo['column_max'] + approximate_gap + 0.5 * anchor_compo['width']
+            # search right
+            if direction == 'next':
+                approx_column = anchor_compo['column_max'] + approximate_gap + 0.5 * anchor_compo['width']
+            # search left
+            else:
+                approx_column = anchor_compo['column_min'] - (approximate_gap + 0.5 * anchor_compo['width'])
+            if approx_column >= self.img.shape[1] or approx_column <= 0: return None
+
             for i in range(len(compos)):
                 compo = compos.iloc[i]
-                if compo['column_min'] < approx_column < compo['column_max'] and \
+                if max(compo['area'], anchor_compo['area']) < min(compo['area'], anchor_compo['area']) * 3 and \
+                        compo['column_min'] < approx_column < compo['column_max'] and \
                         max(compo['row_min'], anchor_compo['row_min']) < min(compo['row_max'], anchor_compo['row_max']):
                     return compo
         return None
@@ -443,7 +459,7 @@ class ComposDF:
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
         for i in groups:
-            if i != -1 and len(groups[i]) > 2:
+            if i != -1 and len(groups[i]) >= 2:
                 group = groups[i]  # list of component ids in the group
                 gaps = list(compos.loc[group]['gap'])
 
@@ -453,6 +469,7 @@ class ComposDF:
                 gap_label_count = dict((i, gap_labels.count(i)) for i in gap_labels)  # {label: frequency of label}
                 # get the most counted label
                 max_label = max(gap_label_count.items(), key=lambda k: k[1])  # (label id, count number)
+                # if there are more than half compos with that similar gap, find possibly missed compos by gap
                 if max_label[1] > len(group) * 0.5:
                     anchor_label = max_label[0]
                     # calculate the mean gap with the
@@ -468,6 +485,22 @@ class ComposDF:
                             possible_compo = self.search_possible_compo(anchor_compo=compos.loc[group[k]], approximate_gap=mean_gap)
                             if possible_compo is not None:
                                 compos.loc[possible_compo['id'], 'group'] = i
+                                compos.loc[possible_compo['id'], 'alignment_in_group'] = compos.loc[group[k], 'alignment_in_group']
+
+                # search possible compos outside the group
+                group_compos = compos.loc[group]
+                if group_compos.iloc[0]['alignment_in_group'] == 'v': group_compos = group_compos.sort_values('center_row')
+                else: group_compos = group_compos.sort_values('center_column')
+                # search previously (left or above)
+                possible_compo = self.search_possible_compo(group_compos.iloc[0], group_compos.iloc[0]['gap'], direction='prev')
+                if possible_compo is not None:
+                    compos.loc[possible_compo['id'], 'group'] = i
+                    compos.loc[possible_compo['id'], 'alignment_in_group'] = group_compos.iloc[0]['alignment_in_group']
+                # search next (right or below)
+                possible_compo = self.search_possible_compo(group_compos.iloc[-1], group_compos.iloc[0]['gap'], direction='next')
+                if possible_compo is not None:
+                    compos.loc[possible_compo['id'], 'group'] = i
+                    compos.loc[possible_compo['id'], 'alignment_in_group'] = group_compos.iloc[0]['alignment_in_group']
 
     '''
     ******************************
