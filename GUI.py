@@ -107,14 +107,13 @@ class GUI:
         self.compos_df = ComposDF(json_data=self.compos_json, gui_img=self.img_resized.copy())
 
     # *** step2 ***
-    def recognize_repetitive_layout(self, check_valid_group=True):
+    def recognize_repetitive_layout(self):
         # cluster elements into groups according to position and area
         self.compos_df.repetitive_group_recognition()   # group, alignment_in_group, group_nontext, group_text
-        # check invalid group
-        if check_valid_group:
-            check_valid_group_by_interleaving(self.compos_df.compos_dataframe)
         # pair clusters (groups)
         self.compos_df.pair_groups()                    # group_pair, pair_to
+        # recognize repetitive block by checking their children's connections
+        self.compos_df.repetitive_block_recognition()   # group_pair
         # identify list items in each paired group
         self.compos_df.list_item_partition()            # list_item
 
@@ -132,7 +131,7 @@ class GUI:
     # entry method
     def layout_recognition(self, check_valid_group=True):
         self.cvt_compos_json_to_dataframe()
-        self.recognize_repetitive_layout(check_valid_group)
+        self.recognize_repetitive_layout()
         self.cvt_list_and_compos_df_to_obj()
         self.slice_block()
 
@@ -151,11 +150,12 @@ class GUI:
     def visualize_layout_recognition(self):
         self.visualize_compos_df('group')
         self.visualize_compos_df('group_pair')
-        self.visualize_all_compos()
+        # self.visualize_all_compos()
+        self.visualize_lists()
 
     def visualize_compos_df(self, visualize_attr):
         board = self.img_resized.copy()
-        self.compos_df.visualize_fill(board, gather_attr=visualize_attr)
+        self.compos_df.visualize_fill(board, gather_attr=visualize_attr, name=visualize_attr)
 
     def visualize_all_compos(self):
         board = self.img_resized.copy()
@@ -164,6 +164,14 @@ class GUI:
         cv2.imshow('compos', board)
         cv2.waitKey()
         cv2.destroyWindow('compos')
+
+    def visualize_lists(self):
+        board = self.img_resized.copy()
+        for lst in self.lists:
+            board = lst.visualize(board)
+        cv2.imshow('lists', board)
+        cv2.waitKey()
+        cv2.destroyWindow('lists')
 
     def visualize_block(self, block_id):
         board = self.img_resized.copy()
