@@ -75,7 +75,7 @@ def match_two_groups_by_alignment(g1, g2):
     count = dict((i, alignments.count(i)) for i in alignments)
 
 
-def match_two_groups_by_distance(g1, g2, diff_distance=1.5, diff_angle=15):
+def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
     assert g1.iloc[0]['alignment_in_group'] == g2.iloc[0]['alignment_in_group']
     alignment = g1.iloc[0]['alignment_in_group']
     pairs = {}
@@ -97,31 +97,40 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.5, diff_angle=15):
             distance = calc_compos_distance(c1, c2)
             angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
             # mismatch if too far
-            if distance > max_side * diff_distance:
+            if distance > max_side * 2:
                 return False
             # compare the pair's distance and angle between the line and the x-axis
             if i > 0:
-                if max(distance, distances[i-1]) > diff_distance * min(distance, distances[i-1]) and \
+                if (abs(distance - distances[i-1]) > 10 and max(distance, distances[i-1]) > diff_distance * min(distance, distances[i-1])) and \
                         abs(angle - angles[i - 1]) < diff_angle:
                     return False
             pairs[c1['id']] = c2['id']
             distances.append(distance)
             angles.append(angle)
     else:
+        # make sure g1 represents the shorter group while g2 is the longer one
+        if len(g1_sort) > len(g2_sort):
+            temp = g1_sort
+            g1_sort = g2_sort
+            g2_sort = temp
+
         distances = []
         angles = []
+        marked = np.full(len(g2_sort), False)
         # calculate the distances between each c1 in g1 and all c2 in g2
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             distance = None
             angle = None
             for j in range(len(g2_sort)):
+                if marked[j]: continue
                 c2 = g2_sort.iloc[j]
                 d_cur = calc_compos_distance(c1, c2)
                 if distance is None or distance > d_cur:
                     distance = d_cur
-                    angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
+                    angle = math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column']))
                     pairs[c1['id']] = c2['id']
+                    marked[j] = True
             distances.append(distance)
             angles.append(angle)
         # match the distances and angles
@@ -135,8 +144,8 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.5, diff_angle=15):
                 dis_j = distances[j]
                 angle_j = angles[j]
                 # compare the pair's distance and angle between the line and the x-axis
-                if max(dis_i, dis_j) < max_side * diff_distance and\
-                        max(dis_i, dis_j) < diff_distance * min(dis_i, dis_j) and\
+                if max(dis_i, dis_j) < max_side * 2 and\
+                        (abs(dis_i - dis_j) <= 10 or max(dis_i, dis_j) < diff_distance * min(dis_i, dis_j)) and\
                         abs(angle_i - angle_j) < diff_angle:
                     match_num += 1
                     break
