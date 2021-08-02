@@ -640,9 +640,9 @@ class ComposDF:
     def visualize(self, img=None, gather_attr='class', name='board'):
         if img is None:
             img = self.img.copy()
-        draw.visualize(img, self.compos_dataframe, attr=gather_attr, name=name)
+        return draw.visualize(img, self.compos_dataframe, attr=gather_attr, name=name)
 
-    def visualize_fill(self, img=None, gather_attr='class', name='board'):
+    def visualize_fill(self, img=None, gather_attr='class', name='board', show=False):
         if img is None:
             img = self.img.copy()
-        draw.visualize_fill(img, self.compos_dataframe, attr=gather_attr, name=name)
+        return draw.visualize_fill(img, self.compos_dataframe, attr=gather_attr, name=name, show=show)

@@ -30,9 +30,13 @@ class GUI:
         self.compos_df = None    # dataframe for efficient processing
         self.compos = []         # list of Compo objects
 
-        self.detect_result_img_text = None       # visualize text
+        self.detect_result_img_text = None      # visualize text
         self.detect_result_img_non_text = None  # visualize non-text
         self.detect_result_img_merge = None     # visualize all elements
+
+        self.layout_result_img_group = None     # visualize group of compos with repetitive layout
+        self.layout_result_img_pair = None      # visualize paired groups
+        self.layout_result_img_list = None      # visualize list (paired group) boundary
 
         self.lists = []     # list of Compo objects representing List type
         self.blocks = []    # list of Block objects representing Block type
@@ -134,12 +138,18 @@ class GUI:
         self.recognize_repetitive_layout()
         self.cvt_list_and_compos_df_to_obj()
         self.slice_block()
+        self.save_layout_result_imgs()
 
     '''
     *********************
     *** Visualization ***
     *********************
     '''
+    def save_layout_result_imgs(self):
+        self.layout_result_img_group = self.visualize_compos_df('group', show=False)
+        self.layout_result_img_pair = self.visualize_compos_df('group_pair', show=False)
+        self.layout_result_img_list = self.visualize_lists(show=False)
+
     def visualize_element_detection(self):
         cv2.imshow('text', self.detect_result_img_text)
         cv2.imshow('non-text', self.detect_result_img_non_text)
@@ -148,39 +158,45 @@ class GUI:
         cv2.destroyAllWindows()
 
     def visualize_layout_recognition(self):
-        self.visualize_compos_df('group')
-        self.visualize_compos_df('group_pair')
         # self.visualize_all_compos()
-        self.visualize_lists()
+        cv2.imshow('group', self.layout_result_img_group)
+        cv2.imshow('group_pair', self.layout_result_img_pair)
+        cv2.imshow('list', self.layout_result_img_list)
+        cv2.waitKey()
+        cv2.destroyAllWindows()
 
-    def visualize_compos_df(self, visualize_attr):
+    def visualize_compos_df(self, visualize_attr, show=True):
         board = self.img_resized.copy()
-        self.compos_df.visualize_fill(board, gather_attr=visualize_attr, name=visualize_attr)
+        return self.compos_df.visualize_fill(board, gather_attr=visualize_attr, name=visualize_attr, show=show)
 
-    def visualize_all_compos(self):
+    def visualize_all_compos(self, show=True):
         board = self.img_resized.copy()
         for compo in self.compos:
             board = compo.visualize(board)
-        cv2.imshow('compos', board)
-        cv2.waitKey()
-        cv2.destroyWindow('compos')
+        if show:
+            cv2.imshow('compos', board)
+            cv2.waitKey()
+            cv2.destroyWindow('compos')
 
-    def visualize_lists(self):
+    def visualize_lists(self, show=True):
         board = self.img_resized.copy()
         for lst in self.lists:
             board = lst.visualize(board)
-        cv2.imshow('lists', board)
-        cv2.waitKey()
-        cv2.destroyWindow('lists')
+        if show:
+            cv2.imshow('lists', board)
+            cv2.waitKey()
+            cv2.destroyWindow('lists')
+        return board
 
-    def visualize_block(self, block_id):
+    def visualize_block(self, block_id, show=True):
         board = self.img_resized.copy()
-        self.blocks[block_id].visualize_sub_blocks_and_compos(board, show=True)
+        self.blocks[block_id].visualize_sub_blocks_and_compos(board, show=show)
 
-    def visualize_blocks(self):
+    def visualize_blocks(self, show=True):
         board = self.img_resized.copy()
         for block in self.blocks:
             board = block.visualize_block(board)
-        cv2.imshow('compos', board)
-        cv2.waitKey()
-        cv2.destroyWindow('compos')
+        if show:
+            cv2.imshow('compos', board)
+            cv2.waitKey()
+            cv2.destroyWindow('compos')
