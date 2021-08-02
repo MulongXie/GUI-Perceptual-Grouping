@@ -49,6 +49,13 @@ class GUI:
             self.img_reshape = self.compos_json['img_shape']
             self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
 
+    def save_result_imgs(self, output_dir):
+        os.makedirs(output_dir, exist_ok=True)
+        cv2.imwrite(pjoin(output_dir, self.file_name + '-uied.jpg'), self.detect_result_img_merge)
+        cv2.imwrite(pjoin(output_dir, self.file_name + '-group.jpg'), self.layout_result_img_group)
+        cv2.imwrite(pjoin(output_dir, self.file_name + '-pair.jpg'), self.layout_result_img_pair)
+        cv2.imwrite(pjoin(output_dir, self.file_name + '-list.jpg'), self.layout_result_img_list)
+
     '''
     *****************************
     *** GUI Element Detection ***
