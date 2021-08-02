@@ -133,19 +133,19 @@ class GUI:
         self.blocks = blocks
 
     # entry method
-    def layout_recognition(self, check_valid_group=True):
+    def layout_recognition(self):
         self.cvt_compos_json_to_dataframe()
         self.recognize_repetitive_layout()
         self.cvt_list_and_compos_df_to_obj()
         self.slice_block()
-        self.save_layout_result_imgs()
+        self.get_layout_result_imgs()
 
     '''
     *********************
     *** Visualization ***
     *********************
     '''
-    def save_layout_result_imgs(self):
+    def get_layout_result_imgs(self):
         self.layout_result_img_group = self.visualize_compos_df('group', show=False)
         self.layout_result_img_pair = self.visualize_compos_df('group_pair', show=False)
         self.layout_result_img_list = self.visualize_lists(show=False)
