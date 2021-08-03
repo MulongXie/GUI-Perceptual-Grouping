@@ -36,7 +36,7 @@ class List(Compo):
             color = random_color()
             for compo in list_item:
                 board = compo.visualize(board, flag, color=color)
-        board = self.visualize(board, flag)
+        draw_label(board, [self.left, self.top, self.right, self.bottom], (166,100,255), text='List', put_text=True)
         if show:
             cv2.imshow('list', board)
             cv2.waitKey()
