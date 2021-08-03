@@ -70,16 +70,14 @@ def cvt_list_and_compos_by_pair_and_group(df):
 
 
 class Compo:
-    def __init__(self, compo_id, compo_class, compo_df,
-                 children=None, parent=None, list_alignment=None):
+    def __init__(self, compo_id, compo_class, compo_df):
         self.compo_df = compo_df   # df can contain one or more elements (list items)
         self.compo_id = compo_id
-        self.compo_class = compo_class  # List-multi, List-single, Compo, Text
+        self.compo_class = compo_class  # List, Compo, Text
 
         # get the clip for single element
-        self.children = children if children is not None else []    # CompoHTML objs
-        self.parent = parent                                        # CompoHTML obj
-        self.type = 'Compo'
+        self.children = []
+        self.parent = None
 
         # compo boundary
         self.top = None
@@ -91,14 +89,13 @@ class Compo:
         self.width = None
         self.height = None
 
-        self.list_alignment = list_alignment  # for List
         self.text_content = None  # for Text
 
         self.init_info()
 
     def init_info(self):
         compo = self.compo_df
-        if self.compo_class in ['List-multi', 'List-single']:
+        if self.compo_class == 'List':
             self.top = int(compo['row_min'].min())
             self.left = int(compo['column_min'].min())
             self.bottom = int(compo['row_max'].max())
@@ -121,11 +118,13 @@ class Compo:
                 'height': self.height, 'width': self.width}
         return info
 
-    def visualize(self, img=None, flag='line', show=False):
+    def visualize(self, img=None, flag='line', show=False, color=None):
         fill_type = {'line':2, 'block':-1}
-        color_map = {'Text': (0, 0, 255), 'Compo': (0, 255, 0), 'Text Content': (255, 0, 255)}
+        color_map = {'List':(166, 166, 166), 'Text': (0, 0, 255), 'Compo': (0, 255, 0), 'Text Content': (255, 0, 255)}
+        if color is None:
+            color = color_map[self.compo_class]
         board = img.copy()
-        board = cv2.rectangle(board, (self.left, self.top), (self.right, self.bottom), color_map[self.type], fill_type[flag])
+        board = cv2.rectangle(board, (self.left, self.top), (self.right, self.bottom), color, fill_type[flag])
         if show:
             cv2.imshow('compo', board)
             cv2.waitKey()
