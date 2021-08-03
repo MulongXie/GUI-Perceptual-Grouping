@@ -88,6 +88,7 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
         g2_sort = g2.sort_values('center_row')
         max_side = max(list(g1['width']) + list(g2['width']))
 
+    swapped = False
     if len(g1) == len(g2):
         distances = []
         angles = []
@@ -113,6 +114,7 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
             temp = g1_sort
             g1_sort = g2_sort
             g2_sort = temp
+            swapped = True
 
         distances = []
         angles = []
@@ -155,8 +157,12 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
 
     # print('Success:', g1.iloc[0]['group'], g2.iloc[0]['group'], distances, max_side)
     for i in pairs:
-        g1.loc[i, 'pair_to'] = pairs[i]
-        g2.loc[pairs[i], 'pair_to'] = i
+        if not swapped:
+            g1.loc[i, 'pair_to'] = pairs[i]
+            g2.loc[pairs[i], 'pair_to'] = i
+        else:
+            g2.loc[i, 'pair_to'] = pairs[i]
+            g1.loc[pairs[i], 'pair_to'] = i
     return True
 
 
