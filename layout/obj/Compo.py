@@ -109,13 +109,13 @@ class Compo:
             self.top, self.left, self.bottom, self.right = compo['row_min'], compo['column_min'], compo['row_max'], compo['column_max']
             self.center_row, self.center_column = compo['center_row'], compo['center_column']
             self.width, self.height = compo['width'], compo['height']
-            self.text_content = compo['text_content']
+            self.text_content = compo['text_content'] if compo['text_content'] != -1 else None
             self.children = compo['children']
             self.parent = compo['parent']
 
     def wrap_info(self):
-        info = {'id': self.compo_id, 'class': self.compo_class,
-                'left': self.left, 'right': self.right, 'top': self.top, 'bottom': self.bottom}
+        info = {'id': self.compo_id, 'class': self.compo_class, 'text_content': self.text_content,
+                'left': int(self.left), 'right': int(self.right), 'top': int(self.top), 'bottom': int(self.bottom)}
         return info
 
     def visualize(self, img=None, flag='line', show=False, color=None):

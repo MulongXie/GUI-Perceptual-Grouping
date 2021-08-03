@@ -56,6 +56,13 @@ class GUI:
         cv2.imwrite(pjoin(output_dir, self.file_name + '-pair.jpg'), self.layout_result_img_pair)
         cv2.imwrite(pjoin(output_dir, self.file_name + '-list.jpg'), self.layout_result_img_list)
 
+    def save_result_json(self, output_dir):
+        os.makedirs(output_dir, exist_ok=True)
+        js = []
+        for compo in self.compos:
+            js.append(compo.wrap_info())
+        json.dump(js, open(pjoin(output_dir, self.file_name + '-layout.json'), 'w'), indent=4)
+
     '''
     *****************************
     *** GUI Element Detection ***
@@ -159,9 +166,10 @@ class GUI:
         for i in range(len(df)):
             compo_df = df.iloc[i]
             self.compos.append(Compo(compo_id='c-' + str(compo_df['id']), compo_class=compo_df['class'], compo_df=compo_df))
+        self.compos += self.lists
         # get all compos in lists
-        for lst in self.lists:
-            self.compos += lst.get_inner_compos()
+        # for lst in self.lists:
+        #     self.compos += lst.get_inner_compos()
 
     # *** step4 ***
     def slice_block(self):
