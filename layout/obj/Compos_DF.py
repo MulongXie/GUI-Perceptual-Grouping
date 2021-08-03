@@ -134,6 +134,12 @@ class ComposDF:
                 df_all = self.compos_dataframe.merge(paired_blocks, how='left')
             else:
                 df_all.loc[df_all[df_all['id'].isin(paired_blocks['id'])]['id'], 'group_pair'] = paired_blocks['group_pair']
+
+            # include the parent block in the pair
+            children_group = paired_blocks.groupby('parent').groups  # {parent block id: [children id]}
+            for i in children_group:
+                df.loc[i, 'group_pair'] = df.loc[children_group[i][0], 'group_pair']
+
             df_all = df_all.fillna(-1)
             df_all['group_pair'] = df_all['group_pair'].astype(int)
         else:
