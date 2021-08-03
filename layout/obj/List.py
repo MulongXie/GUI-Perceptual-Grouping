@@ -16,7 +16,11 @@ class List(Compo):
         self.partition_list_items()
 
     def get_inner_compos(self):
-        return list(np.reshape(self.list_items, (1, -1))[0])
+        compos = []
+        for list_item in self.list_items:
+            for compo in list_item:
+                compos.append(compo)
+        return compos
 
     def partition_list_items(self):
         # each row/column contains multiple compos

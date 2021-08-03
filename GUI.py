@@ -10,7 +10,7 @@ import element.detect_merge.merge as merge
 from layout.obj.Compos_DF import ComposDF
 from layout.obj.Compo import *
 from layout.obj.Block import *
-from layout.obj.Group import *
+from layout.obj.List import *
 
 
 class GUI:
@@ -130,9 +130,38 @@ class GUI:
 
     # *** step3 ***
     def cvt_list_and_compos_df_to_obj(self):
-        lists, non_list_compos = cvt_list_and_compos_by_pair_and_group(self.compos_df.compos_dataframe)
-        self.lists = lists
-        self.compos = lists + non_list_compos
+        df = self.compos_df.compos_dataframe
+        self.lists = []
+        self.compos = []
+
+        # multiple list (multiple compos in each list item)
+        groups = df.groupby('group_pair').groups
+        list_id = 0
+        for i in groups:
+            if i == -1 or len(groups[i]) == 1:
+                continue
+            self.lists.append(List(compo_id='l-' + str(list_id), list_class='multi', compo_df=df.loc[groups[i]], list_alignment=df.loc[groups[i][0]]['alignment_in_group']))
+            list_id += 1
+            # remove selected compos
+            df = df.drop(list(groups[i]))
+
+        # single list (single compo in each list item)
+        groups = df.groupby('group').groups
+        for i in groups:
+            if i == -1 or len(groups[i]) == 1:
+                continue
+            self.lists.append(List(compo_id='l-' + str(list_id), list_class='single', compo_df=df.loc[groups[i]], list_alignment=df.loc[groups[i][0]]['alignment_in_group']))
+            list_id += 1
+            # remove selected compos
+            df = df.drop(list(groups[i]))
+
+        # convert left compos that are not in lists
+        for i in range(len(df)):
+            compo_df = df.iloc[i]
+            self.compos.append(Compo(compo_id='c-' + str(compo_df['id']), compo_class=compo_df['class'], compo_df=compo_df))
+        # get all compos in lists
+        for lst in self.lists:
+            self.compos += lst.get_inner_compos()
 
     # *** step4 ***
     def slice_block(self):
