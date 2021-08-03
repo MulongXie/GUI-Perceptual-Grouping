@@ -9,6 +9,15 @@ def random_color():
     return rint(0, 255), rint(0, 255), rint(0, 255)
 
 
+def draw_label(img, bound, color, text=None, put_text=True):
+    cv2.rectangle(img, (bound[0], bound[1]), (bound[2], bound[3]), color, 3)
+    if put_text:
+        # put text with rectangle
+        (w,h),_ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.6, 3)
+        cv2.rectangle(img, (bound[0], bound[1] - 40), (bound[0] + w, bound[1] - 40 + h), color, -1)
+        cv2.putText(img, text, (bound[0], bound[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255,255,255), 3)
+
+
 def visualize(img, compos_df, resize_shape=None, attr='class', name='board', show=True):
     if resize_shape is not None:
         img = cv2.resize(img, resize_shape)
