@@ -113,10 +113,9 @@ class Compo:
             self.children = compo['children']
             self.parent = compo['parent']
 
-    def put_info(self):
-        info = {'class': self.compo_class,
-                'column_min': self.left, 'column_max': self.right, 'row_min': self.top, 'row_max': self.bottom,
-                'height': self.height, 'width': self.width}
+    def wrap_info(self):
+        info = {'id': self.compo_id, 'class': self.compo_class,
+                'left': self.left, 'right': self.right, 'top': self.top, 'bottom': self.bottom}
         return info
 
     def visualize(self, img=None, flag='line', show=False, color=None):

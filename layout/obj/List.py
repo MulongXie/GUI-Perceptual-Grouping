@@ -22,6 +22,20 @@ class List(Compo):
                 compos.append(compo)
         return compos
 
+    def wrap_info(self):
+        # get basic info
+        info = super().wrap_info()
+        # add list items
+        info['list_class'] = self.list_class
+        info['list_alignment'] = self.list_alignment
+        info['list_items'] = []
+        for list_item in self.list_items:
+            compos = []
+            for compo in list_item:
+                compos.append(compo.wrap_info())
+            info['list_items'].append(compos)
+        return info
+
     def partition_list_items(self):
         # each row/column contains multiple compos
         groups = self.compo_df.groupby('list_item').groups
