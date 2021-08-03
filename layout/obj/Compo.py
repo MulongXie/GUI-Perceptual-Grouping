@@ -70,7 +70,7 @@ def cvt_list_and_compos_by_pair_and_group(df):
 
 
 class Compo:
-    def __init__(self, compo_id, compo_class, compo_df):
+    def __init__(self, compo_id, compo_class, compo_df, in_list=None):
         self.compo_df = compo_df   # df can contain one or more elements (list items)
         self.compo_id = compo_id
         self.compo_class = compo_class  # List, Compo, Text
@@ -78,6 +78,7 @@ class Compo:
         # get the clip for single element
         self.children = []
         self.parent = None
+        self.in_list = in_list  # if the compo is in a list, store list id
 
         # compo boundary
         self.top = None

@@ -2,6 +2,7 @@ from layout.obj.Compo import Compo
 from layout.lib.draw import *
 
 import cv2
+import numpy as np
 from random import randint as rint
 
 
@@ -14,6 +15,9 @@ class List(Compo):
 
         self.partition_list_items()
 
+    def get_inner_compos(self):
+        return list(np.reshape(self.list_items, (1, -1))[0])
+
     def partition_list_items(self):
         # each row/column contains multiple compos
         groups = self.compo_df.groupby('list_item').groups
@@ -23,7 +27,7 @@ class List(Compo):
             list_item = []
             for j in range(len(item_compos_df)):
                 item = item_compos_df.iloc[j]
-                list_item.append(Compo(compo_id='c-' + str(item['id']), compo_class=item['class'], compo_df=item))
+                list_item.append(Compo(compo_id='c-' + str(item['id']), compo_class=item['class'], compo_df=item, in_list=self.compo_id))
             self.list_items.append(list_item)
 
     def visualize_list(self, img=None, flag='line', show=False):
