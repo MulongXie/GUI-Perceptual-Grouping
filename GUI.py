@@ -15,7 +15,7 @@ from layout.obj.List import *
 
 
 class GUI:
-    def __init__(self, img_file, compos_json_file=None, output_dir='data/output'):
+    def __init__(self, img_file, compos_json_file=None, output_dir='data\\output'):
         self.img_file = img_file
         self.img = cv2.imread(img_file)
         self.img_reshape = self.img.shape
@@ -187,14 +187,15 @@ class GUI:
         self.blocks = blocks
 
     # entry method
-    def layout_recognition(self):
+    def layout_recognition(self, is_save=True):
         start = time.clock()
         self.cvt_compos_json_to_dataframe()
         self.recognize_repetitive_layout()
         self.cvt_list_and_compos_df_to_obj()
         self.slice_block()
         self.get_layout_result_imgs()
-        self.save_layout_result()
+        if is_save:
+            self.save_layout_result()
         print("[Layout Recognition Completed in %.3f s] Input: %s Output: %s" % (time.clock() - start, self.img_file, pjoin(self.layout_dir, self.file_name + '.json')))
         print(time.ctime(), '\n\n')
 
