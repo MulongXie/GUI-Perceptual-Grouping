@@ -2,6 +2,7 @@ import pandas as pd
 import cv2
 import os
 import json
+import time
 from os.path import join as pjoin
 
 import element.detect_text.text_detection as text
@@ -17,14 +18,18 @@ class GUI:
     def __init__(self, img_file, compos_json_file=None, output_dir='data/output'):
         self.img_file = img_file
         self.img = cv2.imread(img_file)
-        self.file_name = self.img_file.split('/')[-1][:-4] if img_file is not None else None
         self.img_reshape = self.img.shape
         self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        if img_file is not None:
+            self.file_name = img_file.split('/')[-1][:-4] if '/' in img_file else img_file.split('\\')[-1][:-4]
+        else:
+            self.file_name = None
 
         self.output_dir = output_dir
         self.ocr_dir = pjoin(self.output_dir, 'ocr') if output_dir is not None else None
         self.non_text_dir = pjoin(self.output_dir, 'ip') if output_dir is not None else None
         self.merge_dir = pjoin(self.output_dir, 'uied') if output_dir is not None else None
+        self.layout_dir = pjoin(self.output_dir, 'layout') if output_dir is not None else None
 
         self.compos_json = None  # {'img_shape':(), 'compos':[]}
         self.compos_df = None    # dataframe for efficient processing
@@ -49,19 +54,24 @@ class GUI:
             self.img_reshape = self.compos_json['img_shape']
             self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
 
-    def save_result_imgs(self, output_dir):
-        os.makedirs(output_dir, exist_ok=True)
-        cv2.imwrite(pjoin(output_dir, self.file_name + '-uied.jpg'), self.detect_result_img_merge)
-        cv2.imwrite(pjoin(output_dir, self.file_name + '-group.jpg'), self.layout_result_img_group)
-        cv2.imwrite(pjoin(output_dir, self.file_name + '-pair.jpg'), self.layout_result_img_pair)
-        cv2.imwrite(pjoin(output_dir, self.file_name + '-list.jpg'), self.layout_result_img_list)
+    def save_layout_result_imgs(self):
+        os.makedirs(self.layout_dir, exist_ok=True)
+        cv2.imwrite(pjoin(self.layout_dir, self.file_name + '-group.jpg'), self.layout_result_img_group)
+        cv2.imwrite(pjoin(self.layout_dir, self.file_name + '-pair.jpg'), self.layout_result_img_pair)
+        cv2.imwrite(pjoin(self.layout_dir, self.file_name + '-list.jpg'), self.layout_result_img_list)
+        # print('Layout recognition result images save to ', output_dir)
 
-    def save_result_json(self, output_dir):
-        os.makedirs(output_dir, exist_ok=True)
+    def save_layout_result_json(self):
+        os.makedirs(self.layout_dir, exist_ok=True)
         js = []
         for block in self.blocks:
             js.append(block.wrap_info())
-        json.dump(js, open(pjoin(output_dir, self.file_name + '-layout.json'), 'w'), indent=4)
+        json.dump(js, open(pjoin(self.layout_dir, self.file_name + '.json'), 'w'), indent=4)
+        # print('Layout recognition result json save to ', output_dir)
+
+    def save_layout_result(self):
+        self.save_layout_result_imgs()
+        self.save_layout_result_json()
 
     '''
     *****************************
@@ -178,11 +188,15 @@ class GUI:
 
     # entry method
     def layout_recognition(self):
+        start = time.clock()
         self.cvt_compos_json_to_dataframe()
         self.recognize_repetitive_layout()
         self.cvt_list_and_compos_df_to_obj()
         self.slice_block()
         self.get_layout_result_imgs()
+        self.save_layout_result()
+        print("[Layout Recognition Completed in %.3f s] Input: %s Output: %s" % (time.clock() - start, self.img_file, pjoin(self.layout_dir, self.file_name + '.json')))
+        print(time.ctime(), '\n\n')
 
     '''
     *********************
