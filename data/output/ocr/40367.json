@@ -1,0 +1,349 @@
+{
+    "img_shape": [
+        1920,
+        1080,
+        3
+    ],
+    "texts": [
+        {
+            "height": 15,
+            "id": 0,
+            "content": "FAKT",
+            "row_max": 25,
+            "width": 34,
+            "column_max": 440,
+            "column_min": 406,
+            "row_min": 10
+        },
+        {
+            "height": 41,
+            "id": 1,
+            "content": "ff1",
+            "row_max": 49,
+            "width": 153,
+            "column_max": 183,
+            "column_min": 30,
+            "row_min": 8
+        },
+        {
+            "height": 35,
+            "id": 2,
+            "content": "A",
+            "row_max": 46,
+            "width": 23,
+            "column_max": 497,
+            "column_min": 474,
+            "row_min": 11
+        },
+        {
+            "height": 39,
+            "id": 3,
+            "content": "1:51",
+            "row_max": 49,
+            "width": 70,
+            "column_max": 1049,
+            "column_min": 979,
+            "row_min": 10
+        },
+        {
+            "height": 70,
+            "id": 4,
+            "content": "Ringtone Maker",
+            "row_max": 173,
+            "width": 367,
+            "column_max": 410,
+            "column_min": 43,
+            "row_min": 103
+        },
+        {
+            "height": 39,
+            "id": 5,
+            "content": "notifications",
+            "row_max": 277,
+            "width": 193,
+            "column_max": 665,
+            "column_min": 472,
+            "row_min": 238
+        },
+        {
+            "height": 37,
+            "id": 6,
+            "content": "unknown",
+            "row_max": 275,
+            "width": 143,
+            "column_max": 290,
+            "column_min": 147,
+            "row_min": 238
+        },
+        {
+            "height": 47,
+            "id": 7,
+            "content": "Adara",
+            "row_max": 339,
+            "width": 137,
+            "column_max": 264,
+            "column_min": 127,
+            "row_min": 292
+        },
+        {
+            "height": 34,
+            "id": 8,
+            "content": "notifications",
+            "row_max": 437,
+            "width": 193,
+            "column_max": 665,
+            "column_min": 472,
+            "row_min": 403
+        },
+        {
+            "height": 36,
+            "id": 9,
+            "content": "pdx",
+            "row_max": 439,
+            "width": 56,
+            "column_max": 185,
+            "column_min": 129,
+            "row_min": 403
+        },
+        {
+            "height": 51,
+            "id": 10,
+            "content": "Aldebaran",
+            "row_max": 507,
+            "width": 237,
+            "column_max": 365,
+            "column_min": 128,
+            "row_min": 456
+        },
+        {
+            "height": 43,
+            "id": 11,
+            "content": "notifications",
+            "row_max": 609,
+            "width": 195,
+            "column_max": 666,
+            "column_min": 471,
+            "row_min": 566
+        },
+        {
+            "height": 40,
+            "id": 12,
+            "content": "pdx",
+            "row_max": 608,
+            "width": 54,
+            "column_max": 185,
+            "column_min": 131,
+            "row_min": 568
+        },
+        {
+            "height": 47,
+            "id": 13,
+            "content": "Altair",
+            "row_max": 670,
+            "width": 124,
+            "column_max": 251,
+            "column_min": 127,
+            "row_min": 623
+        },
+        {
+            "height": 34,
+            "id": 14,
+            "content": "unknown",
+            "row_max": 768,
+            "width": 138,
+            "column_max": 287,
+            "column_min": 149,
+            "row_min": 734
+        },
+        {
+            "height": 34,
+            "id": 15,
+            "content": "notifications",
+            "row_max": 767,
+            "width": 193,
+            "column_max": 665,
+            "column_min": 472,
+            "row_min": 733
+        },
+        {
+            "height": 60,
+            "id": 16,
+            "content": "Alya",
+            "row_max": 846,
+            "width": 98,
+            "column_max": 225,
+            "column_min": 127,
+            "row_min": 786
+        },
+        {
+            "height": 37,
+            "id": 17,
+            "content": "ringtones",
+            "row_max": 936,
+            "width": 145,
+            "column_max": 617,
+            "column_min": 472,
+            "row_min": 899
+        },
+        {
+            "height": 35,
+            "id": 18,
+            "content": "pdx",
+            "row_max": 933,
+            "width": 56,
+            "column_max": 185,
+            "column_min": 129,
+            "row_min": 898
+        },
+        {
+            "height": 53,
+            "id": 19,
+            "content": "Andromeda",
+            "row_max": 1003,
+            "width": 273,
+            "column_max": 401,
+            "column_min": 128,
+            "row_min": 950
+        },
+        {
+            "height": 38,
+            "id": 20,
+            "content": "ringtones",
+            "row_max": 1102,
+            "width": 145,
+            "column_max": 617,
+            "column_min": 472,
+            "row_min": 1064
+        },
+        {
+            "height": 37,
+            "id": 21,
+            "content": "unknown",
+            "row_max": 1099,
+            "width": 138,
+            "column_max": 287,
+            "column_min": 149,
+            "row_min": 1062
+        },
+        {
+            "height": 58,
+            "id": 22,
+            "content": "Andromeda",
+            "row_max": 1171,
+            "width": 273,
+            "column_max": 400,
+            "column_min": 127,
+            "row_min": 1113
+        },
+        {
+            "height": 44,
+            "id": 23,
+            "content": "notifications",
+            "row_max": 1271,
+            "width": 194,
+            "column_max": 666,
+            "column_min": 472,
+            "row_min": 1227
+        },
+        {
+            "height": 35,
+            "id": 24,
+            "content": "pdx",
+            "row_max": 1263,
+            "width": 56,
+            "column_max": 185,
+            "column_min": 129,
+            "row_min": 1228
+        },
+        {
+            "height": 45,
+            "id": 25,
+            "content": "Antares",
+            "row_max": 1331,
+            "width": 181,
+            "column_max": 309,
+            "column_min": 128,
+            "row_min": 1286
+        },
+        {
+            "height": 38,
+            "id": 26,
+            "content": "unknown",
+            "row_max": 1431,
+            "width": 138,
+            "column_max": 286,
+            "column_min": 148,
+            "row_min": 1393
+        },
+        {
+            "height": 40,
+            "id": 27,
+            "content": "notifications",
+            "row_max": 1434,
+            "width": 193,
+            "column_max": 665,
+            "column_min": 472,
+            "row_min": 1394
+        },
+        {
+            "height": 65,
+            "id": 28,
+            "content": "Antimony",
+            "row_max": 1509,
+            "width": 225,
+            "column_max": 353,
+            "column_min": 128,
+            "row_min": 1444
+        },
+        {
+            "height": 33,
+            "id": 29,
+            "content": "unknown",
+            "row_max": 1593,
+            "width": 139,
+            "column_max": 288,
+            "column_min": 149,
+            "row_min": 1560
+        },
+        {
+            "height": 37,
+            "id": 30,
+            "content": "ringtones",
+            "row_max": 1595,
+            "width": 145,
+            "column_max": 616,
+            "column_min": 471,
+            "row_min": 1558
+        },
+        {
+            "height": 63,
+            "id": 31,
+            "content": "Aquila",
+            "row_max": 1673,
+            "width": 147,
+            "column_max": 274,
+            "column_min": 127,
+            "row_min": 1610
+        },
+        {
+            "height": 31,
+            "id": 32,
+            "content": "Unknown",
+            "row_max": 1756,
+            "width": 142,
+            "column_max": 273,
+            "column_min": 131,
+            "row_min": 1725
+        },
+        {
+            "height": 33,
+            "id": 33,
+            "content": "notifications",
+            "row_max": 1757,
+            "width": 193,
+            "column_max": 665,
+            "column_min": 472,
+            "row_min": 1724
+        }
+    ]
+}

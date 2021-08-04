@@ -118,12 +118,13 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
 
         distances = []
         angles = []
-        marked = np.full(len(g2_sort), False)
+        marked = np.full(len(g2_sort), False)  # mark the matched compo in the g2
         # calculate the distances between each c1 in g1 and all c2 in g2
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             distance = None
             angle = None
+            matched_id = None
             for j in range(len(g2_sort)):
                 if marked[j]: continue
                 c2 = g2_sort.iloc[j]
@@ -132,7 +133,12 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
                     distance = d_cur
                     angle = math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column']))
                     pairs[c1['id']] = c2['id']
+                    # mark the matched compo
                     marked[j] = True
+                    # unmark the previously matched compo
+                    if matched_id is not None:
+                        marked[matched_id] = False
+                    matched_id = j
             distances.append(distance)
             angles.append(angle)
         # match the distances and angles
