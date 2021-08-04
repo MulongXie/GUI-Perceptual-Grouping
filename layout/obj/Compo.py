@@ -76,7 +76,7 @@ class Compo:
         self.compo_class = compo_class  # List, Compo, Text
 
         # get the clip for single element
-        self.children = []
+        self.children = None
         self.parent = None
         self.in_list = in_list  # if the compo is in a list, store list id
 
@@ -110,8 +110,8 @@ class Compo:
             self.center_row, self.center_column = compo['center_row'], compo['center_column']
             self.width, self.height = compo['width'], compo['height']
             self.text_content = compo['text_content'] if compo['text_content'] != -1 else None
-            self.children = compo['children']
-            self.parent = compo['parent']
+            self.children = compo['children'] if compo['children'] != -1 else None
+            self.parent = compo['parent'] if compo['parent'] != -1 else None
 
     def wrap_info(self):
         info = {'id': self.compo_id, 'class': self.compo_class, 'text_content': self.text_content,

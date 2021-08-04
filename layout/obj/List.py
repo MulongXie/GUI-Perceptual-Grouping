@@ -59,3 +59,4 @@ class List(Compo):
             cv2.imshow('list', board)
             cv2.waitKey()
             cv2.destroyWindow('list')
+        return board
