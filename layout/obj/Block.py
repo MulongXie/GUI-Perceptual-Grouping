@@ -2,6 +2,8 @@ import pandas as pd
 import cv2
 from random import randint as rint
 
+from layout.lib.draw import *
+
 block_id = 0
 
 
@@ -45,7 +47,7 @@ def slice_blocks(compos, direction='v', border='none'):
                     bottoms = [c.bottom for c in block_compos]
                     height = int(max(bottoms) - min(tops))
                     block_id += 1
-                    blocks.append(Block(id=block_id, compos=block_compos, slice_sub_block_direction=next_direction))
+                    blocks.append(Block(id='b-'+str(block_id), compos=block_compos, slice_sub_block_direction=next_direction))
                     # remove blocked compos
                     non_blocked_compos = list(set(non_blocked_compos) - set(block_compos))
                 block_compos = []
@@ -60,7 +62,7 @@ def slice_blocks(compos, direction='v', border='none'):
             bottoms = [c.bottom for c in block_compos]
             height = int(max(bottoms) - min(tops))
             block_id += 1
-            blocks.append(Block(id=block_id, compos=block_compos, slice_sub_block_direction=next_direction))
+            blocks.append(Block(id='b-'+str(block_id), compos=block_compos, slice_sub_block_direction=next_direction))
             # remove blocked compos
             non_blocked_compos = list(set(non_blocked_compos) - set(block_compos))
 
@@ -87,7 +89,7 @@ def slice_blocks(compos, direction='v', border='none'):
                     bottoms = [c.bottom for c in block_compos]
                     height = int(max(bottoms) - min(tops))
                     block_id += 1
-                    blocks.append(Block(id=block_id, compos=block_compos, slice_sub_block_direction=next_direction))
+                    blocks.append(Block(id='b-'+str(block_id), compos=block_compos, slice_sub_block_direction=next_direction))
                     # remove blocked compos
                     non_blocked_compos = list(set(non_blocked_compos) - set(block_compos))
                 block_compos = []
@@ -102,39 +104,21 @@ def slice_blocks(compos, direction='v', border='none'):
             bottoms = [c.bottom for c in block_compos]
             height = int(max(bottoms) - min(tops))
             block_id += 1
-            blocks.append(Block(id=block_id, compos=block_compos, slice_sub_block_direction=next_direction))
+            blocks.append(Block(id='b-'+str(block_id), compos=block_compos, slice_sub_block_direction=next_direction))
             # remove blocked compos
             non_blocked_compos = list(set(non_blocked_compos) - set(block_compos))
 
     return blocks, non_blocked_compos
 
 
-def build_layout_blocks(compos_html, border='none'):
-    global block_id
-    blocks, single_compos = slice_blocks(compos_html, 'v')
-    for compo in single_compos:
-        block_id += 1
-        blocks.append(Block(id=block_id, compos=[compo], slice_sub_block_direction='h'))
-    return blocks
-
-
-def visualize_blocks(blocks, img, img_shape):
-    board = cv2.resize(img, img_shape)
-    for block in blocks:
-        board = block.visualize_block(board, show=False)
-    cv2.imshow('compos', board)
-    cv2.waitKey()
-    cv2.destroyWindow('compos')
-
-
 class Block:
     def __init__(self, id, compos,
                  slice_sub_block_direction='h'):
         self.block_id = id
-        self.compos = compos                # list of CompoHTML objs
+        self.compos = compos                # list of Compo/List objs
         self.sub_blocks = []                # list of Block objs
         self.children = []                  # compos + sub_blocks
-        self.type = 'block'
+        self.compo_class = 'Block'
 
         self.top = None
         self.left = None
@@ -158,6 +142,22 @@ class Block:
         self.right = int(max(self.compos + self.sub_blocks, key=lambda x: x.right).right)
         self.height = int(self.bottom - self.top)
         self.width = int(self.right - self.left)
+
+    def get_inner_compos(self):
+        compos = []
+        for child in self.children:
+            if child.compo_class == 'List':
+                compos += child.get_inner_compos()
+            else:
+                compos.append(child)
+        return compos
+
+    def wrap_info(self):
+        info = {'id': self.block_id, 'class': 'Block', 'children': [],
+                'location': {'left': int(self.left), 'right': int(self.right), 'top': int(self.top), 'bottom': int(self.bottom)}}
+        for child in self.children:
+            info['children'].append(child.wrap_info())
+        return info
 
     '''
     ******************************
@@ -187,10 +187,10 @@ class Block:
     ******** Visualization *******
     ******************************
     '''
-    def visualize_block(self, img, flag='line', show=False, color=(0, 255, 0)):
+    def visualize_block(self, img, flag='line', show=False, color=(166,255,100)):
         fill_type = {'line': 2, 'block': -1}
         board = img.copy()
-        board = cv2.rectangle(board, (self.left, self.top), (self.right, self.bottom), color, fill_type[flag])
+        draw_label(board, [self.left, self.top, self.right, self.bottom], color, text='Block', put_text=True)
         if show:
             cv2.imshow('compo', board)
             cv2.waitKey()
@@ -234,9 +234,3 @@ class Block:
             for sub_block in self.sub_blocks:
                 board = sub_block.visualize_sub_blocks_and_compos(board, recursive)
         return board
-
-    def put_info(self):
-        info = {'class':'block',
-                'column_min': self.left, 'column_max': self.right, 'row_min':self.top, 'row_max':self.bottom,
-                'height': self.height, 'width':self.width}
-        return info

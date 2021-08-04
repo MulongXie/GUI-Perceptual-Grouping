@@ -38,8 +38,8 @@ class GUI:
         self.layout_result_img_pair = None      # visualize paired groups
         self.layout_result_img_list = None      # visualize list (paired group) boundary
 
-        self.lists = []     # list of Compo objects representing List type
-        self.blocks = []    # list of Block objects representing Block type
+        self.lists = []     # list of List objects representing lists
+        self.blocks = []    # list of Block objects representing blocks
 
         self.load_compos_from_json(compos_json_file)
 
@@ -59,8 +59,8 @@ class GUI:
     def save_result_json(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
         js = []
-        for compo in self.compos:
-            js.append(compo.wrap_info())
+        for block in self.blocks:
+            js.append(block.wrap_info())
         json.dump(js, open(pjoin(output_dir, self.file_name + '-layout.json'), 'w'), indent=4)
 
     '''
@@ -225,7 +225,7 @@ class GUI:
     def visualize_lists(self, show=True):
         board = self.img_resized.copy()
         for lst in self.lists:
-            board = lst.visualize(board)
+            board = lst.visualize_list(board)
         if show:
             cv2.imshow('lists', board)
             cv2.waitKey()

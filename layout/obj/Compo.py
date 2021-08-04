@@ -115,7 +115,7 @@ class Compo:
 
     def wrap_info(self):
         info = {'id': self.compo_id, 'class': self.compo_class, 'text_content': self.text_content,
-                'left': int(self.left), 'right': int(self.right), 'top': int(self.top), 'bottom': int(self.bottom)}
+                'location': {'left': int(self.left), 'right': int(self.right), 'top': int(self.top), 'bottom': int(self.bottom)}}
         return info
 
     def visualize(self, img=None, flag='line', show=False, color=None):
