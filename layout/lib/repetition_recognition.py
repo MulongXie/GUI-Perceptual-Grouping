@@ -3,8 +3,16 @@ import numpy as np
 
 
 def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True):
+    '''
+    produced dataframe attributes: 'alignment', 'group_nontext'
+    '''
     compos_cp = compos.copy()
     compos_cp.select_by_class(['Compo', 'Background'], no_parent=only_non_contained_compo, replace=True)
+    # if no text compo, return empty dataframe
+    if len(compos_cp.compos_dataframe) == 0:
+        compos_cp.compos_dataframe['alignment'] = -1
+        compos_cp.compos_dataframe['group_nontext'] = -1
+        return compos_cp.compos_dataframe
 
     # step1. cluster compos
     compos_cp.cluster_dbscan_by_attr('center_column', eps=10, show=show)
@@ -22,8 +30,16 @@ def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True):
 
 
 def recog_repetition_text(compos, show=True, only_non_contained_compo=True):
+    '''
+    produced dataframe attributes: 'alignment', 'group_text'
+    '''
     compos_cp = compos.copy()
     compos_cp.select_by_class(['Text'], no_parent=only_non_contained_compo, replace=True)
+    # if no text compo, return empty dataframe
+    if len(compos_cp.compos_dataframe) == 0:
+        compos_cp.compos_dataframe['alignment'] = -1
+        compos_cp.compos_dataframe['group_text'] = -1
+        return compos_cp.compos_dataframe
 
     # step1. cluster compos
     compos_cp.cluster_dbscan_by_attr('row_min', 10, show=show)
