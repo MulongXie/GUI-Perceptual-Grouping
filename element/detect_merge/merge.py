@@ -98,8 +98,20 @@ def check_containment(elements):
 
 def remove_top_bar(elements, img_height):
     new_elements = []
+    max_height = img_height * 0.04
     for ele in elements:
-        if ele.row_min < 10 and ele.height < img_height * 0.05:
+        if ele.row_min < 10 and ele.height < max_height:
+            continue
+        new_elements.append(ele)
+    return new_elements
+
+
+def remove_bottom_bar(elements, img_height):
+    new_elements = []
+    bottom_bar_range = img_height * (1 - 0.06)
+    max_height = img_height * 0.04
+    for ele in elements:
+        if ele.row_min > bottom_bar_range and ele.height < max_height:
             continue
         new_elements.append(ele)
     return new_elements
@@ -149,7 +161,7 @@ def compos_clip_and_fill(clip_root, org, compos):
     cv2.imwrite(pjoin(clip_root, 'bkg.png'), bkg)
 
 
-def merge(img_path, compo_path, text_path, merge_root=None, is_remove_top=True, show=False, wait_key=0):
+def merge(img_path, compo_path, text_path, merge_root=None, is_remove_bar=True, show=False, wait_key=0):
     compo_json = json.load(open(compo_path, 'r'))
     text_json = json.load(open(text_path, 'r'))
 
@@ -178,7 +190,9 @@ def merge(img_path, compo_path, text_path, merge_root=None, is_remove_top=True, 
     # refine elements
     texts = refine_texts(texts, compo_json['img_shape'])
     elements = refine_elements(compos, texts)
-    if is_remove_top: elements = remove_top_bar(elements, img_height=compo_json['img_shape'][0])
+    if is_remove_bar:
+        elements = remove_top_bar(elements, img_height=compo_json['img_shape'][0])
+        elements = remove_bottom_bar(elements, img_height=compo_json['img_shape'][0])
     reassign_ids(elements)
     check_containment(elements)
     board = show_elements(img_resize, elements, show=show, win_name='elements after merging', wait_key=wait_key)

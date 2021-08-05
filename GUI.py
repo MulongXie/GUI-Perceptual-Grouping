@@ -102,7 +102,7 @@ class GUI:
             resize_height = None
 
         key_params = {'min-grad': 10, 'ffl-block': 5, 'min-ele-area': 50, 'merge-contained-ele': False,
-                      'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-top-bar': True}
+                      'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-ui-bar': True}
         if is_ocr:
             os.makedirs(self.ocr_dir, exist_ok=True)
             self.detect_result_img_text = text.text_detection(self.img_file, self.ocr_dir, show=show)
@@ -115,7 +115,7 @@ class GUI:
             os.makedirs(self.merge_dir, exist_ok=True)
             compo_path = pjoin(self.non_text_dir, self.file_name + '.json')
             ocr_path = pjoin(self.ocr_dir, self.file_name + '.json')
-            self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_top=key_params['remove-top-bar'], show=show)
+            self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=key_params['remove-ui-bar'], show=show)
 
     '''
     *************************************
