@@ -51,13 +51,16 @@ def compo_detection(input_img_path, ip_root, uied_params,
     uicompos = det.component_detection(binary, min_obj_area=int(uied_params['min-ele-area']))
 
     # *** Step 3 *** results refinement
-    uicompos = det.merge_intersected_corner(uicompos, org, is_merge_contained_ele=uied_params['merge-contained-ele'], max_gap=(0, 0), max_ele_height=25)
+    uicompos = det.compo_filter(uicompos, min_area=int(uied_params['min-ele-area']), img_shape=binary.shape)
+    uicompos = det.merge_intersected_compos(uicompos)
+    det.compo_block_recognition(binary, uicompos)
+    if uied_params['merge-contained-ele']:
+        uicompos = det.rm_contained_compos_not_in_block(uicompos)
     Compo.compos_update(uicompos, org.shape)
     Compo.compos_containment(uicompos)
 
-    # *** Step 4 ** nesting inspection: treat the big compos as block and check if they have nesting element
+    # *** Step 4 ** nesting inspection: check if big compos have nesting element
     uicompos += nesting_inspection(org, grey, uicompos, ffl_block=uied_params['ffl-block'])
-    uicompos = det.compo_filter(uicompos, min_area=int(uied_params['min-ele-area']))
     Compo.compos_update(uicompos, org.shape)
     res_img = draw.draw_bounding_box(org, uicompos, show=show, name='merged compo', write_path=pjoin(ip_root, 'result.jpg'), wait_key=wai_key)
 
@@ -82,7 +85,7 @@ def compo_detection(input_img_path, ip_root, uied_params,
 
     # *** Step 7 *** save detection result
     Compo.compos_update(uicompos, org.shape)
-    name = input_img_path.split('/')[-1][:-4]
+    name = input_img_path.split('/')[-1][:-4] if '/' in input_img_path else input_img_path.split('\\')[-1][:-4]
     file.save_corners_json(pjoin(ip_root, name + '.json'), uicompos)
-    print("[Compo Detection Completed in %.3f s] %s" % (time.clock() - start, input_img_path))
+    print("[Compo Detection Completed in %.3f s] Input: %s Output: %s" % (time.clock() - start, input_img_path, pjoin(ip_root, name + '.json')))
     return res_img
