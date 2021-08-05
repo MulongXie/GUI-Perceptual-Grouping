@@ -189,11 +189,11 @@ class ComposDF:
         df = df.drop(columns=['group_nontext', 'group_text'])
         self.compos_dataframe = df
 
-        # slip group according to compo gaps if needed
+        # slip a group into several ones according to compo gaps if necessary
         self.regroup_compos_by_compos_gap()
-        # check and add missed compos according to compo gaps in group
+        # search and add compos into a group according to compo gaps in the group
         self.add_missed_compo_to_group_by_gaps()
-        # check group validity by compos gaps
+        # check group validity by compos gaps in the group, the gaps among compos in a group should be similar
         self.check_group_validity_by_compos_gap()
 
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
@@ -345,6 +345,9 @@ class ComposDF:
                 self.visualize_fill(gather_attr='group', name='valid-two-compos')
 
     def check_group_validity_by_compos_gap(self, show=False, show_method='block'):
+        '''
+        check group validity by compos gaps in the group, the gaps among compos in a group should be similar
+        '''
         changed = False
         self.calc_gap_in_group()
         compos = self.compos_dataframe
@@ -379,6 +382,9 @@ class ComposDF:
                 self.visualize_fill(gather_attr='group', name='valid')
 
     def regroup_compos_by_compos_gap(self):
+        '''
+        slip a group into several ones according to compo gaps if necessary
+        '''
         self.calc_gap_in_group()
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
@@ -464,6 +470,9 @@ class ComposDF:
         return None
 
     def add_missed_compo_to_group_by_gaps(self):
+        '''
+        search and add compos into a group according to compo gaps in the group
+        '''
         self.calc_gap_in_group()
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
@@ -646,12 +655,12 @@ class ComposDF:
     ******* Visualization *******
     *****************************
     '''
-    def visualize(self, img=None, gather_attr='class', name='board'):
+    def visualize(self, img=None, gather_attr='class', name='board', show=True):
         if img is None:
             img = self.img.copy()
-        return draw.visualize(img, self.compos_dataframe, attr=gather_attr, name=name)
+        return draw.visualize(img, self.compos_dataframe, attr=gather_attr, name=name, show=show)
 
-    def visualize_fill(self, img=None, gather_attr='class', name='board', show=False):
+    def visualize_fill(self, img=None, gather_attr='class', name='board', show=True):
         if img is None:
             img = self.img.copy()
         return draw.visualize_fill(img, self.compos_dataframe, attr=gather_attr, name=name, show=show)
