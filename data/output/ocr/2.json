@@ -1,259 +1,259 @@
 {
+    "texts": [
+        {
+            "column_max": 478,
+            "content": "77 %",
+            "row_max": 29,
+            "row_min": 14,
+            "height": 15,
+            "column_min": 451,
+            "width": 27,
+            "id": 0
+        },
+        {
+            "column_max": 563,
+            "content": "20:30",
+            "row_max": 31,
+            "row_min": 11,
+            "height": 20,
+            "column_min": 509,
+            "width": 54,
+            "id": 1
+        },
+        {
+            "column_max": 315,
+            "content": "Contacts",
+            "row_max": 95,
+            "row_min": 71,
+            "height": 24,
+            "column_min": 212,
+            "width": 103,
+            "id": 2
+        },
+        {
+            "column_max": 362,
+            "content": "318",
+            "row_max": 96,
+            "row_min": 73,
+            "height": 23,
+            "column_min": 341,
+            "width": 21,
+            "id": 3
+        },
+        {
+            "column_max": 287,
+            "content": "Peter Limonez",
+            "row_max": 258,
+            "row_min": 241,
+            "height": 17,
+            "column_min": 145,
+            "width": 142,
+            "id": 4
+        },
+        {
+            "column_max": 438,
+            "content": "The road to success is always under construction",
+            "row_max": 299,
+            "row_min": 283,
+            "height": 16,
+            "column_min": 147,
+            "width": 291,
+            "id": 5
+        },
+        {
+            "column_max": 538,
+            "content": "MOBILE",
+            "row_max": 296,
+            "row_min": 285,
+            "height": 11,
+            "column_min": 508,
+            "width": 30,
+            "id": 6
+        },
+        {
+            "column_max": 260,
+            "content": "Sofia Morell",
+            "row_max": 372,
+            "row_min": 352,
+            "height": 20,
+            "column_min": 144,
+            "width": 116,
+            "id": 7
+        },
+        {
+            "column_max": 436,
+            "content": "My silence smile is just another word for my pain .",
+            "row_max": 409,
+            "row_min": 392,
+            "height": 17,
+            "column_min": 144,
+            "width": 292,
+            "id": 8
+        },
+        {
+            "column_max": 538,
+            "content": "MOBILE",
+            "row_max": 405,
+            "row_min": 395,
+            "height": 10,
+            "column_min": 508,
+            "width": 30,
+            "id": 9
+        },
+        {
+            "column_max": 272,
+            "content": "Saarah Laten",
+            "row_max": 485,
+            "row_min": 467,
+            "height": 18,
+            "column_min": 145,
+            "width": 127,
+            "id": 10
+        },
+        {
+            "column_max": 342,
+            "content": "Sometimes It's better to be alone",
+            "row_max": 524,
+            "row_min": 508,
+            "height": 16,
+            "column_min": 145,
+            "width": 197,
+            "id": 11
+        },
+        {
+            "column_max": 539,
+            "content": "MOBILE",
+            "row_max": 521,
+            "row_min": 511,
+            "height": 10,
+            "column_min": 508,
+            "width": 31,
+            "id": 12
+        },
+        {
+            "column_max": 290,
+            "content": "Alan Leonardo",
+            "row_max": 601,
+            "row_min": 583,
+            "height": 18,
+            "column_min": 144,
+            "width": 146,
+            "id": 13
+        },
+        {
+            "column_max": 414,
+            "content": "I'm not failed ... my success is just postponed ,",
+            "row_max": 640,
+            "row_min": 623,
+            "height": 17,
+            "column_min": 146,
+            "width": 268,
+            "id": 14
+        },
+        {
+            "column_max": 538,
+            "content": "MOBILE",
+            "row_max": 636,
+            "row_min": 626,
+            "height": 10,
+            "column_min": 508,
+            "width": 30,
+            "id": 15
+        },
+        {
+            "column_max": 331,
+            "content": "Alexandra Stevanii",
+            "row_max": 715,
+            "row_min": 696,
+            "height": 19,
+            "column_min": 145,
+            "width": 186,
+            "id": 16
+        },
+        {
+            "column_max": 455,
+            "content": "The only way to do great work is to love what you do .",
+            "row_max": 756,
+            "row_min": 737,
+            "height": 19,
+            "column_min": 145,
+            "width": 310,
+            "id": 17
+        },
+        {
+            "column_max": 539,
+            "content": "MOBILE",
+            "row_max": 750,
+            "row_min": 741,
+            "height": 9,
+            "column_min": 508,
+            "width": 31,
+            "id": 18
+        },
+        {
+            "column_max": 311,
+            "content": "Soraiea Mertalez",
+            "row_max": 830,
+            "row_min": 813,
+            "height": 17,
+            "column_min": 145,
+            "width": 166,
+            "id": 19
+        },
+        {
+            "column_max": 470,
+            "content": "A journey of a thousand miles begins with a single step .",
+            "row_max": 872,
+            "row_min": 855,
+            "height": 17,
+            "column_min": 144,
+            "width": 326,
+            "id": 20
+        },
+        {
+            "column_max": 539,
+            "content": "MOBILE",
+            "row_max": 867,
+            "row_min": 857,
+            "height": 10,
+            "column_min": 508,
+            "width": 31,
+            "id": 21
+        },
+        {
+            "column_max": 274,
+            "content": "Lelya Mareen",
+            "row_max": 946,
+            "row_min": 922,
+            "height": 24,
+            "column_min": 145,
+            "width": 129,
+            "id": 22
+        },
+        {
+            "column_max": 438,
+            "content": "Do not give up , the beginning is always the harde .",
+            "row_max": 983,
+            "row_min": 966,
+            "height": 17,
+            "column_min": 145,
+            "width": 293,
+            "id": 23
+        },
+        {
+            "column_max": 538,
+            "content": "BILE",
+            "row_max": 979,
+            "row_min": 967,
+            "height": 12,
+            "column_min": 515,
+            "width": 23,
+            "id": 24
+        }
+    ],
     "img_shape": [
         1022,
         575,
         3
-    ],
-    "texts": [
-        {
-            "height": 15,
-            "row_min": 14,
-            "content": "77 %",
-            "column_min": 451,
-            "column_max": 478,
-            "width": 27,
-            "id": 0,
-            "row_max": 29
-        },
-        {
-            "height": 20,
-            "row_min": 11,
-            "content": "20:30",
-            "column_min": 509,
-            "column_max": 563,
-            "width": 54,
-            "id": 1,
-            "row_max": 31
-        },
-        {
-            "height": 24,
-            "row_min": 71,
-            "content": "Contacts",
-            "column_min": 212,
-            "column_max": 315,
-            "width": 103,
-            "id": 2,
-            "row_max": 95
-        },
-        {
-            "height": 23,
-            "row_min": 73,
-            "content": "318",
-            "column_min": 341,
-            "column_max": 362,
-            "width": 21,
-            "id": 3,
-            "row_max": 96
-        },
-        {
-            "height": 17,
-            "row_min": 241,
-            "content": "Peter Limonez",
-            "column_min": 145,
-            "column_max": 287,
-            "width": 142,
-            "id": 4,
-            "row_max": 258
-        },
-        {
-            "height": 16,
-            "row_min": 283,
-            "content": "The road to success is always under construction",
-            "column_min": 147,
-            "column_max": 438,
-            "width": 291,
-            "id": 5,
-            "row_max": 299
-        },
-        {
-            "height": 11,
-            "row_min": 285,
-            "content": "MOBILE",
-            "column_min": 508,
-            "column_max": 538,
-            "width": 30,
-            "id": 6,
-            "row_max": 296
-        },
-        {
-            "height": 20,
-            "row_min": 352,
-            "content": "Sofia Morell",
-            "column_min": 144,
-            "column_max": 260,
-            "width": 116,
-            "id": 7,
-            "row_max": 372
-        },
-        {
-            "height": 17,
-            "row_min": 392,
-            "content": "My silence smile is just another word for my pain .",
-            "column_min": 144,
-            "column_max": 436,
-            "width": 292,
-            "id": 8,
-            "row_max": 409
-        },
-        {
-            "height": 10,
-            "row_min": 395,
-            "content": "MOBILE",
-            "column_min": 508,
-            "column_max": 538,
-            "width": 30,
-            "id": 9,
-            "row_max": 405
-        },
-        {
-            "height": 18,
-            "row_min": 467,
-            "content": "Saarah Laten",
-            "column_min": 145,
-            "column_max": 272,
-            "width": 127,
-            "id": 10,
-            "row_max": 485
-        },
-        {
-            "height": 16,
-            "row_min": 508,
-            "content": "Sometimes It's better to be alone",
-            "column_min": 145,
-            "column_max": 342,
-            "width": 197,
-            "id": 11,
-            "row_max": 524
-        },
-        {
-            "height": 10,
-            "row_min": 511,
-            "content": "MOBILE",
-            "column_min": 508,
-            "column_max": 539,
-            "width": 31,
-            "id": 12,
-            "row_max": 521
-        },
-        {
-            "height": 18,
-            "row_min": 583,
-            "content": "Alan Leonardo",
-            "column_min": 144,
-            "column_max": 290,
-            "width": 146,
-            "id": 13,
-            "row_max": 601
-        },
-        {
-            "height": 17,
-            "row_min": 623,
-            "content": "I'm not failed ... my success is just postponed ,",
-            "column_min": 146,
-            "column_max": 414,
-            "width": 268,
-            "id": 14,
-            "row_max": 640
-        },
-        {
-            "height": 10,
-            "row_min": 626,
-            "content": "MOBILE",
-            "column_min": 508,
-            "column_max": 538,
-            "width": 30,
-            "id": 15,
-            "row_max": 636
-        },
-        {
-            "height": 19,
-            "row_min": 696,
-            "content": "Alexandra Stevanii",
-            "column_min": 145,
-            "column_max": 331,
-            "width": 186,
-            "id": 16,
-            "row_max": 715
-        },
-        {
-            "height": 19,
-            "row_min": 737,
-            "content": "The only way to do great work is to love what you do .",
-            "column_min": 145,
-            "column_max": 455,
-            "width": 310,
-            "id": 17,
-            "row_max": 756
-        },
-        {
-            "height": 9,
-            "row_min": 741,
-            "content": "MOBILE",
-            "column_min": 508,
-            "column_max": 539,
-            "width": 31,
-            "id": 18,
-            "row_max": 750
-        },
-        {
-            "height": 17,
-            "row_min": 813,
-            "content": "Soraiea Mertalez",
-            "column_min": 145,
-            "column_max": 311,
-            "width": 166,
-            "id": 19,
-            "row_max": 830
-        },
-        {
-            "height": 17,
-            "row_min": 855,
-            "content": "A journey of a thousand miles begins with a single step .",
-            "column_min": 144,
-            "column_max": 470,
-            "width": 326,
-            "id": 20,
-            "row_max": 872
-        },
-        {
-            "height": 10,
-            "row_min": 857,
-            "content": "MOBILE",
-            "column_min": 508,
-            "column_max": 539,
-            "width": 31,
-            "id": 21,
-            "row_max": 867
-        },
-        {
-            "height": 24,
-            "row_min": 922,
-            "content": "Lelya Mareen",
-            "column_min": 145,
-            "column_max": 274,
-            "width": 129,
-            "id": 22,
-            "row_max": 946
-        },
-        {
-            "height": 17,
-            "row_min": 966,
-            "content": "Do not give up , the beginning is always the harde .",
-            "column_min": 145,
-            "column_max": 438,
-            "width": 293,
-            "id": 23,
-            "row_max": 983
-        },
-        {
-            "height": 12,
-            "row_min": 967,
-            "content": "BILE",
-            "column_min": 515,
-            "column_max": 538,
-            "width": 23,
-            "id": 24,
-            "row_max": 979
-        }
     ]
 }
