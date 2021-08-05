@@ -108,10 +108,9 @@ def remove_top_bar(elements, img_height):
 
 def remove_bottom_bar(elements, img_height):
     new_elements = []
-    bottom_bar_range = img_height * (1 - 0.06)
-    max_height = img_height * 0.04
     for ele in elements:
-        if ele.row_min > bottom_bar_range and ele.height < max_height:
+        # parameters for 800-height GUI
+        if ele.row_min > 750 and 20 <= ele.height <= 30 and 20 <= ele.width <= 30:
             continue
         new_elements.append(ele)
     return new_elements
