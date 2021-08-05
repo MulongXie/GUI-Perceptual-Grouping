@@ -15,7 +15,7 @@ from layout.obj.List import *
 
 
 class GUI:
-    def __init__(self, img_file, compos_json_file=None, output_dir='data\\output'):
+    def __init__(self, img_file, compos_json_file=None, output_dir='data/output'):
         self.img_file = img_file
         self.img = cv2.imread(img_file)
         self.img_reshape = self.img.shape
