@@ -118,7 +118,7 @@ def text_filter_noise(texts):
 
 def text_detection(input_file='../data/input/30800.jpg', ocr_root='../data/output/ocr', show=False):
     start = time.clock()
-    name = input_file.split('/')[-1][:-4]
+    name = input_file.split('/')[-1][:-4] if '/' in input_file else input_file.split('\\')[-1][:-4]
     img = cv2.imread(input_file)
 
     ocr_result = ocr.ocr_detection_google(input_file)
@@ -128,7 +128,7 @@ def text_detection(input_file='../data/input/30800.jpg', ocr_root='../data/outpu
     texts = text_sentences_recognition(texts)
     res_img = visualize_texts(img, texts, shown_resize_height=800, show=show, write_path=pjoin(ocr_root, name+'.png'))
     save_detection_json(pjoin(ocr_root, name+'.json'), texts, img.shape)
-    print("[Text Detection Completed in %.3f s] %s" % (time.clock() - start, input_file))
+    print("[Text Detection Completed in %.3f s] Input: %s Output: %s" % (time.clock() - start, input_file, pjoin(ocr_root, name+'.json')))
     return res_img
 
 
