@@ -358,7 +358,8 @@ class ComposDF:
                 gaps = list(compos.loc[group]['gap'])
 
                 # cluster compos gaps
-                clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
+                eps = 20 if compos.loc[group[0], 'class'] == 'Text' else 10
+                clustering = DBSCAN(eps=eps, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
                 gap_labels = list(clustering.labels_)
                 gap_label_count = dict((i, gap_labels.count(i)) for i in gap_labels)  # {label: frequency of label}
 
