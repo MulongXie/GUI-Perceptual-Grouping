@@ -106,16 +106,22 @@ class GUI:
         if is_ocr:
             os.makedirs(self.ocr_dir, exist_ok=True)
             self.detect_result_img_text = text.text_detection(self.img_file, self.ocr_dir, show=show)
+        elif os.path.isfile(pjoin(self.ocr_dir, self.file_name + '.jpg')):
+            self.detect_result_img_text = cv2.imread(pjoin(self.ocr_dir, self.file_name + '.jpg'))
 
         if is_non_text:
             os.makedirs(self.non_text_dir, exist_ok=True)
             self.detect_result_img_non_text = ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=show)
+        elif os.path.isfile(pjoin(self.non_text_dir, self.file_name + '.jpg')):
+            self.detect_result_img_non_text = cv2.imread(pjoin(self.non_text_dir, self.file_name + '.jpg'))
 
         if is_merge:
             os.makedirs(self.merge_dir, exist_ok=True)
             compo_path = pjoin(self.non_text_dir, self.file_name + '.json')
             ocr_path = pjoin(self.ocr_dir, self.file_name + '.json')
             self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=key_params['remove-ui-bar'], show=show)
+        elif os.path.isfile(pjoin(self.merge_dir, self.file_name + '.jpg')):
+            self.detect_result_img_non_text = cv2.imread(pjoin(self.merge_dir, self.file_name + '.jpg'))
 
     '''
     *************************************

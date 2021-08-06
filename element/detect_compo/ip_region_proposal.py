@@ -41,6 +41,7 @@ def compo_detection(input_img_path, ip_root, uied_params,
                     resize_by_height=800, classifier=None, show=False, wai_key=0):
 
     start = time.clock()
+    name = input_img_path.replace('\\', '/').split('/')[-1][:-4]
 
     # *** Step 1 *** pre-processing: read img -> get binary map
     org, grey = pre.read_img(input_img_path, resize_by_height)
@@ -62,7 +63,7 @@ def compo_detection(input_img_path, ip_root, uied_params,
     # *** Step 4 ** nesting inspection: check if big compos have nesting element
     uicompos += nesting_inspection(org, grey, uicompos, ffl_block=uied_params['ffl-block'])
     Compo.compos_update(uicompos, org.shape)
-    res_img = draw.draw_bounding_box(org, uicompos, show=show, name='merged compo', write_path=pjoin(ip_root, 'result.jpg'), wait_key=wai_key)
+    res_img = draw.draw_bounding_box(org, uicompos, show=show, name='merged compo', write_path=pjoin(ip_root, name + '.jpg'), wait_key=wai_key)
 
     # *** Step 5 *** image inspection: recognize image -> remove noise in image -> binarize with larger threshold and reverse -> rectangular compo detection
     # if classifier is not None:
@@ -85,7 +86,6 @@ def compo_detection(input_img_path, ip_root, uied_params,
 
     # *** Step 7 *** save detection result
     Compo.compos_update(uicompos, org.shape)
-    name = input_img_path.split('/')[-1][:-4] if '/' in input_img_path else input_img_path.split('\\')[-1][:-4]
     file.save_corners_json(pjoin(ip_root, name + '.json'), uicompos)
     print("[Compo Detection Completed in %.3f s] Input: %s Output: %s" % (time.clock() - start, input_img_path, pjoin(ip_root, name + '.json')))
     return res_img

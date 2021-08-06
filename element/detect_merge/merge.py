@@ -197,7 +197,7 @@ def merge(img_path, compo_path, text_path, merge_root=None, is_remove_bar=True, 
     board = show_elements(img_resize, elements, show=show, win_name='elements after merging', wait_key=wait_key)
 
     # save all merged elements, clips and blank background
-    name = img_path.split('/')[-1][:-4] if '/' in img_path else img_path.split('\\')[-1][:-4]
+    name = img_path.replace('\\', '/').split('/')[-1][:-4]
     components = save_elements(pjoin(merge_root, name + '.json'), elements, img_resize.shape)
     cv2.imwrite(pjoin(merge_root, name + '.jpg'), board)
     print('[Merge Completed] Input: %s Output: %s' % (img_path, pjoin(merge_root, name + '.jpg')))
