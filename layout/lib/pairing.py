@@ -43,36 +43,94 @@ def calc_compos_distance(compo1, compo2):
             return dist
 
 
-def is_two_compos_align(compo1, compo2):
-    # aligned vertically (top & below)
-    if max(compo1['column_min'], compo2['column_min']) < min(compo1['column_max'], compo2['column_max']):
-        return True
-    if max(compo1['row_min'], compo2['row_min']) < min(compo1['row_max'], compo2['row_max']):
-        return True
-    return False
+def match_angles(angles_all, max_matched_angle_diff=10):
+    '''
+    @angles_all : list of list, each element in the g1's angle with each element in the g2
+                [[0.27, -12.88, 24.40],  # the 1st element in the g1's angles with all elements in the g2
+                [13.00, 0.18, 13.06]]    # the 2ed element in the g1's angles with all elements in the g2
+    Match if there are any similar angles for the 1st and 2ed element (e.g. 0.25 abd 0.18 in the example)
+    '''
+    for i in range(min(3, len(angles_all) - 1)):
+        angles_i = angles_all[i]
+        for k, an_i in enumerate(angles_i):
+            # match with others
+            matched_num = 1
+            paired_ids = [k]
+            for j in range(i + 1, len(angles_all)):
+                angles_j = angles_all[j]
+                for p, an_j in enumerate(angles_j):
+                    if abs(an_i - an_j) < max_matched_angle_diff:
+                        paired_ids.append(p)
+                        matched_num += 1
+                        break
+            if matched_num == len(angles_all):
+                return paired_ids
+    return None
 
 
-def match_two_groups_by_alignment(g1, g2):
-    if g1.iloc[0]['alignment_in_group'] == 'h':
-        max_side = max(list(g1['height']) + list(g2['height']))
+def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
+    '''
+    As the text's length is variable, we don't count on distance if one or more groups are texts.
+    In this situation, we only count on the angles of the line between two possibly paired elements.
+    '''
+    assert g1.iloc[0]['alignment_in_group'] == g2.iloc[0]['alignment_in_group']
+    alignment = g1.iloc[0]['alignment_in_group']
+    pairs = {}
+    if alignment == 'h':
+        g1_sort = g1.sort_values('center_column')
+        g2_sort = g2.sort_values('center_column')
     else:
-        max_side = max(list(g1['width']) + list(g2['width']))
-    max_side = max_side * 2
+        g1_sort = g1.sort_values('center_row')
+        g2_sort = g2.sort_values('center_row')
 
-    marked = np.full(len(g2), False)
-    alignments = []  # for each compo in the g1, record how many matched compos in the g2 it has
-    for i in range(len(g1)):
-        aligned_compos = 0
-        c1 = g1.iloc[i]
-        for j in range(len(g2)):
-            c2 = g2.iloc[j]
-            if not marked[j] and calc_compos_distance(c1, c2) < max_side and is_two_compos_align(c1, c2):
-                marked[j] = True
-                aligned_compos += 1
-    print(alignments)
+    swapped = False
+    if len(g1) == len(g2):
+        angles = []
+        for i in range(len(g1_sort)):
+            c1 = g1_sort.iloc[i]
+            c2 = g2_sort.iloc[i]
+            angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
+            # compare the pair's distance and angle between the line and the x-axis
+            if i > 0:
+                if abs(angle - angles[i - 1]) < diff_angle:
+                    return False
+            pairs[c1['id']] = c2['id']
+            angles.append(angle)
+    else:
+        # make sure g1 represents the shorter group while g2 is the longer one
+        if len(g1_sort) > len(g2_sort):
+            temp = g1_sort
+            g1_sort = g2_sort
+            g2_sort = temp
+            swapped = True
 
-    # {"the number of matched g2 compos for a g1 compo": "how many g1 compos has the same number of matched g2 compos"}
-    count = dict((i, alignments.count(i)) for i in alignments)
+        angles_all = []
+        # calculate the distances between each c1 in g1 and all c2 in g2
+        for i in range(len(g1_sort)):
+            c1 = g1_sort.iloc[i]
+            angles = []
+            for j in range(len(g2_sort)):
+                c2 = g2_sort.iloc[j]
+                angle = math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column']))
+                angles.append(angle)
+            angles_all.append(angles)
+
+        matched_angle_pairs = match_angles(angles_all)
+        if matched_angle_pairs is None:
+            return False
+        else:
+            for i, paired_id in enumerate(matched_angle_pairs):
+                pairs[g1_sort.iloc[i]['id']] = g2_sort.iloc[paired_id]['id']
+
+    # print('Success:', g1.iloc[0]['group'], g2.iloc[0]['group'], distances, max_side)
+    for i in pairs:
+        if not swapped:
+            g1.loc[i, 'pair_to'] = pairs[i]
+            g2.loc[pairs[i], 'pair_to'] = i
+        else:
+            g2.loc[i, 'pair_to'] = pairs[i]
+            g1.loc[pairs[i], 'pair_to'] = i
+    return True
 
 
 def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
@@ -186,9 +244,15 @@ def pair_matching_within_groups(groups, start_pair_id, new_pairs=True, max_group
         for j in range(i + 1, len(groups)):
             g2 = groups[j]
             alignment2 = g2.iloc[0]['alignment_in_group']
-            # if alignment1 == alignment2:
-            #     match_two_groups_by_alignment(g1, g2)
-            if alignment1 == alignment2 and match_two_groups_by_distance(g1, g2):
+            if alignment1 == alignment2:
+                # for Text, the length could be variable so cannot match through distance
+                if g1.iloc[0]['class'] == 'Text' or g2.iloc[0]['class'] == 'Text':
+                    if not match_two_groups_with_text_by_angles(g1, g2):
+                        continue
+                # if both are Compo, match through distance and angle
+                else:
+                    if not match_two_groups_by_distance(g1, g2):
+                        continue
                 # print(i, list(g1['group'])[0], mark[i], '-', j, list(g2['group'])[0], mark[j])
                 if not mark[i]:
                     # hasn't paired yet, creat a new pair
