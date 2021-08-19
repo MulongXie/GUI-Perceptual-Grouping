@@ -2,203 +2,203 @@
     "texts": [
         {
             "row_max": 23,
+            "content": "FAK",
+            "width": 26,
             "height": 14,
             "id": 0,
             "column_min": 215,
-            "column_max": 241,
-            "width": 26,
-            "content": "FAK",
-            "row_min": 9
+            "row_min": 9,
+            "column_max": 241
         },
         {
             "row_max": 48,
+            "content": "5:04",
+            "width": 79,
             "height": 38,
             "id": 1,
             "column_min": 978,
-            "column_max": 1057,
-            "width": 79,
-            "content": "5:04",
-            "row_min": 10
+            "row_min": 10,
+            "column_max": 1057
         },
         {
             "row_max": 159,
+            "content": "Learn",
+            "width": 125,
             "height": 44,
             "id": 2,
             "column_min": 45,
-            "column_max": 170,
-            "width": 125,
-            "content": "Learn",
-            "row_min": 115
+            "row_min": 115,
+            "column_max": 170
         },
         {
             "row_max": 389,
+            "content": "Every Challenge second you month unlock you a new stay random in the 7 workout Month",
+            "width": 898,
             "height": 109,
             "id": 3,
             "column_min": 90,
-            "column_max": 988,
-            "width": 898,
-            "content": "Every Challenge second you month unlock you a new stay random in the 7 workout Month",
-            "row_min": 280
+            "row_min": 280,
+            "column_max": 988
         },
         {
             "row_max": 389,
+            "content": ".",
+            "width": 9,
             "height": 61,
             "id": 4,
             "column_min": 986,
-            "column_max": 995,
-            "width": 9,
-            "content": ".",
-            "row_min": 328
+            "row_min": 328,
+            "column_max": 995
         },
         {
             "row_max": 558,
+            "content": "Plans",
+            "width": 143,
             "height": 51,
             "id": 5,
             "column_min": 45,
-            "column_max": 188,
-            "width": 143,
-            "content": "Plans",
-            "row_min": 507
+            "row_min": 507,
+            "column_max": 188
         },
         {
             "row_max": 838,
+            "content": "Healthy",
+            "width": 147,
             "height": 48,
             "id": 6,
             "column_min": 121,
-            "column_max": 268,
-            "width": 147,
-            "content": "Healthy",
-            "row_min": 790
+            "row_min": 790,
+            "column_max": 268
         },
         {
             "row_max": 838,
+            "content": "Sporty",
+            "width": 127,
             "height": 45,
             "id": 7,
             "column_min": 476,
-            "column_max": 603,
-            "width": 127,
-            "content": "Sporty",
-            "row_min": 793
+            "row_min": 793,
+            "column_max": 603
         },
         {
             "row_max": 839,
+            "content": "Weightloss",
+            "width": 218,
             "height": 50,
             "id": 8,
             "column_min": 775,
-            "column_max": 993,
-            "width": 218,
-            "content": "Weightloss",
-            "row_min": 789
+            "row_min": 789,
+            "column_max": 993
         },
         {
             "row_max": 1053,
+            "content": "Get Started",
+            "width": 297,
             "height": 59,
             "id": 9,
             "column_min": 41,
-            "column_max": 338,
-            "width": 297,
-            "content": "Get Started",
-            "row_min": 994
+            "row_min": 994,
+            "column_max": 338
         },
         {
             "row_max": 1138,
+            "content": "Cla",
+            "width": 20,
             "height": 40,
             "id": 10,
             "column_min": 652,
-            "column_max": 672,
-            "width": 20,
-            "content": "Cla",
-            "row_min": 1098
+            "row_min": 1098,
+            "column_max": 672
         },
         {
             "row_max": 1329,
+            "content": "Full Body",
+            "width": 179,
             "height": 53,
             "id": 11,
             "column_min": 105,
-            "column_max": 284,
-            "width": 179,
-            "content": "Full Body",
-            "row_min": 1276
+            "row_min": 1276,
+            "column_max": 284
         },
         {
             "row_max": 1328,
+            "content": "Upper Body",
+            "width": 226,
             "height": 48,
             "id": 12,
             "column_min": 426,
-            "column_max": 652,
-            "width": 226,
-            "content": "Upper Body",
-            "row_min": 1280
+            "row_min": 1280,
+            "column_max": 652
         },
         {
             "row_max": 1329,
+            "content": "Lower Body",
+            "width": 230,
             "height": 52,
             "id": 13,
             "column_min": 771,
-            "column_max": 1001,
-            "width": 230,
-            "content": "Lower Body",
-            "row_min": 1277
+            "row_min": 1277,
+            "column_max": 1001
         },
         {
             "row_max": 1649,
+            "content": "\u0637\u0645\u0627\u0645\u0647",
+            "width": 145,
             "height": 22,
             "id": 14,
             "column_min": 119,
-            "column_max": 264,
-            "width": 145,
-            "content": "\u0637\u0645\u0627\u0645\u0647",
-            "row_min": 1627
+            "row_min": 1627,
+            "column_max": 264
         },
         {
             "row_max": 1648,
+            "content": "Deateeman",
+            "width": 212,
             "height": 19,
             "id": 15,
             "column_min": 429,
-            "column_max": 641,
-            "width": 212,
-            "content": "Deateeman",
-            "row_min": 1629
+            "row_min": 1629,
+            "column_max": 641
         },
         {
             "row_max": 1776,
+            "content": "Workout",
+            "width": 132,
             "height": 32,
             "id": 16,
             "column_min": 72,
-            "column_max": 204,
-            "width": 132,
-            "content": "Workout",
-            "row_min": 1744
+            "row_min": 1744,
+            "column_max": 204
         },
         {
             "row_max": 1769,
+            "content": "Learn",
+            "width": 97,
             "height": 33,
             "id": 17,
             "column_min": 357,
-            "column_max": 454,
-            "width": 97,
-            "content": "Learn",
-            "row_min": 1736
+            "row_min": 1736,
+            "column_max": 454
         },
         {
             "row_max": 1767,
+            "content": "Achievemente",
+            "width": 220,
             "height": 23,
             "id": 18,
             "column_min": 565,
-            "column_max": 785,
-            "width": 220,
-            "content": "Achievemente",
-            "row_min": 1744
+            "row_min": 1744,
+            "column_max": 785
         },
         {
             "row_max": 1765,
+            "content": "Track",
+            "width": 85,
             "height": 22,
             "id": 19,
             "column_min": 898,
-            "column_max": 983,
-            "width": 85,
-            "content": "Track",
-            "row_min": 1743
+            "row_min": 1743,
+            "column_max": 983
         }
     ],
     "img_shape": [
