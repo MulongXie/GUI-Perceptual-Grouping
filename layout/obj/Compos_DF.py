@@ -192,7 +192,7 @@ class ComposDF:
         # slip a group into several ones according to compo gaps if necessary
         self.regroup_compos_by_compos_gap()
         # search and add compos into a group according to compo gaps in the group
-        self.add_missed_compo_to_group_by_gaps()
+        self.add_missed_compo_to_group_by_gaps(search_outside=False)
         # check group validity by compos gaps in the group, the gaps among compos in a group should be similar
         self.check_group_validity_by_compos_gap()
 
@@ -470,7 +470,7 @@ class ComposDF:
                     return compo
         return None
 
-    def add_missed_compo_to_group_by_gaps(self):
+    def add_missed_compo_to_group_by_gaps(self, search_outside=True):
         '''
         search and add compos into a group according to compo gaps in the group
         '''
@@ -507,19 +507,20 @@ class ComposDF:
                                 compos.loc[possible_compo['id'], 'alignment_in_group'] = compos.loc[group[k], 'alignment_in_group']
 
                 # search possible compos outside the group
-                group_compos = compos.loc[group]
-                if group_compos.iloc[0]['alignment_in_group'] == 'v': group_compos = group_compos.sort_values('center_row')
-                else: group_compos = group_compos.sort_values('center_column')
-                # search previously (left or above)
-                possible_compo = self.search_possible_compo(group_compos.iloc[0], group_compos.iloc[0]['gap'], direction='prev')
-                if possible_compo is not None:
-                    compos.loc[possible_compo['id'], 'group'] = i
-                    compos.loc[possible_compo['id'], 'alignment_in_group'] = group_compos.iloc[0]['alignment_in_group']
-                # search next (right or below)
-                possible_compo = self.search_possible_compo(group_compos.iloc[-1], group_compos.iloc[0]['gap'], direction='next')
-                if possible_compo is not None:
-                    compos.loc[possible_compo['id'], 'group'] = i
-                    compos.loc[possible_compo['id'], 'alignment_in_group'] = group_compos.iloc[0]['alignment_in_group']
+                if search_outside:
+                    group_compos = compos.loc[group]
+                    if group_compos.iloc[0]['alignment_in_group'] == 'v': group_compos = group_compos.sort_values('center_row')
+                    else: group_compos = group_compos.sort_values('center_column')
+                    # search previously (left or above)
+                    possible_compo = self.search_possible_compo(group_compos.iloc[0], group_compos.iloc[0]['gap'], direction='prev')
+                    if possible_compo is not None:
+                        compos.loc[possible_compo['id'], 'group'] = i
+                        compos.loc[possible_compo['id'], 'alignment_in_group'] = group_compos.iloc[0]['alignment_in_group']
+                    # search next (right or below)
+                    possible_compo = self.search_possible_compo(group_compos.iloc[-1], group_compos.iloc[0]['gap'], direction='next')
+                    if possible_compo is not None:
+                        compos.loc[possible_compo['id'], 'group'] = i
+                        compos.loc[possible_compo['id'], 'alignment_in_group'] = group_compos.iloc[0]['alignment_in_group']
 
     '''
     ******************************
