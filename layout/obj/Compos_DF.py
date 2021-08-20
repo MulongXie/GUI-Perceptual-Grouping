@@ -215,14 +215,16 @@ class ComposDF:
             compo_i = self.compos_dataframe.iloc[i]
             for j in range(i + 1, len(self.compos_dataframe)):
                 compo_j = self.compos_dataframe.iloc[j]
-                if compo_i['class'] == compo_j['class'] and max(compo_i['area'], compo_j['area']) < min(compo_i['area'], compo_j['area']) * 2:
+                if max(compo_i['area'], compo_j['area']) < min(compo_i['area'], compo_j['area']) * 2:
                     if compo_i['cluster_area'] != -1:
                         self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = compo_i['cluster_area']
                     elif compo_j['cluster_area'] != -1:
                         self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = compo_j['cluster_area']
+                        compo_i = self.compos_dataframe.iloc[i]
                     else:
                         self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = cluster_id
                         self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = cluster_id
+                        compo_i = self.compos_dataframe.iloc[i]
                         cluster_id += 1
         if show:
             if show_method == 'line':
