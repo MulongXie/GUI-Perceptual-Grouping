@@ -106,6 +106,47 @@ class ComposDF:
                         compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['column_min'] - group_compos.iloc[j]['column_max']
 
     '''
+    ******************
+    *** Clustering ***
+    ******************
+    '''
+    def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
+        x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
+        clustering = DBSCAN(eps=eps, min_samples=min_samples).fit(x)
+        tag = 'cluster_' + attr
+        self.compos_dataframe[tag] = clustering.labels_
+        self.compos_dataframe[tag].astype(int)
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr=tag, name=tag)
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr=tag, name=tag)
+
+    def cluster_area_by_relational_size(self, show=True, show_method='block'):
+        self.compos_dataframe['cluster_area'] = -1
+        cluster_id = 0
+        for i in range(len(self.compos_dataframe) - 1):
+            compo_i = self.compos_dataframe.iloc[i]
+            for j in range(i + 1, len(self.compos_dataframe)):
+                compo_j = self.compos_dataframe.iloc[j]
+                if max(compo_i['area'], compo_j['area']) < min(compo_i['area'], compo_j['area']) * 2:
+                    if compo_i['cluster_area'] != -1:
+                        self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = compo_i['cluster_area']
+                    elif compo_j['cluster_area'] != -1:
+                        self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = compo_j['cluster_area']
+                        compo_i = self.compos_dataframe.iloc[i]
+                    else:
+                        self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = cluster_id
+                        self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = cluster_id
+                        compo_i = self.compos_dataframe.iloc[i]
+                        cluster_id += 1
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr='cluster_area', name='cluster_area')
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='cluster_area', name='cluster_area')
+
+    '''
     ******************************
     *** Repetition Recognition ***
     ******************************
@@ -195,42 +236,6 @@ class ComposDF:
         self.add_missed_compo_to_group_by_gaps(search_outside=False)
         # check group validity by compos gaps in the group, the gaps among compos in a group should be similar
         self.check_group_validity_by_compos_gap()
-
-    def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
-        x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
-        clustering = DBSCAN(eps=eps, min_samples=min_samples).fit(x)
-        tag = 'cluster_' + attr
-        self.compos_dataframe[tag] = clustering.labels_
-        self.compos_dataframe[tag].astype(int)
-        if show:
-            if show_method == 'line':
-                self.visualize(gather_attr=tag, name=tag)
-            elif show_method == 'block':
-                self.visualize_fill(gather_attr=tag, name=tag)
-
-    def cluster_area_by_relational_size(self, show=True, show_method='block'):
-        self.compos_dataframe['cluster_area'] = -1
-        cluster_id = 0
-        for i in range(len(self.compos_dataframe) - 1):
-            compo_i = self.compos_dataframe.iloc[i]
-            for j in range(i + 1, len(self.compos_dataframe)):
-                compo_j = self.compos_dataframe.iloc[j]
-                if max(compo_i['area'], compo_j['area']) < min(compo_i['area'], compo_j['area']) * 2:
-                    if compo_i['cluster_area'] != -1:
-                        self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = compo_i['cluster_area']
-                    elif compo_j['cluster_area'] != -1:
-                        self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = compo_j['cluster_area']
-                        compo_i = self.compos_dataframe.iloc[i]
-                    else:
-                        self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = cluster_id
-                        self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = cluster_id
-                        compo_i = self.compos_dataframe.iloc[i]
-                        cluster_id += 1
-        if show:
-            if show_method == 'line':
-                self.visualize(gather_attr='cluster_area', name='cluster_area')
-            elif show_method == 'block':
-                self.visualize_fill(gather_attr='cluster_area', name='cluster_area')
 
     def group_by_clusters(self, cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
