@@ -87,7 +87,7 @@ class GUI:
             height_re = int(img_resize_longest_side * (height / width))
             return height_re, img_resize_longest_side, self.img.shape[2]
 
-    def element_detection(self, is_ocr=True, is_non_text=True, is_merge=True, img_resize_longest_side=800, show=False):
+    def element_detection(self, is_ocr=False, is_non_text=False, is_merge=False, img_resize_longest_side=800, show=False):
         if self.img_file is None:
             print('No GUI image is input')
             return
@@ -104,28 +104,25 @@ class GUI:
         key_params = {'min-grad': 10, 'ffl-block': 5, 'min-ele-area': 50, 'merge-contained-ele': False,
                       'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-ui-bar': True}
         if is_ocr:
-            if os.path.isfile(pjoin(self.ocr_dir, self.file_name + '.jpg')):
-                self.detect_result_img_text = cv2.imread(pjoin(self.ocr_dir, self.file_name + '.jpg'))
-            else:
-                os.makedirs(self.ocr_dir, exist_ok=True)
-                self.detect_result_img_text = text.text_detection(self.img_file, self.ocr_dir, show=show)
+            os.makedirs(self.ocr_dir, exist_ok=True)
+            self.detect_result_img_text = text.text_detection(self.img_file, self.ocr_dir, show=show)
+        elif os.path.isfile(pjoin(self.ocr_dir, self.file_name + '.jpg')):
+            self.detect_result_img_text = cv2.imread(pjoin(self.ocr_dir, self.file_name + '.jpg'))
 
         if is_non_text:
-            if os.path.isfile(pjoin(self.non_text_dir, self.file_name + '.jpg')):
-                self.detect_result_img_non_text = cv2.imread(pjoin(self.non_text_dir, self.file_name + '.jpg'))
-            else:
-                os.makedirs(self.non_text_dir, exist_ok=True)
-                self.detect_result_img_non_text = ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=show)
+            os.makedirs(self.non_text_dir, exist_ok=True)
+            self.detect_result_img_non_text = ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=show)
+        elif os.path.isfile(pjoin(self.non_text_dir, self.file_name + '.jpg')):
+            self.detect_result_img_non_text = cv2.imread(pjoin(self.non_text_dir, self.file_name + '.jpg'))
 
         if is_merge:
-            if os.path.isfile(pjoin(self.merge_dir, self.file_name + '.jpg')):
-                self.load_compos_from_json(pjoin(self.merge_dir, self.file_name + '.json'))
-                self.detect_result_img_merge = cv2.imread(pjoin(self.merge_dir, self.file_name + '.jpg'))
-            else:
-                os.makedirs(self.merge_dir, exist_ok=True)
-                compo_path = pjoin(self.non_text_dir, self.file_name + '.json')
-                ocr_path = pjoin(self.ocr_dir, self.file_name + '.json')
-                self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=key_params['remove-ui-bar'], show=show)
+            os.makedirs(self.merge_dir, exist_ok=True)
+            compo_path = pjoin(self.non_text_dir, self.file_name + '.json')
+            ocr_path = pjoin(self.ocr_dir, self.file_name + '.json')
+            self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=key_params['remove-ui-bar'], show=show)
+        elif os.path.isfile(pjoin(self.merge_dir, self.file_name + '.jpg')):
+            self.load_compos_from_json(pjoin(self.merge_dir, self.file_name + '.json'))
+            self.detect_result_img_merge = cv2.imread(pjoin(self.merge_dir, self.file_name + '.jpg'))
 
     '''
     *************************************
