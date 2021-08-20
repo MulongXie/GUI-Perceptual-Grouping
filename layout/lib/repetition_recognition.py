@@ -17,7 +17,8 @@ def recog_repetition_nontext(compos, show=True, only_non_contained_compo=True):
     # step1. cluster compos
     compos_cp.cluster_dbscan_by_attr('center_column', eps=10, show=show)
     compos_cp.cluster_dbscan_by_attr('center_row', eps=10, show=show)
-    compos_cp.cluster_dbscan_by_attr('area', eps=500, show=show)
+    # compos_cp.cluster_dbscan_by_attr('area', eps=500, show=show)
+    compos_cp.cluster_area_by_relational_size(show=show)
 
     # step2. group compos according to clustering
     compos_cp.group_by_clusters(cluster=['cluster_area', 'cluster_center_column'], alignment='v', show=show)

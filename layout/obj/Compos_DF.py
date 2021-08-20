@@ -208,6 +208,28 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr=tag, name=tag)
 
+    def cluster_area_by_relational_size(self, show=True, show_method='block'):
+        self.compos_dataframe['cluster_area'] = -1
+        cluster_id = 0
+        for i in range(len(self.compos_dataframe) - 1):
+            compo_i = self.compos_dataframe.iloc[i]
+            for j in range(i + 1, len(self.compos_dataframe)):
+                compo_j = self.compos_dataframe.iloc[j]
+                if compo_i['class'] == compo_j['class'] and max(compo_i['area'], compo_j['area']) < min(compo_i['area'], compo_j['area']) * 2:
+                    if compo_i['cluster_area'] != -1:
+                        self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = compo_i['cluster_area']
+                    elif compo_j['cluster_area'] != -1:
+                        self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = compo_j['cluster_area']
+                    else:
+                        self.compos_dataframe.loc[compo_i['id'], 'cluster_area'] = cluster_id
+                        self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = cluster_id
+                        cluster_id += 1
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr='cluster_area', name='cluster_area')
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='cluster_area', name='cluster_area')
+
     def group_by_clusters(self, cluster, alignment, show=True, show_method='block'):
         compos = self.compos_dataframe
         if 'group' not in compos.columns:
