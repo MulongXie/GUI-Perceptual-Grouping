@@ -358,7 +358,7 @@ class ComposDF:
             if i != -1 and len(groups[i]) == 2:
                 compos = self.compos_dataframe.loc[groups[i]]
                 # if the two are too different in area, mark the group as invalid
-                if compos['area'].max() - compos['area'].min() > 500 and compos['area'].max() > compos['area'].min() * 2:
+                if compos['area'].max() - compos['area'].min() > 500 and compos['area'].max() > compos['area'].min() * 2.2:
                     self.compos_dataframe.loc[groups[i], 'group'] = -1
         if show:
             if show_method == 'line':
