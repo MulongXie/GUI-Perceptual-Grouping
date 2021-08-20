@@ -119,7 +119,7 @@ class GUI:
             os.makedirs(self.merge_dir, exist_ok=True)
             compo_path = pjoin(self.non_text_dir, self.file_name + '.json')
             ocr_path = pjoin(self.ocr_dir, self.file_name + '.json')
-            self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=key_params['remove-ui-bar'], show=show)
+            self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=True, is_paragraph=True, show=show)
         elif os.path.isfile(pjoin(self.merge_dir, self.file_name + '.jpg')):
             self.load_compos_from_json(pjoin(self.merge_dir, self.file_name + '.json'))
             self.detect_result_img_merge = cv2.imread(pjoin(self.merge_dir, self.file_name + '.jpg'))
