@@ -115,7 +115,10 @@ def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
             angles = []
             for j in range(len(g2_sort)):
                 c2 = g2_sort.iloc[j]
-                angle = math.degrees(math.atan2(c1['row_min'] - c2['row_min'], c1['column_min'] - c2['column_min']))
+                if c1['column_min'] >= c2['column_min']:
+                    angle = int(math.degrees(math.atan2(c1['row_min'] - c2['row_min'], c1['column_min'] - c2['column_min'])))
+                else:
+                    angle = int(math.degrees(math.atan2(c2['row_min'] - c1['row_min'], c2['column_min'] - c1['column_min'])))
                 angles.append(angle)
             angles_all.append(angles)
 
@@ -158,7 +161,10 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
             c1 = g1_sort.iloc[i]
             c2 = g2_sort.iloc[i]
             distance = calc_compos_distance(c1, c2)
-            angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
+            if c1['center_column'] >= c2['center_column']:
+                angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
+            else:
+                angle = int(math.degrees(math.atan2(c2['center_row'] - c1['center_row'], c2['center_column'] - c1['center_column'])))
             # mismatch if too far
             if distance > max_side * 2:
                 return False
@@ -193,7 +199,10 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
                 d_cur = calc_compos_distance(c1, c2)
                 if distance is None or distance > d_cur:
                     distance = d_cur
-                    angle = math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column']))
+                    if c1['center_column'] >= c2['center_column']:
+                        angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
+                    else:
+                        angle = int(math.degrees(math.atan2(c2['center_row'] - c1['center_row'], c2['center_column'] - c1['center_column'])))
                     pairs[c1['id']] = c2['id']
                     # mark the matched compo
                     marked[j] = True
