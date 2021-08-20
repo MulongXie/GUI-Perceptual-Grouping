@@ -50,7 +50,35 @@ def refine_texts(texts, img_shape):
     return refined_texts
 
 
-def refine_elements(compos, texts, intersection_bias=2, containment_ratio=0.8):
+def merge_text_line_to_paragraph(elements, max_line_gap=5):
+    texts = []
+    non_texts = []
+    for ele in elements:
+        if ele.category == 'Text':
+            texts.append(ele)
+        else:
+            non_texts.append(ele)
+
+    changed = True
+    while changed:
+        changed = False
+        temp_set = []
+        for text_a in texts:
+            merged = False
+            for text_b in temp_set:
+                inter_area, _, _, _ = text_a.calc_intersection_area(text_b, bias=(0, max_line_gap))
+                if inter_area > 0:
+                    text_b.element_merge(text_a)
+                    merged = True
+                    changed = True
+                    break
+            if not merged:
+                temp_set.append(text_a)
+        texts = temp_set.copy()
+    return non_texts + texts
+
+
+def refine_elements(compos, texts, intersection_bias=(2, 2), containment_ratio=0.8):
     '''
     1. remove compos contained in text
     2. remove compos containing text area that's too large
@@ -87,7 +115,7 @@ def refine_elements(compos, texts, intersection_bias=2, containment_ratio=0.8):
 def check_containment(elements):
     for i in range(len(elements) - 1):
         for j in range(i + 1, len(elements)):
-            relation = elements[i].element_relation(elements[j], bias=2)
+            relation = elements[i].element_relation(elements[j], bias=(2, 2))
             if relation == -1:
                 elements[j].children.append(elements[i])
                 elements[i].parent_id = elements[j].id
@@ -160,7 +188,7 @@ def compos_clip_and_fill(clip_root, org, compos):
     cv2.imwrite(pjoin(clip_root, 'bkg.png'), bkg)
 
 
-def merge(img_path, compo_path, text_path, merge_root=None, is_remove_bar=True, show=False, wait_key=0):
+def merge(img_path, compo_path, text_path, merge_root=None, is_paragraph=False, is_remove_bar=True, show=False, wait_key=0):
     compo_json = json.load(open(compo_path, 'r'))
     text_json = json.load(open(text_path, 'r'))
 
@@ -192,6 +220,8 @@ def merge(img_path, compo_path, text_path, merge_root=None, is_remove_bar=True, 
     if is_remove_bar:
         elements = remove_top_bar(elements, img_height=compo_json['img_shape'][0])
         elements = remove_bottom_bar(elements, img_height=compo_json['img_shape'][0])
+    if is_paragraph:
+        elements = merge_text_line_to_paragraph(elements, max_line_gap=10)
     reassign_ids(elements)
     check_containment(elements)
     board = show_elements(img_resize, elements, show=show, win_name='elements after merging', wait_key=wait_key)
