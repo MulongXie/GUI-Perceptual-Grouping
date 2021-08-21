@@ -44,9 +44,9 @@ def recog_repetition_text(compos, show=True, only_non_contained_compo=True):
 
     # step1. cluster compos
     compos_cp.cluster_dbscan_by_attr('row_min', 10, show=False)
-    compos_cp.check_cluster_by_attr(cluster_attr='cluster_row_min', check_by='height', eps=20, show=show)
+    compos_cp.check_group_by_attr(target_attr='cluster_row_min', check_by='height', eps=15, show=show)
     compos_cp.cluster_dbscan_by_attr('column_min', 15, show=False)
-    compos_cp.check_cluster_by_attr(cluster_attr='cluster_column_min', check_by='height', eps=20, show=show)
+    compos_cp.check_group_by_attr(target_attr='cluster_column_min', check_by='height', eps=15, show=show)
     
     # step2. group compos according to clustering
     compos_cp.group_by_clusters('cluster_row_min', alignment='h', show=show)
