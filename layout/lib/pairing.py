@@ -68,6 +68,24 @@ def match_angles(angles_all, max_matched_angle_diff=10):
     return None
 
 
+def calc_angle(c1, c2, anchor='corner'):
+    '''
+    @anchor: 'corner' -> calculated by top left, or 'center' -> calculate by center
+    '''
+    angle = None
+    if anchor == 'corner':
+        if c1['column_min'] >= c2['column_min']:
+            angle = int(math.degrees(math.atan2(c1['row_min'] - c2['row_min'], c1['column_min'] - c2['column_min'])))
+        else:
+            angle = int(math.degrees(math.atan2(c2['row_min'] - c1['row_min'], c2['column_min'] - c1['column_min'])))
+    elif anchor == 'center':
+        if c1['center_column'] >= c2['center_column']:
+            angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
+        else:
+            angle = int(math.degrees(math.atan2(c2['center_row'] - c1['center_row'], c2['center_column'] - c1['center_column'])))
+    return angle
+
+
 def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
     '''
     As the text's length is variable, we don't count on distance if one or more groups are texts.
@@ -89,10 +107,7 @@ def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             c2 = g2_sort.iloc[i]
-            if c1['column_min'] >= c2['column_min']:
-                angle = int(math.degrees(math.atan2(c1['row_min'] - c2['row_min'], c1['column_min'] - c2['column_min'])))
-            else:
-                angle = int(math.degrees(math.atan2(c2['row_min'] - c1['row_min'], c2['column_min'] - c1['column_min'])))
+            angle = calc_angle(c1, c2, 'corner')
             # print(angles, angle)
             # compare the pair's distance and angle between the line and the x-axis
             if i > 0:
@@ -115,10 +130,7 @@ def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
             angles = []
             for j in range(len(g2_sort)):
                 c2 = g2_sort.iloc[j]
-                if c1['column_min'] >= c2['column_min']:
-                    angle = int(math.degrees(math.atan2(c1['row_min'] - c2['row_min'], c1['column_min'] - c2['column_min'])))
-                else:
-                    angle = int(math.degrees(math.atan2(c2['row_min'] - c1['row_min'], c2['column_min'] - c1['column_min'])))
+                angle = calc_angle(c1, c2, 'corner')
                 angles.append(angle)
             angles_all.append(angles)
 
@@ -161,10 +173,7 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
             c1 = g1_sort.iloc[i]
             c2 = g2_sort.iloc[i]
             distance = calc_compos_distance(c1, c2)
-            if c1['center_column'] >= c2['center_column']:
-                angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
-            else:
-                angle = int(math.degrees(math.atan2(c2['center_row'] - c1['center_row'], c2['center_column'] - c1['center_column'])))
+            angle = calc_angle(c1, c2, 'center')
             # mismatch if too far
             if distance > max_side * 2:
                 return False
@@ -199,10 +208,7 @@ def match_two_groups_by_distance(g1, g2, diff_distance=1.2, diff_angle=10):
                 d_cur = calc_compos_distance(c1, c2)
                 if distance is None or distance > d_cur:
                     distance = d_cur
-                    if c1['center_column'] >= c2['center_column']:
-                        angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
-                    else:
-                        angle = int(math.degrees(math.atan2(c2['center_row'] - c1['center_row'], c2['center_column'] - c1['center_column'])))
+                    angle = calc_angle(c1, c2, 'center')
                     pairs[c1['id']] = c2['id']
                     # mark the matched compo
                     marked[j] = True
