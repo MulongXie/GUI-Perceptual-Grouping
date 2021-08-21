@@ -43,6 +43,19 @@ def calc_compos_distance(compo1, compo2):
             return dist
 
 
+def calc_compos_y_distance(compo1, compo2):
+    # if y-intersected, set the t-distance as -1
+    if max(compo1['row_min'], compo2['row_min']) < min(compo1['row_max'], compo2['row_max']):
+        return -1
+    # if not, calculate the y-distance
+    if compo1['row_min'] < compo2['row_min']:
+        # c1 is above c2
+        return compo2['row_min'] - compo1['row_max']
+    else:
+        # c1 is under c2
+        return compo1['row_min'] - compo2['row_max']
+
+
 def match_angles(angles_all, max_matched_angle_diff=10):
     '''
     @angles_all : list of list, each element in the g1's angle with each element in the g2
@@ -53,13 +66,14 @@ def match_angles(angles_all, max_matched_angle_diff=10):
     for i in range(min(3, len(angles_all) - 1)):
         angles_i = angles_all[i]
         for k, an_i in enumerate(angles_i):
+            if an_i is None: continue
             # match with others
             matched_num = 1
             paired_ids = [k]
             for j in range(i + 1, len(angles_all)):
                 angles_j = angles_all[j]
                 for p, an_j in enumerate(angles_j):
-                    if abs(an_i - an_j) < max_matched_angle_diff:
+                    if an_j is not None and abs(an_i - an_j) < max_matched_angle_diff:
                         paired_ids.append(p)
                         matched_num += 1
                         break
@@ -86,10 +100,10 @@ def calc_angle(c1, c2, anchor='corner'):
     return angle
 
 
-def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
+def match_two_groups_with_text_by_angles_and_y_distance(g1, g2, diff_angle=10):
     '''
     As the text's length is variable, we don't count on distance if one or more groups are texts.
-    In this situation, we only count on the angles of the line between two possibly paired elements.
+    In this situation, we count on the angles of the line between two possibly paired elements.
     '''
     assert g1.iloc[0]['alignment_in_group'] == g2.iloc[0]['alignment_in_group']
     alignment = g1.iloc[0]['alignment_in_group']
@@ -101,12 +115,16 @@ def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
         g1_sort = g1.sort_values('center_row')
         g2_sort = g2.sort_values('center_row')
 
+    max_height = max(list(g1['height']) + list(g2['height']))
     swapped = False
     if len(g1) == len(g2):
         angles = []
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             c2 = g2_sort.iloc[i]
+            # if the y-distance is too far, regard it as unmatched
+            if calc_compos_y_distance(c1, c2) > max_height * 2:
+                return False
             angle = calc_angle(c1, c2, 'corner')
             # print(angles, angle)
             # compare the pair's distance and angle between the line and the x-axis
@@ -130,7 +148,11 @@ def match_two_groups_with_text_by_angles(g1, g2, diff_angle=10):
             angles = []
             for j in range(len(g2_sort)):
                 c2 = g2_sort.iloc[j]
-                angle = calc_angle(c1, c2, 'corner')
+                # if the y-distance is too far, regard it as unmatched
+                if calc_compos_y_distance(c1, c2) > max_height * 2:
+                    angle = None
+                else:
+                    angle = calc_angle(c1, c2, 'corner')
                 angles.append(angle)
             angles_all.append(angles)
 
@@ -266,7 +288,7 @@ def pair_matching_within_groups(groups, start_pair_id, new_pairs=True, max_group
             if alignment1 == alignment2:
                 # for Text, the length could be variable so cannot match through distance
                 if g1.iloc[0]['class'] == 'Text' or g2.iloc[0]['class'] == 'Text':
-                    if not match_two_groups_with_text_by_angles(g1, g2):
+                    if not match_two_groups_with_text_by_angles_and_y_distance(g1, g2):
                         continue
                 # if both are Compo, match through distance and angle
                 else:
