@@ -146,6 +146,29 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='cluster_area', name='cluster_area')
 
+    def check_cluster_by_attr(self, cluster_attr='cluster_column_min', check_by='height', eps=20, show=True, show_method='block'):
+        compos = self.compos_dataframe
+        groups = compos.groupby(cluster_attr).groups  # {group name: list of compo ids}
+        for i in groups:
+            if i != -1 and len(groups[i]) > 2:
+                group = groups[i]  # list of component ids in the group
+                checking_attr = list(compos.loc[group][check_by])
+                # cluster compos height
+                clustering = DBSCAN(eps=eps, min_samples=1).fit(np.reshape(checking_attr, (-1, 1)))
+                checking_attr_labels = list(clustering.labels_)
+                checking_attr_label_count = dict((i, checking_attr_labels.count(i)) for i in checking_attr_labels)  # {label: frequency of label}
+
+                for label in checking_attr_label_count:
+                    # invalid compo if the compo's height is different from others
+                    if checking_attr_label_count[label] < 2:
+                        for j, lab in enumerate(checking_attr_labels):
+                            if lab == label:
+                                compos.loc[group[j], cluster_attr] = -1
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr=cluster_attr, name=cluster_attr)
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr=cluster_attr, name=cluster_attr)
     '''
     ******************************
     *** Repetition Recognition ***
