@@ -151,6 +151,8 @@ class GUI:
         self.compos_df.repetitive_block_recognition()   # group_pair
         # identify list items in each paired group
         self.compos_df.list_item_partition()            # list_item
+        # filter out invalid unpaired groups
+        self.compos_df.check_unpaired_group_of_two_compos_validity_by_min_area()
 
     # *** step3 ***
     def cvt_list_and_compos_df_to_obj(self):
@@ -247,7 +249,7 @@ class GUI:
     def visualize_lists(self, show=True):
         board = self.img_resized.copy()
         for lst in self.lists:
-            board = lst.visualize_list(board)
+            board = lst.visualize_list(board, flag='block')
         if show:
             cv2.imshow('lists', board)
             cv2.waitKey()

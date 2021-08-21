@@ -403,6 +403,22 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name='valid-two-compos')
 
+    def check_unpaired_group_of_two_compos_validity_by_min_area(self, show=False, show_method='block'):
+        groups = self.compos_dataframe.groupby('group').groups
+        for i in groups:
+            # if the group only has two elements, check if it's valid by elements' areas
+            if i != -1 and len(groups[i]) == 2:
+                compos = self.compos_dataframe.loc[groups[i]]
+                if compos.iloc[0]['group_pair'] == -1:
+                    # if the two are too different in area, mark the group as invalid
+                    if compos['area'].min() < 150:
+                        self.compos_dataframe.loc[groups[i], 'group'] = -1
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name='valid-two-compos')
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name='valid-two-compos')
+
     def check_group_validity_by_compos_gap(self, show=False, show_method='block'):
         '''
         check group validity by compos gaps in the group, the gaps among compos in a group should be similar
