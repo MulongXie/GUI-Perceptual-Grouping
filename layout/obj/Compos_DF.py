@@ -170,6 +170,100 @@ class ComposDF:
                 self.visualize(gather_attr=target_attr, name=target_attr)
             elif show_method == 'block':
                 self.visualize_fill(gather_attr=target_attr, name=target_attr)
+
+    '''
+    ****************
+    *** Grouping ***
+    ****************
+    '''
+    def group_by_clusters(self, cluster, alignment, show=True, show_method='block'):
+        compos = self.compos_dataframe
+        if 'group' not in compos.columns:
+            self.compos_dataframe['group'] = -1
+            group_id = 0
+        else:
+            group_id = compos['group'].max() + 1
+
+        groups = self.compos_dataframe.groupby(cluster).groups
+        for i in groups:
+            if len(groups[i]) > 1:
+                self.compos_dataframe.loc[list(groups[i]), 'group'] = group_id
+                self.compos_dataframe.loc[list(groups[i]), 'alignment'] = alignment
+                group_id += 1
+        self.compos_dataframe['group'].astype(int)
+
+        if show:
+            name = cluster if type(cluster) != list else '+'.join(cluster)
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name=name)
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name=name)
+
+    def closer_group_by_mean_area(self, compo_index, group1, group2):
+        compo = self.compos_dataframe.loc[compo_index]
+        g1 = group1[group1['id'] != compo['id']]
+        g2 = group2[group2['id'] != compo['id']]
+        # if len(cl2) == 1: return 1
+        # elif len(cl1) == 1: return 2
+
+        mean_area1 = g1['area'].mean()
+        mean_area2 = g2['area'].mean()
+
+        # if g1 and g2's area is not too different while one of g1 and g2 is length of 1, choose another group
+        if abs(mean_area1 - mean_area2) <= 500 or max(mean_area1, mean_area2) < min(mean_area1, mean_area2) * 1.5:
+            if len(g1) == 1 and len(g2) > 1:
+                return 2
+            elif len(g1) > 1 and len(g2) == 1:
+                return 1
+
+        # choose the group with similar area
+        compo_area = compo['area']
+        if abs(compo_area - mean_area1) < abs(compo_area - mean_area2):
+            return 1
+        return 2
+
+    def group_by_clusters_conflict(self, cluster, alignment, show=True, show_method='block'):
+        compos = self.compos_dataframe
+        group_id = compos['group'].max() + 1
+
+        compo_new_group = {}  # {'id':'new group id'}
+        groups = self.compos_dataframe.groupby(cluster).groups
+        for i in groups:
+            if len(groups[i]) > 1:
+                member_num = len(groups[i])
+                for j in list(groups[i]):
+                    # if the compo hasn't been grouped, then assign it to a new group and no conflict happens
+                    if compos.loc[j, 'group'] == -1:
+                        compos.loc[j, 'group'] = group_id
+                        compos.loc[j, 'alignment'] = alignment
+                    # conflict raises if a component can be grouped into multiple groups
+                    # then double check it by the average area of the groups
+                    else:
+                        # keep in the previous group if the it is the only member in a new group
+                        if member_num <= 1:
+                            continue
+                        # close to the current cluster
+                        prev_group = compos[compos['group'] == compos.loc[j, 'group']]
+                        if self.closer_group_by_mean_area(j, compos.loc[list(groups[i])], prev_group) == 1:
+                            # compos.loc[j, 'group'] = group_id
+                            # compos.loc[j, 'alignment'] = alignment
+                            compo_new_group[j] = group_id
+                        else:
+                            member_num -= 1
+                group_id += 1
+
+        for i in compo_new_group:
+            compos.loc[i, 'group'] = compo_new_group[i]
+            compos.loc[i, 'alignment'] = alignment
+        self.compos_dataframe['group'].astype(int)
+
+        if show:
+            name = cluster if type(cluster) != list else '+'.join(cluster)
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name=name)
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name=name)
+
     '''
     ******************************
     *** Repetition Recognition ***
@@ -260,94 +354,6 @@ class ComposDF:
         self.add_missed_compo_to_group_by_gaps(search_outside=False)
         # check group validity by compos gaps in the group, the gaps among compos in a group should be similar
         self.check_group_validity_by_compos_gap()
-
-    def group_by_clusters(self, cluster, alignment, show=True, show_method='block'):
-        compos = self.compos_dataframe
-        if 'group' not in compos.columns:
-            self.compos_dataframe['group'] = -1
-            group_id = 0
-        else:
-            group_id = compos['group'].max() + 1
-
-        groups = self.compos_dataframe.groupby(cluster).groups
-        for i in groups:
-            if len(groups[i]) > 1:
-                self.compos_dataframe.loc[list(groups[i]), 'group'] = group_id
-                self.compos_dataframe.loc[list(groups[i]), 'alignment'] = alignment
-                group_id += 1
-        self.compos_dataframe['group'].astype(int)
-
-        if show:
-            name = cluster if type(cluster) != list else '+'.join(cluster)
-            if show_method == 'line':
-                self.visualize(gather_attr='group', name=name)
-            elif show_method == 'block':
-                self.visualize_fill(gather_attr='group', name=name)
-
-    def closer_group_by_mean_area(self, compo_index, group1, group2):
-        compo = self.compos_dataframe.loc[compo_index]
-        g1 = group1[group1['id'] != compo['id']]
-        g2 = group2[group2['id'] != compo['id']]
-        # if len(cl2) == 1: return 1
-        # elif len(cl1) == 1: return 2
-
-        mean_area1 = g1['area'].mean()
-        mean_area2 = g2['area'].mean()
-
-        # if g1 and g2's area is not too different while one of g1 and g2 is length of 1, choose another group
-        if abs(mean_area1 - mean_area2) <= 500 or max(mean_area1, mean_area2) < min(mean_area1, mean_area2) * 1.5:
-            if len(g1) == 1 and len(g2) > 1:
-                return 2
-            elif len(g1) > 1 and len(g2) == 1:
-                return 1
-
-        # choose the group with similar area
-        compo_area = compo['area']
-        if abs(compo_area - mean_area1) < abs(compo_area - mean_area2):
-            return 1
-        return 2
-
-    def group_by_clusters_conflict(self, cluster, alignment, show=True, show_method='block'):
-        compos = self.compos_dataframe
-        group_id = compos['group'].max() + 1
-
-        compo_new_group = {}  # {'id':'new group id'}
-        groups = self.compos_dataframe.groupby(cluster).groups
-        for i in groups:
-            if len(groups[i]) > 1:
-                member_num = len(groups[i])
-                for j in list(groups[i]):
-                    # if the compo hasn't been grouped, then assign it to a new group and no conflict happens
-                    if compos.loc[j, 'group'] == -1:
-                        compos.loc[j, 'group'] = group_id
-                        compos.loc[j, 'alignment'] = alignment
-                    # conflict raises if a component can be grouped into multiple groups
-                    # then double check it by the average area of the groups
-                    else:
-                        # keep in the previous group if the it is the only member in a new group
-                        if member_num <= 1:
-                            continue
-                        # close to the current cluster
-                        prev_group = compos[compos['group'] == compos.loc[j, 'group']]
-                        if self.closer_group_by_mean_area(j, compos.loc[list(groups[i])], prev_group) == 1:
-                            # compos.loc[j, 'group'] = group_id
-                            # compos.loc[j, 'alignment'] = alignment
-                            compo_new_group[j] = group_id
-                        else:
-                            member_num -= 1
-                group_id += 1
-
-        for i in compo_new_group:
-            compos.loc[i, 'group'] = compo_new_group[i]
-            compos.loc[i, 'alignment'] = alignment
-        self.compos_dataframe['group'].astype(int)
-
-        if show:
-            name = cluster if type(cluster) != list else '+'.join(cluster)
-            if show_method == 'line':
-                self.visualize(gather_attr='group', name=name)
-            elif show_method == 'block':
-                self.visualize_fill(gather_attr='group', name=name)
 
     '''
     ********************************
