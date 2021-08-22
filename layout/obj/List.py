@@ -47,15 +47,20 @@ class List(Compo):
 
     def partition_list_items(self):
         # each row/column contains multiple compos
-        groups = self.compo_df.groupby('list_item').groups
-        for i in groups:
-            group = list(groups[i])
-            item_compos_df = self.compo_df.loc[group]
-            list_item = []
-            for j in range(len(item_compos_df)):
-                item = item_compos_df.iloc[j]
-                list_item.append(Compo(compo_id='c-' + str(item['id']), compo_class=item['class'], compo_df=item, in_list=self.compo_id))
-            self.list_items.append(list_item)
+        if self.list_class == 'multi':
+            groups = self.compo_df.groupby('list_item').groups
+            for i in groups:
+                group = list(groups[i])
+                item_compos_df = self.compo_df.loc[group]
+                list_item = []
+                for j in range(len(item_compos_df)):
+                    item = item_compos_df.iloc[j]
+                    list_item.append(Compo(compo_id='c-' + str(item['id']), compo_class=item['class'], compo_df=item, in_list=self.compo_id))
+                self.list_items.append(list_item)
+        elif self.list_class == 'single':
+            for i in range(len(self.compo_df)):
+                item = self.compo_df.iloc[i]
+                self.list_items.append([Compo(compo_id='c-' + str(item['id']), compo_class=item['class'], compo_df=item, in_list=self.compo_id)])
 
     def visualize_list(self, img=None, flag='line', show=False):
         board = img.copy()
