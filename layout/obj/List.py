@@ -36,6 +36,15 @@ class List(Compo):
             info['list_items'].append(compos)
         return info
 
+    def wrap_list_items(self):
+        items = []
+        for list_item in self.list_items:
+            compos = []
+            for compo in list_item:
+                compos.append(compo.compo_class)
+            items.append(compos)
+        return items
+
     def partition_list_items(self):
         # each row/column contains multiple compos
         groups = self.compo_df.groupby('list_item').groups

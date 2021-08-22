@@ -69,9 +69,17 @@ class GUI:
         json.dump(js, open(pjoin(self.layout_dir, self.file_name + '.json'), 'w'), indent=4)
         # print('Layout recognition result json save to ', output_dir)
 
+    def save_list(self):
+        os.makedirs(self.layout_dir, exist_ok=True)
+        js = {'ui': self.file_name, 'list': [], 'multitab': []}
+        for lst in self.lists:
+            js['list'].append(lst.wrap_list_items())
+        json.dump(js, open(pjoin(self.layout_dir, self.file_name + '-list.json'), 'w'), indent=4)
+
     def save_layout_result(self):
         self.save_layout_result_imgs()
         self.save_layout_result_json()
+        self.save_list()
 
     '''
     *****************************
