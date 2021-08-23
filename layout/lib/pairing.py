@@ -310,7 +310,7 @@ def pair_matching_within_groups(groups, start_pair_id, new_pairs=True, max_group
                 else:
                     if not match_two_groups_by_distance(g1, g2):
                         continue
-                print(list(g1['group'])[0], mark[i], '-', list(g2['group'])[0], mark[j])
+                # print(list(g1['group'])[0], mark[i], '-', list(g2['group'])[0], mark[j])
                 if not mark[i]:
                     # hasn't paired yet, creat a new pair
                     if not mark[j]:
