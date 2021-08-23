@@ -14,6 +14,7 @@ class List(Compo):
         self.list_items = []  # list of list_items - list_item: a row in a vertical list / a column in a horizontal list
 
         self.partition_list_items()
+        self.sort_items()
 
     def get_inner_compos(self):
         compos = []
@@ -44,6 +45,12 @@ class List(Compo):
                 compos.append(compo.compo_class)
             items.append(compos)
         return items
+
+    def sort_items(self):
+        if self.list_alignment == 'v':
+            self.list_items = sorted(self.list_items, key=lambda x: x[0].top)
+        else:
+            self.list_items = sorted(self.list_items, key=lambda x: x[0].left)
 
     def partition_list_items(self):
         # each row/column contains multiple compos
