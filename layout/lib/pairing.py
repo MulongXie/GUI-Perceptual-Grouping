@@ -100,7 +100,7 @@ def calc_angle(c1, c2, anchor='corner'):
     return angle
 
 
-def match_two_groups_with_text_by_angles_and_y_distance(g1, g2, diff_angle=10):
+def match_two_groups_with_text_by_angles_and_y_distance(g1, g2, diff_distance=1.2, diff_angle=10):
     '''
     As the text's length is variable, we don't count on distance if one or more groups are texts.
     In this situation, we count on the angles of the line between two possibly paired elements.
@@ -141,27 +141,43 @@ def match_two_groups_with_text_by_angles_and_y_distance(g1, g2, diff_angle=10):
             g2_sort = temp
             swapped = True
 
-        angles_all = []
-        # calculate the distances between each c1 in g1 and all c2 in g2
+        distances = []
+        angles = []
+        # calculate the y-distances between each c1 in g1 and all c2 in g2
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
-            angles = []
+            distance = None
+            angle = None
             for j in range(len(g2_sort)):
                 c2 = g2_sort.iloc[j]
-                # if the y-distance is too far, regard it as unmatched
-                if calc_compos_y_distance(c1, c2) > max_height * 2:
-                    angle = None
-                else:
+                d_cur = calc_compos_y_distance(c1, c2)
+                # match the closest
+                if distance is None or distance > d_cur:
+                    distance = d_cur
                     angle = calc_angle(c1, c2, 'corner')
-                angles.append(angle)
-            angles_all.append(angles)
+                    pairs[c1['id']] = c2['id']
+            distances.append(distance)
+            angles.append(angle)
 
-        matched_angle_pairs = match_angles(angles_all)
-        if matched_angle_pairs is None:
+        # match the distances and angles
+        match_num = 1
+        for i in range(len(distances)):
+            dis_i = distances[i]
+            angle_i = angles[i]
+            for j in range(len(distances)):
+                if i == j:
+                    continue
+                dis_j = distances[j]
+                angle_j = angles[j]
+                # compare the pair's distance and angle between the line and the x-axis
+                if max(dis_i, dis_j) < max_height * 2 and \
+                        (abs(dis_i - dis_j) <= 10 or max(dis_i, dis_j) < diff_distance * min(dis_i, dis_j)) and \
+                        abs(angle_i - angle_j) < diff_angle:
+                    match_num += 1
+                    break
+        # print(g1.iloc[0]['group'], g2.iloc[0]['group'], match_num, distances, max_side)
+        if match_num < min(len(g1), len(g2)) * 0.8:
             return False
-        else:
-            for i, paired_id in enumerate(matched_angle_pairs):
-                pairs[g1_sort.iloc[i]['id']] = g2_sort.iloc[paired_id]['id']
 
     # print('Success:', g1.iloc[0]['group'], g2.iloc[0]['group'], distances, max_side)
     for i in pairs:
@@ -294,7 +310,7 @@ def pair_matching_within_groups(groups, start_pair_id, new_pairs=True, max_group
                 else:
                     if not match_two_groups_by_distance(g1, g2):
                         continue
-                # print(i, list(g1['group'])[0], mark[i], '-', j, list(g2['group'])[0], mark[j])
+                print(list(g1['group'])[0], mark[i], '-', list(g2['group'])[0], mark[j])
                 if not mark[i]:
                     # hasn't paired yet, creat a new pair
                     if not mark[j]:
