@@ -2,8 +2,6 @@ import cv2
 import numpy as np
 from random import randint as rint
 
-colors = {}
-
 
 def random_color():
     return rint(0, 255), rint(0, 255), rint(0, 255)
@@ -55,7 +53,7 @@ def visualize(img, compos_df, resize_shape=None, attr='class', name='board', sho
 def visualize_fill(img, compos_df, resize_shape=None, attr='class', name='board', show=True):
     if resize_shape is not None:
         img = cv2.resize(img, resize_shape)
-
+    colors = {}
     board = img.copy()
     for i in range(len(compos_df)):
         compo = compos_df.iloc[i]
