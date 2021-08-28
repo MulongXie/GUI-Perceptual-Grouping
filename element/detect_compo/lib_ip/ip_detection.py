@@ -346,7 +346,7 @@ def compo_filter(compos, min_area, img_shape):
         ratio_h = compo.width / compo.height
         ratio_w = compo.height / compo.width
         if ratio_h > 50 or ratio_w > 40 or \
-                (min(compo.height, compo.width) < 8 and max(ratio_h, ratio_w) > 10):
+                (min(compo.height, compo.width) < 15 and max(ratio_h, ratio_w) > 8):
             continue
         compos_new.append(compo)
     return compos_new
