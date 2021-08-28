@@ -12,6 +12,7 @@ from layout.obj.Compos_DF import ComposDF
 from layout.obj.Compo import *
 from layout.obj.Block import *
 from layout.obj.List import *
+import layout.lib.draw as draw
 
 
 class GUI:
@@ -276,3 +277,20 @@ class GUI:
             cv2.imshow('compos', board)
             cv2.waitKey()
             cv2.destroyWindow('compos')
+
+    def visualize_container(self, show=True):
+        board = self.img_resized.copy()
+        df = self.compos_df.compos_dataframe
+        containers = df[df['class'] == 'Block']
+        for i in range(len(containers)):
+            container = containers.iloc[i]
+            children = df.loc[list(container['children'])]
+            for j in range(len(children)):
+                child = children.iloc[j]
+                color = (0,255,0) if child['class'] == 'Compo' else (0,0,255)
+                cv2.rectangle(board, (child['column_min'], child['row_min']), (child['column_max'], child['row_max']), color, 2)
+            draw.draw_label(board, (container['column_min'], container['row_min'], container['column_max'], container['row_max']), (166,166,0), text='container')
+        if show:
+            cv2.imshow('container', board)
+            cv2.waitKey()
+            cv2.destroyWindow('container')

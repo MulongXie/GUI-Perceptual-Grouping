@@ -277,9 +277,12 @@ class ComposDF:
         blocks = df[(df['class']=='Block') & (~pd.isna(df['children'])) & (df['children']!=-1)]
         children_list = []
         connections_list = []
-        # calculate children connections in each block
         for i in range(len(blocks)):
             children = df[df['id'].isin(blocks.iloc[i]['children'])].sort_values('center_row')
+            # set as one group for each container
+            df.loc[blocks.iloc[i]['id'], 'group'] = 'c-' + str(i)
+            df.loc[children['id'], 'group'] = 'c-' + str(i)
+            # calculate children connections in each block
             children_list.append(children)
             connections_list.append(rep.calc_connections(children))
         # match children connections
