@@ -74,8 +74,11 @@ class List(Compo):
         for list_item in self.list_items:
             color = random_color()
             for compo in list_item:
-                board = compo.visualize(board, flag, color=color)
-        draw_label(board, [self.left, self.top, self.right, self.bottom], (166,100,255), text='List', put_text=True)
+                if compo.compo_class == 'Block':
+                    board = compo.visualize(board, 'line', color=color)
+                else:
+                    board = compo.visualize(board, flag, color=color)
+        draw_label(board, [self.left, self.top, self.right, self.bottom], (166,100,255), text='Group', put_text=True)
         if show:
             cv2.imshow('list', board)
             cv2.waitKey()
