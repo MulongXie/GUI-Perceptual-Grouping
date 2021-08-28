@@ -1,36 +1,36 @@
 [
     {
-        "class": "Block",
         "location": {
-            "left": 18,
-            "right": 429,
             "bottom": 67,
+            "right": 429,
+            "left": 18,
             "top": 47
         },
+        "id": "b-1",
         "children": [
             {
-                "class": "Text",
+                "text_content": "Learn",
                 "location": {
-                    "left": 18,
-                    "right": 70,
                     "bottom": 66,
+                    "right": 70,
+                    "left": 18,
                     "top": 47
                 },
-                "id": "c-25",
-                "text_content": "Learn"
+                "id": "c-23",
+                "class": "Text"
             },
             {
-                "class": "Compo",
+                "text_content": null,
                 "location": {
-                    "left": 423,
-                    "right": 429,
                     "bottom": 67,
+                    "right": 429,
+                    "left": 423,
                     "top": 48
                 },
                 "id": "c-0",
-                "text_content": null
+                "class": "Compo"
             }
         ],
-        "id": "b-1"
+        "class": "Block"
     }
 ]

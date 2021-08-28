@@ -3,47 +3,43 @@
         [
             [
                 "Compo",
-                "Compo"
-            ],
-            [
-                "Compo",
-                "Compo"
-            ]
-        ],
-        [
-            [
-                "Block",
-                "Compo",
-                "Text"
-            ],
-            [
-                "Block",
-                "Compo",
-                "Text"
-            ],
-            [
-                "Block",
-                "Compo",
-                "Text"
-            ]
-        ],
-        [
-            [
-                "Block",
-                "Compo",
-                "Compo",
-                "Text"
-            ],
-            [
-                "Block",
                 "Compo",
                 "Text",
                 "Text"
             ],
             [
-                "Block",
                 "Compo",
                 "Compo",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Compo",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Compo",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Compo",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Compo",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Text",
                 "Text"
             ]
         ],
@@ -56,34 +52,9 @@
             ],
             [
                 "Compo"
-            ],
-            [
-                "Compo"
-            ]
-        ],
-        [
-            [
-                "Text"
-            ],
-            [
-                "Text"
-            ],
-            [
-                "Text"
-            ],
-            [
-                "Text"
-            ]
-        ],
-        [
-            [
-                "Text"
-            ],
-            [
-                "Text"
             ]
         ]
     ],
-    "ui": "10",
+    "ui": "2",
     "multitab": []
 }

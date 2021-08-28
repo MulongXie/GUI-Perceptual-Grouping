@@ -1,209 +1,209 @@
 {
-    "texts": [
-        {
-            "row_max": 23,
-            "content": "FAK",
-            "width": 26,
-            "height": 14,
-            "id": 0,
-            "column_min": 215,
-            "row_min": 9,
-            "column_max": 241
-        },
-        {
-            "row_max": 48,
-            "content": "5:04",
-            "width": 79,
-            "height": 38,
-            "id": 1,
-            "column_min": 978,
-            "row_min": 10,
-            "column_max": 1057
-        },
-        {
-            "row_max": 159,
-            "content": "Learn",
-            "width": 125,
-            "height": 44,
-            "id": 2,
-            "column_min": 45,
-            "row_min": 115,
-            "column_max": 170
-        },
-        {
-            "row_max": 389,
-            "content": "Every Challenge second you month unlock you a new stay random in the 7 workout Month",
-            "width": 898,
-            "height": 109,
-            "id": 3,
-            "column_min": 90,
-            "row_min": 280,
-            "column_max": 988
-        },
-        {
-            "row_max": 389,
-            "content": ".",
-            "width": 9,
-            "height": 61,
-            "id": 4,
-            "column_min": 986,
-            "row_min": 328,
-            "column_max": 995
-        },
-        {
-            "row_max": 558,
-            "content": "Plans",
-            "width": 143,
-            "height": 51,
-            "id": 5,
-            "column_min": 45,
-            "row_min": 507,
-            "column_max": 188
-        },
-        {
-            "row_max": 838,
-            "content": "Healthy",
-            "width": 147,
-            "height": 48,
-            "id": 6,
-            "column_min": 121,
-            "row_min": 790,
-            "column_max": 268
-        },
-        {
-            "row_max": 838,
-            "content": "Sporty",
-            "width": 127,
-            "height": 45,
-            "id": 7,
-            "column_min": 476,
-            "row_min": 793,
-            "column_max": 603
-        },
-        {
-            "row_max": 839,
-            "content": "Weightloss",
-            "width": 218,
-            "height": 50,
-            "id": 8,
-            "column_min": 775,
-            "row_min": 789,
-            "column_max": 993
-        },
-        {
-            "row_max": 1053,
-            "content": "Get Started",
-            "width": 297,
-            "height": 59,
-            "id": 9,
-            "column_min": 41,
-            "row_min": 994,
-            "column_max": 338
-        },
-        {
-            "row_max": 1138,
-            "content": "Cla",
-            "width": 20,
-            "height": 40,
-            "id": 10,
-            "column_min": 652,
-            "row_min": 1098,
-            "column_max": 672
-        },
-        {
-            "row_max": 1329,
-            "content": "Full Body",
-            "width": 179,
-            "height": 53,
-            "id": 11,
-            "column_min": 105,
-            "row_min": 1276,
-            "column_max": 284
-        },
-        {
-            "row_max": 1328,
-            "content": "Upper Body",
-            "width": 226,
-            "height": 48,
-            "id": 12,
-            "column_min": 426,
-            "row_min": 1280,
-            "column_max": 652
-        },
-        {
-            "row_max": 1329,
-            "content": "Lower Body",
-            "width": 230,
-            "height": 52,
-            "id": 13,
-            "column_min": 771,
-            "row_min": 1277,
-            "column_max": 1001
-        },
-        {
-            "row_max": 1649,
-            "content": "\u0637\u0645\u0627\u0645\u0647",
-            "width": 145,
-            "height": 22,
-            "id": 14,
-            "column_min": 119,
-            "row_min": 1627,
-            "column_max": 264
-        },
-        {
-            "row_max": 1648,
-            "content": "Deateeman",
-            "width": 212,
-            "height": 19,
-            "id": 15,
-            "column_min": 429,
-            "row_min": 1629,
-            "column_max": 641
-        },
-        {
-            "row_max": 1776,
-            "content": "Workout",
-            "width": 132,
-            "height": 32,
-            "id": 16,
-            "column_min": 72,
-            "row_min": 1744,
-            "column_max": 204
-        },
-        {
-            "row_max": 1769,
-            "content": "Learn",
-            "width": 97,
-            "height": 33,
-            "id": 17,
-            "column_min": 357,
-            "row_min": 1736,
-            "column_max": 454
-        },
-        {
-            "row_max": 1767,
-            "content": "Achievemente",
-            "width": 220,
-            "height": 23,
-            "id": 18,
-            "column_min": 565,
-            "row_min": 1744,
-            "column_max": 785
-        },
-        {
-            "row_max": 1765,
-            "content": "Track",
-            "width": 85,
-            "height": 22,
-            "id": 19,
-            "column_min": 898,
-            "row_min": 1743,
-            "column_max": 983
-        }
-    ],
     "img_shape": [
         1920,
         1080,
         3
+    ],
+    "texts": [
+        {
+            "id": 0,
+            "row_min": 9,
+            "column_min": 215,
+            "content": "FAK",
+            "width": 26,
+            "column_max": 241,
+            "height": 14,
+            "row_max": 23
+        },
+        {
+            "id": 1,
+            "row_min": 10,
+            "column_min": 978,
+            "content": "5:04",
+            "width": 79,
+            "column_max": 1057,
+            "height": 38,
+            "row_max": 48
+        },
+        {
+            "id": 2,
+            "row_min": 115,
+            "column_min": 45,
+            "content": "Learn",
+            "width": 125,
+            "column_max": 170,
+            "height": 44,
+            "row_max": 159
+        },
+        {
+            "id": 3,
+            "row_min": 280,
+            "column_min": 90,
+            "content": "Every Challenge second you month unlock you a new stay random in the 7 workout Month",
+            "width": 898,
+            "column_max": 988,
+            "height": 109,
+            "row_max": 389
+        },
+        {
+            "id": 4,
+            "row_min": 328,
+            "column_min": 986,
+            "content": ".",
+            "width": 9,
+            "column_max": 995,
+            "height": 61,
+            "row_max": 389
+        },
+        {
+            "id": 5,
+            "row_min": 507,
+            "column_min": 45,
+            "content": "Plans",
+            "width": 143,
+            "column_max": 188,
+            "height": 51,
+            "row_max": 558
+        },
+        {
+            "id": 6,
+            "row_min": 790,
+            "column_min": 121,
+            "content": "Healthy",
+            "width": 147,
+            "column_max": 268,
+            "height": 48,
+            "row_max": 838
+        },
+        {
+            "id": 7,
+            "row_min": 793,
+            "column_min": 476,
+            "content": "Sporty",
+            "width": 127,
+            "column_max": 603,
+            "height": 45,
+            "row_max": 838
+        },
+        {
+            "id": 8,
+            "row_min": 789,
+            "column_min": 775,
+            "content": "Weightloss",
+            "width": 218,
+            "column_max": 993,
+            "height": 50,
+            "row_max": 839
+        },
+        {
+            "id": 9,
+            "row_min": 994,
+            "column_min": 41,
+            "content": "Get Started",
+            "width": 297,
+            "column_max": 338,
+            "height": 59,
+            "row_max": 1053
+        },
+        {
+            "id": 10,
+            "row_min": 1098,
+            "column_min": 652,
+            "content": "Cla",
+            "width": 20,
+            "column_max": 672,
+            "height": 40,
+            "row_max": 1138
+        },
+        {
+            "id": 11,
+            "row_min": 1276,
+            "column_min": 105,
+            "content": "Full Body",
+            "width": 179,
+            "column_max": 284,
+            "height": 53,
+            "row_max": 1329
+        },
+        {
+            "id": 12,
+            "row_min": 1280,
+            "column_min": 426,
+            "content": "Upper Body",
+            "width": 226,
+            "column_max": 652,
+            "height": 48,
+            "row_max": 1328
+        },
+        {
+            "id": 13,
+            "row_min": 1277,
+            "column_min": 771,
+            "content": "Lower Body",
+            "width": 230,
+            "column_max": 1001,
+            "height": 52,
+            "row_max": 1329
+        },
+        {
+            "id": 14,
+            "row_min": 1627,
+            "column_min": 119,
+            "content": "\u0637\u0645\u0627\u0645\u0647",
+            "width": 145,
+            "column_max": 264,
+            "height": 22,
+            "row_max": 1649
+        },
+        {
+            "id": 15,
+            "row_min": 1629,
+            "column_min": 429,
+            "content": "Deateeman",
+            "width": 212,
+            "column_max": 641,
+            "height": 19,
+            "row_max": 1648
+        },
+        {
+            "id": 16,
+            "row_min": 1744,
+            "column_min": 72,
+            "content": "Workout",
+            "width": 132,
+            "column_max": 204,
+            "height": 32,
+            "row_max": 1776
+        },
+        {
+            "id": 17,
+            "row_min": 1736,
+            "column_min": 357,
+            "content": "Learn",
+            "width": 97,
+            "column_max": 454,
+            "height": 33,
+            "row_max": 1769
+        },
+        {
+            "id": 18,
+            "row_min": 1744,
+            "column_min": 565,
+            "content": "Achievemente",
+            "width": 220,
+            "column_max": 785,
+            "height": 23,
+            "row_max": 1767
+        },
+        {
+            "id": 19,
+            "row_min": 1743,
+            "column_min": 898,
+            "content": "Track",
+            "width": 85,
+            "column_max": 983,
+            "height": 22,
+            "row_max": 1765
+        }
     ]
 }

@@ -1,0 +1,639 @@
+{
+    "compos": [
+        {
+            "height": 8,
+            "position": {
+                "column_min": 25,
+                "row_max": 59,
+                "column_max": 62,
+                "row_min": 51
+            },
+            "width": 37,
+            "class": "Compo",
+            "id": 0
+        },
+        {
+            "height": 25,
+            "position": {
+                "column_min": 401,
+                "row_max": 81,
+                "column_max": 425,
+                "row_min": 56
+            },
+            "width": 24,
+            "class": "Compo",
+            "id": 1
+        },
+        {
+            "height": 5,
+            "position": {
+                "column_min": 25,
+                "row_max": 69,
+                "column_max": 54,
+                "row_min": 64
+            },
+            "width": 29,
+            "class": "Compo",
+            "id": 2
+        },
+        {
+            "height": 6,
+            "position": {
+                "column_min": 25,
+                "row_max": 78,
+                "column_max": 46,
+                "row_min": 72
+            },
+            "width": 21,
+            "class": "Compo",
+            "id": 3
+        },
+        {
+            "height": 16,
+            "position": {
+                "column_min": 45,
+                "row_max": 139,
+                "column_max": 62,
+                "row_min": 123
+            },
+            "width": 17,
+            "class": "Compo",
+            "id": 4
+        },
+        {
+            "height": 14,
+            "position": {
+                "column_min": 216,
+                "row_max": 139,
+                "column_max": 233,
+                "row_min": 125
+            },
+            "width": 17,
+            "class": "Compo",
+            "id": 5
+        },
+        {
+            "height": 18,
+            "position": {
+                "column_min": 381,
+                "row_max": 140,
+                "column_max": 408,
+                "row_min": 122
+            },
+            "width": 27,
+            "class": "Compo",
+            "id": 6
+        },
+        {
+            "height": 75,
+            "position": {
+                "column_min": 24,
+                "row_max": 248,
+                "column_max": 98,
+                "row_min": 173
+            },
+            "width": 74,
+            "class": "Compo",
+            "id": 7
+        },
+        {
+            "position": {
+                "column_min": 391,
+                "row_max": 238,
+                "column_max": 429,
+                "row_min": 219
+            },
+            "height": 19,
+            "children": [
+                29
+            ],
+            "width": 38,
+            "class": "Compo",
+            "id": 8
+        },
+        {
+            "height": 13,
+            "position": {
+                "column_min": 351,
+                "row_max": 236,
+                "column_max": 364,
+                "row_min": 223
+            },
+            "width": 13,
+            "class": "Compo",
+            "id": 9
+        },
+        {
+            "height": 74,
+            "position": {
+                "column_min": 24,
+                "row_max": 335,
+                "column_max": 98,
+                "row_min": 261
+            },
+            "width": 74,
+            "class": "Compo",
+            "id": 10
+        },
+        {
+            "position": {
+                "column_min": 390,
+                "row_max": 324,
+                "column_max": 429,
+                "row_min": 307
+            },
+            "height": 17,
+            "children": [
+                32
+            ],
+            "width": 39,
+            "class": "Compo",
+            "id": 11
+        },
+        {
+            "height": 75,
+            "position": {
+                "column_min": 24,
+                "row_max": 425,
+                "column_max": 97,
+                "row_min": 350
+            },
+            "width": 73,
+            "class": "Compo",
+            "id": 12
+        },
+        {
+            "height": 14,
+            "position": {
+                "column_min": 275,
+                "row_max": 413,
+                "column_max": 287,
+                "row_min": 399
+            },
+            "width": 12,
+            "class": "Compo",
+            "id": 13
+        },
+        {
+            "position": {
+                "column_min": 389,
+                "row_max": 414,
+                "column_max": 428,
+                "row_min": 397
+            },
+            "height": 17,
+            "children": [
+                35
+            ],
+            "width": 39,
+            "class": "Compo",
+            "id": 14
+        },
+        {
+            "height": 74,
+            "position": {
+                "column_min": 24,
+                "row_max": 516,
+                "column_max": 98,
+                "row_min": 442
+            },
+            "width": 74,
+            "class": "Compo",
+            "id": 15
+        },
+        {
+            "position": {
+                "column_min": 391,
+                "row_max": 506,
+                "column_max": 431,
+                "row_min": 485
+            },
+            "height": 21,
+            "children": [
+                38
+            ],
+            "width": 40,
+            "class": "Compo",
+            "id": 16
+        },
+        {
+            "height": 73,
+            "position": {
+                "column_min": 24,
+                "row_max": 603,
+                "column_max": 98,
+                "row_min": 530
+            },
+            "width": 74,
+            "class": "Compo",
+            "id": 17
+        },
+        {
+            "position": {
+                "column_min": 389,
+                "row_max": 595,
+                "column_max": 430,
+                "row_min": 576
+            },
+            "height": 19,
+            "children": [
+                41
+            ],
+            "width": 41,
+            "class": "Compo",
+            "id": 18
+        },
+        {
+            "height": 73,
+            "position": {
+                "column_min": 24,
+                "row_max": 693,
+                "column_max": 97,
+                "row_min": 620
+            },
+            "width": 73,
+            "class": "Compo",
+            "id": 19
+        },
+        {
+            "position": {
+                "column_min": 391,
+                "row_max": 686,
+                "column_max": 428,
+                "row_min": 667
+            },
+            "height": 19,
+            "children": [
+                44
+            ],
+            "width": 37,
+            "class": "Compo",
+            "id": 20
+        },
+        {
+            "position": {
+                "column_min": 294,
+                "row_max": 779,
+                "column_max": 429,
+                "row_min": 697
+            },
+            "height": 82,
+            "children": [
+                23,
+                47
+            ],
+            "width": 135,
+            "class": "Compo",
+            "id": 21
+        },
+        {
+            "height": 76,
+            "position": {
+                "column_min": 24,
+                "row_max": 786,
+                "column_max": 97,
+                "row_min": 710
+            },
+            "width": 73,
+            "class": "Compo",
+            "id": 22
+        },
+        {
+            "position": {
+                "column_min": 359,
+                "row_max": 751,
+                "column_max": 385,
+                "row_min": 727
+            },
+            "parent": 21,
+            "height": 24,
+            "width": 26,
+            "class": "Compo",
+            "id": 23
+        },
+        {
+            "text_content": "77 %",
+            "position": {
+                "column_min": 353,
+                "row_max": 22,
+                "column_max": 374,
+                "row_min": 10
+            },
+            "height": 12,
+            "width": 21,
+            "class": "Text",
+            "id": 24
+        },
+        {
+            "text_content": "Contacts",
+            "position": {
+                "column_min": 165,
+                "row_max": 74,
+                "column_max": 246,
+                "row_min": 55
+            },
+            "height": 19,
+            "width": 81,
+            "class": "Text",
+            "id": 25
+        },
+        {
+            "text_content": "318",
+            "position": {
+                "column_min": 266,
+                "row_max": 75,
+                "column_max": 283,
+                "row_min": 57
+            },
+            "height": 18,
+            "width": 17,
+            "class": "Text",
+            "id": 26
+        },
+        {
+            "text_content": "Peter Limonez",
+            "position": {
+                "column_min": 113,
+                "row_max": 201,
+                "column_max": 224,
+                "row_min": 188
+            },
+            "height": 13,
+            "width": 111,
+            "class": "Text",
+            "id": 27
+        },
+        {
+            "text_content": "The road to success is always under construction",
+            "position": {
+                "column_min": 115,
+                "row_max": 234,
+                "column_max": 342,
+                "row_min": 221
+            },
+            "height": 13,
+            "width": 227,
+            "class": "Text",
+            "id": 28
+        },
+        {
+            "text_content": "MOBILE",
+            "position": {
+                "column_min": 397,
+                "row_max": 231,
+                "column_max": 421,
+                "row_min": 223
+            },
+            "parent": 8,
+            "height": 8,
+            "width": 24,
+            "class": "Text",
+            "id": 29
+        },
+        {
+            "text_content": "Sofia Morell",
+            "position": {
+                "column_min": 112,
+                "row_max": 291,
+                "column_max": 203,
+                "row_min": 275
+            },
+            "height": 16,
+            "width": 91,
+            "class": "Text",
+            "id": 30
+        },
+        {
+            "text_content": "My silence smile is just another word for my pain .",
+            "position": {
+                "column_min": 112,
+                "row_max": 320,
+                "column_max": 341,
+                "row_min": 306
+            },
+            "height": 14,
+            "width": 229,
+            "class": "Text",
+            "id": 31
+        },
+        {
+            "text_content": "MOBILE",
+            "position": {
+                "column_min": 397,
+                "row_max": 317,
+                "column_max": 421,
+                "row_min": 309
+            },
+            "parent": 11,
+            "height": 8,
+            "width": 24,
+            "class": "Text",
+            "id": 32
+        },
+        {
+            "text_content": "Saarah Laten",
+            "position": {
+                "column_min": 113,
+                "row_max": 379,
+                "column_max": 212,
+                "row_min": 365
+            },
+            "height": 14,
+            "width": 99,
+            "class": "Text",
+            "id": 33
+        },
+        {
+            "text_content": "Sometimes It's better to be alone",
+            "position": {
+                "column_min": 113,
+                "row_max": 410,
+                "column_max": 267,
+                "row_min": 397
+            },
+            "height": 13,
+            "width": 154,
+            "class": "Text",
+            "id": 34
+        },
+        {
+            "text_content": "MOBILE",
+            "position": {
+                "column_min": 397,
+                "row_max": 407,
+                "column_max": 421,
+                "row_min": 400
+            },
+            "parent": 14,
+            "height": 7,
+            "width": 24,
+            "class": "Text",
+            "id": 35
+        },
+        {
+            "text_content": "Alan Leonardo",
+            "position": {
+                "column_min": 112,
+                "row_max": 470,
+                "column_max": 227,
+                "row_min": 456
+            },
+            "height": 14,
+            "width": 115,
+            "class": "Text",
+            "id": 36
+        },
+        {
+            "text_content": "I'm not failed ... my success is just postponed ,",
+            "position": {
+                "column_min": 114,
+                "row_max": 500,
+                "column_max": 324,
+                "row_min": 487
+            },
+            "height": 13,
+            "width": 210,
+            "class": "Text",
+            "id": 37
+        },
+        {
+            "text_content": "MOBILE",
+            "position": {
+                "column_min": 397,
+                "row_max": 497,
+                "column_max": 421,
+                "row_min": 490
+            },
+            "parent": 16,
+            "height": 7,
+            "width": 24,
+            "class": "Text",
+            "id": 38
+        },
+        {
+            "text_content": "Alexandra Stevanii",
+            "position": {
+                "column_min": 113,
+                "row_max": 559,
+                "column_max": 259,
+                "row_min": 544
+            },
+            "height": 15,
+            "width": 146,
+            "class": "Text",
+            "id": 39
+        },
+        {
+            "text_content": "The only way to do great work is to love what you do .",
+            "position": {
+                "column_min": 113,
+                "row_max": 591,
+                "column_max": 356,
+                "row_min": 576
+            },
+            "height": 15,
+            "width": 243,
+            "class": "Text",
+            "id": 40
+        },
+        {
+            "text_content": "MOBILE",
+            "position": {
+                "column_min": 397,
+                "row_max": 587,
+                "column_max": 421,
+                "row_min": 580
+            },
+            "parent": 18,
+            "height": 7,
+            "width": 24,
+            "class": "Text",
+            "id": 41
+        },
+        {
+            "text_content": "Soraiea Mertalez",
+            "position": {
+                "column_min": 113,
+                "row_max": 649,
+                "column_max": 243,
+                "row_min": 636
+            },
+            "height": 13,
+            "width": 130,
+            "class": "Text",
+            "id": 42
+        },
+        {
+            "text_content": "A journey of a thousand miles begins with a single step .",
+            "position": {
+                "column_min": 112,
+                "row_max": 682,
+                "column_max": 367,
+                "row_min": 669
+            },
+            "height": 13,
+            "width": 255,
+            "class": "Text",
+            "id": 43
+        },
+        {
+            "text_content": "MOBILE",
+            "position": {
+                "column_min": 397,
+                "row_max": 678,
+                "column_max": 421,
+                "row_min": 670
+            },
+            "parent": 20,
+            "height": 8,
+            "width": 24,
+            "class": "Text",
+            "id": 44
+        },
+        {
+            "text_content": "Lelya Mareen",
+            "position": {
+                "column_min": 113,
+                "row_max": 740,
+                "column_max": 214,
+                "row_min": 721
+            },
+            "height": 19,
+            "width": 101,
+            "class": "Text",
+            "id": 45
+        },
+        {
+            "text_content": "Do not give up , the beginning is always the harde .",
+            "position": {
+                "column_min": 113,
+                "row_max": 769,
+                "column_max": 342,
+                "row_min": 756
+            },
+            "height": 13,
+            "width": 229,
+            "class": "Text",
+            "id": 46
+        },
+        {
+            "text_content": "BILE",
+            "position": {
+                "column_min": 403,
+                "row_max": 766,
+                "column_max": 421,
+                "row_min": 756
+            },
+            "parent": 21,
+            "height": 10,
+            "width": 18,
+            "class": "Text",
+            "id": 47
+        }
+    ],
+    "img_shape": [
+        800,
+        450,
+        3
+    ]
+}
