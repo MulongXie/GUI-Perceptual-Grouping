@@ -747,3 +747,8 @@ class ComposDF:
         if img is None:
             img = self.img.copy()
         return draw.visualize_fill(img, self.compos_dataframe, attr=gather_attr, name=name, show=show)
+
+    def visualize_cluster(self, show=True):
+        board = draw.visualize_group_transparent(self.img.copy(), self.compos_dataframe, 'cluster_center_column', show=show)
+        board = draw.visualize_group_transparent(board, self.compos_dataframe, 'cluster_center_row', 0.5, 1, color=(0, 0, 255), show=show)
+        return board

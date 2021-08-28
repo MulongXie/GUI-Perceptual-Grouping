@@ -18,6 +18,24 @@ def draw_label(img, bound, color, text=None, put_text=True):
         cv2.putText(img, text, (bound[0] + 3, bound[1] - 3), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
 
 
+def visualize_group_transparent(board, df, group_name, alpha=0.5, beta=0.6, color=(255,0,0), show=True):
+    groups = df.groupby(group_name).groups
+    mask = np.zeros(board.shape, dtype=np.uint8)
+    for i in groups:
+        if i == -1: continue
+        left = df.loc[groups[i], 'column_min'].min()
+        right = df.loc[groups[i], 'column_max'].max()
+        top = df.loc[groups[i], 'row_min'].min()
+        bottom = df.loc[groups[i], 'row_max'].max()
+        cv2.rectangle(mask, (left, top), (right, bottom), color, -1)
+    board = cv2.addWeighted(mask, alpha, board, beta, 1)
+    if show:
+        cv2.imshow(group_name, board)
+        cv2.waitKey()
+        cv2.destroyWindow(group_name)
+    return board
+
+
 def visualize(img, compos_df, resize_shape=None, attr='class', name='board', show=True):
     if resize_shape is not None:
         img = cv2.resize(img, resize_shape)
