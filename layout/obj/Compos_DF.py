@@ -428,7 +428,10 @@ class ComposDF:
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
         for i in groups:
-            if i != -1 and len(groups[i]) > 2:
+            if i == -1: continue
+            if len(groups[i]) == 1:
+                compos.loc[groups[i][0], 'group'] = -1
+            elif len(groups[i]) > 2:
                 group = groups[i]  # list of component ids in the group
                 gaps = list(compos.loc[group]['gap'])
 
