@@ -1,0 +1,419 @@
+{
+    "texts": [
+        {
+            "width": 88,
+            "height": 35,
+            "row_max": 53,
+            "column_max": 890,
+            "column_min": 802,
+            "row_min": 18,
+            "id": 0,
+            "content": "67 %"
+        },
+        {
+            "width": 54,
+            "height": 27,
+            "row_max": 50,
+            "column_max": 1026,
+            "column_min": 972,
+            "row_min": 23,
+            "id": 1,
+            "content": "9:58"
+        },
+        {
+            "width": 335,
+            "height": 51,
+            "row_max": 168,
+            "column_max": 829,
+            "column_min": 494,
+            "row_min": 117,
+            "id": 2,
+            "content": "+ njust s1 2018"
+        },
+        {
+            "width": 114,
+            "height": 28,
+            "row_max": 234,
+            "column_max": 596,
+            "column_min": 482,
+            "row_min": 206,
+            "id": 3,
+            "content": "9:28 PM"
+        },
+        {
+            "width": 106,
+            "height": 55,
+            "row_max": 515,
+            "column_max": 308,
+            "column_min": 202,
+            "row_min": 460,
+            "id": 4,
+            "content": "\u6700\u4e0b\u9762"
+        },
+        {
+            "width": 398,
+            "height": 55,
+            "row_max": 515,
+            "column_max": 832,
+            "column_min": 434,
+            "row_min": 460,
+            "id": 5,
+            "content": "partially visible \u8ba8\u8bba"
+        },
+        {
+            "width": 353,
+            "height": 49,
+            "row_max": 581,
+            "column_max": 555,
+            "column_min": 202,
+            "row_min": 532,
+            "id": 6,
+            "content": "\u53ef\u4ee5 \u63d0\u4e00\u4e0b , \u8fd8\u6709"
+        },
+        {
+            "width": 174,
+            "height": 49,
+            "row_max": 581,
+            "column_max": 867,
+            "column_min": 693,
+            "row_min": 532,
+            "id": 7,
+            "content": "\u6587\u5b57 \u56fe\u50cf"
+        },
+        {
+            "width": 461,
+            "height": 51,
+            "row_max": 647,
+            "column_max": 664,
+            "column_min": 203,
+            "row_min": 596,
+            "id": 8,
+            "content": "bounding box TXT"
+        },
+        {
+            "width": 139,
+            "height": 51,
+            "row_max": 647,
+            "column_max": 863,
+            "column_min": 724,
+            "row_min": 596,
+            "id": 9,
+            "content": "perfect"
+        },
+        {
+            "width": 101,
+            "height": 49,
+            "row_max": 711,
+            "column_max": 297,
+            "column_min": 196,
+            "row_min": 662,
+            "id": 10,
+            "content": "align"
+        },
+        {
+            "width": 14,
+            "height": 49,
+            "row_max": 711,
+            "column_max": 383,
+            "column_min": 369,
+            "row_min": 662,
+            "id": 11,
+            "content": ","
+        },
+        {
+            "width": 297,
+            "height": 50,
+            "row_max": 710,
+            "column_max": 801,
+            "column_min": 504,
+            "row_min": 660,
+            "id": 12,
+            "content": "\u53ef\u4ee5 \u63d0\u4e00\u4e0b \u8868\u793a"
+        },
+        {
+            "width": 341,
+            "height": 47,
+            "row_max": 776,
+            "column_max": 571,
+            "column_min": 230,
+            "row_min": 729,
+            "id": 13,
+            "content": "\u65b9\u6cd5 robustness"
+        },
+        {
+            "width": 465,
+            "height": 50,
+            "row_max": 921,
+            "column_max": 667,
+            "column_min": 202,
+            "row_min": 871,
+            "id": 14,
+            "content": "\u518d\u653e remaui , Screen"
+        },
+        {
+            "width": 236,
+            "height": 55,
+            "row_max": 989,
+            "column_max": 426,
+            "column_min": 190,
+            "row_min": 934,
+            "id": 15,
+            "content": "recognition"
+        },
+        {
+            "width": 378,
+            "height": 56,
+            "row_max": 985,
+            "column_max": 871,
+            "column_min": 493,
+            "row_min": 929,
+            "id": 16,
+            "content": "detection \u7ed3\u679c \u5bf9\u6bd4"
+        },
+        {
+            "width": 87,
+            "height": 44,
+            "row_max": 1049,
+            "column_max": 289,
+            "column_min": 202,
+            "row_min": 1005,
+            "id": 17,
+            "content": "\u4e00\u4e0b"
+        },
+        {
+            "width": 113,
+            "height": 29,
+            "row_max": 1164,
+            "column_max": 596,
+            "column_min": 483,
+            "row_min": 1135,
+            "id": 18,
+            "content": "9:33 PM"
+        },
+        {
+            "width": 18,
+            "height": 9,
+            "row_max": 1230,
+            "column_max": 405,
+            "column_min": 387,
+            "row_min": 1221,
+            "id": 19,
+            "content": "5:04"
+        },
+        {
+            "width": 28,
+            "height": 12,
+            "row_max": 1256,
+            "column_max": 207,
+            "column_min": 179,
+            "row_min": 1244,
+            "id": 20,
+            "content": "Learn"
+        },
+        {
+            "width": 106,
+            "height": 13,
+            "row_max": 1294,
+            "column_max": 298,
+            "column_min": 192,
+            "row_min": 1281,
+            "id": 21,
+            "content": "Every bond math you"
+        },
+        {
+            "width": 74,
+            "height": 25,
+            "row_max": 1306,
+            "column_max": 386,
+            "column_min": 312,
+            "row_min": 1281,
+            "id": 22,
+            "content": "in BGNworkout the"
+        },
+        {
+            "width": 102,
+            "height": 14,
+            "row_max": 1306,
+            "column_max": 290,
+            "column_min": 188,
+            "row_min": 1292,
+            "id": 23,
+            "content": "Challenge you unlocka"
+        },
+        {
+            "width": 32,
+            "height": 13,
+            "row_max": 1343,
+            "column_max": 209,
+            "column_min": 177,
+            "row_min": 1330,
+            "id": 24,
+            "content": "Plans"
+        },
+        {
+            "width": 32,
+            "height": 10,
+            "row_max": 1403,
+            "column_max": 227,
+            "column_min": 195,
+            "row_min": 1393,
+            "id": 25,
+            "content": "Healny"
+        },
+        {
+            "width": 28,
+            "height": 9,
+            "row_max": 1403,
+            "column_max": 303,
+            "column_min": 275,
+            "row_min": 1394,
+            "id": 26,
+            "content": "Sporty"
+        },
+        {
+            "width": 22,
+            "height": 7,
+            "row_max": 1403,
+            "column_max": 381,
+            "column_min": 359,
+            "row_min": 1396,
+            "id": 27,
+            "content": "||||||"
+        },
+        {
+            "width": 66,
+            "height": 14,
+            "row_max": 1455,
+            "column_max": 244,
+            "column_min": 178,
+            "row_min": 1441,
+            "id": 28,
+            "content": "Get Started"
+        },
+        {
+            "width": 20,
+            "height": 9,
+            "row_max": 1514,
+            "column_max": 230,
+            "column_min": 210,
+            "row_min": 1505,
+            "id": 29,
+            "content": "Body"
+        },
+        {
+            "width": 50,
+            "height": 12,
+            "row_max": 1515,
+            "column_max": 314,
+            "column_min": 264,
+            "row_min": 1503,
+            "id": 30,
+            "content": "Upper Body"
+        },
+        {
+            "width": 50,
+            "height": 13,
+            "row_max": 1516,
+            "column_max": 390,
+            "column_min": 340,
+            "row_min": 1503,
+            "id": 31,
+            "content": "Lower Body"
+        },
+        {
+            "width": 19,
+            "height": 13,
+            "row_max": 1603,
+            "column_max": 265,
+            "column_min": 246,
+            "row_min": 1590,
+            "id": 32,
+            "content": "|||"
+        },
+        {
+            "width": 135,
+            "height": 41,
+            "row_max": 1731,
+            "column_max": 338,
+            "column_min": 203,
+            "row_min": 1690,
+            "id": 33,
+            "content": "remaui"
+        },
+        {
+            "width": 50,
+            "height": 47,
+            "row_max": 1877,
+            "column_max": 359,
+            "column_min": 309,
+            "row_min": 1830,
+            "id": 34,
+            "content": "\u73a9\u610f"
+        },
+        {
+            "width": 152,
+            "height": 48,
+            "row_max": 1879,
+            "column_max": 649,
+            "column_min": 497,
+            "row_min": 1831,
+            "id": 35,
+            "content": "\u6807\u660e \u54ea\u4e2a"
+        },
+        {
+            "width": 60,
+            "height": 47,
+            "row_max": 1879,
+            "column_max": 770,
+            "column_min": 710,
+            "row_min": 1832,
+            "id": 36,
+            "content": "list"
+        },
+        {
+            "width": 83,
+            "height": 49,
+            "row_max": 1945,
+            "column_max": 287,
+            "column_min": 204,
+            "row_min": 1896,
+            "id": 37,
+            "content": "\u6240\u4ee5"
+        },
+        {
+            "width": 170,
+            "height": 49,
+            "row_max": 1945,
+            "column_max": 563,
+            "column_min": 393,
+            "row_min": 1896,
+            "id": 38,
+            "content": "\u4e0d\u592a \u80fd\u7528"
+        },
+        {
+            "width": 114,
+            "height": 28,
+            "row_max": 2058,
+            "column_max": 596,
+            "column_min": 482,
+            "row_min": 2030,
+            "id": 39,
+            "content": "9:58 PM"
+        },
+        {
+            "width": 40,
+            "height": 12,
+            "row_max": 2147,
+            "column_max": 1037,
+            "column_min": 997,
+            "row_min": 2135,
+            "id": 40,
+            "content": "+"
+        }
+    ],
+    "img_shape": [
+        2340,
+        1080,
+        3
+    ]
+}

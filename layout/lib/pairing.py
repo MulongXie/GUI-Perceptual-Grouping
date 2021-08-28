@@ -160,13 +160,16 @@ def match_two_groups_by_angles_and_y_distance(g1, g2, diff_distance=1.2, diff_an
         distances = []
         angles_cor = []
         angles_cen = []
+        marked = np.full(len(g2_sort), False)
         # calculate the y-distances between each c1 in g1 and all c2 in g2
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             distance = None
             angle_cor = None
             angle_cen = None
+            matched_id = 0
             for j in range(len(g2_sort)):
+                if marked[j]: continue
                 c2 = g2_sort.iloc[j]
                 d_cur = calc_compos_y_distance(c1, c2)
                 # match the closest
@@ -175,9 +178,11 @@ def match_two_groups_by_angles_and_y_distance(g1, g2, diff_distance=1.2, diff_an
                     angle_cor = calc_angle(c1, c2, 'corner')
                     angle_cen = calc_angle(c1, c2, 'center')
                     pairs[c1['id']] = c2['id']
+                    matched_id = j
             distances.append(distance)
             angles_cor.append(angle_cor)
             angles_cen.append(angle_cen)
+            marked[matched_id] = True
         # print(distances, 'Corner Angles:', angles_cor, 'Center Angles:', angles_cen)
 
         # match the distances
