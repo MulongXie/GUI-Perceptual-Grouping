@@ -48,7 +48,10 @@ def visualize_fill(img, compos_df, resize_shape=None, attr='class', name='board'
             # compo[attr] = compo[attr].replace('nt', 'c')
             if compo[attr] not in colors:
                 colors[compo[attr]] = random_color()
-        board = cv2.rectangle(board, (compo.column_min, compo.row_min), (compo.column_max, compo.row_max), colors[compo[attr]], -1)
+        if compo['class'] == 'Block':
+            board = cv2.rectangle(board, (compo.column_min, compo.row_min), (compo.column_max, compo.row_max), colors[compo[attr]], 2)
+        else:
+            board = cv2.rectangle(board, (compo.column_min, compo.row_min), (compo.column_max, compo.row_max), colors[compo[attr]], -1)
         board = cv2.putText(board, str(compo[attr]), (compo.column_min + 5, compo.row_min + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
     if show:
         cv2.imshow(name, board)
