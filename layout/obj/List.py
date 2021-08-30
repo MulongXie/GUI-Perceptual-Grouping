@@ -78,7 +78,7 @@ class List(Compo):
                     board = compo.visualize(board, 'line', color=color)
                 else:
                     board = compo.visualize(board, flag, color=color)
-        draw_label(board, [self.left, self.top, self.right, self.bottom], (166,100,255), text='Group', put_text=True)
+        draw_label(board, [self.left, self.top, self.right, self.bottom], (166,100,255), text='Group')
         if show:
             cv2.imshow('list', board)
             cv2.waitKey()

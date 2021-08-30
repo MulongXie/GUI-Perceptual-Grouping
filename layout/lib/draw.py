@@ -7,9 +7,9 @@ def random_color():
     return rint(0, 255), rint(0, 255), rint(0, 255)
 
 
-def draw_label(img, bound, color, text=None, put_text=True):
-    cv2.rectangle(img, (bound[0], bound[1]), (bound[2], bound[3]), color, 2)
-    if put_text:
+def draw_label(img, bound, color, text=None, line=2):
+    cv2.rectangle(img, (bound[0], bound[1]), (bound[2], bound[3]), color, line)
+    if text is None:
         # put text with rectangle
         (w,h),_ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)
         cv2.rectangle(img, (bound[0], bound[1] - 20), (bound[0] + w, bound[1] - 20 + h), color, -1)
@@ -70,7 +70,7 @@ def visualize_fill(img, compos_df, resize_shape=None, attr='class', name='board'
             board = cv2.rectangle(board, (compo.column_min, compo.row_min), (compo.column_max, compo.row_max), colors[compo[attr]], -1)
         board = cv2.putText(board, str(compo[attr]), (compo.column_min + 5, compo.row_min + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
     if show:
-        cv2.imshow(name, board)
+        cv2.imshow(name, cv2.resize(board, (500, 800)))
         cv2.waitKey()
         cv2.destroyWindow(name)
     return board
