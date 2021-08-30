@@ -110,7 +110,7 @@ class GUI:
             self.img_resized = self.img.copy()
             resize_height = None
 
-        key_params = {'min-grad': 10, 'ffl-block': 5, 'min-ele-area': 50, 'merge-contained-ele': False,
+        key_params = {'min-grad': 10, 'ffl-block': 5, 'min-ele-area': 50, 'merge-contained-ele': True,
                       'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-ui-bar': True}
         if is_ocr:
             os.makedirs(self.ocr_dir, exist_ok=True)
