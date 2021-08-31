@@ -613,8 +613,34 @@ class ComposDF:
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name='valid')
 
+    def check_unpaired_group_validity_by_interleaving(self):
+        compos = self.compos_dataframe
+        groups = compos.groupby('group').groups  # {group name: list of compo ids}
+        ungrouped_compos = groups[-1]  # list of ungrouped compo id
+        for i in groups:
+            # only check unpaired groups
+            if i == -1 or compos.loc[groups[i]].iloc[0]['group_pair'] != -1: continue
+            group_compos = compos.loc[groups[i]]
+            group_bound = [group_compos['column_min'].min(), group_compos['row_min'].min(), group_compos['column_max'].max(), group_compos['row_max'].max()]
+            for j in ungrouped_compos:
+                c = compos.loc[j]
+                # intersection area
+                left = max(group_bound[0], c['column_min'])
+                top = max(group_bound[1], c['row_min'])
+                right = min(group_bound[2], c['column_max'])
+                bottom = min(group_bound[3], c['row_max'])
+                width = max(0, right - left)
+                height = max(0, bottom - top)
+                # if intersected
+                if width == 0 or height == 0:
+                    continue
+                else:
+                    if width * height / c['area'] > 0.7:
+                        compos.loc[groups[i], 'group'] = -1
+
     def remove_invalid_groups(self):
         self.check_unpaired_group_of_two_compos_validity_by_min_area()
+        self.check_unpaired_group_validity_by_interleaving()
 
     '''
     ******************************
