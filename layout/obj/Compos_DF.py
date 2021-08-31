@@ -616,6 +616,8 @@ class ComposDF:
     def check_unpaired_group_validity_by_interleaving(self):
         compos = self.compos_dataframe
         groups = compos.groupby('group').groups  # {group name: list of compo ids}
+        if -1 not in groups:
+            return
         ungrouped_compos = groups[-1]  # list of ungrouped compo id
         for i in groups:
             # only check unpaired groups
