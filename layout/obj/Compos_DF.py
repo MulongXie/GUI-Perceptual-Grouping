@@ -561,8 +561,10 @@ class ComposDF:
             if i != -1 and len(groups[i]) == 2:
                 compos = self.compos_dataframe.loc[groups[i]]
                 if compos.iloc[0]['group_pair'] == -1:
+                    if compos.iloc[0]['alignment_in_group'] == 'v':
+                        self.compos_dataframe.loc[groups[i], 'group'] = -1
                     # if the two are too different in area, mark the group as invalid
-                    if compos['area'].min() < 150 or compos['area'].max() / compos['area'].min() > 1.5:
+                    elif compos['area'].min() < 150 or compos['area'].max() / compos['area'].min() > 1.5:
                         self.compos_dataframe.loc[groups[i], 'group'] = -1
         if show:
             if show_method == 'line':
@@ -610,6 +612,9 @@ class ComposDF:
                 self.visualize(gather_attr='group', name='valid')
             elif show_method == 'block':
                 self.visualize_fill(gather_attr='group', name='valid')
+
+    def remove_invalid_groups(self):
+        self.check_unpaired_group_of_two_compos_validity_by_min_area()
 
     '''
     ******************************
