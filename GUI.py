@@ -54,6 +54,13 @@ class GUI:
             self.compos_json = json.load(open(compos_json_file))
             self.img_reshape = self.compos_json['img_shape']
             self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+            self.draw_element_detection()
+
+    def load_compos(self, compos):
+        self.compos_json = compos.copy()
+        self.img_reshape = self.compos_json['img_shape']
+        self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        self.draw_element_detection()
 
     def save_layout_result_imgs(self):
         os.makedirs(self.layout_dir, exist_ok=True)
@@ -77,7 +84,19 @@ class GUI:
             js['list'].append(lst.wrap_list_items())
         json.dump(js, open(pjoin(self.layout_dir, self.file_name + '-list.json'), 'w'), indent=4)
 
+    def save_detection_result(self):
+        if not os.path.exists(pjoin(self.merge_dir, self.file_name + '.jpg')):
+            os.makedirs(self.ocr_dir, exist_ok=True)
+            os.makedirs(self.non_text_dir, exist_ok=True)
+            os.makedirs(self.merge_dir, exist_ok=True)
+            cv2.imwrite(pjoin(self.ocr_dir, self.file_name + '.jpg'), self.detect_result_img_text)
+            cv2.imwrite(pjoin(self.non_text_dir, self.file_name + '.jpg'), self.detect_result_img_non_text)
+            cv2.imwrite(pjoin(self.merge_dir, self.file_name + '.jpg'), self.detect_result_img_merge)
+        if not os.path.exists(pjoin(self.merge_dir, self.file_name + '.json')):
+            json.dump(self.compos_json, open(pjoin(self.merge_dir, self.file_name + '.json'), 'w'), indent=4)
+
     def save_layout_result(self):
+        self.save_detection_result()
         self.save_layout_result_imgs()
         self.save_layout_result_json()
         self.save_list()
@@ -228,17 +247,34 @@ class GUI:
         self.layout_result_img_list = self.visualize_lists(show=False)
 
     def visualize_element_detection(self):
-        cv2.imshow('text', self.detect_result_img_text)
-        cv2.imshow('non-text', self.detect_result_img_non_text)
-        cv2.imshow('merge', self.detect_result_img_merge)
+        cv2.imshow('text', cv2.resize(self.detect_result_img_text, (500, 800)))
+        cv2.imshow('non-text', cv2.resize(self.detect_result_img_non_text, (500, 800)))
+        cv2.imshow('merge', cv2.resize(self.detect_result_img_merge, (500, 800)))
         cv2.waitKey()
         cv2.destroyAllWindows()
 
+    def draw_element_detection(self):
+        board_text = self.img_resized.copy()
+        board_nontext = self.img_resized.copy()
+        board_all = self.img_resized.copy()
+        colors = {'Text':(0,0,255), 'Compo':(0,255,0), 'Block':(0,166,166)}
+        for compo in self.compos_json['compos']:
+            position = compo['position']
+            if compo['class'] == 'Text':
+                draw_label(board_text, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=3)
+            else:
+                draw_label(board_nontext, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=3)
+            draw_label(board_all, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=3)
+
+        self.detect_result_img_text = board_text
+        self.detect_result_img_non_text = board_nontext
+        self.detect_result_img_merge = board_all
+
     def visualize_layout_recognition(self):
         # self.visualize_all_compos()
-        cv2.imshow('group', self.layout_result_img_group)
-        cv2.imshow('group_pair', self.layout_result_img_pair)
-        cv2.imshow('list', self.layout_result_img_list)
+        cv2.imshow('group', cv2.resize(self.layout_result_img_group, (500, 800)))
+        cv2.imshow('group_pair', cv2.resize(self.layout_result_img_pair, (500, 800)))
+        cv2.imshow('list', cv2.resize(self.layout_result_img_list, (500, 800)))
         cv2.waitKey()
         cv2.destroyAllWindows()
 
