@@ -279,9 +279,6 @@ class ComposDF:
         connections_list = []
         for i in range(len(blocks)):
             children = df[df['id'].isin(blocks.iloc[i]['children'])].sort_values('center_row')
-            # set as one group for each container
-            df.loc[blocks.iloc[i]['id'], 'group'] = 'c-' + str(i)
-            df.loc[children['id'], 'group'] = 'c-' + str(i)
             # calculate children connections in each block
             children_list.append(children)
             connections_list.append(rep.calc_connections(children))
@@ -297,9 +294,15 @@ class ComposDF:
             else:
                 df_all.loc[df_all[df_all['id'].isin(paired_blocks['id'])]['id'], 'group_pair'] = paired_blocks['group_pair']
 
+            group_id = 0
             # include the parent block in the pair
             children_group = paired_blocks.groupby('parent').groups  # {parent block id: [children id]}
             for i in children_group:
+                # set the block as a group
+                df.loc[i, 'group'] = 'c-' + str(group_id)
+                df.loc[children_group[i], 'group'] = 'c-' + str(group_id)
+                group_id += 1
+
                 df.loc[i, 'group_pair'] = df.loc[children_group[i][0], 'group_pair']
                 # pair to the parent block
                 df.loc[i, 'pair_to'] = i
