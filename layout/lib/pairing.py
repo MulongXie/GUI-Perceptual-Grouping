@@ -93,10 +93,12 @@ def calc_angle(c1, c2, anchor='corner'):
         angle = int(math.degrees(math.atan2(c1['center_row'] - c2['center_row'], c1['center_column'] - c2['center_column'])))
     if angle < 0:
         angle += 180
+    if angle > 90:
+        angle -= 180
     return angle
 
 
-def match_two_groups_by_angles_and_y_distance(g1, g2, diff_distance=1.2, diff_angle=5, match_thresh=0.7):
+def match_two_groups_by_angles_and_y_distance(g1, g2, diff_distance=1.2, diff_angle=10, match_thresh=0.7):
     '''
     As the text's length is variable, we don't count on distance if one or more groups are texts.
     In this situation, we count on the angles of the line between two possibly paired elements.
@@ -120,30 +122,59 @@ def match_two_groups_by_angles_and_y_distance(g1, g2, diff_distance=1.2, diff_an
         for i in range(len(g1_sort)):
             c1 = g1_sort.iloc[i]
             c2 = g2_sort.iloc[i]
-            # if the y-distance is too far, regard it as unmatched
-            distance = calc_compos_y_distance(c1, c2)
-            if distance > max_height * 2:
-                return False
-            if i > 0 and \
-                    abs(distance - distances[i-1]) > 10 and max(distance, distances[i-1]) > diff_distance * min(distance, distances[i-1]):
-                return False
             angles_cor.append(calc_angle(c1, c2, 'corner'))
             angles_cen.append(calc_angle(c1, c2, 'center'))
-            distances.append(distance)
+            distances.append(calc_compos_y_distance(c1, c2))
         # print(distances, 'Corner Angles:', angles_cor, 'Center Angles:', angles_cen)
 
+        # match distances
+        matched_number = 0
+        for i, distance in enumerate(distances):
+            dis_i = distances[i]
+            # if the y-distance is too far, regard it as unmatched
+            if distance > max_height * 2:
+                continue
+            for j in range(len(distances)):
+                if i == j:
+                    continue
+                dis_j = distances[j]
+                if abs(dis_i - dis_j) < 10 or max(dis_i, dis_j) < diff_distance * min(dis_i, dis_j):
+                    matched_number += 1
+                    break
+        # print('distance match:', matched_number)
+        if matched_number < len(distances) * match_thresh:
+            return False
+
         # match angles both by corner and by center
-        matched = True
-        for i in range(1, len(angles_cor)):
-            if abs(angles_cor[i] - angles_cor[i - 1]) > diff_angle:
-                matched = False
-                break
+        match_num = 0
+        for i in range(len(angles_cor)):
+            angle_i = angles_cor[i]
+            for j in range(len(angles_cor)):
+                if i == j:
+                    continue
+                angle_j = angles_cor[j]
+                # compare the pair's distance and angle between the line and the x-axis
+                if abs(angle_i - angle_j) < diff_angle:
+                    match_num += 1
+                    break
+        # print('corner angle match:', match_num)
+
         # if fail to match corner angle, try to match center angle
-        if not matched:
-            for i in range(1, len(angles_cen)):
-                # mismatched if neither corner nor center angle match
-                if abs(angles_cen[i] - angles_cen[i - 1]) > diff_angle:
-                    return False
+        if matched_number < len(angles_cor) * match_thresh:
+            match_num = 0
+            for i in range(len(angles_cen)):
+                angle_i = angles_cen[i]
+                for j in range(len(angles_cen)):
+                    if i == j:
+                        continue
+                    angle_j = angles_cen[j]
+                    # compare the pair's distance and angle between the line and the x-axis
+                    if abs(angle_i - angle_j) < diff_angle:
+                        match_num += 1
+                        break
+            # print('center angle match:', match_num)
+            if matched_number < len(angles_cen) * match_thresh:
+                return False
 
         # record pairs if matched
         for i in range(len(g1_sort)):
