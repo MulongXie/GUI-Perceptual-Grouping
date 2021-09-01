@@ -9,7 +9,7 @@ def random_color():
 
 def draw_label(img, bound, color, text=None, line=2):
     cv2.rectangle(img, (bound[0], bound[1]), (bound[2], bound[3]), color, line)
-    if text is None:
+    if text is not None:
         # put text with rectangle
         (w,h),_ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)
         cv2.rectangle(img, (bound[0], bound[1] - 20), (bound[0] + w, bound[1] - 20 + h), color, -1)

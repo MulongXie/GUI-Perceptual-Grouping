@@ -181,6 +181,8 @@ def match_two_groups_by_angles_and_y_distance(g1, g2, diff_distance=1.2, diff_an
             pairs[g1_sort.iloc[i]['id']] = g2_sort.iloc[i]['id']
 
     else:
+        if max(len(g1_sort), len(g2_sort)) > min(len(g1_sort), len(g2_sort)) * 3:
+            return False
         # make sure g1 represents the shorter group while g2 is the longer one
         if len(g1_sort) > len(g2_sort):
             temp = g1_sort
