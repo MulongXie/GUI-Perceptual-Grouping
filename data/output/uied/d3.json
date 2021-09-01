@@ -1,0 +1,411 @@
+{
+    "compos": [
+        {
+            "id": 0,
+            "position": {
+                "column_max": 366,
+                "row_max": 99,
+                "row_min": 52,
+                "column_min": 0
+            },
+            "width": 366,
+            "class": "Compo",
+            "height": 47
+        },
+        {
+            "id": 1,
+            "position": {
+                "column_max": 323,
+                "row_max": 173,
+                "row_min": 154,
+                "column_min": 304
+            },
+            "width": 19,
+            "class": "Compo",
+            "height": 19
+        },
+        {
+            "id": 2,
+            "position": {
+                "column_max": 55,
+                "row_max": 270,
+                "row_min": 228,
+                "column_min": 20
+            },
+            "width": 35,
+            "class": "Compo",
+            "height": 42
+        },
+        {
+            "id": 3,
+            "position": {
+                "column_max": 344,
+                "row_max": 257,
+                "row_min": 236,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 21
+        },
+        {
+            "id": 4,
+            "position": {
+                "column_max": 66,
+                "row_max": 331,
+                "row_min": 285,
+                "column_min": 20
+            },
+            "width": 46,
+            "class": "Compo",
+            "height": 46
+        },
+        {
+            "id": 5,
+            "position": {
+                "column_max": 344,
+                "row_max": 317,
+                "row_min": 297,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 20
+        },
+        {
+            "id": 6,
+            "position": {
+                "column_max": 66,
+                "row_max": 391,
+                "row_min": 345,
+                "column_min": 20
+            },
+            "width": 46,
+            "class": "Compo",
+            "height": 46
+        },
+        {
+            "id": 7,
+            "position": {
+                "column_max": 344,
+                "row_max": 378,
+                "row_min": 357,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 21
+        },
+        {
+            "id": 8,
+            "position": {
+                "column_max": 66,
+                "row_max": 451,
+                "row_min": 405,
+                "column_min": 20
+            },
+            "width": 46,
+            "class": "Compo",
+            "height": 46
+        },
+        {
+            "id": 9,
+            "position": {
+                "column_max": 344,
+                "row_max": 439,
+                "row_min": 418,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 21
+        },
+        {
+            "id": 10,
+            "position": {
+                "column_max": 66,
+                "row_max": 511,
+                "row_min": 466,
+                "column_min": 21
+            },
+            "width": 45,
+            "class": "Compo",
+            "height": 45
+        },
+        {
+            "id": 11,
+            "position": {
+                "column_max": 344,
+                "row_max": 499,
+                "row_min": 477,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 22
+        },
+        {
+            "id": 12,
+            "position": {
+                "column_max": 66,
+                "row_max": 572,
+                "row_min": 525,
+                "column_min": 20
+            },
+            "width": 46,
+            "class": "Compo",
+            "height": 47
+        },
+        {
+            "id": 13,
+            "position": {
+                "column_max": 344,
+                "row_max": 559,
+                "row_min": 538,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 21
+        },
+        {
+            "id": 14,
+            "position": {
+                "column_max": 66,
+                "row_max": 631,
+                "row_min": 586,
+                "column_min": 21
+            },
+            "width": 45,
+            "class": "Compo",
+            "height": 45
+        },
+        {
+            "id": 15,
+            "position": {
+                "column_max": 344,
+                "row_max": 620,
+                "row_min": 598,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 22
+        },
+        {
+            "id": 16,
+            "position": {
+                "column_max": 66,
+                "row_max": 692,
+                "row_min": 647,
+                "column_min": 21
+            },
+            "width": 45,
+            "class": "Compo",
+            "height": 45
+        },
+        {
+            "id": 17,
+            "position": {
+                "column_max": 344,
+                "row_max": 680,
+                "row_min": 659,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 21
+        },
+        {
+            "id": 18,
+            "position": {
+                "column_max": 316,
+                "row_max": 799,
+                "row_min": 706,
+                "column_min": 20
+            },
+            "class": "Compo",
+            "height": 93,
+            "width": 296,
+            "children": [
+                30,
+                31
+            ]
+        },
+        {
+            "id": 19,
+            "position": {
+                "column_max": 344,
+                "row_max": 740,
+                "row_min": 718,
+                "column_min": 323
+            },
+            "width": 21,
+            "class": "Compo",
+            "height": 22
+        },
+        {
+            "id": 20,
+            "position": {
+                "column_max": 156,
+                "row_max": 126,
+                "row_min": 105,
+                "column_min": 23
+            },
+            "class": "Text",
+            "height": 21,
+            "width": 133,
+            "text_content": "Invite Friend"
+        },
+        {
+            "id": 21,
+            "position": {
+                "column_max": 93,
+                "row_max": 174,
+                "row_min": 155,
+                "column_min": 51
+            },
+            "class": "Text",
+            "height": 19,
+            "width": 42,
+            "text_content": "Search"
+        },
+        {
+            "id": 22,
+            "position": {
+                "column_max": 141,
+                "row_max": 266,
+                "row_min": 226,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 40,
+            "width": 64,
+            "text_content": "Alex Lee\n2k Follwers"
+        },
+        {
+            "id": 23,
+            "position": {
+                "column_max": 157,
+                "row_max": 326,
+                "row_min": 286,
+                "column_min": 76
+            },
+            "class": "Text",
+            "height": 40,
+            "width": 81,
+            "text_content": "Micheal Ulasi\n56 Follwers"
+        },
+        {
+            "id": 24,
+            "position": {
+                "column_max": 149,
+                "row_max": 387,
+                "row_min": 348,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 39,
+            "width": 72,
+            "text_content": "Cristofer\n300 Follwers"
+        },
+        {
+            "id": 25,
+            "position": {
+                "column_max": 152,
+                "row_max": 447,
+                "row_min": 407,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 40,
+            "width": 75,
+            "text_content": "David Silbia\n5k Follwers"
+        },
+        {
+            "id": 26,
+            "position": {
+                "column_max": 166,
+                "row_max": 506,
+                "row_min": 467,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 39,
+            "width": 89,
+            "text_content": "Ashfak Sayem\n402 Follwers"
+        },
+        {
+            "id": 27,
+            "position": {
+                "column_max": 184,
+                "row_max": 565,
+                "row_min": 526,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 39,
+            "width": 107,
+            "text_content": "Rocks Velkeinjen\n893 Follwers"
+        },
+        {
+            "id": 28,
+            "position": {
+                "column_max": 179,
+                "row_max": 628,
+                "row_min": 590,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 38,
+            "width": 102,
+            "text_content": "Roman Kutepov\n225 Follwers"
+        },
+        {
+            "id": 29,
+            "position": {
+                "column_max": 174,
+                "row_max": 688,
+                "row_min": 650,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 38,
+            "width": 97,
+            "text_content": "Cristofer Nolan\n322 Follwers"
+        },
+        {
+            "id": 30,
+            "position": {
+                "column_max": 205,
+                "row_max": 753,
+                "row_min": 735,
+                "column_min": 154
+            },
+            "class": "Text",
+            "height": 18,
+            "parent": 18,
+            "width": 51,
+            "text_content": "INVITE"
+        },
+        {
+            "id": 31,
+            "position": {
+                "column_max": 170,
+                "row_max": 800,
+                "row_min": 770,
+                "column_min": 77
+            },
+            "class": "Text",
+            "height": 30,
+            "parent": 18,
+            "width": 93,
+            "text_content": "Zenifero Bolex\n\u0648\u0647\u0648 \u0627\u0644\u0623\u0645 \u0645\u0639\u0627\u062f"
+        }
+    ],
+    "img_shape": [
+        800,
+        367,
+        3
+    ]
+}

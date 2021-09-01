@@ -621,7 +621,7 @@ class ComposDF:
         ungrouped_compos = groups[-1]  # list of ungrouped compo id
         for i in groups:
             # only check unpaired groups
-            if i == -1 or compos.loc[groups[i]].iloc[0]['group_pair'] != -1: continue
+            if i == -1 or compos.loc[groups[i]].iloc[0]['group_pair'] != -1 or len(groups[i]) > 2: continue
             group_compos = compos.loc[groups[i]]
             group_bound = [group_compos['column_min'].min(), group_compos['row_min'].min(), group_compos['column_max'].max(), group_compos['row_max'].max()]
             for j in ungrouped_compos:

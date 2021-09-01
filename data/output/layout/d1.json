@@ -1,0 +1,361 @@
+[
+    {
+        "id": "b-1",
+        "location": {
+            "right": 354,
+            "top": 10,
+            "left": 30,
+            "bottom": 26
+        },
+        "class": "Block",
+        "children": [
+            {
+                "id": "c-17",
+                "location": {
+                    "right": 57,
+                    "top": 10,
+                    "left": 30,
+                    "bottom": 24
+                },
+                "text_content": "9:41",
+                "class": "Text"
+            },
+            {
+                "id": "l-1",
+                "list_alignment": "h",
+                "list_class": "single",
+                "class": "List",
+                "location": {
+                    "right": 354,
+                    "top": 13,
+                    "left": 287,
+                    "bottom": 26
+                },
+                "list_items": [
+                    [
+                        {
+                            "id": "c-0",
+                            "location": {
+                                "right": 305,
+                                "top": 13,
+                                "left": 287,
+                                "bottom": 26
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-1",
+                            "location": {
+                                "right": 325,
+                                "top": 13,
+                                "left": 309,
+                                "bottom": 26
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-2",
+                            "location": {
+                                "right": 354,
+                                "top": 13,
+                                "left": 328,
+                                "bottom": 26
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        }
+                    ]
+                ],
+                "text_content": null
+            }
+        ]
+    },
+    {
+        "id": "b-2",
+        "location": {
+            "right": 337,
+            "top": 50,
+            "left": 25,
+            "bottom": 72
+        },
+        "class": "Block",
+        "children": [
+            {
+                "id": "c-18",
+                "location": {
+                    "right": 127,
+                    "top": 50,
+                    "left": 25,
+                    "bottom": 70
+                },
+                "text_content": "+ Events",
+                "class": "Text"
+            },
+            {
+                "id": "c-3",
+                "location": {
+                    "right": 306,
+                    "top": 50,
+                    "left": 284,
+                    "bottom": 72
+                },
+                "text_content": null,
+                "class": "Compo"
+            },
+            {
+                "id": "c-4",
+                "location": {
+                    "right": 337,
+                    "top": 51,
+                    "left": 331,
+                    "bottom": 69
+                },
+                "text_content": null,
+                "class": "Compo"
+            }
+        ]
+    },
+    {
+        "id": "b-3",
+        "location": {
+            "right": 326,
+            "top": 106,
+            "left": 28,
+            "bottom": 787
+        },
+        "class": "Block",
+        "children": [
+            {
+                "id": "l-0",
+                "list_alignment": "v",
+                "list_class": "multi",
+                "class": "List",
+                "location": {
+                    "right": 326,
+                    "top": 106,
+                    "left": 28,
+                    "bottom": 787
+                },
+                "list_items": [
+                    [
+                        {
+                            "id": "c-5",
+                            "location": {
+                                "right": 108,
+                                "top": 106,
+                                "left": 29,
+                                "bottom": 198
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-19",
+                            "location": {
+                                "right": 326,
+                                "top": 106,
+                                "left": 123,
+                                "bottom": 193
+                            },
+                            "text_content": "Wed , Apr 28-5 : 30 PM\nJo Malone London's Mother's\nDay Presents\nRadius Gallery Santa Cruz , CA",
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-7",
+                            "location": {
+                                "right": 108,
+                                "top": 222,
+                                "left": 28,
+                                "bottom": 315
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-20",
+                            "location": {
+                                "right": 262,
+                                "top": 223,
+                                "left": 125,
+                                "bottom": 309
+                            },
+                            "text_content": "Sat , May 12:00 PM\nA Virtual Evening of\nSmooth Jazz\nLot 13. Oakland , CA",
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-9",
+                            "location": {
+                                "right": 108,
+                                "top": 340,
+                                "left": 28,
+                                "bottom": 432
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-21",
+                            "location": {
+                                "right": 320,
+                                "top": 339,
+                                "left": 125,
+                                "bottom": 426
+                            },
+                            "text_content": "Sat , Apr 24.1 : 30 PM\nWomen's Leadership\nConference 2021\n53 Bush St San Francisco , CA",
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-11",
+                            "location": {
+                                "right": 108,
+                                "top": 456,
+                                "left": 28,
+                                "bottom": 549
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-22",
+                            "location": {
+                                "right": 279,
+                                "top": 457,
+                                "left": 125,
+                                "bottom": 543
+                            },
+                            "text_content": "Fri , Apr 23 6:00 PM\nInternational Kids Safe\nParents Night Out\nLot 13 Oakland , CA",
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-13",
+                            "location": {
+                                "right": 108,
+                                "top": 578,
+                                "left": 29,
+                                "bottom": 656
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-23",
+                            "location": {
+                                "right": 312,
+                                "top": 579,
+                                "left": 124,
+                                "bottom": 665
+                            },
+                            "text_content": "Mon , Jun 21. 10:00 PM\nCollectivity Plays the Music\nof Jimi\nLongboard Margarita Bar",
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-15",
+                            "location": {
+                                "right": 108,
+                                "top": 695,
+                                "left": 28,
+                                "bottom": 787
+                            },
+                            "text_content": null,
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-24",
+                            "location": {
+                                "right": 305,
+                                "top": 693,
+                                "left": 125,
+                                "bottom": 780
+                            },
+                            "text_content": "Sun , Apr 25. 10:15 AM\nInternational Gala Music\nFestival\n36 Guild Street London , UK",
+                            "class": "Text"
+                        }
+                    ]
+                ],
+                "text_content": null
+            },
+            {
+                "id": "c-6",
+                "location": {
+                    "right": 139,
+                    "top": 176,
+                    "left": 125,
+                    "bottom": 191
+                },
+                "text_content": null,
+                "class": "Compo"
+            },
+            {
+                "id": "c-8",
+                "location": {
+                    "right": 139,
+                    "top": 293,
+                    "left": 125,
+                    "bottom": 308
+                },
+                "text_content": null,
+                "class": "Compo"
+            },
+            {
+                "id": "c-10",
+                "location": {
+                    "right": 139,
+                    "top": 410,
+                    "left": 125,
+                    "bottom": 425
+                },
+                "text_content": null,
+                "class": "Compo"
+            },
+            {
+                "id": "c-12",
+                "location": {
+                    "right": 139,
+                    "top": 527,
+                    "left": 125,
+                    "bottom": 541
+                },
+                "text_content": null,
+                "class": "Compo"
+            },
+            {
+                "id": "c-14",
+                "location": {
+                    "right": 139,
+                    "top": 648,
+                    "left": 125,
+                    "bottom": 663
+                },
+                "text_content": null,
+                "class": "Compo"
+            },
+            {
+                "id": "c-16",
+                "location": {
+                    "right": 140,
+                    "top": 765,
+                    "left": 126,
+                    "bottom": 782
+                },
+                "text_content": null,
+                "class": "Compo"
+            }
+        ]
+    }
+]
