@@ -180,7 +180,7 @@ class GUI:
         # identify list items in each paired group
         self.compos_df.list_item_partition()            # list_item
         # filter out invalid unpaired groups
-        self.compos_df.check_unpaired_group_of_two_compos_validity_by_min_area()
+        self.compos_df.remove_invalid_groups()
 
     # *** step3 ***
     def cvt_list_and_compos_df_to_obj(self):
@@ -234,7 +234,7 @@ class GUI:
         if is_save:
             self.save_layout_result()
         print("[Layout Recognition Completed in %.3f s] Input: %s Output: %s" % (time.clock() - start, self.img_file, pjoin(self.layout_dir, self.file_name + '.json')))
-        print(time.ctime(), '\n\n')
+        # print(time.ctime(), '\n\n')
 
     '''
     *********************
@@ -253,7 +253,7 @@ class GUI:
         cv2.waitKey()
         cv2.destroyAllWindows()
 
-    def draw_element_detection(self):
+    def draw_element_detection(self, line=2):
         board_text = self.img_resized.copy()
         board_nontext = self.img_resized.copy()
         board_all = self.img_resized.copy()
@@ -261,10 +261,10 @@ class GUI:
         for compo in self.compos_json['compos']:
             position = compo['position']
             if compo['class'] == 'Text':
-                draw_label(board_text, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=3)
+                draw_label(board_text, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=line)
             else:
-                draw_label(board_nontext, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=3)
-            draw_label(board_all, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=3)
+                draw_label(board_nontext, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=line)
+            draw_label(board_all, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=line)
 
         self.detect_result_img_text = board_text
         self.detect_result_img_non_text = board_nontext

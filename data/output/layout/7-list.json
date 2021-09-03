@@ -1,60 +1,80 @@
 {
+    "ui": "7",
     "list": [
         [
             [
                 "Compo",
-                "Compo",
-                "Text",
                 "Text",
                 "Text"
             ],
             [
                 "Compo",
+                "Text"
+            ],
+            [
                 "Compo",
-                "Text",
                 "Text",
                 "Text"
             ],
             [
                 "Compo",
+                "Text"
+            ],
+            [
                 "Compo",
-                "Text",
                 "Text",
                 "Text"
             ],
             [
                 "Compo",
+                "Text"
+            ],
+            [
                 "Compo",
-                "Text",
                 "Text",
                 "Text"
             ],
             [
                 "Compo",
+                "Text"
+            ],
+            [
                 "Compo",
-                "Text",
                 "Text",
                 "Text"
             ],
             [
                 "Compo",
+                "Text"
+            ],
+            [
                 "Compo",
-                "Text",
                 "Text",
                 "Text"
             ],
             [
                 "Compo",
+                "Text"
+            ],
+            [
                 "Compo",
-                "Text",
                 "Text",
                 "Text"
             ],
             [
-                "Compo"
+                "Compo",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Text"
             ]
         ]
     ],
-    "ui": "7",
     "multitab": []
 }
