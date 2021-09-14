@@ -1,0 +1,239 @@
+{
+    "img_shape": [
+        835,
+        521,
+        3
+    ],
+    "texts": [
+        {
+            "width": 29,
+            "content": "ALL",
+            "row_max": 48,
+            "row_min": 26,
+            "column_min": 101,
+            "column_max": 130,
+            "id": 0,
+            "height": 22
+        },
+        {
+            "width": 59,
+            "content": "ASK AC",
+            "row_max": 241,
+            "row_min": 221,
+            "column_min": 19,
+            "column_max": 78,
+            "id": 1,
+            "height": 20
+        },
+        {
+            "width": 189,
+            "content": "Do really need",
+            "row_max": 281,
+            "row_min": 245,
+            "column_min": 19,
+            "column_max": 208,
+            "id": 2,
+            "height": 36
+        },
+        {
+            "width": 88,
+            "content": "a \u2022 mesh 00000",
+            "row_max": 292,
+            "row_min": 245,
+            "column_min": 218,
+            "column_max": 306,
+            "id": 3,
+            "height": 47
+        },
+        {
+            "width": 113,
+            "content": "network ?",
+            "row_max": 280,
+            "row_min": 243,
+            "column_min": 316,
+            "column_max": 429,
+            "id": 4,
+            "height": 37
+        },
+        {
+            "width": 291,
+            "content": "Microsoft thinks people want",
+            "row_max": 344,
+            "row_min": 318,
+            "column_min": 143,
+            "column_max": 434,
+            "id": 5,
+            "height": 26
+        },
+        {
+            "width": 249,
+            "content": "ultra portable headaches",
+            "row_max": 373,
+            "row_min": 343,
+            "column_min": 141,
+            "column_max": 390,
+            "id": 6,
+            "height": 30
+        },
+        {
+            "width": 138,
+            "content": "Jerry Hildenbrand",
+            "row_max": 399,
+            "row_min": 379,
+            "column_min": 144,
+            "column_max": 282,
+            "id": 7,
+            "height": 20
+        },
+        {
+            "width": 145,
+            "content": "COMMENTS 57m",
+            "row_max": 399,
+            "row_min": 379,
+            "column_min": 310,
+            "column_max": 455,
+            "id": 8,
+            "height": 20
+        },
+        {
+            "width": 257,
+            "content": "My Disney Experience is a",
+            "row_max": 491,
+            "row_min": 463,
+            "column_min": 143,
+            "column_max": 400,
+            "id": 9,
+            "height": 28
+        },
+        {
+            "width": 292,
+            "content": "whole new experience in new",
+            "row_max": 515,
+            "row_min": 490,
+            "column_min": 142,
+            "column_max": 434,
+            "id": 10,
+            "height": 25
+        },
+        {
+            "width": 68,
+            "content": "update",
+            "row_max": 541,
+            "row_min": 516,
+            "column_min": 142,
+            "column_max": 210,
+            "id": 11,
+            "height": 25
+        },
+        {
+            "width": 100,
+            "content": "Ara Wagoner",
+            "row_max": 571,
+            "row_min": 548,
+            "column_min": 142,
+            "column_max": 242,
+            "id": 12,
+            "height": 23
+        },
+        {
+            "width": 129,
+            "content": "COMMENTS 3h",
+            "row_max": 571,
+            "row_min": 548,
+            "column_min": 271,
+            "column_max": 400,
+            "id": 13,
+            "height": 23
+        },
+        {
+            "width": 86,
+            "content": "The best",
+            "row_max": 632,
+            "row_min": 604,
+            "column_min": 142,
+            "column_max": 228,
+            "id": 14,
+            "height": 28
+        },
+        {
+            "width": 101,
+            "content": "games VR for Gear",
+            "row_max": 658,
+            "row_min": 605,
+            "column_min": 236,
+            "column_max": 337,
+            "id": 15,
+            "height": 53
+        },
+        {
+            "width": 43,
+            "content": "your",
+            "row_max": 634,
+            "row_min": 606,
+            "column_min": 344,
+            "column_max": 387,
+            "id": 16,
+            "height": 28
+        },
+        {
+            "width": 93,
+            "content": "Samsung",
+            "row_max": 660,
+            "row_min": 632,
+            "column_min": 141,
+            "column_max": 234,
+            "id": 17,
+            "height": 28
+        },
+        {
+            "width": 99,
+            "content": "Russell Holly",
+            "row_max": 689,
+            "row_min": 665,
+            "column_min": 142,
+            "column_max": 241,
+            "id": 18,
+            "height": 24
+        },
+        {
+            "width": 128,
+            "content": "COMMENTS 4h",
+            "row_max": 689,
+            "row_min": 665,
+            "column_min": 271,
+            "column_max": 399,
+            "id": 19,
+            "height": 24
+        },
+        {
+            "width": 297,
+            "content": "Here's how to get a little more",
+            "row_max": 775,
+            "row_min": 749,
+            "column_min": 143,
+            "column_max": 440,
+            "id": 20,
+            "height": 26
+        },
+        {
+            "width": 271,
+            "content": "Android Central in your life !",
+            "row_max": 802,
+            "row_min": 776,
+            "column_min": 142,
+            "column_max": 413,
+            "id": 21,
+            "height": 26
+        },
+        {
+            "width": 254,
+            "content": "Florence lon5 COMMENTS 5h",
+            "row_max": 831,
+            "row_min": 810,
+            "column_min": 142,
+            "column_max": 396,
+            "id": 22,
+            "height": 21
+        }
+    ]
+}
