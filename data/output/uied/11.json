@@ -1,0 +1,234 @@
+{
+    "compos": [
+        {
+            "width": 23,
+            "class": "Compo",
+            "id": 0,
+            "height": 22,
+            "position": {
+                "column_max": 480,
+                "row_min": 24,
+                "row_max": 46,
+                "column_min": 457
+            }
+        },
+        {
+            "width": 24,
+            "class": "Compo",
+            "id": 1,
+            "height": 5,
+            "position": {
+                "column_max": 45,
+                "row_min": 25,
+                "row_max": 30,
+                "column_min": 21
+            }
+        },
+        {
+            "width": 25,
+            "class": "Compo",
+            "id": 2,
+            "height": 10,
+            "position": {
+                "column_max": 46,
+                "row_min": 33,
+                "row_max": 43,
+                "column_min": 21
+            }
+        },
+        {
+            "width": 39,
+            "class": "Compo",
+            "id": 3,
+            "height": 40,
+            "position": {
+                "column_max": 58,
+                "row_min": 156,
+                "row_max": 196,
+                "column_min": 19
+            }
+        },
+        {
+            "width": 58,
+            "class": "Compo",
+            "id": 4,
+            "height": 147,
+            "position": {
+                "column_max": 123,
+                "row_min": 204,
+                "row_max": 351,
+                "column_min": 65
+            }
+        },
+        {
+            "width": 40,
+            "class": "Compo",
+            "id": 5,
+            "height": 40,
+            "position": {
+                "column_max": 58,
+                "row_min": 398,
+                "row_max": 438,
+                "column_min": 18
+            }
+        },
+        {
+            "width": 59,
+            "class": "Compo",
+            "id": 6,
+            "height": 147,
+            "position": {
+                "column_max": 121,
+                "row_min": 447,
+                "row_max": 594,
+                "column_min": 62
+            }
+        },
+        {
+            "width": 40,
+            "class": "Compo",
+            "id": 7,
+            "height": 40,
+            "position": {
+                "column_max": 58,
+                "row_min": 641,
+                "row_max": 681,
+                "column_min": 18
+            }
+        },
+        {
+            "width": 125,
+            "class": "Compo",
+            "id": 8,
+            "height": 109,
+            "position": {
+                "column_max": 143,
+                "row_min": 690,
+                "row_max": 799,
+                "column_min": 18
+            }
+        },
+        {
+            "height": 21,
+            "width": 57,
+            "class": "Text",
+            "id": 9,
+            "text_content": "Deals",
+            "position": {
+                "column_max": 136,
+                "row_min": 24,
+                "row_max": 45,
+                "column_min": 79
+            }
+        },
+        {
+            "height": 20,
+            "width": 34,
+            "class": "Text",
+            "id": 10,
+            "text_content": "NEW",
+            "position": {
+                "column_max": 140,
+                "row_min": 88,
+                "row_max": 108,
+                "column_min": 106
+            }
+        },
+        {
+            "height": 22,
+            "width": 73,
+            "class": "Text",
+            "id": 11,
+            "text_content": "POPULAR",
+            "position": {
+                "column_max": 410,
+                "row_min": 86,
+                "row_max": 108,
+                "column_min": 337
+            }
+        },
+        {
+            "height": 35,
+            "width": 134,
+            "class": "Text",
+            "id": 12,
+            "text_content": "Lindsay\nPosted -172 minutes ago",
+            "position": {
+                "column_max": 207,
+                "row_min": 157,
+                "row_max": 192,
+                "column_min": 73
+            }
+        },
+        {
+            "height": 49,
+            "width": 263,
+            "class": "Text",
+            "id": 13,
+            "text_content": "Bon Ton : Pink Rose Dresses\n$ 17 Shipped",
+            "position": {
+                "column_max": 452,
+                "row_min": 215,
+                "row_max": 264,
+                "column_min": 189
+            }
+        },
+        {
+            "height": 35,
+            "width": 135,
+            "class": "Text",
+            "id": 14,
+            "text_content": "Julie\nPosted -147 minutes ago",
+            "position": {
+                "column_max": 207,
+                "row_min": 401,
+                "row_max": 436,
+                "column_min": 72
+            }
+        },
+        {
+            "height": 20,
+            "width": 253,
+            "class": "Text",
+            "id": 15,
+            "text_content": "WHBM : Extra 40 % Off Sale",
+            "position": {
+                "column_max": 443,
+                "row_min": 455,
+                "row_max": 475,
+                "column_min": 190
+            }
+        },
+        {
+            "height": 38,
+            "width": 135,
+            "class": "Text",
+            "id": 16,
+            "text_content": "Chris\nPosted -106 minutes ago",
+            "position": {
+                "column_max": 207,
+                "row_min": 642,
+                "row_max": 680,
+                "column_min": 72
+            }
+        },
+        {
+            "height": 52,
+            "width": 270,
+            "class": "Text",
+            "id": 17,
+            "text_content": "12 Ribbed Cotton Tank Tops\n$ 25 Shipped",
+            "position": {
+                "column_max": 460,
+                "row_min": 697,
+                "row_max": 749,
+                "column_min": 190
+            }
+        }
+    ],
+    "img_shape": [
+        800,
+        497,
+        3
+    ]
+}

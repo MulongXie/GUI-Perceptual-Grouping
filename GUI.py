@@ -181,6 +181,8 @@ class GUI:
         self.compos_df.list_item_partition()            # list_item
         # filter out invalid unpaired groups
         self.compos_df.remove_invalid_groups()
+        # add missed compos by checking group items
+        self.compos_df.add_missed_compos_by_checking_group_item()
 
     # *** step3 ***
     def cvt_list_and_compos_df_to_obj(self):

@@ -444,3 +444,46 @@ def pair_visualization(pairs, img, img_shape, show_method='line'):
     cv2.waitKey()
     cv2.destroyAllWindows()
 
+
+# *****************************************
+# Add missed compos by checking group items
+# *****************************************
+def calc_compo_related_position_in_its_paired_item(compos, all_compos_in_pair):
+    related_pos = None
+    for i in range(len(compos)):
+        compo = compos.iloc[i]
+        # get the position of the item to which the compo belongs
+        item = all_compos_in_pair[all_compos_in_pair['list_item'] == compo['list_item']]
+        item_pos = item['column_min'].min(), item['row_min'].min()
+
+        if related_pos is None:
+            related_pos = compo['column_min'] - item_pos[0], compo['row_min'] - item_pos[1], compo['column_max'] - \
+                          item_pos[0], compo['row_max'] - item_pos[1]
+        else:
+            related_pos = (min(related_pos[0], compo['column_min'] - item_pos[0]), min(related_pos[1], compo['row_min'] - item_pos[1]),
+                           max(related_pos[2], compo['column_max'] - item_pos[0]), max(related_pos[3], compo['row_max'] - item_pos[1]))
+    return related_pos
+
+
+def calc_intersected_area(bound1, bound2):
+    '''
+    bound: [column_min, row_min, column_max, row_max]
+    '''
+    col_min_s = max(bound1[0], bound2[0])
+    row_min_s = max(bound1[1], bound2[1])
+    col_max_s = min(bound1[2], bound2[2])
+    row_max_s = min(bound1[3], bound2[3])
+    w = np.maximum(0, col_max_s - col_min_s)
+    h = np.maximum(0, row_max_s - row_min_s)
+    inter = w * h
+    return inter
+
+
+def find_missed_compo_by_iou_with_potential_area(potential_area, all_compos):
+    unpaired_compos = all_compos[all_compos['group_pair'] == -1]
+    for i in range(len(unpaired_compos)):
+        up = unpaired_compos.iloc[i]
+        inter = calc_intersected_area((up['column_min'], up['row_min'], up['column_max'], up['row_max']), potential_area)
+        if inter > 0 and inter/up['area'] > 0.5:
+            return up['id']
+    return None

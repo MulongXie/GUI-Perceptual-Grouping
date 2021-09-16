@@ -1,0 +1,104 @@
+[
+    {
+        "location": {
+            "left": 21,
+            "bottom": 46,
+            "right": 480,
+            "top": 24
+        },
+        "children": [
+            {
+                "location": {
+                    "left": 21,
+                    "bottom": 43,
+                    "right": 46,
+                    "top": 25
+                },
+                "children": [
+                    {
+                        "location": {
+                            "left": 21,
+                            "bottom": 30,
+                            "right": 45,
+                            "top": 25
+                        },
+                        "text_content": null,
+                        "id": "c-1",
+                        "class": "Compo"
+                    },
+                    {
+                        "location": {
+                            "left": 21,
+                            "bottom": 43,
+                            "right": 46,
+                            "top": 33
+                        },
+                        "text_content": null,
+                        "id": "c-2",
+                        "class": "Compo"
+                    }
+                ],
+                "id": "b-5",
+                "class": "Block"
+            },
+            {
+                "location": {
+                    "left": 79,
+                    "bottom": 45,
+                    "right": 136,
+                    "top": 24
+                },
+                "text_content": "Deals",
+                "id": "c-9",
+                "class": "Text"
+            },
+            {
+                "location": {
+                    "left": 457,
+                    "bottom": 46,
+                    "right": 480,
+                    "top": 24
+                },
+                "text_content": null,
+                "id": "c-0",
+                "class": "Compo"
+            }
+        ],
+        "id": "b-4",
+        "class": "Block"
+    },
+    {
+        "location": {
+            "left": 106,
+            "bottom": 108,
+            "right": 410,
+            "top": 86
+        },
+        "children": [
+            {
+                "location": {
+                    "left": 106,
+                    "bottom": 108,
+                    "right": 140,
+                    "top": 88
+                },
+                "text_content": "NEW",
+                "id": "c-10",
+                "class": "Text"
+            },
+            {
+                "location": {
+                    "left": 337,
+                    "bottom": 108,
+                    "right": 410,
+                    "top": 86
+                },
+                "text_content": "POPULAR",
+                "id": "c-11",
+                "class": "Text"
+            }
+        ],
+        "id": "b-6",
+        "class": "Block"
+    }
+]

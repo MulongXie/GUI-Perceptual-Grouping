@@ -644,6 +644,42 @@ class ComposDF:
         self.check_unpaired_group_of_two_compos_validity_by_min_area()
         self.check_unpaired_group_validity_by_interleaving()
 
+    def add_missed_compos_by_checking_group_item(self):
+        df = self.compos_dataframe
+        pairs = df.groupby('group_pair').groups
+        for p in pairs:
+            if p == -1: continue
+            pair = pairs[p]
+            pair_all_compos = df.loc[pair]
+            paired_groups = pair_all_compos.groupby('group').groups
+
+            max_group_compo_num = max([len(paired_groups[i]) for i in paired_groups])
+            for i in paired_groups:
+                # Identify abnormal groups that have fewer compos that others do
+                if len(paired_groups[i]) < max_group_compo_num:
+                    # calculate the related position of the group compos in their paired item
+                    group_compos = df.loc[paired_groups[i]]  # compos in the abnormal group
+                    compo_related_pos = pairing.calc_compo_related_position_in_its_paired_item(group_compos, pair_all_compos)  # (column_min, row_min, column_max, row_max)
+
+                    # identify the abnormal item and its position
+                    abnormal_items = pair_all_compos[~pair_all_compos['list_item'].isin(list(group_compos['list_item']))]
+                    abnormal_items_grp = abnormal_items.groupby('list_item').groups
+                    for j in abnormal_items_grp:
+                        abnormal_item = abnormal_items.loc[abnormal_items_grp[j]]
+                        abnormal_item_pos = abnormal_item['column_min'].min(), abnormal_item['row_min'].min()
+
+                        # calculate the potential missed compo area based on the related compo position and the absolute item position
+                        potential_missed_compo_area = (compo_related_pos[0] + abnormal_item_pos[0], compo_related_pos[1] + abnormal_item_pos[1],
+                                                       compo_related_pos[2] + abnormal_item_pos[0], compo_related_pos[3] + abnormal_item_pos[1])
+
+                        # find the potential missed compo through iou with the potential_missed_compo_area
+                        missed_compo_id = pairing.find_missed_compo_by_iou_with_potential_area(potential_missed_compo_area, df)
+                        if missed_compo_id:
+                            print(missed_compo_id, p, i, j)
+                            df.loc[missed_compo_id, 'group_pair'] = p
+                            df.loc[missed_compo_id, 'group'] = i
+                            df.loc[missed_compo_id, 'list_item'] = j
+
     '''
     ******************************
     ******** Pair groups *********
