@@ -1,17 +1,10 @@
 {
-    "multitab": [],
     "ui": "7",
     "list": [
         [
             [
                 "Compo",
                 "Compo",
-                "Text",
-                "Text",
-                "Text"
-            ],
-            [
-                "Compo",
                 "Compo",
                 "Text",
                 "Text",
@@ -19,12 +12,6 @@
             ],
             [
                 "Compo",
-                "Compo",
-                "Text",
-                "Text",
-                "Text"
-            ],
-            [
                 "Compo",
                 "Compo",
                 "Text",
@@ -34,6 +21,7 @@
             [
                 "Compo",
                 "Compo",
+                "Compo",
                 "Text",
                 "Text",
                 "Text"
@@ -41,11 +29,29 @@
             [
                 "Compo",
                 "Compo",
+                "Compo",
                 "Text",
                 "Text",
                 "Text"
             ],
             [
+                "Compo",
+                "Compo",
+                "Compo",
+                "Text",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Compo",
+                "Compo",
+                "Text",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
                 "Compo",
                 "Compo",
                 "Text",
@@ -60,5 +66,6 @@
                 "Text"
             ]
         ]
-    ]
+    ],
+    "multitab": []
 }
