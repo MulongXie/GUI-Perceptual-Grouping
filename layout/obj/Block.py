@@ -9,6 +9,7 @@ block_id = 0
 
 def slice_blocks(compos, direction='v', border='none'):
     '''
+    Slice the GUI into hierarchical blocks based on the recognized Compos
     Vertically or horizontally scan compos
     :param direction: slice vertically or horizontally
     :param compos: Compo objects, including elements and lists

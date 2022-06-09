@@ -145,31 +145,29 @@ class GUI:
         self.draw_element_detection()
 
     '''
-    *************************************
-    *** Repetitive Layout Recognition ***
-    *************************************
+    **************************
+    *** Layout Recognition ***
+    **************************
     '''
-    # convert all compo_df to compo objects
-    def cvt_compo_df_to_obj(self):
-        df = self.compos_df.compos_dataframe
-        self.compos = []
-        for i in range(len(df)):
-            compo = Compo(df.iloc[i]['id'], df.iloc[i]['class'], df.iloc[i])
-            self.compos.append(compo)
-
     # *** step1 ***
     def cvt_compos_json_to_dataframe(self):
+        '''
+        Represent the components using a Pandas DataFrame for the sake of processing
+        '''
         self.compos_df = ComposDF(json_data=self.compos_json, gui_img=self.img_resized.copy())
 
     # *** step2 ***
-    def recognize_repetitive_layout(self):
+    def recognize_groups(self):
+        '''
+        Recognize perceptual groups according to clustering and pairing algorithms
+        '''
         # cluster elements into groups according to position and area
-        self.compos_df.repetitive_group_recognition()   # group, alignment_in_group, group_nontext, group_text
-        # pair clusters (groups)
+        self.compos_df.recognize_element_groups_by_clustering()   # group, alignment_in_group, group_nontext, group_text
+        # group similar Blocks (Containers) by checking their children's similarity
+        self.compos_df.recognize_similar_blocks()       # group_pair
+        # pair clusters (groups) into a larger group
         self.compos_df.pair_groups()                    # group_pair, pair_to
-        # recognize repetitive block by checking their children's connections
-        self.compos_df.repetitive_block_recognition()   # group_pair
-        # identify list items in each paired group
+        # identify list item (paired elements) in each compound large group
         self.compos_df.list_item_partition()            # list_item
         # filter out invalid unpaired groups
         self.compos_df.remove_invalid_groups()
@@ -177,7 +175,10 @@ class GUI:
         self.compos_df.add_missed_compos_by_checking_group_item()
 
     # *** step3 ***
-    def cvt_list_and_compos_df_to_obj(self):
+    def cvt_groups_to_list_compos(self):
+        '''
+        Represent the recognized perceptual groups as List objects
+        '''
         df = self.compos_df.compos_dataframe
         self.lists = []
         self.compos = []
@@ -207,23 +208,24 @@ class GUI:
         for i in range(len(df)):
             compo_df = df.iloc[i]
             self.compos.append(Compo(compo_id='c-' + str(compo_df['id']), compo_class=compo_df['class'], compo_df=compo_df))
+        # regard the list as a type of component in the GUI
         self.compos += self.lists
-        # get all compos in lists
-        # for lst in self.lists:
-        #     self.compos += lst.get_inner_compos()
 
     # *** step4 ***
-    def slice_block(self):
+    def slice_hierarchical_block(self):
+        '''
+        Slice the GUI into hierarchical blocks based on the recognized Compos
+        '''
         blocks, non_blocked_compos = slice_blocks(self.compos, 'v')
         self.blocks = blocks
 
     # entry method
-    def perceptual_grouping(self, is_save=True):
+    def recognize_layout(self, is_save=True):
         start = time.clock()
         self.cvt_compos_json_to_dataframe()
-        self.recognize_repetitive_layout()
-        self.cvt_list_and_compos_df_to_obj()
-        self.slice_block()
+        self.recognize_groups()
+        self.cvt_groups_to_list_compos()
+        self.slice_hierarchical_block()
         self.get_layout_result_imgs()
         if is_save:
             self.save_layout_result()

@@ -265,13 +265,13 @@ class ComposDF:
                 self.visualize_fill(gather_attr='group', name=name)
 
     '''
-    ******************************
-    *** Repetition Recognition ***
-    ******************************
+    *********************************
+    *** Similar Group Recognition ***
+    **********************************
     '''
-    def repetitive_block_recognition(self):
+    def recognize_similar_blocks(self):
         '''
-        Recognize repetitive layout of blocks that contains multiple elements in them
+        Recognize similar Blocks (Containers) that contains similar elements
         '''
         df = self.compos_dataframe
         blocks = df[(df['class']=='Block') & (~pd.isna(df['children'])) & (df['children']!=-1)]
@@ -315,7 +315,7 @@ class ComposDF:
                 df_all['group_pair'] = -1
         self.compos_dataframe = df_all
 
-    def repetitive_group_recognition(self, show=False):
+    def recognize_element_groups_by_clustering(self, show=False):
         '''
         Recognize repetitive layout of elements that are not contained in Block by clustering
         '''
@@ -682,7 +682,7 @@ class ComposDF:
 
     '''
     ******************************
-    ******** Pair groups *********
+    ******** Pair Groups *********
     ******************************
     '''
     def pair_groups(self):
@@ -731,11 +731,12 @@ class ComposDF:
 
     '''
     ******************************
-    ******* List Partition *******
+    ******* Item Partition *******
     ******************************
     '''
     def list_item_partition(self):
         '''
+        identify list item (paired elements) in each compound large group
         track paired compos' "pair_to" attr to assign "list_item" id
         '''
         if 'pair_to' not in self.compos_dataframe:
@@ -762,7 +763,6 @@ class ComposDF:
             gather compos into a list item in the same row/column of a same pair(list)
             the reason for this is that some list contain more than 2 items, while the 'pair_to' attr only contains relation of two
         '''
-
         def search_list_item_by_compoid(compo_id):
             """
                 list_items: dictionary => {id of first compo: ListItem}
