@@ -127,8 +127,19 @@ class GUI:
             self.detection_result_img['merge'], self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=True, is_paragraph=True, show=show)
 
     def load_detection_result(self):
-        # load json detection result
+        '''
+        Load json detection result from json file
+        '''
         self.compos_json = json.load(open(pjoin(self.merge_dir, self.file_name + '.json')))
+        self.img_reshape = self.compos_json['img_shape']
+        self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        self.draw_element_detection()
+
+    def load_compos(self, compos):
+        '''
+        Load compos from objects: {'img_shape':(), 'compos':[]}
+        '''
+        self.compos_json = compos.copy()
         self.img_reshape = self.compos_json['img_shape']
         self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
         self.draw_element_detection()
