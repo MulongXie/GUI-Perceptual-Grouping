@@ -93,7 +93,7 @@ def refine_elements(compos, texts, intersection_bias=(2, 2), containment_ratio=0
             inter, iou, ioa, iob = compo.calc_intersection_area(text, bias=intersection_bias)
             if inter > 0:
                 # the non-text is contained in the text compo
-                if ioa >= containment_ratio:
+                if ioa >= 0.7:
                     is_valid = False
                     break
                 text_area += inter

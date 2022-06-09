@@ -111,11 +111,15 @@ class GUI:
         key_params = {'min-grad': 10, 'ffl-block': 5, 'min-ele-area': 50, 'merge-contained-ele': True,
                       'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-ui-bar': True}
         if is_ocr:
-            os.makedirs(self.ocr_dir, exist_ok=True)
             self.detection_result_img['text'] = text.text_detection(self.img_file, self.ocr_dir, show=show)
+        elif os.path.isfile(pjoin(self.ocr_dir, self.file_name + '.jpg')):
+            self.detection_result_img['text'] = cv2.imread(pjoin(self.ocr_dir, self.file_name + '.jpg'))
+
         if is_non_text:
-            os.makedirs(self.non_text_dir, exist_ok=True)
             self.detection_result_img['non-text'] = ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=show)
+        elif os.path.isfile(pjoin(self.non_text_dir, self.file_name + '.jpg')):
+            self.detection_result_img['non-text'] = cv2.imread(pjoin(self.non_text_dir, self.file_name + '.jpg'))
+
         if is_merge:
             os.makedirs(self.merge_dir, exist_ok=True)
             compo_path = pjoin(self.non_text_dir, self.file_name + '.json')

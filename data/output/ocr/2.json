@@ -1,244 +1,244 @@
 {
     "texts": [
         {
-            "row_max": 92,
-            "height": 19,
             "id": 0,
+            "row_min": 73,
             "width": 154,
             "column_min": 210,
-            "row_min": 73,
+            "content": "Contacts 318",
+            "row_max": 92,
             "column_max": 364,
-            "content": "Contacts 318"
+            "height": 19
         },
         {
-            "row_max": 27,
-            "height": 11,
             "id": 1,
+            "row_min": 16,
             "width": 28,
             "column_min": 451,
-            "row_min": 16,
+            "content": "77 %",
+            "row_max": 27,
             "column_max": 479,
-            "content": "77 %"
+            "height": 11
         },
         {
-            "row_max": 29,
-            "height": 16,
             "id": 2,
+            "row_min": 13,
             "width": 57,
             "column_min": 507,
-            "row_min": 13,
+            "content": "20:30",
+            "row_max": 29,
             "column_max": 564,
-            "content": "20:30"
+            "height": 16
         },
         {
-            "row_max": 295,
-            "height": 6,
             "id": 3,
-            "width": 33,
-            "column_min": 508,
             "row_min": 289,
-            "column_max": 541,
-            "content": "MOBILE"
-        },
-        {
-            "row_max": 405,
-            "height": 6,
-            "id": 4,
             "width": 33,
             "column_min": 508,
-            "row_min": 399,
+            "content": "MOBILE",
+            "row_max": 295,
             "column_max": 541,
-            "content": "MOBILE"
+            "height": 6
         },
         {
-            "row_max": 520,
-            "height": 6,
+            "id": 4,
+            "row_min": 399,
+            "width": 33,
+            "column_min": 508,
+            "content": "MOBILE",
+            "row_max": 405,
+            "column_max": 541,
+            "height": 6
+        },
+        {
             "id": 5,
-            "width": 32,
-            "column_min": 508,
             "row_min": 514,
-            "column_max": 540,
-            "content": "MOBILE"
-        },
-        {
-            "row_max": 635,
-            "height": 6,
-            "id": 6,
             "width": 32,
             "column_min": 508,
-            "row_min": 629,
+            "content": "MOBILE",
+            "row_max": 520,
             "column_max": 540,
-            "content": "MOBILE"
+            "height": 6
         },
         {
-            "row_max": 750,
-            "height": 6,
+            "id": 6,
+            "row_min": 629,
+            "width": 32,
+            "column_min": 508,
+            "content": "MOBILE",
+            "row_max": 635,
+            "column_max": 540,
+            "height": 6
+        },
+        {
             "id": 7,
+            "row_min": 744,
             "width": 33,
             "column_min": 507,
-            "row_min": 744,
+            "content": "MOBILE",
+            "row_max": 750,
             "column_max": 540,
-            "content": "MOBILE"
+            "height": 6
         },
         {
-            "row_max": 866,
-            "height": 6,
             "id": 8,
+            "row_min": 860,
             "width": 31,
             "column_min": 508,
-            "row_min": 860,
+            "content": "MOBILE",
+            "row_max": 866,
             "column_max": 539,
-            "content": "MOBILE"
+            "height": 6
         },
         {
-            "row_max": 976,
-            "height": 6,
             "id": 9,
+            "row_min": 970,
             "width": 17,
             "column_min": 522,
-            "row_min": 970,
+            "content": "BILE",
+            "row_max": 976,
             "column_max": 539,
-            "content": "BILE"
+            "height": 6
         },
         {
-            "row_max": 257,
-            "height": 13,
             "id": 10,
+            "row_min": 244,
             "width": 144,
             "column_min": 144,
-            "row_min": 244,
+            "content": "Peter Limonez",
+            "row_max": 257,
             "column_max": 288,
-            "content": "Peter Limonez"
+            "height": 13
         },
         {
-            "row_max": 298,
-            "height": 13,
             "id": 11,
+            "row_min": 285,
             "width": 297,
             "column_min": 146,
-            "row_min": 285,
+            "content": "The road to success is always under construction .",
+            "row_max": 298,
             "column_max": 443,
-            "content": "The road to success is always under construction ."
+            "height": 13
         },
         {
-            "row_max": 370,
-            "height": 14,
             "id": 12,
+            "row_min": 356,
             "width": 119,
             "column_min": 144,
-            "row_min": 356,
+            "content": "Sofia Morell",
+            "row_max": 370,
             "column_max": 263,
-            "content": "Sofia Morell"
+            "height": 14
         },
         {
-            "row_max": 408,
-            "height": 13,
             "id": 13,
+            "row_min": 395,
             "width": 293,
             "column_min": 143,
-            "row_min": 395,
+            "content": "My silence smile is just another word for my pain .",
+            "row_max": 408,
             "column_max": 436,
-            "content": "My silence smile is just another word for my pain ."
+            "height": 13
         },
         {
-            "row_max": 483,
-            "height": 14,
             "id": 14,
+            "row_min": 469,
             "width": 128,
             "column_min": 144,
-            "row_min": 469,
+            "content": "Saarah Laten",
+            "row_max": 483,
             "column_max": 272,
-            "content": "Saarah Laten"
+            "height": 14
         },
         {
-            "row_max": 522,
-            "height": 11,
             "id": 15,
+            "row_min": 511,
             "width": 199,
             "column_min": 144,
-            "row_min": 511,
+            "content": "Sometimes It's better to be alone .",
+            "row_max": 522,
             "column_max": 343,
-            "content": "Sometimes It's better to be alone ."
+            "height": 11
         },
         {
-            "row_max": 598,
-            "height": 14,
             "id": 16,
+            "row_min": 584,
             "width": 146,
             "column_min": 144,
-            "row_min": 584,
+            "content": "Alan Leonardo",
+            "row_max": 598,
             "column_max": 290,
-            "content": "Alan Leonardo"
+            "height": 14
         },
         {
-            "row_max": 639,
-            "height": 14,
             "id": 17,
+            "row_min": 625,
             "width": 270,
             "column_min": 144,
-            "row_min": 625,
+            "content": "I'm not failed ... my success is just postponed .",
+            "row_max": 639,
             "column_max": 414,
-            "content": "I'm not failed ... my success is just postponed ."
+            "height": 14
         },
         {
-            "row_max": 714,
-            "height": 15,
             "id": 18,
+            "row_min": 699,
             "width": 188,
             "column_min": 143,
-            "row_min": 699,
+            "content": "Alexandra Stevanii",
+            "row_max": 714,
             "column_max": 331,
-            "content": "Alexandra Stevanii"
+            "height": 15
         },
         {
-            "row_max": 754,
-            "height": 14,
             "id": 19,
+            "row_min": 740,
             "width": 311,
             "column_min": 144,
-            "row_min": 740,
+            "content": "The only way to do great work is to love what you do .",
+            "row_max": 754,
             "column_max": 455,
-            "content": "The only way to do great work is to love what you do ."
+            "height": 14
         },
         {
-            "row_max": 829,
-            "height": 14,
             "id": 20,
+            "row_min": 815,
             "width": 166,
             "column_min": 144,
-            "row_min": 815,
+            "content": "Soraiea Mertalez",
+            "row_max": 829,
             "column_max": 310,
-            "content": "Soraiea Mertalez"
+            "height": 14
         },
         {
-            "row_max": 870,
-            "height": 14,
             "id": 21,
+            "row_min": 856,
             "width": 328,
             "column_min": 143,
-            "row_min": 856,
+            "content": "A journey of a thousand miles begins with a single step .",
+            "row_max": 870,
             "column_max": 471,
-            "content": "A journey of a thousand miles begins with a single step ."
+            "height": 14
         },
         {
-            "row_max": 943,
-            "height": 18,
             "id": 22,
+            "row_min": 925,
             "width": 129,
             "column_min": 145,
-            "row_min": 925,
+            "content": "Lelya Mareen",
+            "row_max": 943,
             "column_max": 274,
-            "content": "Lelya Mareen"
+            "height": 18
         },
         {
-            "row_max": 981,
-            "height": 15,
             "id": 23,
+            "row_min": 966,
             "width": 287,
             "column_min": 143,
-            "row_min": 966,
+            "content": "Do not give up , the beginning is always the harde",
+            "row_max": 981,
             "column_max": 430,
-            "content": "Do not give up , the beginning is always the harde"
+            "height": 15
         }
     ],
     "img_shape": [
