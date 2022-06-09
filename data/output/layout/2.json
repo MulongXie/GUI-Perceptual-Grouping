@@ -1,0 +1,504 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "class": "Compo",
+                        "id": "c-0",
+                        "text_content": null,
+                        "location": {
+                            "right": 62,
+                            "bottom": 59,
+                            "top": 53,
+                            "left": 25
+                        }
+                    },
+                    {
+                        "class": "Compo",
+                        "id": "c-2",
+                        "text_content": null,
+                        "location": {
+                            "right": 54,
+                            "bottom": 69,
+                            "top": 64,
+                            "left": 25
+                        }
+                    },
+                    {
+                        "class": "Compo",
+                        "id": "c-3",
+                        "text_content": null,
+                        "location": {
+                            "right": 46,
+                            "bottom": 78,
+                            "top": 73,
+                            "left": 25
+                        }
+                    }
+                ],
+                "class": "Block",
+                "id": "b-2",
+                "location": {
+                    "right": 62,
+                    "bottom": 78,
+                    "top": 53,
+                    "left": 25
+                }
+            },
+            {
+                "class": "Text",
+                "id": "c-26",
+                "text_content": "Contacts 318",
+                "location": {
+                    "right": 284,
+                    "bottom": 72,
+                    "top": 57,
+                    "left": 164
+                }
+            },
+            {
+                "class": "Compo",
+                "id": "c-1",
+                "text_content": null,
+                "location": {
+                    "right": 425,
+                    "bottom": 81,
+                    "top": 56,
+                    "left": 401
+                }
+            }
+        ],
+        "class": "Block",
+        "id": "b-1",
+        "location": {
+            "right": 425,
+            "bottom": 81,
+            "top": 53,
+            "left": 25
+        }
+    },
+    {
+        "children": [
+            {
+                "list_items": [
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-7",
+                            "text_content": null,
+                            "location": {
+                                "right": 98,
+                                "bottom": 247,
+                                "top": 173,
+                                "left": 24
+                            }
+                        },
+                        {
+                            "class": "Compo",
+                            "id": "c-8",
+                            "text_content": null,
+                            "location": {
+                                "right": 429,
+                                "bottom": 238,
+                                "top": 219,
+                                "left": 391
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-27",
+                            "text_content": "Peter Limonez",
+                            "location": {
+                                "right": 225,
+                                "bottom": 201,
+                                "top": 190,
+                                "left": 112
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-28",
+                            "text_content": "The road to success is always under construction .",
+                            "location": {
+                                "right": 346,
+                                "bottom": 233,
+                                "top": 223,
+                                "left": 114
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-10",
+                            "text_content": null,
+                            "location": {
+                                "right": 97,
+                                "bottom": 335,
+                                "top": 261,
+                                "left": 24
+                            }
+                        },
+                        {
+                            "class": "Compo",
+                            "id": "c-12",
+                            "text_content": null,
+                            "location": {
+                                "right": 429,
+                                "bottom": 324,
+                                "top": 307,
+                                "left": 390
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-29",
+                            "text_content": "Sofia Morell",
+                            "location": {
+                                "right": 205,
+                                "bottom": 289,
+                                "top": 278,
+                                "left": 112
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-30",
+                            "text_content": "My silence smile is just another word for my pain .",
+                            "location": {
+                                "right": 341,
+                                "bottom": 319,
+                                "top": 309,
+                                "left": 111
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-13",
+                            "text_content": null,
+                            "location": {
+                                "right": 98,
+                                "bottom": 425,
+                                "top": 350,
+                                "left": 24
+                            }
+                        },
+                        {
+                            "class": "Compo",
+                            "id": "c-15",
+                            "text_content": null,
+                            "location": {
+                                "right": 428,
+                                "bottom": 414,
+                                "top": 397,
+                                "left": 389
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-31",
+                            "text_content": "Saarah Laten",
+                            "location": {
+                                "right": 212,
+                                "bottom": 378,
+                                "top": 367,
+                                "left": 112
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-32",
+                            "text_content": "Sometimes It's better to be alone .",
+                            "location": {
+                                "right": 268,
+                                "bottom": 408,
+                                "top": 400,
+                                "left": 112
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-16",
+                            "text_content": null,
+                            "location": {
+                                "right": 98,
+                                "bottom": 516,
+                                "top": 442,
+                                "left": 24
+                            }
+                        },
+                        {
+                            "class": "Compo",
+                            "id": "c-17",
+                            "text_content": null,
+                            "location": {
+                                "right": 431,
+                                "bottom": 506,
+                                "top": 485,
+                                "left": 391
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-33",
+                            "text_content": "Alan Leonardo",
+                            "location": {
+                                "right": 227,
+                                "bottom": 468,
+                                "top": 457,
+                                "left": 112
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-34",
+                            "text_content": "I'm not failed ... my success is just postponed .",
+                            "location": {
+                                "right": 324,
+                                "bottom": 500,
+                                "top": 489,
+                                "left": 112
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-18",
+                            "text_content": null,
+                            "location": {
+                                "right": 98,
+                                "bottom": 603,
+                                "top": 530,
+                                "left": 24
+                            }
+                        },
+                        {
+                            "class": "Compo",
+                            "id": "c-21",
+                            "text_content": null,
+                            "location": {
+                                "right": 430,
+                                "bottom": 595,
+                                "top": 576,
+                                "left": 389
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-35",
+                            "text_content": "Alexandra Stevanii",
+                            "location": {
+                                "right": 259,
+                                "bottom": 558,
+                                "top": 547,
+                                "left": 111
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-36",
+                            "text_content": "The only way to do great work is to love what you do .",
+                            "location": {
+                                "right": 356,
+                                "bottom": 590,
+                                "top": 579,
+                                "left": 112
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-22",
+                            "text_content": null,
+                            "location": {
+                                "right": 97,
+                                "bottom": 693,
+                                "top": 620,
+                                "left": 24
+                            }
+                        },
+                        {
+                            "class": "Compo",
+                            "id": "c-23",
+                            "text_content": null,
+                            "location": {
+                                "right": 429,
+                                "bottom": 686,
+                                "top": 666,
+                                "left": 389
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-37",
+                            "text_content": "Soraiea Mertalez",
+                            "location": {
+                                "right": 242,
+                                "bottom": 648,
+                                "top": 637,
+                                "left": 112
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-38",
+                            "text_content": "A journey of a thousand miles begins with a single step .",
+                            "location": {
+                                "right": 368,
+                                "bottom": 681,
+                                "top": 670,
+                                "left": 111
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-25",
+                            "text_content": null,
+                            "location": {
+                                "right": 97,
+                                "bottom": 786,
+                                "top": 710,
+                                "left": 24
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-39",
+                            "text_content": "Lelya Mareen",
+                            "location": {
+                                "right": 214,
+                                "bottom": 738,
+                                "top": 724,
+                                "left": 113
+                            }
+                        },
+                        {
+                            "class": "Text",
+                            "id": "c-40",
+                            "text_content": "Do not give up , the beginning is always the harde",
+                            "location": {
+                                "right": 336,
+                                "bottom": 767,
+                                "top": 756,
+                                "left": 111
+                            }
+                        }
+                    ]
+                ],
+                "list_alignment": "v",
+                "class": "List",
+                "list_class": "multi",
+                "location": {
+                    "right": 431,
+                    "bottom": 786,
+                    "top": 173,
+                    "left": 24
+                },
+                "id": "l-0",
+                "text_content": null
+            },
+            {
+                "list_items": [
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-20",
+                            "text_content": null,
+                            "location": {
+                                "right": 193,
+                                "bottom": 563,
+                                "top": 546,
+                                "left": 111
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "id": "c-19",
+                            "text_content": null,
+                            "location": {
+                                "right": 262,
+                                "bottom": 563,
+                                "top": 545,
+                                "left": 197
+                            }
+                        }
+                    ]
+                ],
+                "list_alignment": "h",
+                "class": "List",
+                "list_class": "single",
+                "location": {
+                    "right": 262,
+                    "bottom": 563,
+                    "top": 545,
+                    "left": 111
+                },
+                "id": "l-2",
+                "text_content": null
+            },
+            {
+                "class": "Compo",
+                "id": "c-11",
+                "text_content": null,
+                "location": {
+                    "right": 206,
+                    "bottom": 294,
+                    "top": 276,
+                    "left": 156
+                }
+            },
+            {
+                "class": "Compo",
+                "id": "c-14",
+                "text_content": null,
+                "location": {
+                    "right": 287,
+                    "bottom": 413,
+                    "top": 399,
+                    "left": 275
+                }
+            },
+            {
+                "class": "Compo",
+                "id": "c-24",
+                "text_content": null,
+                "location": {
+                    "right": 430,
+                    "bottom": 779,
+                    "top": 697,
+                    "left": 294
+                }
+            },
+            {
+                "class": "Compo",
+                "id": "c-9",
+                "text_content": null,
+                "location": {
+                    "right": 364,
+                    "bottom": 236,
+                    "top": 223,
+                    "left": 351
+                }
+            }
+        ],
+        "class": "Block",
+        "id": "b-3",
+        "location": {
+            "right": 431,
+            "bottom": 786,
+            "top": 173,
+            "left": 24
+        }
+    }
+]

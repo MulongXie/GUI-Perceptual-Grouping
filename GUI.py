@@ -21,10 +21,7 @@ class GUI:
         self.img = cv2.imread(img_file)
         self.img_reshape = self.img.shape
         self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
-        if img_file is not None:
-            self.file_name = img_file.split('/')[-1][:-4] if '/' in img_file else img_file.split('\\')[-1][:-4]
-        else:
-            self.file_name = None
+        self.file_name = img_file.replace('\\', '/').split('/')[-1][:-4]
 
         self.output_dir = output_dir
         self.ocr_dir = pjoin(self.output_dir, 'ocr') if output_dir is not None else None
@@ -35,10 +32,7 @@ class GUI:
         self.compos_json = None  # {'img_shape':(), 'compos':[]}
         self.compos_df = None    # dataframe for efficient processing
         self.compos = []         # list of Compo objects
-
-        self.detect_result_img_text = None      # visualize text
-        self.detect_result_img_non_text = None  # visualize non-text
-        self.detect_result_img_merge = None     # visualize all elements
+        self.detection_result_img = {'text': None, 'non-text': None, 'merge': None}   # visualized detection result
 
         self.layout_result_img_group = None     # visualize group of compos with repetitive layout
         self.layout_result_img_pair = None      # visualize paired groups
@@ -46,21 +40,6 @@ class GUI:
 
         self.lists = []     # list of List objects representing lists
         self.blocks = []    # list of Block objects representing blocks
-
-        self.load_compos_from_json(compos_json_file)
-
-    def load_compos_from_json(self, compos_json_file):
-        if compos_json_file is not None:
-            self.compos_json = json.load(open(compos_json_file))
-            self.img_reshape = self.compos_json['img_shape']
-            self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
-            self.draw_element_detection()
-
-    def load_compos(self, compos):
-        self.compos_json = compos.copy()
-        self.img_reshape = self.compos_json['img_shape']
-        self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
-        self.draw_element_detection()
 
     def save_layout_result_imgs(self):
         os.makedirs(self.layout_dir, exist_ok=True)
@@ -89,9 +68,9 @@ class GUI:
             os.makedirs(self.ocr_dir, exist_ok=True)
             os.makedirs(self.non_text_dir, exist_ok=True)
             os.makedirs(self.merge_dir, exist_ok=True)
-            cv2.imwrite(pjoin(self.ocr_dir, self.file_name + '.jpg'), self.detect_result_img_text)
-            cv2.imwrite(pjoin(self.non_text_dir, self.file_name + '.jpg'), self.detect_result_img_non_text)
-            cv2.imwrite(pjoin(self.merge_dir, self.file_name + '.jpg'), self.detect_result_img_merge)
+            cv2.imwrite(pjoin(self.ocr_dir, self.file_name + '.jpg'), self.detection_result_img['text'])
+            cv2.imwrite(pjoin(self.non_text_dir, self.file_name + '.jpg'), self.detection_result_img['non-text'])
+            cv2.imwrite(pjoin(self.merge_dir, self.file_name + '.jpg'), self.detection_result_img['merge'])
         if not os.path.exists(pjoin(self.merge_dir, self.file_name + '.json')):
             json.dump(self.compos_json, open(pjoin(self.merge_dir, self.file_name + '.json'), 'w'), indent=4)
 
@@ -115,7 +94,7 @@ class GUI:
             height_re = int(img_resize_longest_side * (height / width))
             return height_re, img_resize_longest_side, self.img.shape[2]
 
-    def element_detection(self, is_ocr=False, is_non_text=False, is_merge=False, img_resize_longest_side=800, show=False):
+    def detect_element(self, is_ocr=False, is_non_text=False, is_merge=False, img_resize_longest_side=800, show=False):
         if self.img_file is None:
             print('No GUI image is input')
             return
@@ -133,24 +112,22 @@ class GUI:
                       'max-word-inline-gap': 10, 'max-line-ingraph-gap': 4, 'remove-ui-bar': True}
         if is_ocr:
             os.makedirs(self.ocr_dir, exist_ok=True)
-            self.detect_result_img_text = text.text_detection(self.img_file, self.ocr_dir, show=show)
-        elif os.path.isfile(pjoin(self.ocr_dir, self.file_name + '.jpg')):
-            self.detect_result_img_text = cv2.imread(pjoin(self.ocr_dir, self.file_name + '.jpg'))
-
+            self.detection_result_img['text'] = text.text_detection(self.img_file, self.ocr_dir, show=show)
         if is_non_text:
             os.makedirs(self.non_text_dir, exist_ok=True)
-            self.detect_result_img_non_text = ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=show)
-        elif os.path.isfile(pjoin(self.non_text_dir, self.file_name + '.jpg')):
-            self.detect_result_img_non_text = cv2.imread(pjoin(self.non_text_dir, self.file_name + '.jpg'))
-
+            self.detection_result_img['non-text'] = ip.compo_detection(self.img_file, self.non_text_dir, key_params, resize_by_height=resize_height, show=show)
         if is_merge:
             os.makedirs(self.merge_dir, exist_ok=True)
             compo_path = pjoin(self.non_text_dir, self.file_name + '.json')
             ocr_path = pjoin(self.ocr_dir, self.file_name + '.json')
-            self.detect_result_img_merge, self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=True, is_paragraph=True, show=show)
-        elif os.path.isfile(pjoin(self.merge_dir, self.file_name + '.jpg')):
-            self.load_compos_from_json(pjoin(self.merge_dir, self.file_name + '.json'))
-            self.detect_result_img_merge = cv2.imread(pjoin(self.merge_dir, self.file_name + '.jpg'))
+            self.detection_result_img['merge'], self.compos_json = merge.merge(self.img_file, compo_path, ocr_path, self.merge_dir, is_remove_bar=True, is_paragraph=True, show=show)
+
+    def load_detection_result(self):
+        # load json detection result
+        self.compos_json = json.load(open(pjoin(self.merge_dir, self.file_name + '.json')))
+        self.img_reshape = self.compos_json['img_shape']
+        self.img_resized = cv2.resize(self.img, (self.img_reshape[1], self.img_reshape[0]))
+        self.draw_element_detection()
 
     '''
     *************************************
@@ -226,7 +203,7 @@ class GUI:
         self.blocks = blocks
 
     # entry method
-    def layout_recognition(self, is_save=True):
+    def perceptual_grouping(self, is_save=True):
         start = time.clock()
         self.cvt_compos_json_to_dataframe()
         self.recognize_repetitive_layout()
@@ -249,9 +226,9 @@ class GUI:
         self.layout_result_img_list = self.visualize_lists(show=False)
 
     def visualize_element_detection(self):
-        cv2.imshow('text', cv2.resize(self.detect_result_img_text, (500, 800)))
-        cv2.imshow('non-text', cv2.resize(self.detect_result_img_non_text, (500, 800)))
-        cv2.imshow('merge', cv2.resize(self.detect_result_img_merge, (500, 800)))
+        cv2.imshow('text', cv2.resize(self.detection_result_img['text'], (500, 800)))
+        cv2.imshow('non-text', cv2.resize(self.detection_result_img['non-text'], (500, 800)))
+        cv2.imshow('merge', cv2.resize(self.detection_result_img['merge'], (500, 800)))
         cv2.waitKey()
         cv2.destroyAllWindows()
 
@@ -268,9 +245,9 @@ class GUI:
                 draw_label(board_nontext, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=line)
             draw_label(board_all, [position['column_min'], position['row_min'], position['column_max'], position['row_max']], colors[compo['class']], line=line)
 
-        self.detect_result_img_text = board_text
-        self.detect_result_img_non_text = board_nontext
-        self.detect_result_img_merge = board_all
+        self.detection_result_img['text'] = board_text
+        self.detection_result_img['non-text'] = board_nontext
+        self.detection_result_img['merge'] = board_all
 
     def visualize_layout_recognition(self):
         # self.visualize_all_compos()
