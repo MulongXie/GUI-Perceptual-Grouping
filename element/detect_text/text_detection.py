@@ -49,7 +49,7 @@ def text_sentences_recognition(texts):
         for text_a in texts:
             merged = False
             for text_b in temp_set:
-                if text_a.is_on_same_line(text_b, 'h', bias_justify=0.2 * min(text_a.height, text_b.height), bias_gap=2 * max(text_a.word_width, text_b.word_width)):
+                if text_a.is_on_same_line(text_b, 'h', bias_justify=0.2 * min(text_a.height, text_b.height), bias_gap=1.3 * max(text_a.word_width, text_b.word_width)):
                     text_b.merge_text(text_a)
                     merged = True
                     changed = True

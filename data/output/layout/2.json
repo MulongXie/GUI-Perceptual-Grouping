@@ -2,51 +2,51 @@
     {
         "id": "b-1",
         "location": {
-            "left": 25,
+            "right": 425,
             "top": 53,
-            "bottom": 81,
-            "right": 425
+            "left": 25,
+            "bottom": 81
         },
         "children": [
             {
                 "id": "b-2",
                 "location": {
-                    "left": 25,
+                    "right": 62,
                     "top": 53,
-                    "bottom": 78,
-                    "right": 62
+                    "left": 25,
+                    "bottom": 78
                 },
                 "children": [
                     {
-                        "text_content": null,
                         "id": "c-0",
+                        "text_content": null,
                         "location": {
-                            "left": 25,
+                            "right": 62,
                             "top": 53,
-                            "bottom": 59,
-                            "right": 62
+                            "left": 25,
+                            "bottom": 59
                         },
                         "class": "Compo"
                     },
                     {
-                        "text_content": null,
                         "id": "c-2",
+                        "text_content": null,
                         "location": {
-                            "left": 25,
+                            "right": 54,
                             "top": 64,
-                            "bottom": 69,
-                            "right": 54
+                            "left": 25,
+                            "bottom": 69
                         },
                         "class": "Compo"
                     },
                     {
-                        "text_content": null,
                         "id": "c-3",
+                        "text_content": null,
                         "location": {
-                            "left": 25,
+                            "right": 46,
                             "top": 73,
-                            "bottom": 78,
-                            "right": 46
+                            "left": 25,
+                            "bottom": 78
                         },
                         "class": "Compo"
                     }
@@ -54,24 +54,35 @@
                 "class": "Block"
             },
             {
-                "text_content": "Contacts 318",
                 "id": "c-23",
+                "text_content": "Contacts",
                 "location": {
-                    "left": 164,
+                    "right": 246,
                     "top": 57,
-                    "bottom": 72,
-                    "right": 284
+                    "left": 164,
+                    "bottom": 71
                 },
                 "class": "Text"
             },
             {
-                "text_content": null,
-                "id": "c-1",
+                "id": "c-24",
+                "text_content": "318",
                 "location": {
-                    "left": 401,
+                    "right": 284,
+                    "top": 58,
+                    "left": 265,
+                    "bottom": 72
+                },
+                "class": "Text"
+            },
+            {
+                "id": "c-1",
+                "text_content": null,
+                "location": {
+                    "right": 425,
                     "top": 56,
-                    "bottom": 81,
-                    "right": 425
+                    "left": 401,
+                    "bottom": 81
                 },
                 "class": "Compo"
             }
@@ -81,368 +92,368 @@
     {
         "id": "b-3",
         "location": {
-            "left": 24,
+            "right": 431,
             "top": 173,
-            "bottom": 786,
-            "right": 431
+            "left": 24,
+            "bottom": 786
         },
         "children": [
             {
-                "text_content": null,
                 "id": "l-0",
                 "location": {
-                    "left": 24,
+                    "right": 431,
                     "top": 173,
-                    "bottom": 786,
-                    "right": 431
+                    "left": 24,
+                    "bottom": 786
                 },
-                "list_class": "multi",
                 "list_items": [
                     [
                         {
-                            "text_content": null,
                             "id": "c-7",
+                            "text_content": null,
                             "location": {
-                                "left": 24,
+                                "right": 98,
                                 "top": 173,
-                                "bottom": 247,
-                                "right": 98
+                                "left": 24,
+                                "bottom": 247
                             },
                             "class": "Compo"
                         },
                         {
-                            "text_content": null,
                             "id": "c-8",
+                            "text_content": null,
                             "location": {
-                                "left": 391,
+                                "right": 429,
                                 "top": 219,
-                                "bottom": 238,
-                                "right": 429
-                            },
-                            "class": "Compo"
-                        },
-                        {
-                            "text_content": "Peter Limonez",
-                            "id": "c-24",
-                            "location": {
-                                "left": 112,
-                                "top": 190,
-                                "bottom": 201,
-                                "right": 225
-                            },
-                            "class": "Text"
-                        },
-                        {
-                            "text_content": "The road to success is always under construction .",
-                            "id": "c-25",
-                            "location": {
-                                "left": 114,
-                                "top": 223,
-                                "bottom": 233,
-                                "right": 346
-                            },
-                            "class": "Text"
-                        }
-                    ],
-                    [
-                        {
-                            "text_content": null,
-                            "id": "c-10",
-                            "location": {
-                                "left": 24,
-                                "top": 261,
-                                "bottom": 335,
-                                "right": 97
-                            },
-                            "class": "Compo"
-                        },
-                        {
-                            "text_content": null,
-                            "id": "c-11",
-                            "location": {
-                                "left": 390,
-                                "top": 307,
-                                "bottom": 324,
-                                "right": 429
-                            },
-                            "class": "Compo"
-                        },
-                        {
-                            "text_content": "Sofia Morell",
-                            "id": "c-26",
-                            "location": {
-                                "left": 112,
-                                "top": 278,
-                                "bottom": 289,
-                                "right": 205
-                            },
-                            "class": "Text"
-                        },
-                        {
-                            "text_content": "My silence smile is just another word for my pain .",
-                            "id": "c-27",
-                            "location": {
-                                "left": 111,
-                                "top": 309,
-                                "bottom": 319,
-                                "right": 341
-                            },
-                            "class": "Text"
-                        }
-                    ],
-                    [
-                        {
-                            "text_content": null,
-                            "id": "c-12",
-                            "location": {
-                                "left": 24,
-                                "top": 350,
-                                "bottom": 425,
-                                "right": 98
-                            },
-                            "class": "Compo"
-                        },
-                        {
-                            "text_content": null,
-                            "id": "c-14",
-                            "location": {
-                                "left": 389,
-                                "top": 397,
-                                "bottom": 414,
-                                "right": 428
-                            },
-                            "class": "Compo"
-                        },
-                        {
-                            "text_content": "Saarah Laten",
-                            "id": "c-28",
-                            "location": {
-                                "left": 112,
-                                "top": 367,
-                                "bottom": 378,
-                                "right": 212
-                            },
-                            "class": "Text"
-                        },
-                        {
-                            "text_content": "Sometimes It's better to be alone .",
-                            "id": "c-29",
-                            "location": {
-                                "left": 112,
-                                "top": 400,
-                                "bottom": 408,
-                                "right": 268
-                            },
-                            "class": "Text"
-                        }
-                    ],
-                    [
-                        {
-                            "text_content": null,
-                            "id": "c-15",
-                            "location": {
-                                "left": 24,
-                                "top": 442,
-                                "bottom": 516,
-                                "right": 98
-                            },
-                            "class": "Compo"
-                        },
-                        {
-                            "text_content": null,
-                            "id": "c-16",
-                            "location": {
                                 "left": 391,
-                                "top": 485,
-                                "bottom": 506,
-                                "right": 431
+                                "bottom": 238
                             },
                             "class": "Compo"
                         },
                         {
-                            "text_content": "Alan Leonardo",
+                            "id": "c-25",
+                            "text_content": "Peter Limonez",
+                            "location": {
+                                "right": 225,
+                                "top": 190,
+                                "left": 112,
+                                "bottom": 201
+                            },
+                            "class": "Text"
+                        },
+                        {
+                            "id": "c-26",
+                            "text_content": "The road to success is always under construction .",
+                            "location": {
+                                "right": 346,
+                                "top": 223,
+                                "left": 114,
+                                "bottom": 233
+                            },
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-10",
+                            "text_content": null,
+                            "location": {
+                                "right": 97,
+                                "top": 261,
+                                "left": 24,
+                                "bottom": 335
+                            },
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-11",
+                            "text_content": null,
+                            "location": {
+                                "right": 429,
+                                "top": 307,
+                                "left": 390,
+                                "bottom": 324
+                            },
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-27",
+                            "text_content": "Sofia Morell",
+                            "location": {
+                                "right": 205,
+                                "top": 278,
+                                "left": 112,
+                                "bottom": 289
+                            },
+                            "class": "Text"
+                        },
+                        {
+                            "id": "c-28",
+                            "text_content": "My silence smile is just another word for my pain .",
+                            "location": {
+                                "right": 341,
+                                "top": 309,
+                                "left": 111,
+                                "bottom": 319
+                            },
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-12",
+                            "text_content": null,
+                            "location": {
+                                "right": 98,
+                                "top": 350,
+                                "left": 24,
+                                "bottom": 425
+                            },
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-14",
+                            "text_content": null,
+                            "location": {
+                                "right": 428,
+                                "top": 397,
+                                "left": 389,
+                                "bottom": 414
+                            },
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-29",
+                            "text_content": "Saarah Laten",
+                            "location": {
+                                "right": 212,
+                                "top": 367,
+                                "left": 112,
+                                "bottom": 378
+                            },
+                            "class": "Text"
+                        },
+                        {
                             "id": "c-30",
+                            "text_content": "Sometimes It's better to be alone .",
                             "location": {
+                                "right": 268,
+                                "top": 400,
                                 "left": 112,
-                                "top": 457,
-                                "bottom": 468,
-                                "right": 227
+                                "bottom": 408
                             },
                             "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-15",
+                            "text_content": null,
+                            "location": {
+                                "right": 98,
+                                "top": 442,
+                                "left": 24,
+                                "bottom": 516
+                            },
+                            "class": "Compo"
                         },
                         {
-                            "text_content": "I'm not failed ... my success is just postponed .",
+                            "id": "c-16",
+                            "text_content": null,
+                            "location": {
+                                "right": 431,
+                                "top": 485,
+                                "left": 391,
+                                "bottom": 506
+                            },
+                            "class": "Compo"
+                        },
+                        {
                             "id": "c-31",
+                            "text_content": "Alan Leonardo",
                             "location": {
+                                "right": 227,
+                                "top": 457,
                                 "left": 112,
-                                "top": 489,
-                                "bottom": 500,
-                                "right": 324
+                                "bottom": 468
                             },
                             "class": "Text"
-                        }
-                    ],
-                    [
-                        {
-                            "text_content": null,
-                            "id": "c-17",
-                            "location": {
-                                "left": 24,
-                                "top": 530,
-                                "bottom": 603,
-                                "right": 98
-                            },
-                            "class": "Compo"
                         },
                         {
-                            "text_content": null,
-                            "id": "c-18",
-                            "location": {
-                                "left": 389,
-                                "top": 576,
-                                "bottom": 595,
-                                "right": 430
-                            },
-                            "class": "Compo"
-                        },
-                        {
-                            "text_content": "Alexandra Stevanii",
                             "id": "c-32",
+                            "text_content": "I'm not failed ... my success is just postponed .",
                             "location": {
-                                "left": 111,
-                                "top": 547,
-                                "bottom": 558,
-                                "right": 259
-                            },
-                            "class": "Text"
-                        },
-                        {
-                            "text_content": "The only way to do great work is to love what you do .",
-                            "id": "c-33",
-                            "location": {
+                                "right": 324,
+                                "top": 489,
                                 "left": 112,
-                                "top": 579,
-                                "bottom": 590,
-                                "right": 356
+                                "bottom": 500
                             },
                             "class": "Text"
                         }
                     ],
                     [
                         {
+                            "id": "c-17",
                             "text_content": null,
-                            "id": "c-19",
                             "location": {
+                                "right": 98,
+                                "top": 530,
                                 "left": 24,
-                                "top": 620,
-                                "bottom": 693,
-                                "right": 97
+                                "bottom": 603
                             },
                             "class": "Compo"
                         },
                         {
+                            "id": "c-18",
                             "text_content": null,
-                            "id": "c-20",
                             "location": {
+                                "right": 430,
+                                "top": 576,
                                 "left": 389,
-                                "top": 666,
-                                "bottom": 686,
-                                "right": 429
+                                "bottom": 595
                             },
                             "class": "Compo"
                         },
                         {
-                            "text_content": "Soraiea Mertalez",
-                            "id": "c-34",
+                            "id": "c-33",
+                            "text_content": "Alexandra Stevanii",
                             "location": {
-                                "left": 112,
-                                "top": 637,
-                                "bottom": 648,
-                                "right": 242
+                                "right": 259,
+                                "top": 547,
+                                "left": 111,
+                                "bottom": 558
                             },
                             "class": "Text"
                         },
                         {
-                            "text_content": "A journey of a thousand miles begins with a single step .",
-                            "id": "c-35",
+                            "id": "c-34",
+                            "text_content": "The only way to do great work is to love what you do .",
                             "location": {
-                                "left": 111,
-                                "top": 670,
-                                "bottom": 681,
-                                "right": 368
+                                "right": 356,
+                                "top": 579,
+                                "left": 112,
+                                "bottom": 590
                             },
                             "class": "Text"
                         }
                     ],
                     [
                         {
+                            "id": "c-19",
                             "text_content": null,
-                            "id": "c-22",
                             "location": {
+                                "right": 97,
+                                "top": 620,
                                 "left": 24,
-                                "top": 710,
-                                "bottom": 786,
-                                "right": 97
+                                "bottom": 693
                             },
                             "class": "Compo"
                         },
                         {
-                            "text_content": "Lelya Mareen",
-                            "id": "c-36",
+                            "id": "c-20",
+                            "text_content": null,
                             "location": {
-                                "left": 113,
-                                "top": 724,
-                                "bottom": 738,
-                                "right": 214
+                                "right": 429,
+                                "top": 666,
+                                "left": 389,
+                                "bottom": 686
+                            },
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-35",
+                            "text_content": "Soraiea Mertalez",
+                            "location": {
+                                "right": 242,
+                                "top": 637,
+                                "left": 112,
+                                "bottom": 648
                             },
                             "class": "Text"
                         },
                         {
-                            "text_content": "Do not give up , the beginning is always the harde",
-                            "id": "c-37",
+                            "id": "c-36",
+                            "text_content": "A journey of a thousand miles begins with a single step .",
                             "location": {
+                                "right": 368,
+                                "top": 670,
                                 "left": 111,
+                                "bottom": 681
+                            },
+                            "class": "Text"
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-22",
+                            "text_content": null,
+                            "location": {
+                                "right": 97,
+                                "top": 710,
+                                "left": 24,
+                                "bottom": 786
+                            },
+                            "class": "Compo"
+                        },
+                        {
+                            "id": "c-37",
+                            "text_content": "Lelya Mareen",
+                            "location": {
+                                "right": 214,
+                                "top": 724,
+                                "left": 113,
+                                "bottom": 738
+                            },
+                            "class": "Text"
+                        },
+                        {
+                            "id": "c-38",
+                            "text_content": "Do not give up , the beginning is always the harde",
+                            "location": {
+                                "right": 336,
                                 "top": 756,
-                                "bottom": 767,
-                                "right": 336
+                                "left": 111,
+                                "bottom": 767
                             },
                             "class": "Text"
                         }
                     ]
                 ],
-                "list_alignment": "v",
-                "class": "List"
+                "list_class": "multi",
+                "class": "List",
+                "text_content": null,
+                "list_alignment": "v"
             },
             {
-                "text_content": null,
                 "id": "c-13",
+                "text_content": null,
                 "location": {
-                    "left": 275,
+                    "right": 287,
                     "top": 399,
-                    "bottom": 413,
-                    "right": 287
+                    "left": 275,
+                    "bottom": 413
                 },
                 "class": "Compo"
             },
             {
-                "text_content": null,
                 "id": "c-21",
+                "text_content": null,
                 "location": {
-                    "left": 294,
+                    "right": 430,
                     "top": 697,
-                    "bottom": 779,
-                    "right": 430
+                    "left": 294,
+                    "bottom": 779
                 },
                 "class": "Compo"
             },
             {
-                "text_content": null,
                 "id": "c-9",
+                "text_content": null,
                 "location": {
-                    "left": 351,
+                    "right": 364,
                     "top": 223,
-                    "bottom": 236,
-                    "right": 364
+                    "left": 351,
+                    "bottom": 236
                 },
                 "class": "Compo"
             }

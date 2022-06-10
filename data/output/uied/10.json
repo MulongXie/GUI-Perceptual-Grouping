@@ -1,0 +1,539 @@
+{
+    "img_shape": [
+        800,
+        450,
+        3
+    ],
+    "compos": [
+        {
+            "width": 6,
+            "id": 0,
+            "position": {
+                "row_max": 67,
+                "row_min": 48,
+                "column_max": 429,
+                "column_min": 423
+            },
+            "height": 19,
+            "class": "Compo"
+        },
+        {
+            "parent": 24,
+            "width": 10,
+            "id": 1,
+            "position": {
+                "row_max": 134,
+                "row_min": 120,
+                "column_max": 349,
+                "column_min": 339
+            },
+            "class": "Compo",
+            "height": 14
+        },
+        {
+            "width": 141,
+            "id": 2,
+            "children": [
+                5,
+                29
+            ],
+            "position": {
+                "row_max": 381,
+                "row_min": 242,
+                "column_max": 150,
+                "column_min": 9
+            },
+            "class": "Block",
+            "height": 139
+        },
+        {
+            "width": 140,
+            "id": 3,
+            "children": [
+                6,
+                26
+            ],
+            "position": {
+                "row_max": 381,
+                "row_min": 242,
+                "column_max": 294,
+                "column_min": 154
+            },
+            "class": "Block",
+            "height": 139
+        },
+        {
+            "width": 141,
+            "id": 4,
+            "children": [
+                7,
+                27
+            ],
+            "position": {
+                "row_max": 381,
+                "row_min": 243,
+                "column_max": 439,
+                "column_min": 298
+            },
+            "class": "Block",
+            "height": 138
+        },
+        {
+            "parent": 2,
+            "width": 59,
+            "id": 5,
+            "position": {
+                "row_max": 320,
+                "row_min": 258,
+                "column_max": 109,
+                "column_min": 50
+            },
+            "class": "Compo",
+            "height": 62
+        },
+        {
+            "parent": 3,
+            "width": 59,
+            "id": 6,
+            "position": {
+                "row_max": 318,
+                "row_min": 259,
+                "column_max": 253,
+                "column_min": 194
+            },
+            "class": "Compo",
+            "height": 59
+        },
+        {
+            "parent": 4,
+            "width": 59,
+            "id": 7,
+            "position": {
+                "row_max": 319,
+                "row_min": 260,
+                "column_max": 398,
+                "column_min": 339
+            },
+            "class": "Compo",
+            "height": 59
+        },
+        {
+            "width": 141,
+            "id": 8,
+            "children": [
+                11,
+                14,
+                31
+            ],
+            "position": {
+                "row_max": 586,
+                "row_min": 448,
+                "column_max": 150,
+                "column_min": 9
+            },
+            "class": "Block",
+            "height": 138
+        },
+        {
+            "width": 141,
+            "id": 9,
+            "children": [
+                12,
+                15,
+                28
+            ],
+            "position": {
+                "row_max": 586,
+                "row_min": 447,
+                "column_max": 294,
+                "column_min": 153
+            },
+            "class": "Block",
+            "height": 139
+        },
+        {
+            "width": 141,
+            "id": 10,
+            "children": [
+                13,
+                16,
+                36
+            ],
+            "position": {
+                "row_max": 586,
+                "row_min": 447,
+                "column_max": 439,
+                "column_min": 298
+            },
+            "class": "Block",
+            "height": 139
+        },
+        {
+            "parent": 8,
+            "width": 21,
+            "id": 11,
+            "position": {
+                "row_max": 474,
+                "row_min": 459,
+                "column_max": 141,
+                "column_min": 120
+            },
+            "class": "Compo",
+            "height": 15
+        },
+        {
+            "parent": 9,
+            "width": 13,
+            "id": 12,
+            "position": {
+                "row_max": 475,
+                "row_min": 457,
+                "column_max": 280,
+                "column_min": 267
+            },
+            "class": "Compo",
+            "height": 18
+        },
+        {
+            "parent": 10,
+            "width": 13,
+            "id": 13,
+            "position": {
+                "row_max": 475,
+                "row_min": 457,
+                "column_max": 425,
+                "column_min": 412
+            },
+            "class": "Compo",
+            "height": 18
+        },
+        {
+            "parent": 8,
+            "width": 28,
+            "id": 14,
+            "position": {
+                "row_max": 522,
+                "row_min": 464,
+                "column_max": 93,
+                "column_min": 65
+            },
+            "class": "Compo",
+            "height": 58
+        },
+        {
+            "parent": 9,
+            "width": 28,
+            "id": 15,
+            "position": {
+                "row_max": 522,
+                "row_min": 464,
+                "column_max": 237,
+                "column_min": 209
+            },
+            "class": "Compo",
+            "height": 58
+        },
+        {
+            "parent": 10,
+            "width": 30,
+            "id": 16,
+            "position": {
+                "row_max": 523,
+                "row_min": 464,
+                "column_max": 382,
+                "column_min": 352
+            },
+            "class": "Compo",
+            "height": 59
+        },
+        {
+            "width": 45,
+            "id": 17,
+            "position": {
+                "row_max": 685,
+                "row_min": 592,
+                "column_max": 156,
+                "column_min": 111
+            },
+            "height": 93,
+            "class": "Compo"
+        },
+        {
+            "width": 114,
+            "id": 18,
+            "position": {
+                "row_max": 685,
+                "row_min": 593,
+                "column_max": 296,
+                "column_min": 182
+            },
+            "height": 92,
+            "class": "Compo"
+        },
+        {
+            "width": 22,
+            "id": 19,
+            "position": {
+                "row_max": 721,
+                "row_min": 696,
+                "column_max": 68,
+                "column_min": 46
+            },
+            "height": 25,
+            "class": "Compo"
+        },
+        {
+            "width": 27,
+            "id": 20,
+            "position": {
+                "row_max": 717,
+                "row_min": 696,
+                "column_max": 182,
+                "column_min": 155
+            },
+            "height": 21,
+            "class": "Compo"
+        },
+        {
+            "width": 25,
+            "id": 21,
+            "position": {
+                "row_max": 720,
+                "row_min": 697,
+                "column_max": 292,
+                "column_min": 267
+            },
+            "height": 23,
+            "class": "Compo"
+        },
+        {
+            "width": 28,
+            "id": 22,
+            "position": {
+                "row_max": 719,
+                "row_min": 698,
+                "column_max": 406,
+                "column_min": 378
+            },
+            "height": 21,
+            "class": "Compo"
+        },
+        {
+            "text_content": "Learn",
+            "width": 54,
+            "id": 23,
+            "position": {
+                "row_max": 65,
+                "row_min": 49,
+                "column_max": 71,
+                "column_min": 17
+            },
+            "class": "Text",
+            "height": 16
+        },
+        {
+            "text_content": "Every second month you stay in the\nChallenge you unlock a new random workout .\nMonth",
+            "width": 378,
+            "id": 24,
+            "children": [
+                1
+            ],
+            "position": {
+                "row_max": 158,
+                "row_min": 119,
+                "column_max": 413,
+                "column_min": 35
+            },
+            "class": "Text",
+            "height": 39
+        },
+        {
+            "text_content": "Plans",
+            "width": 62,
+            "id": 25,
+            "position": {
+                "row_max": 230,
+                "row_min": 212,
+                "column_max": 78,
+                "column_min": 16
+            },
+            "class": "Text",
+            "height": 18
+        },
+        {
+            "text_content": "Sporty",
+            "width": 54,
+            "id": 26,
+            "position": {
+                "row_max": 347,
+                "row_min": 330,
+                "column_max": 252,
+                "column_min": 198
+            },
+            "class": "Text",
+            "parent": 3,
+            "height": 17
+        },
+        {
+            "text_content": "Weightloss",
+            "width": 92,
+            "id": 27,
+            "position": {
+                "row_max": 347,
+                "row_min": 330,
+                "column_max": 414,
+                "column_min": 322
+            },
+            "class": "Text",
+            "parent": 4,
+            "height": 17
+        },
+        {
+            "text_content": "Upper Body",
+            "width": 95,
+            "id": 28,
+            "position": {
+                "row_max": 551,
+                "row_min": 535,
+                "column_max": 272,
+                "column_min": 177
+            },
+            "class": "Text",
+            "parent": 9,
+            "height": 16
+        },
+        {
+            "text_content": "Healthy",
+            "width": 63,
+            "id": 29,
+            "position": {
+                "row_max": 347,
+                "row_min": 330,
+                "column_max": 112,
+                "column_min": 49
+            },
+            "class": "Text",
+            "parent": 2,
+            "height": 17
+        },
+        {
+            "text_content": "Get Started",
+            "width": 124,
+            "id": 30,
+            "position": {
+                "row_max": 436,
+                "row_min": 416,
+                "column_max": 140,
+                "column_min": 16
+            },
+            "class": "Text",
+            "height": 20
+        },
+        {
+            "text_content": "Full Body",
+            "width": 77,
+            "id": 31,
+            "position": {
+                "row_max": 552,
+                "row_min": 532,
+                "column_max": 119,
+                "column_min": 42
+            },
+            "class": "Text",
+            "parent": 8,
+            "height": 20
+        },
+        {
+            "text_content": "\u0628\u06be\u06cc",
+            "width": 60,
+            "id": 32,
+            "position": {
+                "row_max": 661,
+                "row_min": 613,
+                "column_max": 110,
+                "column_min": 50
+            },
+            "class": "Text",
+            "height": 48
+        },
+        {
+            "text_content": "Stroteh",
+            "width": 57,
+            "id": 33,
+            "position": {
+                "row_max": 686,
+                "row_min": 679,
+                "column_max": 108,
+                "column_min": 51
+            },
+            "class": "Text",
+            "height": 7
+        },
+        {
+            "text_content": "Workout",
+            "width": 56,
+            "id": 34,
+            "position": {
+                "row_max": 738,
+                "row_min": 727,
+                "column_max": 85,
+                "column_min": 29
+            },
+            "class": "Text",
+            "height": 11
+        },
+        {
+            "text_content": "Learn",
+            "width": 43,
+            "id": 35,
+            "position": {
+                "row_max": 735,
+                "row_min": 725,
+                "column_max": 190,
+                "column_min": 147
+            },
+            "class": "Text",
+            "height": 10
+        },
+        {
+            "text_content": "Lower Body",
+            "width": 97,
+            "id": 36,
+            "position": {
+                "row_max": 552,
+                "row_min": 533,
+                "column_max": 417,
+                "column_min": 320
+            },
+            "class": "Text",
+            "parent": 10,
+            "height": 19
+        },
+        {
+            "text_content": "Track",
+            "width": 34,
+            "id": 37,
+            "position": {
+                "row_max": 735,
+                "row_min": 727,
+                "column_max": 408,
+                "column_min": 374
+            },
+            "class": "Text",
+            "height": 8
+        },
+        {
+            "text_content": "Achievements",
+            "width": 92,
+            "id": 38,
+            "position": {
+                "row_max": 735,
+                "row_min": 727,
+                "column_max": 326,
+                "column_min": 234
+            },
+            "class": "Text",
+            "height": 8
+        }
+    ]
+}
