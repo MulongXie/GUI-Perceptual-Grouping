@@ -8,9 +8,9 @@ Instead,we see perceptual groups of GUI widgets, such as card, list, tab and men
 Although humans can intuitively see perceptual groups of GUI widgets, current computational approaches are rather limited in partitionnig a GUI into meaningful groups of widget elements, especially for pure image-based techniques.
 Thus, the GUI Perceptual Grouping is proposed to mimic hwo us human being perceive the GUI to recognize and gather the atomic GUI element into structured groups.
 
-### Gelstalt Principles
-The approch's design uses a well-established psychological theory, the Gelstalt principles of perception, for reference to develop its core algorithms.
-Gelstalt theory systematically explains how humans see the whole rather than individual and unrelated parts.
+### Gestalt Principles
+The approch's design uses a well-established psychological theory, the Gestalt principles of perception, for reference to develop its core algorithms.
+Gestalt theory systematically explains how humans see the whole rather than individual and unrelated parts.
 It includes a set of principles of grouping, among which `connectedness`, `similarity`, `proximity` and `continuity` are the most essential ones.
 
 >Connectedness
@@ -21,10 +21,15 @@ It includes a set of principles of grouping, among which `connectedness`, `simil
 
 >Contiuity
 
-### Gelstalt in GUI
+### Gestalt in GUI
 
 
 ## How to use it?
 
 The GUI Perceptual Grouping is based on the UIED to detect the GUI element, but both UIED and the grouping approach are unsupervised that requires NO traning process and massive data preparation to use.
-Simply check the dependencies 
+
+### Dependency
+
+### Usage
+
+## Result
