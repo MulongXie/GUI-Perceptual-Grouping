@@ -1,4 +1,4 @@
-# GUI-Perceptual-Grouping
+ # GUI-Perceptual-Grouping
 Detect graphic user interface (GUI) elements from the GUI image and recognize the repetitive layout structure through grouping the elemetns.
 
 ## What is it?
@@ -22,3 +22,9 @@ It includes a set of principles of grouping, among which `connectedness`, `simil
 >Contiuity
 
 ### Gelstalt in GUI
+
+
+## How to use it?
+
+The GUI Perceptual Grouping is based on the UIED to detect the GUI element, but both UIED and the grouping approach are unsupervised that requires NO traning process and massive data preparation to use.
+Simply check the dependencies 
