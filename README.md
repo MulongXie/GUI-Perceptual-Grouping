@@ -13,13 +13,13 @@ The approch's design uses a well-established psychological theory, the Gestalt p
 Gestalt theory systematically explains how humans see the whole rather than individual and unrelated parts.
 It includes a set of principles of grouping, among which `connectedness`, `similarity`, `proximity` and `continuity` are the most essential ones.
 
->Connectedness
+>Connectedness - We perceive elements connected by uniform visual properties as being more related than those not connected
 
->Similarity
+>Similarity - Elements are perceptually grouped together if they are similar to each other
 
->Proximity
+>Proximity - When people see an assortment of objects, they tend to perceive objects that are close (proximate) to each other as a group
 
->Contiuity
+>Contiuity - Elements arranged in a line or curve are perceived to be more related than elements not in a line or curve
 
 ### Gestalt in GUI
 
