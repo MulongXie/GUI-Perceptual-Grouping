@@ -50,12 +50,27 @@ Gestalt principles also greatly influence UI design, but they may be represented
 
 >Connectedness - Box container that contains multiple widgets within it, and all the enclosed widgets are perceived as in the same group
 
+<p align="center">
+<img src="/data/demo/gui-connectedness.png" height="300px"/> 
+</p>
+
 >Similarity - Similarity can be observed in aspects of various visual cues, such as size, color, shape or position
+
+<p align="center">
+<img src="/data/demo/gui-similarity.png" height="300px"/> 
+</p>
 
 >Proximity - Some groups are close to each other and similar in terms of the number and layout of the contained widgets
 
+<p align="center">
+<img src="/data/demo/gui-proximity.png" height="300px"/> 
+</p>
+
 >Contiuity - Some detection errors are likely to be spotted if a GUI area or a widget aligns with all the widgets in a perceptual group in a line but is not gathered into that group
 
+<p align="center">
+<img src="/data/demo/gui-continuity.png" height="300px"/> 
+</p>
 
 ## How to use it?
 
