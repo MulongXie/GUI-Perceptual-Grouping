@@ -74,10 +74,31 @@ Gestalt principles also greatly influence UI design, but they may be represented
 
 ## How to use it?
 
-The GUI Perceptual Grouping is based on the UIED to detect the GUI element, but both UIED and the grouping approach are unsupervised that requires NO traning process and massive data preparation to use.
+The GUI Perceptual Grouping is based on the UIED to detect the GUI element, but both UIED and the grouping approach are unsupervised that requires NO traning process and massive data preparation to deploy extremly easily.
 
 ### Dependency
+- Python
+- Pandas
+- sklearn
+- OpenCV
+
+> Note that no strict version required for the dependency as long as the program running well in your machine.
 
 ### Usage
 
+The approach is purely based on computer vision techniques, it thus only needs the input of a GUI image and then outputs the GUI elements and their grouping.
+
+The basic usage is:
+```
+gui = GUI(img_file="data/input/2.jpg", output_dir="data/output")
+gui.detect_element(is_ocr=True, is_non_text=True, is_merge=True)  
+gui.visualize_element_detection() 
+gui.recognize_layout() 
+gui.visualize_layout_recognition()  
+```
+
 ## Result
+
+<p align="center">
+<img style="width: 80%;" src="/data/demo/result.png"> 
+</p>
