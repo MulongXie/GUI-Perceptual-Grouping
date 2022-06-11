@@ -267,7 +267,7 @@ class ComposDF:
     '''
     *********************************
     *** Similar Group Recognition ***
-    **********************************
+    *********************************
     '''
     def recognize_similar_blocks(self):
         '''
