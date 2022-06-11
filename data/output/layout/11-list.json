@@ -4,7 +4,6 @@
             [
                 "Compo",
                 "Compo",
-                "Text",
                 "Text"
             ],
             [
@@ -21,6 +20,6 @@
             ]
         ]
     ],
-    "multitab": [],
-    "ui": "11"
+    "ui": "11",
+    "multitab": []
 }

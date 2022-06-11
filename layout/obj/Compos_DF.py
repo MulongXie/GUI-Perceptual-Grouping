@@ -299,14 +299,14 @@ class ComposDF:
             children_group = paired_blocks.groupby('parent').groups  # {parent block id: [children id]}
             for i in children_group:
                 # set the block as a group
-                df.loc[i, 'group'] = 'c-' + str(group_id)
-                df.loc[children_group[i], 'group'] = 'c-' + str(group_id)
+                df_all.loc[i, 'group'] = 'c-' + str(group_id)
+                df_all.loc[children_group[i], 'group'] = 'c-' + str(group_id)
                 group_id += 1
 
-                df.loc[i, 'group_pair'] = df.loc[children_group[i][0], 'group_pair']
+                df_all.loc[i, 'group_pair'] = df_all.loc[children_group[i][0], 'group_pair']
                 # pair to the parent block
-                df.loc[i, 'pair_to'] = i
-                df.loc[children_group[i], 'pair_to'] = i
+                df_all.loc[i, 'pair_to'] = i
+                df_all.loc[children_group[i], 'pair_to'] = i
 
             df_all = df_all.fillna(-1)
             df_all['group_pair'] = df_all['group_pair'].astype(int)

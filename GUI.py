@@ -94,7 +94,7 @@ class GUI:
             height_re = int(img_resize_longest_side * (height / width))
             return height_re, img_resize_longest_side, self.img.shape[2]
 
-    def detect_element(self, is_ocr=False, is_non_text=False, is_merge=False, img_resize_longest_side=800, show=False):
+    def detect_element(self, is_ocr=True, is_non_text=True, is_merge=True, img_resize_longest_side=800, show=False):
         if self.img_file is None:
             print('No GUI image is input')
             return
