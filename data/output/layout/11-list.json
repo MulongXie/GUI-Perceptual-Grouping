@@ -4,22 +4,26 @@
             [
                 "Compo",
                 "Compo",
-                "Text"
-            ],
-            [
-                "Compo",
-                "Compo",
+                "Text",
                 "Text",
                 "Text"
             ],
             [
                 "Compo",
                 "Compo",
+                "Text",
+                "Text",
+                "Text"
+            ],
+            [
+                "Compo",
+                "Compo",
+                "Text",
                 "Text",
                 "Text"
             ]
         ]
     ],
-    "ui": "11",
-    "multitab": []
+    "multitab": [],
+    "ui": "11"
 }

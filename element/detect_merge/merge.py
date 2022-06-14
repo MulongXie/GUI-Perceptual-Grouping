@@ -50,7 +50,7 @@ def refine_texts(texts, img_shape):
     return refined_texts
 
 
-def merge_text_line_to_paragraph(elements, max_line_gap=5):
+def merge_text_line_to_paragraph(elements):
     texts = []
     non_texts = []
     for ele in elements:
@@ -66,6 +66,7 @@ def merge_text_line_to_paragraph(elements, max_line_gap=5):
         for text_a in texts:
             merged = False
             for text_b in temp_set:
+                max_line_gap = min(text_a.height, text_b.height) // 2
                 inter_area, _, _, _ = text_a.calc_intersection_area(text_b, bias=(0, max_line_gap))
                 if inter_area > 0:
                     text_b.element_merge(text_a)
@@ -222,7 +223,7 @@ def merge(img_path, compo_path, text_path, merge_root=None, is_paragraph=False, 
         elements = remove_top_bar(elements, img_height=compo_json['img_shape'][0])
         elements = remove_bottom_bar(elements, img_height=compo_json['img_shape'][0])
     if is_paragraph:
-        elements = merge_text_line_to_paragraph(elements, max_line_gap=7)
+        elements = merge_text_line_to_paragraph(elements)
     reassign_ids(elements)
     check_containment(elements)
     board = show_elements(img_resize, elements, show=show, win_name='elements after merging', wait_key=wait_key)

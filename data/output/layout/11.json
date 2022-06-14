@@ -1,302 +1,104 @@
 [
     {
-        "location": {
-            "right": 480,
-            "bottom": 46,
-            "left": 21,
-            "top": 24
-        },
-        "class": "Block",
         "children": [
             {
-                "location": {
-                    "right": 46,
-                    "bottom": 43,
-                    "left": 21,
-                    "top": 25
-                },
-                "class": "Block",
                 "children": [
                     {
                         "location": {
-                            "right": 45,
-                            "bottom": 30,
                             "left": 21,
-                            "top": 25
+                            "top": 25,
+                            "right": 45,
+                            "bottom": 30
                         },
+                        "id": "c-1",
                         "class": "Compo",
-                        "text_content": null,
-                        "id": "c-1"
+                        "text_content": null
                     },
                     {
                         "location": {
-                            "right": 46,
-                            "bottom": 43,
                             "left": 21,
-                            "top": 33
+                            "top": 33,
+                            "right": 46,
+                            "bottom": 43
                         },
+                        "id": "c-2",
                         "class": "Compo",
-                        "text_content": null,
-                        "id": "c-2"
+                        "text_content": null
                     }
                 ],
-                "id": "b-8"
+                "location": {
+                    "left": 21,
+                    "top": 25,
+                    "right": 46,
+                    "bottom": 43
+                },
+                "id": "b-2",
+                "class": "Block"
             },
             {
                 "location": {
-                    "right": 137,
-                    "bottom": 43,
                     "left": 77,
-                    "top": 26
+                    "top": 26,
+                    "right": 137,
+                    "bottom": 43
                 },
+                "id": "c-9",
                 "class": "Text",
-                "text_content": "Deals",
-                "id": "c-9"
+                "text_content": "Deals"
             },
             {
                 "location": {
-                    "right": 480,
-                    "bottom": 46,
                     "left": 457,
-                    "top": 24
+                    "top": 24,
+                    "right": 480,
+                    "bottom": 46
                 },
+                "id": "c-0",
                 "class": "Compo",
-                "text_content": null,
-                "id": "c-0"
+                "text_content": null
             }
         ],
-        "id": "b-7"
+        "location": {
+            "left": 21,
+            "top": 24,
+            "right": 480,
+            "bottom": 46
+        },
+        "id": "b-1",
+        "class": "Block"
     },
     {
-        "location": {
-            "right": 410,
-            "bottom": 105,
-            "left": 106,
-            "top": 91
-        },
-        "class": "Block",
         "children": [
             {
                 "location": {
-                    "right": 142,
-                    "bottom": 105,
                     "left": 106,
-                    "top": 91
+                    "top": 91,
+                    "right": 142,
+                    "bottom": 105
                 },
+                "id": "c-10",
                 "class": "Text",
-                "text_content": "NEW",
-                "id": "c-10"
+                "text_content": "NEW"
             },
             {
                 "location": {
-                    "right": 410,
-                    "bottom": 105,
                     "left": 336,
-                    "top": 91
+                    "top": 91,
+                    "right": 410,
+                    "bottom": 105
                 },
+                "id": "c-17",
                 "class": "Text",
-                "text_content": "POPULAR",
-                "id": "c-16"
+                "text_content": "POPULAR"
             }
         ],
-        "id": "b-9"
-    },
-    {
         "location": {
-            "right": 460,
-            "bottom": 799,
-            "left": 18,
-            "top": 156
+            "left": 106,
+            "top": 91,
+            "right": 410,
+            "bottom": 105
         },
-        "class": "Block",
-        "children": [
-            {
-                "list_alignment": "v",
-                "location": {
-                    "right": 208,
-                    "bottom": 799,
-                    "left": 18,
-                    "top": 156
-                },
-                "class": "List",
-                "list_items": [
-                    [
-                        {
-                            "location": {
-                                "right": 58,
-                                "bottom": 196,
-                                "left": 19,
-                                "top": 156
-                            },
-                            "class": "Compo",
-                            "text_content": null,
-                            "id": "c-3"
-                        },
-                        {
-                            "location": {
-                                "right": 123,
-                                "bottom": 351,
-                                "left": 65,
-                                "top": 204
-                            },
-                            "class": "Compo",
-                            "text_content": null,
-                            "id": "c-4"
-                        },
-                        {
-                            "location": {
-                                "right": 208,
-                                "bottom": 191,
-                                "left": 71,
-                                "top": 160
-                            },
-                            "class": "Text",
-                            "text_content": "Lindsay\nPosted -172 minutes ago",
-                            "id": "c-11"
-                        }
-                    ],
-                    [
-                        {
-                            "location": {
-                                "right": 58,
-                                "bottom": 438,
-                                "left": 18,
-                                "top": 398
-                            },
-                            "class": "Compo",
-                            "text_content": null,
-                            "id": "c-5"
-                        },
-                        {
-                            "location": {
-                                "right": 121,
-                                "bottom": 594,
-                                "left": 62,
-                                "top": 447
-                            },
-                            "class": "Compo",
-                            "text_content": null,
-                            "id": "c-6"
-                        },
-                        {
-                            "location": {
-                                "right": 104,
-                                "bottom": 414,
-                                "left": 71,
-                                "top": 403
-                            },
-                            "class": "Text",
-                            "text_content": "Julie",
-                            "id": "c-12"
-                        },
-                        {
-                            "location": {
-                                "right": 208,
-                                "bottom": 433,
-                                "left": 72,
-                                "top": 422
-                            },
-                            "class": "Text",
-                            "text_content": "Posted 147 minutes ago",
-                            "id": "c-13"
-                        }
-                    ],
-                    [
-                        {
-                            "location": {
-                                "right": 58,
-                                "bottom": 681,
-                                "left": 18,
-                                "top": 641
-                            },
-                            "class": "Compo",
-                            "text_content": null,
-                            "id": "c-7"
-                        },
-                        {
-                            "location": {
-                                "right": 143,
-                                "bottom": 799,
-                                "left": 18,
-                                "top": 690
-                            },
-                            "class": "Compo",
-                            "text_content": null,
-                            "id": "c-8"
-                        },
-                        {
-                            "location": {
-                                "right": 106,
-                                "bottom": 657,
-                                "left": 72,
-                                "top": 645
-                            },
-                            "class": "Text",
-                            "text_content": "Chris",
-                            "id": "c-14"
-                        },
-                        {
-                            "location": {
-                                "right": 208,
-                                "bottom": 676,
-                                "left": 72,
-                                "top": 665
-                            },
-                            "class": "Text",
-                            "text_content": "Posted -106 minutes ago",
-                            "id": "c-15"
-                        }
-                    ]
-                ],
-                "list_class": "multi",
-                "text_content": null,
-                "id": "l-0"
-            },
-            {
-                "location": {
-                    "right": 444,
-                    "bottom": 475,
-                    "left": 188,
-                    "top": 457
-                },
-                "class": "Text",
-                "text_content": "WHBM : Extra 40 % Off Sale",
-                "id": "c-19"
-            },
-            {
-                "location": {
-                    "right": 454,
-                    "bottom": 232,
-                    "left": 189,
-                    "top": 216
-                },
-                "class": "Text",
-                "text_content": "BonTon : Pink Rose Dresses",
-                "id": "c-17"
-            },
-            {
-                "location": {
-                    "right": 306,
-                    "bottom": 260,
-                    "left": 189,
-                    "top": 239
-                },
-                "class": "Text",
-                "text_content": "$ 17 Shipped",
-                "id": "c-18"
-            },
-            {
-                "location": {
-                    "right": 460,
-                    "bottom": 747,
-                    "left": 189,
-                    "top": 700
-                },
-                "class": "Text",
-                "text_content": "12 Ribbed Cotton Tank Tops\n$ 25 Shipped",
-                "id": "c-20"
-            }
-        ],
-        "id": "b-10"
+        "id": "b-3",
+        "class": "Block"
     }
 ]
