@@ -100,11 +100,13 @@ class ComposDF:
                     alignment_in_group = group_compos.iloc[0]['alignment']
                 # calculate element gaps in each group
                 if alignment_in_group == 'v':
+                    # sort elements vertically
                     group_compos = group_compos.sort_values('center_row')
                     for j in range(len(group_compos) - 1):
                         id = group_compos.iloc[j]['id']
                         compos.loc[id, 'gap'] = group_compos.iloc[j + 1]['row_min'] - group_compos.iloc[j]['row_max']
                 else:
+                    # sort elements horizontally
                     group_compos = group_compos.sort_values('center_column')
                     for j in range(len(group_compos) - 1):
                         id = group_compos.iloc[j]['id']
@@ -426,7 +428,12 @@ class ComposDF:
         for i in groups:
             if i != -1 and len(groups[i]) > 2:
                 group = groups[i]  # list of component ids in the group
-                gaps = list(compos.loc[group]['gap'])
+                group_compos = compos.loc[group]
+                if group_compos.iloc[0]['alignment_in_group'] == 'v':
+                    group_compos = group_compos.sort_values('center_row')
+                else:
+                    group_compos = group_compos.sort_values('center_column')
+                gaps = list(group_compos['gap'])
                 # cluster compos gaps
                 clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
                 gap_labels = list(clustering.labels_)   # [lists of labels for different gaps]
@@ -439,7 +446,7 @@ class ComposDF:
                         new_group = pd.DataFrame()
                         for j, lab in enumerate(gap_labels):
                             if lab == label:
-                                new_group = new_group.append(compos.loc[group[j]])
+                                new_group = new_group.append(compos.loc[group_compos.iloc[j]['id']])
                                 self.calc_gap_in_group(new_group)
                         new_gap = list(new_group['gap'])
                         # check if the new group is valid by gaps (should have the same gaps between compos)
@@ -514,7 +521,12 @@ class ComposDF:
         for i in groups:
             if i != -1 and len(groups[i]) >= 2:
                 group = groups[i]  # list of component ids in the group
-                gaps = list(compos.loc[group]['gap'])
+                group_compos = compos.loc[group]
+                if group_compos.iloc[0]['alignment_in_group'] == 'v':
+                    group_compos = group_compos.sort_values('center_row')
+                else:
+                    group_compos = group_compos.sort_values('center_column')
+                gaps = list(group_compos['gap'])
 
                 # cluster compos gaps
                 clustering = DBSCAN(eps=10, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
@@ -535,10 +547,10 @@ class ComposDF:
                     for k, gap_label in enumerate(gap_labels):
                         # search possible compo from the compo with a different label
                         if gap_label != anchor_label:
-                            possible_compo = self.search_possible_compo(anchor_compo=compos.loc[group[k]], approximate_gap=mean_gap)
+                            possible_compo = self.search_possible_compo(anchor_compo=compos.loc[group_compos.iloc[k]['id']], approximate_gap=mean_gap)
                             if possible_compo is not None:
                                 compos.loc[possible_compo['id'], 'group'] = i
-                                compos.loc[possible_compo['id'], 'alignment_in_group'] = compos.loc[group[k], 'alignment_in_group']
+                                compos.loc[possible_compo['id'], 'alignment_in_group'] = compos.loc[group_compos.iloc[k]['id'], 'alignment_in_group']
 
                 # search possible compos outside the group
                 if search_outside:
@@ -608,10 +620,15 @@ class ComposDF:
                 compos.loc[groups[i][0], 'group'] = -1
             elif len(groups[i]) > 2:
                 group = groups[i]  # list of component ids in the group
-                gaps = list(compos.loc[group]['gap'])
+                group_compos = compos.loc[group]
+                if group_compos.iloc[0]['alignment_in_group'] == 'v':
+                    group_compos = group_compos.sort_values('center_row')
+                else:
+                    group_compos = group_compos.sort_values('center_column')
+                gaps = list(group_compos['gap'])
 
                 # cluster compos gaps
-                eps = 20 if compos.loc[group[0], 'class'] == 'Text' else 10
+                eps = 20 if group_compos.iloc[0]['class'] == 'Text' else 10
                 clustering = DBSCAN(eps=eps, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
                 gap_labels = list(clustering.labels_)
                 gap_label_count = dict((i, gap_labels.count(i)) for i in gap_labels)  # {label: frequency of label}
@@ -621,7 +638,7 @@ class ComposDF:
                     if gap_label_count[label] < 2:
                         for j, lab in enumerate(gap_labels):
                             if lab == label:
-                                compos.loc[group[j], 'group'] = -1
+                                compos.loc[group_compos.iloc[j]['id'], 'group'] = -1
                                 changed = True
         self.check_group_of_two_compos_validity_by_areas(show=show)
 
