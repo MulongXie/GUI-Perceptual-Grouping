@@ -82,6 +82,9 @@ class ComposDF:
             return df
 
     def calc_gap_in_group(self, compos=None):
+        '''
+        Calculate the gaps between elements in each group
+        '''
         if compos is None:
             compos = self.compos_dataframe
         compos['gap'] = -1
@@ -90,10 +93,12 @@ class ComposDF:
             group = groups[i]
             if i != -1 and len(group) > 1:
                 group_compos = compos.loc[list(groups[i])]
+                # check element's alignment (h or v) in each group
                 if 'alignment_in_group' in group_compos:
                     alignment_in_group = group_compos.iloc[0]['alignment_in_group']
                 else:
                     alignment_in_group = group_compos.iloc[0]['alignment']
+                # calculate element gaps in each group
                 if alignment_in_group == 'v':
                     group_compos = group_compos.sort_values('center_row')
                     for j in range(len(group_compos) - 1):
@@ -111,6 +116,9 @@ class ComposDF:
     ******************
     '''
     def cluster_dbscan_by_attr(self, attr, eps, min_samples=1, show=True, show_method='block'):
+        '''
+        Cluster elements by attributes using DBSCAN
+        '''
         x = np.reshape(list(self.compos_dataframe[attr]), (-1, 1))
         clustering = DBSCAN(eps=eps, min_samples=min_samples).fit(x)
         tag = 'cluster_' + attr
@@ -147,6 +155,12 @@ class ComposDF:
                 self.visualize_fill(gather_attr='cluster_area', name='cluster_area')
 
     def check_group_by_attr(self, target_attr='cluster_column_min', check_by='height', eps=20, show=True, show_method='block'):
+        '''
+        Double check the group by additional attribute, using DBSCAN upon the additional attribute to filter out the abnormal element
+        @target_attr: gather element groups by this attribute
+        @check_by: double check the gathered groups by this attribute
+        @eps: EPS for DBSCAN
+        '''
         compos = self.compos_dataframe
         groups = compos.groupby(target_attr).groups  # {group name: list of compo ids}
         for i in groups:
@@ -177,6 +191,10 @@ class ComposDF:
     ****************
     '''
     def group_by_clusters(self, cluster, alignment, show=True, show_method='block'):
+        '''
+        Group elements by cluster name
+        Record element group in 'group' attribute
+        '''
         compos = self.compos_dataframe
         if 'group' not in compos.columns:
             self.compos_dataframe['group'] = -1
@@ -223,6 +241,10 @@ class ComposDF:
         return 2
 
     def group_by_clusters_conflict(self, cluster, alignment, show=True, show_method='block'):
+        '''
+        If an element is clustered into multiple clusters, assign it to the cluster where the element's area is mostly like others
+        Then form the cluster as a group
+        '''
         compos = self.compos_dataframe
         group_id = compos['group'].max() + 1
 
