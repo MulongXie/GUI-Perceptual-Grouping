@@ -1,0 +1,60 @@
+{
+    "compos": [
+        {
+            "class": "Compo",
+            "id": 0,
+            "position": {
+                "row_max": 748,
+                "column_max": 449,
+                "row_min": 203,
+                "column_min": 0
+            },
+            "height": 545,
+            "width": 449
+        },
+        {
+            "text_content": "PodBean",
+            "position": {
+                "row_max": 100,
+                "column_max": 304,
+                "row_min": 71,
+                "column_min": 145
+            },
+            "class": "Text",
+            "id": 1,
+            "height": 29,
+            "width": 159
+        },
+        {
+            "text_content": "LISTEN , WATCH , LEARN , ENJOY",
+            "position": {
+                "row_max": 141,
+                "column_max": 331,
+                "row_min": 129,
+                "column_min": 116
+            },
+            "class": "Text",
+            "id": 2,
+            "height": 12,
+            "width": 215
+        },
+        {
+            "text_content": "PODCASTS ON THE GO",
+            "position": {
+                "row_max": 162,
+                "column_max": 304,
+                "row_min": 152,
+                "column_min": 144
+            },
+            "class": "Text",
+            "id": 3,
+            "height": 10,
+            "width": 160
+        }
+    ],
+    "img_shape": [
+        800,
+        450,
+        3
+    ]
+}

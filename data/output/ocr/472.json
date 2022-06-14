@@ -1,0 +1,419 @@
+{
+    "texts": [
+        {
+            "row_max": 921,
+            "column_max": 262,
+            "row_min": 907,
+            "content": "48 %",
+            "id": 0,
+            "height": 14,
+            "column_min": 223,
+            "width": 39
+        },
+        {
+            "row_max": 424,
+            "column_max": 264,
+            "row_min": 375,
+            "content": "ARCH",
+            "id": 1,
+            "height": 49,
+            "column_min": 97,
+            "width": 167
+        },
+        {
+            "row_max": 504,
+            "column_max": 610,
+            "row_min": 471,
+            "content": "Amber Weather Widget Theme",
+            "id": 2,
+            "height": 33,
+            "column_min": 96,
+            "width": 514
+        },
+        {
+            "row_max": 561,
+            "column_max": 1045,
+            "row_min": 543,
+            "content": "ASRA",
+            "id": 3,
+            "height": 18,
+            "column_min": 1009,
+            "width": 36
+        },
+        {
+            "row_max": 655,
+            "column_max": 1064,
+            "row_min": 619,
+            "content": "CLIMATE",
+            "id": 4,
+            "height": 36,
+            "column_min": 942,
+            "width": 122
+        },
+        {
+            "row_max": 749,
+            "column_max": 438,
+            "row_min": 734,
+            "content": "San Francisco",
+            "id": 5,
+            "height": 15,
+            "column_min": 311,
+            "width": 127
+        },
+        {
+            "row_max": 755,
+            "column_max": 939,
+            "row_min": 722,
+            "content": "OUTDOOR",
+            "id": 6,
+            "height": 33,
+            "column_min": 790,
+            "width": 149
+        },
+        {
+            "row_max": 747,
+            "column_max": 1072,
+            "row_min": 715,
+            "content": "SPORTS",
+            "id": 7,
+            "height": 32,
+            "column_min": 951,
+            "width": 121
+        },
+        {
+            "row_max": 831,
+            "column_max": 313,
+            "row_min": 798,
+            "content": "32",
+            "id": 8,
+            "height": 33,
+            "column_min": 256,
+            "width": 57
+        },
+        {
+            "row_max": 831,
+            "column_max": 589,
+            "row_min": 797,
+            "content": "20:45",
+            "id": 9,
+            "height": 34,
+            "column_min": 463,
+            "width": 126
+        },
+        {
+            "row_max": 859,
+            "column_max": 278,
+            "row_min": 845,
+            "content": "25",
+            "id": 10,
+            "height": 14,
+            "column_min": 256,
+            "width": 22
+        },
+        {
+            "row_max": 859,
+            "column_max": 326,
+            "row_min": 845,
+            "content": "35",
+            "id": 11,
+            "height": 14,
+            "column_min": 304,
+            "width": 22
+        },
+        {
+            "row_max": 869,
+            "column_max": 595,
+            "row_min": 850,
+            "content": "26 , JUL Fri",
+            "id": 12,
+            "height": 19,
+            "column_min": 465,
+            "width": 130
+        },
+        {
+            "row_max": 854,
+            "column_max": 950,
+            "row_min": 818,
+            "content": "AIR",
+            "id": 13,
+            "height": 36,
+            "column_min": 896,
+            "width": 54
+        },
+        {
+            "row_max": 842,
+            "column_max": 1088,
+            "row_min": 791,
+            "content": "QUALITY",
+            "id": 14,
+            "height": 51,
+            "column_min": 956,
+            "width": 132
+        },
+        {
+            "row_max": 919,
+            "column_max": 527,
+            "row_min": 906,
+            "content": "35",
+            "id": 15,
+            "height": 13,
+            "column_min": 503,
+            "width": 24
+        },
+        {
+            "row_max": 957,
+            "column_max": 198,
+            "row_min": 943,
+            "content": "SAT",
+            "id": 16,
+            "height": 14,
+            "column_min": 159,
+            "width": 39
+        },
+        {
+            "row_max": 958,
+            "column_max": 328,
+            "row_min": 943,
+            "content": "SAT",
+            "id": 17,
+            "height": 15,
+            "column_min": 288,
+            "width": 40
+        },
+        {
+            "row_max": 958,
+            "column_max": 464,
+            "row_min": 943,
+            "content": "SAT",
+            "id": 18,
+            "height": 15,
+            "column_min": 424,
+            "width": 40
+        },
+        {
+            "row_max": 958,
+            "column_max": 599,
+            "row_min": 943,
+            "content": "SAT",
+            "id": 19,
+            "height": 15,
+            "column_min": 559,
+            "width": 40
+        },
+        {
+            "row_max": 963,
+            "column_max": 1071,
+            "row_min": 875,
+            "content": "135",
+            "id": 20,
+            "height": 88,
+            "column_min": 922,
+            "width": 149
+        },
+        {
+            "row_max": 1023,
+            "column_max": 211,
+            "row_min": 1007,
+            "content": "-88 \u00b0 / -70",
+            "id": 21,
+            "height": 16,
+            "column_min": 129,
+            "width": 82
+        },
+        {
+            "row_max": 1022,
+            "column_max": 343,
+            "row_min": 1007,
+            "content": "-88 \u00b0 / -70",
+            "id": 22,
+            "height": 15,
+            "column_min": 261,
+            "width": 82
+        },
+        {
+            "row_max": 1023,
+            "column_max": 478,
+            "row_min": 1008,
+            "content": "-88 \u00b0 / -70",
+            "id": 23,
+            "height": 15,
+            "column_min": 395,
+            "width": 83
+        },
+        {
+            "row_max": 1022,
+            "column_max": 613,
+            "row_min": 1007,
+            "content": "-88 \u00b0 / -70",
+            "id": 24,
+            "height": 15,
+            "column_min": 530,
+            "width": 83
+        },
+        {
+            "row_max": 1025,
+            "column_max": 1061,
+            "row_min": 982,
+            "content": "UNHEALTHY",
+            "id": 25,
+            "height": 43,
+            "column_min": 930,
+            "width": 131
+        },
+        {
+            "row_max": 1091,
+            "column_max": 1001,
+            "row_min": 1040,
+            "content": "People should",
+            "id": 26,
+            "height": 51,
+            "column_min": 940,
+            "width": 61
+        },
+        {
+            "row_max": 1079,
+            "column_max": 1085,
+            "row_min": 1025,
+            "content": "with reduce lung or",
+            "id": 27,
+            "height": 54,
+            "column_min": 1000,
+            "width": 85
+        },
+        {
+            "row_max": 1129,
+            "column_max": 980,
+            "row_min": 1113,
+            "content": "Good",
+            "id": 28,
+            "height": 16,
+            "column_min": 951,
+            "width": 29
+        },
+        {
+            "row_max": 1151,
+            "column_max": 1030,
+            "row_min": 1142,
+            "content": "50",
+            "id": 29,
+            "height": 9,
+            "column_min": 1016,
+            "width": 14
+        },
+        {
+            "row_max": 1491,
+            "column_max": 934,
+            "row_min": 1456,
+            "content": "This is a widget of Amber Weather . Please install",
+            "id": 30,
+            "height": 35,
+            "column_min": 87,
+            "width": 847
+        },
+        {
+            "row_max": 1540,
+            "column_max": 721,
+            "row_min": 1500,
+            "content": "Amber Weather to apply this widget .",
+            "id": 31,
+            "height": 40,
+            "column_min": 87,
+            "width": 634
+        },
+        {
+            "row_max": 1651,
+            "column_max": 616,
+            "row_min": 1620,
+            "content": "INSTALL",
+            "id": 32,
+            "height": 31,
+            "column_min": 463,
+            "width": 153
+        },
+        {
+            "row_max": 44,
+            "column_max": 1059,
+            "row_min": 18,
+            "content": "1:02",
+            "id": 33,
+            "height": 26,
+            "column_min": 987,
+            "width": 72
+        },
+        {
+            "row_max": 317,
+            "column_max": 1074,
+            "row_min": 281,
+            "content": "More detailed",
+            "id": 34,
+            "height": 36,
+            "column_min": 776,
+            "width": 298
+        },
+        {
+            "row_max": 370,
+            "column_max": 1061,
+            "row_min": 339,
+            "content": "weather",
+            "id": 35,
+            "height": 31,
+            "column_min": 881,
+            "width": 180
+        },
+        {
+            "row_max": 521,
+            "column_max": 1003,
+            "row_min": 471,
+            "content": "HURRICANE",
+            "id": 36,
+            "height": 50,
+            "column_min": 870,
+            "width": 133
+        },
+        {
+            "row_max": 535,
+            "column_max": 927,
+            "row_min": 520,
+            "content": "REDA",
+            "id": 37,
+            "height": 15,
+            "column_min": 891,
+            "width": 36
+        },
+        {
+            "row_max": 921,
+            "column_max": 399,
+            "row_min": 904,
+            "content": "SW",
+            "id": 38,
+            "height": 17,
+            "column_min": 369,
+            "width": 30
+        },
+        {
+            "row_max": 1034,
+            "column_max": 870,
+            "row_min": 1020,
+            "content": "10",
+            "id": 39,
+            "height": 14,
+            "column_min": 851,
+            "width": 19
+        },
+        {
+            "row_max": 1075,
+            "column_max": 902,
+            "row_min": 1059,
+            "content": "10mi",
+            "id": 40,
+            "height": 16,
+            "column_min": 857,
+            "width": 45
+        }
+    ],
+    "img_shape": [
+        1920,
+        1080,
+        3
+    ]
+}

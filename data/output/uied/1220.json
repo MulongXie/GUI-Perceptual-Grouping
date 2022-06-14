@@ -1,0 +1,353 @@
+{
+    "compos": [
+        {
+            "class": "Compo",
+            "id": 0,
+            "position": {
+                "row_max": 43,
+                "column_max": 474,
+                "row_min": 22,
+                "column_min": 467
+            },
+            "height": 21,
+            "width": 7
+        },
+        {
+            "class": "Compo",
+            "id": 1,
+            "position": {
+                "row_max": 109,
+                "column_max": 335,
+                "row_min": 47,
+                "column_min": 184
+            },
+            "height": 62,
+            "width": 151
+        },
+        {
+            "position": {
+                "row_max": 200,
+                "column_max": 478,
+                "row_min": 110,
+                "column_min": 0
+            },
+            "children": [
+                10
+            ],
+            "class": "Compo",
+            "id": 2,
+            "height": 90,
+            "width": 478
+        },
+        {
+            "class": "Compo",
+            "id": 3,
+            "position": {
+                "row_max": 222,
+                "column_max": 78,
+                "row_min": 207,
+                "column_min": 0
+            },
+            "height": 15,
+            "width": 78
+        },
+        {
+            "class": "Compo",
+            "id": 4,
+            "position": {
+                "row_max": 221,
+                "column_max": 172,
+                "row_min": 207,
+                "column_min": 101
+            },
+            "height": 14,
+            "width": 71
+        },
+        {
+            "class": "Compo",
+            "id": 5,
+            "position": {
+                "row_max": 348,
+                "column_max": 478,
+                "row_min": 256,
+                "column_min": 360
+            },
+            "height": 92,
+            "width": 118
+        },
+        {
+            "class": "Compo",
+            "id": 6,
+            "position": {
+                "row_max": 477,
+                "column_max": 478,
+                "row_min": 386,
+                "column_min": 361
+            },
+            "height": 91,
+            "width": 117
+        },
+        {
+            "class": "Compo",
+            "id": 7,
+            "position": {
+                "row_max": 608,
+                "column_max": 479,
+                "row_min": 517,
+                "column_min": 361
+            },
+            "height": 91,
+            "width": 118
+        },
+        {
+            "class": "Compo",
+            "id": 8,
+            "position": {
+                "row_max": 738,
+                "column_max": 479,
+                "row_min": 646,
+                "column_min": 361
+            },
+            "height": 92,
+            "width": 118
+        },
+        {
+            "class": "Compo",
+            "id": 9,
+            "position": {
+                "row_max": 783,
+                "column_max": 45,
+                "row_min": 764,
+                "column_min": 34
+            },
+            "height": 19,
+            "width": 11
+        },
+        {
+            "position": {
+                "row_max": 177,
+                "column_max": 477,
+                "row_min": 118,
+                "column_min": 18
+            },
+            "class": "Compo",
+            "id": 10,
+            "parent": 2,
+            "height": 59,
+            "width": 459
+        },
+        {
+            "text_content": "Crime",
+            "position": {
+                "row_max": 221,
+                "column_max": 246,
+                "row_min": 206,
+                "column_min": 199
+            },
+            "class": "Text",
+            "id": 11,
+            "height": 15,
+            "width": 47
+        },
+        {
+            "text_content": "This Poor Father Got A Horrifying\nText From His Daughter That\nChanged His Life",
+            "position": {
+                "row_max": 321,
+                "column_max": 303,
+                "row_min": 254,
+                "column_min": 17
+            },
+            "class": "Text",
+            "id": 12,
+            "height": 67,
+            "width": 286
+        },
+        {
+            "text_content": "1796",
+            "position": {
+                "row_max": 345,
+                "column_max": 48,
+                "row_min": 332,
+                "column_min": 16
+            },
+            "class": "Text",
+            "id": 13,
+            "height": 13,
+            "width": 32
+        },
+        {
+            "text_content": "viralnova.com",
+            "position": {
+                "row_max": 345,
+                "column_max": 141,
+                "row_min": 331,
+                "column_min": 65
+            },
+            "class": "Text",
+            "id": 14,
+            "height": 14,
+            "width": 76
+        },
+        {
+            "text_content": "Devil worshipper with Pentangle\ntattoo on head raped teen in\nsatanic\nchamber",
+            "position": {
+                "row_max": 447,
+                "column_max": 329,
+                "row_min": 387,
+                "column_min": 16
+            },
+            "class": "Text",
+            "id": 15,
+            "height": 60,
+            "width": 313
+        },
+        {
+            "text_content": "1354",
+            "position": {
+                "row_max": 476,
+                "column_max": 50,
+                "row_min": 464,
+                "column_min": 17
+            },
+            "class": "Text",
+            "id": 16,
+            "height": 12,
+            "width": 33
+        },
+        {
+            "text_content": "dailyrecord.co.uk",
+            "position": {
+                "row_max": 476,
+                "column_max": 161,
+                "row_min": 464,
+                "column_min": 66
+            },
+            "class": "Text",
+            "id": 17,
+            "height": 12,
+            "width": 95
+        },
+        {
+            "text_content": "Drug dealer gets 12 years minimum",
+            "position": {
+                "row_max": 558,
+                "column_max": 323,
+                "row_min": 539,
+                "column_min": 17
+            },
+            "class": "Text",
+            "id": 18,
+            "height": 19,
+            "width": 306
+        },
+        {
+            "text_content": "1724",
+            "position": {
+                "row_max": 605,
+                "column_max": 49,
+                "row_min": 594,
+                "column_min": 17
+            },
+            "class": "Text",
+            "id": 19,
+            "height": 11,
+            "width": 32
+        },
+        {
+            "text_content": "monroenews.com",
+            "position": {
+                "row_max": 605,
+                "column_max": 163,
+                "row_min": 596,
+                "column_min": 68
+            },
+            "class": "Text",
+            "id": 20,
+            "height": 9,
+            "width": 95
+        },
+        {
+            "text_content": "Transgender killed by own friend in\nLahore",
+            "position": {
+                "row_max": 695,
+                "column_max": 316,
+                "row_min": 657,
+                "column_min": 17
+            },
+            "class": "Text",
+            "id": 21,
+            "height": 38,
+            "width": 299
+        },
+        {
+            "text_content": "1346",
+            "position": {
+                "row_max": 735,
+                "column_max": 49,
+                "row_min": 725,
+                "column_min": 17
+            },
+            "class": "Text",
+            "id": 22,
+            "height": 10,
+            "width": 32
+        },
+        {
+            "text_content": "dunyanews.tv",
+            "position": {
+                "row_max": 735,
+                "column_max": 141,
+                "row_min": 725,
+                "column_min": 67
+            },
+            "class": "Text",
+            "id": 23,
+            "height": 10,
+            "width": 74
+        },
+        {
+            "text_content": "Business",
+            "position": {
+                "row_max": 220,
+                "column_max": 350,
+                "row_min": 208,
+                "column_min": 282
+            },
+            "class": "Text",
+            "id": 24,
+            "height": 12,
+            "width": 68
+        },
+        {
+            "text_content": "Fashion +",
+            "position": {
+                "row_max": 223,
+                "column_max": 484,
+                "row_min": 205,
+                "column_min": 380
+            },
+            "class": "Text",
+            "id": 25,
+            "height": 18,
+            "width": 104
+        },
+        {
+            "text_content": "Do",
+            "position": {
+                "row_max": 786,
+                "column_max": 462,
+                "row_min": 759,
+                "column_min": 445
+            },
+            "class": "Text",
+            "id": 26,
+            "height": 27,
+            "width": 17
+        }
+    ],
+    "img_shape": [
+        800,
+        497,
+        3
+    ]
+}

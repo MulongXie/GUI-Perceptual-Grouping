@@ -1,0 +1,209 @@
+{
+    "texts": [
+        {
+            "row_max": 142,
+            "column_max": 151,
+            "row_min": 120,
+            "content": "Ashfak Sayem",
+            "id": 0,
+            "height": 22,
+            "column_min": 25,
+            "width": 126
+        },
+        {
+            "row_max": 212,
+            "column_max": 110,
+            "row_min": 196,
+            "content": "My Profile",
+            "id": 1,
+            "height": 16,
+            "column_min": 36,
+            "width": 74
+        },
+        {
+            "row_max": 271,
+            "column_max": 103,
+            "row_min": 256,
+            "content": "Massage",
+            "id": 2,
+            "height": 15,
+            "column_min": 38,
+            "width": 65
+        },
+        {
+            "row_max": 328,
+            "column_max": 107,
+            "row_min": 314,
+            "content": "Calender",
+            "id": 3,
+            "height": 14,
+            "column_min": 38,
+            "width": 69
+        },
+        {
+            "row_max": 386,
+            "column_max": 115,
+            "row_min": 373,
+            "content": "Bookmark",
+            "id": 4,
+            "height": 13,
+            "column_min": 37,
+            "width": 78
+        },
+        {
+            "row_max": 443,
+            "column_max": 120,
+            "row_min": 432,
+            "content": "Contact Us",
+            "id": 5,
+            "height": 11,
+            "column_min": 39,
+            "width": 81
+        },
+        {
+            "row_max": 506,
+            "column_max": 99,
+            "row_min": 490,
+            "content": "Settings",
+            "id": 6,
+            "height": 16,
+            "column_min": 38,
+            "width": 61
+        },
+        {
+            "row_max": 563,
+            "column_max": 137,
+            "row_min": 548,
+            "content": "Helps & FAQs",
+            "id": 7,
+            "height": 15,
+            "column_min": 38,
+            "width": 99
+        },
+        {
+            "row_max": 621,
+            "column_max": 103,
+            "row_min": 607,
+            "content": "Sign Out",
+            "id": 8,
+            "height": 14,
+            "column_min": 38,
+            "width": 65
+        },
+        {
+            "row_max": 766,
+            "column_max": 159,
+            "row_min": 753,
+            "content": "Upgrade Pro",
+            "id": 9,
+            "height": 13,
+            "column_min": 76,
+            "width": 83
+        },
+        {
+            "row_max": 88,
+            "column_max": 342,
+            "row_min": 79,
+            "content": "9:41",
+            "id": 10,
+            "height": 9,
+            "column_min": 317,
+            "width": 25
+        },
+        {
+            "row_max": 183,
+            "column_max": 380,
+            "row_min": 163,
+            "content": "Sea",
+            "id": 11,
+            "height": 20,
+            "column_min": 343,
+            "width": 37
+        },
+        {
+            "row_max": 235,
+            "column_max": 378,
+            "row_min": 224,
+            "content": "Sport",
+            "id": 12,
+            "height": 11,
+            "column_min": 345,
+            "width": 33
+        },
+        {
+            "row_max": 286,
+            "column_max": 382,
+            "row_min": 271,
+            "content": "Upcoming",
+            "id": 13,
+            "height": 15,
+            "column_min": 309,
+            "width": 73
+        },
+        {
+            "row_max": 337,
+            "column_max": 349,
+            "row_min": 326,
+            "content": "10",
+            "id": 14,
+            "height": 11,
+            "column_min": 335,
+            "width": 14
+        },
+        {
+            "row_max": 350,
+            "column_max": 353,
+            "row_min": 344,
+            "content": "JUNE",
+            "id": 15,
+            "height": 6,
+            "column_min": 332,
+            "width": 21
+        },
+        {
+            "row_max": 451,
+            "column_max": 375,
+            "row_min": 441,
+            "content": "London",
+            "id": 16,
+            "height": 10,
+            "column_min": 323,
+            "width": 52
+        },
+        {
+            "row_max": 504,
+            "column_max": 375,
+            "row_min": 496,
+            "content": "36 Guil",
+            "id": 17,
+            "height": 8,
+            "column_min": 341,
+            "width": 34
+        },
+        {
+            "row_max": 563,
+            "column_max": 379,
+            "row_min": 550,
+            "content": "Nearby Yo",
+            "id": 18,
+            "height": 13,
+            "column_min": 310,
+            "width": 69
+        },
+        {
+            "row_max": 724,
+            "column_max": 348,
+            "row_min": 716,
+            "content": "Explore",
+            "id": 19,
+            "height": 8,
+            "column_min": 313,
+            "width": 35
+        }
+    ],
+    "img_shape": [
+        816,
+        377,
+        3
+    ]
+}

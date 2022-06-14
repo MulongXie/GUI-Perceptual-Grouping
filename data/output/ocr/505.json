@@ -1,0 +1,239 @@
+{
+    "texts": [
+        {
+            "row_min": 12,
+            "height": 10,
+            "width": 25,
+            "column_max": 367,
+            "row_max": 22,
+            "id": 0,
+            "content": "FAK",
+            "column_min": 342
+        },
+        {
+            "row_min": 20,
+            "height": 24,
+            "width": 70,
+            "column_max": 1056,
+            "row_max": 44,
+            "id": 1,
+            "content": "3:12",
+            "column_min": 986
+        },
+        {
+            "row_min": 104,
+            "height": 48,
+            "width": 251,
+            "column_max": 665,
+            "row_max": 152,
+            "id": 2,
+            "content": "Select Topics",
+            "column_min": 414
+        },
+        {
+            "row_min": 111,
+            "height": 30,
+            "width": 103,
+            "column_max": 1053,
+            "row_max": 141,
+            "id": 3,
+            "content": "Done",
+            "column_min": 950
+        },
+        {
+            "row_min": 229,
+            "height": 45,
+            "width": 944,
+            "column_max": 970,
+            "row_max": 274,
+            "id": 4,
+            "content": "Select your favorite topics , and we'll recommend",
+            "column_min": 26
+        },
+        {
+            "row_min": 286,
+            "height": 46,
+            "width": 517,
+            "column_max": 545,
+            "row_max": 332,
+            "id": 5,
+            "content": "awesome podcasts to you .",
+            "column_min": 28
+        },
+        {
+            "row_min": 483,
+            "height": 29,
+            "width": 163,
+            "column_max": 278,
+            "row_max": 512,
+            "id": 6,
+            "content": "Education",
+            "column_min": 115
+        },
+        {
+            "row_min": 485,
+            "height": 27,
+            "width": 70,
+            "column_max": 574,
+            "row_max": 512,
+            "id": 7,
+            "content": "Arts",
+            "column_min": 504
+        },
+        {
+            "row_min": 483,
+            "height": 28,
+            "width": 107,
+            "column_max": 935,
+            "row_max": 511,
+            "id": 8,
+            "content": "Health",
+            "column_min": 828
+        },
+        {
+            "row_min": 831,
+            "height": 26,
+            "width": 164,
+            "column_max": 279,
+            "row_max": 857,
+            "id": 9,
+            "content": "Science &",
+            "column_min": 115
+        },
+        {
+            "row_min": 880,
+            "height": 27,
+            "width": 150,
+            "column_max": 273,
+            "row_max": 907,
+            "id": 10,
+            "content": "Medicine",
+            "column_min": 123
+        },
+        {
+            "row_min": 854,
+            "height": 29,
+            "width": 256,
+            "column_max": 668,
+            "row_max": 883,
+            "id": 11,
+            "content": "News & Politics",
+            "column_min": 412
+        },
+        {
+            "row_min": 830,
+            "height": 35,
+            "width": 155,
+            "column_max": 958,
+            "row_max": 865,
+            "id": 12,
+            "content": "Society &",
+            "column_min": 803
+        },
+        {
+            "row_min": 879,
+            "height": 31,
+            "width": 124,
+            "column_max": 944,
+            "row_max": 910,
+            "id": 13,
+            "content": "Culture",
+            "column_min": 820
+        },
+        {
+            "row_min": 1202,
+            "height": 26,
+            "width": 155,
+            "column_max": 275,
+            "row_max": 1228,
+            "id": 14,
+            "content": "Games &",
+            "column_min": 120
+        },
+        {
+            "row_min": 1249,
+            "height": 29,
+            "width": 141,
+            "column_max": 268,
+            "row_max": 1278,
+            "id": 15,
+            "content": "Hobbies",
+            "column_min": 127
+        },
+        {
+            "row_min": 1199,
+            "height": 34,
+            "width": 170,
+            "column_max": 624,
+            "row_max": 1233,
+            "id": 16,
+            "content": "Religion &",
+            "column_min": 454
+        },
+        {
+            "row_min": 1249,
+            "height": 35,
+            "width": 181,
+            "column_max": 630,
+            "row_max": 1284,
+            "id": 17,
+            "content": "Spirituality",
+            "column_min": 449
+        },
+        {
+            "row_min": 1224,
+            "height": 91,
+            "width": 149,
+            "column_max": 931,
+            "row_max": 1315,
+            "id": 18,
+            "content": "Music A",
+            "column_min": 782
+        },
+        {
+            "row_min": 1595,
+            "height": 28,
+            "width": 148,
+            "column_max": 272,
+            "row_max": 1623,
+            "id": 19,
+            "content": "Business",
+            "column_min": 124
+        },
+        {
+            "row_min": 1596,
+            "height": 27,
+            "width": 151,
+            "column_max": 613,
+            "row_max": 1623,
+            "id": 20,
+            "content": "TV & Film",
+            "column_min": 462
+        },
+        {
+            "row_min": 1706,
+            "height": 31,
+            "width": 101,
+            "column_max": 590,
+            "row_max": 1737,
+            "id": 21,
+            "content": "Done",
+            "column_min": 489
+        },
+        {
+            "row_min": 1593,
+            "height": 37,
+            "width": 227,
+            "column_max": 996,
+            "row_max": 1630,
+            "id": 22,
+            "content": "Kids & Family",
+            "column_min": 769
+        }
+    ],
+    "img_shape": [
+        1920,
+        1080,
+        3
+    ]
+}

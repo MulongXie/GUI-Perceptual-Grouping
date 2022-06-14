@@ -1,0 +1,109 @@
+{
+    "texts": [
+        {
+            "row_max": 205,
+            "column_max": 845,
+            "row_min": 149,
+            "content": "WELCOME BACK",
+            "id": 0,
+            "height": 56,
+            "column_min": 394,
+            "width": 451
+        },
+        {
+            "row_max": 290,
+            "column_max": 722,
+            "row_min": 232,
+            "content": "GRACE !",
+            "id": 1,
+            "height": 58,
+            "column_min": 515,
+            "width": 207
+        },
+        {
+            "row_max": 1241,
+            "column_max": 825,
+            "row_min": 1206,
+            "content": "Is this order for delivery or collection ?",
+            "id": 2,
+            "height": 35,
+            "column_min": 257,
+            "width": 568
+        },
+        {
+            "row_max": 1345,
+            "column_max": 679,
+            "row_min": 1300,
+            "content": "DELIVERY",
+            "id": 3,
+            "height": 45,
+            "column_min": 486,
+            "width": 193
+        },
+        {
+            "row_max": 1476,
+            "column_max": 692,
+            "row_min": 1431,
+            "content": "COLLECTION",
+            "id": 4,
+            "height": 45,
+            "column_min": 450,
+            "width": 242
+        },
+        {
+            "row_max": 1577,
+            "column_max": 477,
+            "row_min": 1542,
+            "content": "PIZZA PROFILE",
+            "id": 5,
+            "height": 35,
+            "column_min": 226,
+            "width": 251
+        },
+        {
+            "row_max": 1772,
+            "column_max": 454,
+            "row_min": 1747,
+            "content": "2016 DOMINO'S IP HOLDER LLC",
+            "id": 6,
+            "height": 25,
+            "column_min": 74,
+            "width": 380
+        },
+        {
+            "row_max": 1575,
+            "column_max": 815,
+            "row_min": 1540,
+            "content": "TRACKER",
+            "id": 7,
+            "height": 35,
+            "column_min": 662,
+            "width": 153
+        },
+        {
+            "row_max": 45,
+            "column_max": 1058,
+            "row_min": 17,
+            "content": "6:21",
+            "id": 8,
+            "height": 28,
+            "column_min": 986,
+            "width": 72
+        },
+        {
+            "row_max": 1772,
+            "column_max": 1039,
+            "row_min": 1746,
+            "content": "PRIVACY",
+            "id": 9,
+            "height": 26,
+            "column_min": 932,
+            "width": 107
+        }
+    ],
+    "img_shape": [
+        1920,
+        1080,
+        3
+    ]
+}

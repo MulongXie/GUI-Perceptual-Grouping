@@ -1,0 +1,29 @@
+{
+    "texts": [
+        {
+            "row_min": 92,
+            "height": 34,
+            "width": 269,
+            "column_max": 529,
+            "row_max": 126,
+            "id": 0,
+            "content": "Rouaieda Nasser",
+            "column_min": 260
+        },
+        {
+            "row_min": 169,
+            "height": 16,
+            "width": 148,
+            "column_max": 406,
+            "row_max": 185,
+            "id": 1,
+            "content": "15 HOURS AGO",
+            "column_min": 258
+        }
+    ],
+    "img_shape": [
+        1747,
+        1080,
+        3
+    ]
+}

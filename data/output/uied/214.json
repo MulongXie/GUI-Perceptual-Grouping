@@ -1,0 +1,435 @@
+{
+    "compos": [
+        {
+            "class": "Compo",
+            "id": 0,
+            "position": {
+                "row_max": 65,
+                "column_max": 435,
+                "row_min": 40,
+                "column_min": 402
+            },
+            "height": 25,
+            "width": 33
+        },
+        {
+            "class": "Compo",
+            "id": 1,
+            "position": {
+                "row_max": 63,
+                "column_max": 154,
+                "row_min": 41,
+                "column_min": 142
+            },
+            "height": 22,
+            "width": 12
+        },
+        {
+            "class": "Compo",
+            "id": 2,
+            "position": {
+                "row_max": 63,
+                "column_max": 278,
+                "row_min": 41,
+                "column_min": 267
+            },
+            "height": 22,
+            "width": 11
+        },
+        {
+            "class": "Compo",
+            "id": 3,
+            "position": {
+                "row_max": 257,
+                "column_max": 389,
+                "row_min": 246,
+                "column_min": 377
+            },
+            "height": 11,
+            "width": 12
+        },
+        {
+            "class": "Compo",
+            "id": 4,
+            "position": {
+                "row_max": 257,
+                "column_max": 425,
+                "row_min": 246,
+                "column_min": 413
+            },
+            "height": 11,
+            "width": 12
+        },
+        {
+            "class": "Compo",
+            "id": 5,
+            "position": {
+                "row_max": 337,
+                "column_max": 388,
+                "row_min": 327,
+                "column_min": 378
+            },
+            "height": 10,
+            "width": 10
+        },
+        {
+            "class": "Compo",
+            "id": 6,
+            "position": {
+                "row_max": 337,
+                "column_max": 426,
+                "row_min": 327,
+                "column_min": 413
+            },
+            "height": 10,
+            "width": 13
+        },
+        {
+            "class": "Compo",
+            "id": 7,
+            "position": {
+                "row_max": 420,
+                "column_max": 389,
+                "row_min": 408,
+                "column_min": 378
+            },
+            "height": 12,
+            "width": 11
+        },
+        {
+            "class": "Compo",
+            "id": 8,
+            "position": {
+                "row_max": 419,
+                "column_max": 426,
+                "row_min": 408,
+                "column_min": 413
+            },
+            "height": 11,
+            "width": 13
+        },
+        {
+            "class": "Compo",
+            "id": 9,
+            "position": {
+                "row_max": 500,
+                "column_max": 388,
+                "row_min": 488,
+                "column_min": 378
+            },
+            "height": 12,
+            "width": 10
+        },
+        {
+            "class": "Compo",
+            "id": 10,
+            "position": {
+                "row_max": 500,
+                "column_max": 426,
+                "row_min": 488,
+                "column_min": 413
+            },
+            "height": 12,
+            "width": 13
+        },
+        {
+            "class": "Compo",
+            "id": 11,
+            "position": {
+                "row_max": 562,
+                "column_max": 248,
+                "row_min": 550,
+                "column_min": 239
+            },
+            "height": 12,
+            "width": 9
+        },
+        {
+            "class": "Compo",
+            "id": 12,
+            "position": {
+                "row_max": 563,
+                "column_max": 307,
+                "row_min": 550,
+                "column_min": 299
+            },
+            "height": 13,
+            "width": 8
+        },
+        {
+            "class": "Compo",
+            "id": 13,
+            "position": {
+                "row_max": 563,
+                "column_max": 356,
+                "row_min": 550,
+                "column_min": 347
+            },
+            "height": 13,
+            "width": 9
+        },
+        {
+            "class": "Compo",
+            "id": 14,
+            "position": {
+                "row_max": 563,
+                "column_max": 409,
+                "row_min": 550,
+                "column_min": 399
+            },
+            "height": 13,
+            "width": 10
+        },
+        {
+            "class": "Compo",
+            "id": 15,
+            "position": {
+                "row_max": 637,
+                "column_max": 436,
+                "row_min": 590,
+                "column_min": 12
+            },
+            "height": 47,
+            "width": 424
+        },
+        {
+            "text_content": "( E",
+            "position": {
+                "row_max": 59,
+                "column_max": 26,
+                "row_min": 45,
+                "column_min": 2
+            },
+            "class": "Text",
+            "id": 16,
+            "height": 14,
+            "width": 24
+        },
+        {
+            "text_content": "LOG",
+            "position": {
+                "row_max": 109,
+                "column_max": 62,
+                "row_min": 99,
+                "column_min": 38
+            },
+            "class": "Text",
+            "id": 17,
+            "height": 10,
+            "width": 24
+        },
+        {
+            "text_content": "RECENT",
+            "position": {
+                "row_max": 110,
+                "column_max": 177,
+                "row_min": 100,
+                "column_min": 129
+            },
+            "class": "Text",
+            "id": 18,
+            "height": 10,
+            "width": 48
+        },
+        {
+            "text_content": "Search Foods",
+            "position": {
+                "row_max": 175,
+                "column_max": 147,
+                "row_min": 160,
+                "column_min": 28
+            },
+            "class": "Text",
+            "id": 19,
+            "height": 15,
+            "width": 119
+        },
+        {
+            "text_content": "+ Breakfast",
+            "position": {
+                "row_max": 264,
+                "column_max": 108,
+                "row_min": 251,
+                "column_min": 24
+            },
+            "class": "Text",
+            "id": 20,
+            "height": 13,
+            "width": 84
+        },
+        {
+            "text_content": "+ Lunch",
+            "position": {
+                "row_max": 345,
+                "column_max": 80,
+                "row_min": 332,
+                "column_min": 23
+            },
+            "class": "Text",
+            "id": 21,
+            "height": 13,
+            "width": 57
+        },
+        {
+            "text_content": "+ Dinner",
+            "position": {
+                "row_max": 426,
+                "column_max": 84,
+                "row_min": 413,
+                "column_min": 23
+            },
+            "class": "Text",
+            "id": 22,
+            "height": 13,
+            "width": 61
+        },
+        {
+            "text_content": "+ Snack",
+            "position": {
+                "row_max": 506,
+                "column_max": 81,
+                "row_min": 494,
+                "column_min": 24
+            },
+            "class": "Text",
+            "id": 23,
+            "height": 12,
+            "width": 57
+        },
+        {
+            "text_content": "Totals",
+            "position": {
+                "row_max": 563,
+                "column_max": 64,
+                "row_min": 550,
+                "column_min": 17
+            },
+            "class": "Text",
+            "id": 24,
+            "height": 13,
+            "width": 47
+        },
+        {
+            "text_content": "Today",
+            "position": {
+                "row_max": 64,
+                "column_max": 240,
+                "row_min": 42,
+                "column_min": 180
+            },
+            "class": "Text",
+            "id": 25,
+            "height": 22,
+            "width": 60
+        },
+        {
+            "text_content": "FAVORITES",
+            "position": {
+                "row_max": 109,
+                "column_max": 289,
+                "row_min": 100,
+                "column_min": 223
+            },
+            "class": "Text",
+            "id": 26,
+            "height": 9,
+            "width": 66
+        },
+        {
+            "text_content": "MEALS",
+            "position": {
+                "row_max": 110,
+                "column_max": 380,
+                "row_min": 99,
+                "column_min": 337
+            },
+            "class": "Text",
+            "id": 27,
+            "height": 11,
+            "width": 43
+        },
+        {
+            "text_content": "CU",
+            "position": {
+                "row_max": 109,
+                "column_max": 451,
+                "row_min": 100,
+                "column_min": 435
+            },
+            "class": "Text",
+            "id": 28,
+            "height": 9,
+            "width": 16
+        },
+        {
+            "text_content": "carb",
+            "position": {
+                "row_max": 562,
+                "column_max": 282,
+                "row_min": 548,
+                "column_min": 251
+            },
+            "class": "Text",
+            "id": 29,
+            "height": 14,
+            "width": 31
+        },
+        {
+            "text_content": "fat",
+            "position": {
+                "row_max": 562,
+                "column_max": 330,
+                "row_min": 548,
+                "column_min": 312
+            },
+            "class": "Text",
+            "id": 30,
+            "height": 14,
+            "width": 18
+        },
+        {
+            "text_content": "pro",
+            "position": {
+                "row_max": 562,
+                "column_max": 382,
+                "row_min": 549,
+                "column_min": 360
+            },
+            "class": "Text",
+            "id": 31,
+            "height": 13,
+            "width": 22
+        },
+        {
+            "text_content": "cal",
+            "position": {
+                "row_max": 562,
+                "column_max": 432,
+                "row_min": 549,
+                "column_min": 412
+            },
+            "class": "Text",
+            "id": 32,
+            "height": 13,
+            "width": 20
+        },
+        {
+            "text_content": "To delete , tap on food name and hold",
+            "position": {
+                "row_max": 654,
+                "column_max": 331,
+                "row_min": 642,
+                "column_min": 117
+            },
+            "class": "Text",
+            "id": 33,
+            "height": 12,
+            "width": 214
+        }
+    ],
+    "img_shape": [
+        800,
+        450,
+        3
+    ]
+}

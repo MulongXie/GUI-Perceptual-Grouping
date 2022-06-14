@@ -1,0 +1,259 @@
+{
+    "texts": [
+        {
+            "row_max": 92,
+            "column_max": 323,
+            "row_min": 48,
+            "content": "Opera",
+            "id": 0,
+            "height": 44,
+            "column_min": 193,
+            "width": 130
+        },
+        {
+            "row_max": 163,
+            "column_max": 218,
+            "row_min": 146,
+            "content": "Search or enter address",
+            "id": 1,
+            "height": 17,
+            "column_min": 28,
+            "width": 190
+        },
+        {
+            "row_max": 230,
+            "column_max": 160,
+            "row_min": 216,
+            "content": "Tech",
+            "id": 2,
+            "height": 14,
+            "column_min": 122,
+            "width": 38
+        },
+        {
+            "row_max": 231,
+            "column_max": 257,
+            "row_min": 215,
+            "content": "Crime",
+            "id": 3,
+            "height": 16,
+            "column_min": 208,
+            "width": 49
+        },
+        {
+            "row_max": 288,
+            "column_max": 316,
+            "row_min": 265,
+            "content": "This Poor Father Got A Horrifying",
+            "id": 4,
+            "height": 23,
+            "column_min": 18,
+            "width": 298
+        },
+        {
+            "row_max": 310,
+            "column_max": 276,
+            "row_min": 292,
+            "content": "Text From His Daughter That",
+            "id": 5,
+            "height": 18,
+            "column_min": 19,
+            "width": 257
+        },
+        {
+            "row_max": 335,
+            "column_max": 170,
+            "row_min": 312,
+            "content": "Changed His Life",
+            "id": 6,
+            "height": 23,
+            "column_min": 19,
+            "width": 151
+        },
+        {
+            "row_max": 360,
+            "column_max": 51,
+            "row_min": 347,
+            "content": "1796",
+            "id": 7,
+            "height": 13,
+            "column_min": 17,
+            "width": 34
+        },
+        {
+            "row_max": 360,
+            "column_max": 148,
+            "row_min": 346,
+            "content": "viralnova.com",
+            "id": 8,
+            "height": 14,
+            "column_min": 68,
+            "width": 80
+        },
+        {
+            "row_max": 422,
+            "column_max": 308,
+            "row_min": 404,
+            "content": "Devil worshipper with Pentangle",
+            "id": 9,
+            "height": 18,
+            "column_min": 18,
+            "width": 290
+        },
+        {
+            "row_max": 445,
+            "column_max": 268,
+            "row_min": 428,
+            "content": "tattoo on head raped teen in",
+            "id": 10,
+            "height": 17,
+            "column_min": 17,
+            "width": 251
+        },
+        {
+            "row_max": 445,
+            "column_max": 344,
+            "row_min": 428,
+            "content": "satanic",
+            "id": 11,
+            "height": 17,
+            "column_min": 280,
+            "width": 64
+        },
+        {
+            "row_max": 466,
+            "column_max": 96,
+            "row_min": 450,
+            "content": "chamber",
+            "id": 12,
+            "height": 16,
+            "column_min": 19,
+            "width": 77
+        },
+        {
+            "row_max": 497,
+            "column_max": 53,
+            "row_min": 484,
+            "content": "1354",
+            "id": 13,
+            "height": 13,
+            "column_min": 18,
+            "width": 35
+        },
+        {
+            "row_max": 497,
+            "column_max": 168,
+            "row_min": 484,
+            "content": "dailyrecord.co.uk",
+            "id": 14,
+            "height": 13,
+            "column_min": 69,
+            "width": 99
+        },
+        {
+            "row_max": 582,
+            "column_max": 337,
+            "row_min": 562,
+            "content": "Drug dealer gets 12 years minimum",
+            "id": 15,
+            "height": 20,
+            "column_min": 18,
+            "width": 319
+        },
+        {
+            "row_max": 631,
+            "column_max": 52,
+            "row_min": 620,
+            "content": "1724",
+            "id": 16,
+            "height": 11,
+            "column_min": 18,
+            "width": 34
+        },
+        {
+            "row_max": 631,
+            "column_max": 170,
+            "row_min": 622,
+            "content": "monroenews.com",
+            "id": 17,
+            "height": 9,
+            "column_min": 71,
+            "width": 99
+        },
+        {
+            "row_max": 705,
+            "column_max": 330,
+            "row_min": 685,
+            "content": "Transgender killed by own friend in",
+            "id": 18,
+            "height": 20,
+            "column_min": 18,
+            "width": 312
+        },
+        {
+            "row_max": 725,
+            "column_max": 79,
+            "row_min": 711,
+            "content": "Lahore",
+            "id": 19,
+            "height": 14,
+            "column_min": 18,
+            "width": 61
+        },
+        {
+            "row_max": 767,
+            "column_max": 52,
+            "row_min": 756,
+            "content": "1346",
+            "id": 20,
+            "height": 11,
+            "column_min": 18,
+            "width": 34
+        },
+        {
+            "row_max": 767,
+            "column_max": 148,
+            "row_min": 756,
+            "content": "dunyanews.tv",
+            "id": 21,
+            "height": 11,
+            "column_min": 70,
+            "width": 78
+        },
+        {
+            "row_max": 230,
+            "column_max": 365,
+            "row_min": 217,
+            "content": "Business",
+            "id": 22,
+            "height": 13,
+            "column_min": 295,
+            "width": 70
+        },
+        {
+            "row_max": 233,
+            "column_max": 505,
+            "row_min": 214,
+            "content": "Fashion +",
+            "id": 23,
+            "height": 19,
+            "column_min": 397,
+            "width": 108
+        },
+        {
+            "row_max": 820,
+            "column_max": 482,
+            "row_min": 792,
+            "content": "Do",
+            "id": 24,
+            "height": 28,
+            "column_min": 464,
+            "width": 18
+        }
+    ],
+    "img_shape": [
+        834,
+        519,
+        3
+    ]
+}

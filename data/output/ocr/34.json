@@ -1,0 +1,119 @@
+{
+    "texts": [
+        {
+            "row_max": 102,
+            "column_max": 452,
+            "row_min": 66,
+            "content": "Menu",
+            "id": 0,
+            "height": 36,
+            "column_min": 327,
+            "width": 125
+        },
+        {
+            "row_max": 257,
+            "column_max": 376,
+            "row_min": 228,
+            "content": "Sound Packs",
+            "id": 1,
+            "height": 29,
+            "column_min": 132,
+            "width": 244
+        },
+        {
+            "row_max": 406,
+            "column_max": 283,
+            "row_min": 375,
+            "content": "Records",
+            "id": 2,
+            "height": 31,
+            "column_min": 132,
+            "width": 151
+        },
+        {
+            "row_max": 558,
+            "column_max": 235,
+            "row_min": 518,
+            "content": "Pitch",
+            "id": 3,
+            "height": 40,
+            "column_min": 135,
+            "width": 100
+        },
+        {
+            "row_max": 702,
+            "column_max": 447,
+            "row_min": 672,
+            "content": "Video & Tutorials",
+            "id": 4,
+            "height": 30,
+            "column_min": 131,
+            "width": 316
+        },
+        {
+            "row_max": 849,
+            "column_max": 313,
+            "row_min": 819,
+            "content": "Facebook",
+            "id": 5,
+            "height": 30,
+            "column_min": 134,
+            "width": 179
+        },
+        {
+            "row_max": 995,
+            "column_max": 188,
+            "row_min": 965,
+            "content": "VK",
+            "id": 6,
+            "height": 30,
+            "column_min": 128,
+            "width": 60
+        },
+        {
+            "row_max": 1150,
+            "column_max": 335,
+            "row_min": 1112,
+            "content": "More Apps",
+            "id": 7,
+            "height": 38,
+            "column_min": 133,
+            "width": 202
+        },
+        {
+            "row_max": 1301,
+            "column_max": 284,
+            "row_min": 1262,
+            "content": "Settings",
+            "id": 8,
+            "height": 39,
+            "column_min": 133,
+            "width": 151
+        },
+        {
+            "row_max": 1440,
+            "column_max": 333,
+            "row_min": 1410,
+            "content": "Contact Us",
+            "id": 9,
+            "height": 30,
+            "column_min": 133,
+            "width": 200
+        },
+        {
+            "row_max": 1717,
+            "column_max": 934,
+            "row_min": 1689,
+            "content": "Bowl ads",
+            "id": 10,
+            "height": 28,
+            "column_min": 783,
+            "width": 151
+        }
+    ],
+    "img_shape": [
+        1920,
+        1080,
+        3
+    ]
+}

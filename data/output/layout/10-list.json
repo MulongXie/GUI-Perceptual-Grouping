@@ -12,11 +12,6 @@
                 "Compo"
             ],
             [
-                "Compo",
-                "Compo",
-                "Compo"
-            ],
-            [
                 "Text",
                 "Text",
                 "Text"
@@ -34,6 +29,11 @@
                 "Compo"
             ],
             [
+                "Compo",
+                "Compo",
+                "Compo"
+            ],
+            [
                 "Text",
                 "Text",
                 "Text"
@@ -41,30 +41,23 @@
         ],
         [
             [
-                "Compo"
-            ],
-            [
-                "Compo"
-            ],
-            [
-                "Compo"
-            ],
-            [
-                "Compo"
-            ]
-        ],
-        [
-            [
+                "Compo",
                 "Text"
             ],
             [
+                "Compo",
                 "Text"
             ],
             [
+                "Compo",
+                "Text"
+            ],
+            [
+                "Compo",
                 "Text"
             ]
         ]
     ],
-    "multitab": [],
-    "ui": "10"
+    "ui": "10",
+    "multitab": []
 }

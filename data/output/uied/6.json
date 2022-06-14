@@ -1,0 +1,71 @@
+{
+    "compos": [
+        {
+            "width": 75,
+            "id": 0,
+            "position": {
+                "row_max": 101,
+                "column_min": 21,
+                "row_min": 28,
+                "column_max": 96
+            },
+            "class": "Compo",
+            "height": 73
+        },
+        {
+            "width": 6,
+            "id": 1,
+            "position": {
+                "row_max": 76,
+                "column_min": 467,
+                "row_min": 52,
+                "column_max": 473
+            },
+            "class": "Compo",
+            "height": 24
+        },
+        {
+            "width": 493,
+            "id": 2,
+            "position": {
+                "row_max": 799,
+                "column_min": 0,
+                "row_min": 281,
+                "column_max": 493
+            },
+            "class": "Compo",
+            "height": 518
+        },
+        {
+            "text_content": "Rouaieda Nasser",
+            "height": 15,
+            "width": 123,
+            "id": 3,
+            "position": {
+                "row_max": 57,
+                "column_min": 119,
+                "row_min": 42,
+                "column_max": 242
+            },
+            "class": "Text"
+        },
+        {
+            "text_content": "15 HOURS AGO",
+            "height": 7,
+            "width": 67,
+            "id": 4,
+            "position": {
+                "row_max": 84,
+                "column_min": 118,
+                "row_min": 77,
+                "column_max": 185
+            },
+            "class": "Text"
+        }
+    ],
+    "img_shape": [
+        800,
+        494,
+        3
+    ]
+}

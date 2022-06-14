@@ -1,0 +1,237 @@
+{
+    "compos": [
+        {
+            "class": "Compo",
+            "id": 0,
+            "position": {
+                "row_max": 57,
+                "column_max": 438,
+                "row_min": 34,
+                "column_min": 10
+            },
+            "height": 23,
+            "width": 428
+        },
+        {
+            "class": "Compo",
+            "id": 1,
+            "position": {
+                "row_max": 120,
+                "column_max": 148,
+                "row_min": 64,
+                "column_min": 93
+            },
+            "height": 56,
+            "width": 55
+        },
+        {
+            "class": "Compo",
+            "id": 2,
+            "position": {
+                "row_max": 149,
+                "column_max": 439,
+                "row_min": 127,
+                "column_min": 9
+            },
+            "height": 22,
+            "width": 430
+        },
+        {
+            "class": "Compo",
+            "id": 3,
+            "position": {
+                "row_max": 235,
+                "column_max": 449,
+                "row_min": 157,
+                "column_min": 0
+            },
+            "height": 78,
+            "width": 449
+        },
+        {
+            "position": {
+                "row_max": 574,
+                "column_max": 449,
+                "row_min": 239,
+                "column_min": 0
+            },
+            "children": [
+                10,
+                11
+            ],
+            "class": "Compo",
+            "id": 4,
+            "height": 335,
+            "width": 449
+        },
+        {
+            "class": "Compo",
+            "id": 5,
+            "position": {
+                "row_max": 629,
+                "column_max": 355,
+                "row_min": 580,
+                "column_min": 93
+            },
+            "height": 49,
+            "width": 262
+        },
+        {
+            "class": "Compo",
+            "id": 6,
+            "position": {
+                "row_max": 657,
+                "column_max": 214,
+                "row_min": 647,
+                "column_min": 203
+            },
+            "height": 10,
+            "width": 11
+        },
+        {
+            "class": "Compo",
+            "id": 7,
+            "position": {
+                "row_max": 657,
+                "column_max": 356,
+                "row_min": 647,
+                "column_min": 344
+            },
+            "height": 10,
+            "width": 12
+        },
+        {
+            "class": "Compo",
+            "id": 8,
+            "position": {
+                "row_max": 740,
+                "column_max": 29,
+                "row_min": 728,
+                "column_min": 16
+            },
+            "height": 12,
+            "width": 13
+        },
+        {
+            "class": "Compo",
+            "id": 9,
+            "position": {
+                "row_max": 740,
+                "column_max": 443,
+                "row_min": 731,
+                "column_min": 434
+            },
+            "height": 9,
+            "width": 9
+        },
+        {
+            "position": {
+                "row_max": 569,
+                "column_max": 349,
+                "row_min": 527,
+                "column_min": 100
+            },
+            "class": "Compo",
+            "id": 10,
+            "parent": 4,
+            "height": 42,
+            "width": 249
+        },
+        {
+            "position": {
+                "row_max": 573,
+                "column_max": 448,
+                "row_min": 529,
+                "column_min": 348
+            },
+            "class": "Compo",
+            "id": 11,
+            "parent": 4,
+            "height": 44,
+            "width": 100
+        },
+        {
+            "text_content": "WELCOME BACK",
+            "position": {
+                "row_max": 85,
+                "column_max": 352,
+                "row_min": 62,
+                "column_min": 164
+            },
+            "class": "Text",
+            "id": 12,
+            "height": 23,
+            "width": 188
+        },
+        {
+            "text_content": "GRACE !",
+            "position": {
+                "row_max": 120,
+                "column_max": 300,
+                "row_min": 96,
+                "column_min": 214
+            },
+            "class": "Text",
+            "id": 13,
+            "height": 24,
+            "width": 86
+        },
+        {
+            "text_content": "PIZZA PROFILE",
+            "position": {
+                "row_max": 657,
+                "column_max": 198,
+                "row_min": 642,
+                "column_min": 94
+            },
+            "class": "Text",
+            "id": 14,
+            "height": 15,
+            "width": 104
+        },
+        {
+            "text_content": "2016 DOMINO'S IP HOLDER LLC",
+            "position": {
+                "row_max": 738,
+                "column_max": 189,
+                "row_min": 727,
+                "column_min": 30
+            },
+            "class": "Text",
+            "id": 15,
+            "height": 11,
+            "width": 159
+        },
+        {
+            "text_content": "TRACKER",
+            "position": {
+                "row_max": 656,
+                "column_max": 339,
+                "row_min": 641,
+                "column_min": 275
+            },
+            "class": "Text",
+            "id": 16,
+            "height": 15,
+            "width": 64
+        },
+        {
+            "text_content": "PRIVACY",
+            "position": {
+                "row_max": 738,
+                "column_max": 432,
+                "row_min": 727,
+                "column_min": 388
+            },
+            "class": "Text",
+            "id": 17,
+            "height": 11,
+            "width": 44
+        }
+    ],
+    "img_shape": [
+        800,
+        450,
+        3
+    ]
+}

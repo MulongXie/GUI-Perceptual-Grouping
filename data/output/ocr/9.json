@@ -1,0 +1,209 @@
+{
+    "texts": [
+        {
+            "row_max": 36,
+            "column_max": 482,
+            "row_min": 26,
+            "content": "Next",
+            "id": 0,
+            "height": 10,
+            "column_min": 453,
+            "width": 29
+        },
+        {
+            "row_max": 96,
+            "column_max": 413,
+            "row_min": 75,
+            "content": "Let's choose what interests you .",
+            "id": 1,
+            "height": 21,
+            "column_min": 101,
+            "width": 312
+        },
+        {
+            "row_max": 124,
+            "column_max": 443,
+            "row_min": 107,
+            "content": "Get content from these Communities in your feed .",
+            "id": 2,
+            "height": 17,
+            "column_min": 70,
+            "width": 373
+        },
+        {
+            "row_max": 242,
+            "column_max": 308,
+            "row_min": 197,
+            "content": "WTF",
+            "id": 3,
+            "height": 45,
+            "column_min": 205,
+            "width": 103
+        },
+        {
+            "row_max": 225,
+            "column_max": 447,
+            "row_min": 212,
+            "content": "DID YOU",
+            "id": 4,
+            "height": 13,
+            "column_min": 380,
+            "width": 67
+        },
+        {
+            "row_max": 245,
+            "column_max": 446,
+            "row_min": 229,
+            "content": "KNOW",
+            "id": 5,
+            "height": 16,
+            "column_min": 381,
+            "width": 65
+        },
+        {
+            "row_max": 327,
+            "column_max": 106,
+            "row_min": 312,
+            "content": "Funny",
+            "id": 6,
+            "height": 15,
+            "column_min": 61,
+            "width": 45
+        },
+        {
+            "row_max": 324,
+            "column_max": 273,
+            "row_min": 311,
+            "content": "WTF",
+            "id": 7,
+            "height": 13,
+            "column_min": 238,
+            "width": 35
+        },
+        {
+            "row_max": 325,
+            "column_max": 487,
+            "row_min": 311,
+            "content": "Did You Know ?",
+            "id": 8,
+            "height": 14,
+            "column_min": 375,
+            "width": 112
+        },
+        {
+            "row_max": 521,
+            "column_max": 107,
+            "row_min": 508,
+            "content": "Love &",
+            "id": 9,
+            "height": 13,
+            "column_min": 57,
+            "width": 50
+        },
+        {
+            "row_max": 546,
+            "column_max": 128,
+            "row_min": 531,
+            "content": "Relationship",
+            "id": 10,
+            "height": 15,
+            "column_min": 36,
+            "width": 92
+        },
+        {
+            "row_max": 539,
+            "column_max": 305,
+            "row_min": 524,
+            "content": "Married Life",
+            "id": 11,
+            "height": 15,
+            "column_min": 207,
+            "width": 98
+        },
+        {
+            "row_max": 527,
+            "column_max": 449,
+            "row_min": 512,
+            "content": "Teen",
+            "id": 12,
+            "height": 15,
+            "column_min": 410,
+            "width": 39
+        },
+        {
+            "row_max": 553,
+            "column_max": 486,
+            "row_min": 536,
+            "content": "Relationships",
+            "id": 13,
+            "height": 17,
+            "column_min": 374,
+            "width": 112
+        },
+        {
+            "row_max": 656,
+            "column_max": 480,
+            "row_min": 630,
+            "content": "HE POP",
+            "id": 14,
+            "height": 26,
+            "column_min": 380,
+            "width": 100
+        },
+        {
+            "row_max": 749,
+            "column_max": 110,
+            "row_min": 733,
+            "content": "Poetry",
+            "id": 15,
+            "height": 16,
+            "column_min": 56,
+            "width": 54
+        },
+        {
+            "row_max": 741,
+            "column_max": 280,
+            "row_min": 727,
+            "content": "Health",
+            "id": 16,
+            "height": 14,
+            "column_min": 232,
+            "width": 48
+        },
+        {
+            "row_max": 742,
+            "column_max": 453,
+            "row_min": 728,
+            "content": "Pop",
+            "id": 17,
+            "height": 14,
+            "column_min": 423,
+            "width": 30
+        },
+        {
+            "row_max": 805,
+            "column_max": 73,
+            "row_min": 799,
+            "content": "son",
+            "id": 18,
+            "height": 6,
+            "column_min": 54,
+            "width": 19
+        },
+        {
+            "row_max": 825,
+            "column_max": 71,
+            "row_min": 816,
+            "content": "NCAA",
+            "id": 19,
+            "height": 9,
+            "column_min": 42,
+            "width": 29
+        }
+    ],
+    "img_shape": [
+        831,
+        517,
+        3
+    ]
+}

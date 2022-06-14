@@ -1,149 +1,149 @@
 {
+    "texts": [
+        {
+            "row_max": 46,
+            "column_max": 144,
+            "row_min": 28,
+            "content": "Deals",
+            "id": 0,
+            "height": 18,
+            "column_min": 81,
+            "width": 63
+        },
+        {
+            "row_max": 110,
+            "column_max": 149,
+            "row_min": 96,
+            "content": "NEW",
+            "id": 1,
+            "height": 14,
+            "column_min": 111,
+            "width": 38
+        },
+        {
+            "row_max": 182,
+            "column_max": 129,
+            "row_min": 168,
+            "content": "Lindsay",
+            "id": 2,
+            "height": 14,
+            "column_min": 75,
+            "width": 54
+        },
+        {
+            "row_max": 200,
+            "column_max": 218,
+            "row_min": 188,
+            "content": "Posted -172 minutes ago",
+            "id": 3,
+            "height": 12,
+            "column_min": 76,
+            "width": 142
+        },
+        {
+            "row_max": 434,
+            "column_max": 109,
+            "row_min": 422,
+            "content": "Julie",
+            "id": 4,
+            "height": 12,
+            "column_min": 75,
+            "width": 34
+        },
+        {
+            "row_max": 454,
+            "column_max": 218,
+            "row_min": 442,
+            "content": "Posted 147 minutes ago",
+            "id": 5,
+            "height": 12,
+            "column_min": 76,
+            "width": 142
+        },
+        {
+            "row_max": 688,
+            "column_max": 111,
+            "row_min": 675,
+            "content": "Chris",
+            "id": 6,
+            "height": 13,
+            "column_min": 76,
+            "width": 35
+        },
+        {
+            "row_max": 708,
+            "column_max": 218,
+            "row_min": 696,
+            "content": "Posted -106 minutes ago",
+            "id": 7,
+            "height": 12,
+            "column_min": 76,
+            "width": 142
+        },
+        {
+            "row_max": 110,
+            "column_max": 430,
+            "row_min": 96,
+            "content": "POPULAR",
+            "id": 8,
+            "height": 14,
+            "column_min": 352,
+            "width": 78
+        },
+        {
+            "row_max": 243,
+            "column_max": 475,
+            "row_min": 227,
+            "content": "BonTon : Pink Rose Dresses",
+            "id": 9,
+            "height": 16,
+            "column_min": 198,
+            "width": 277
+        },
+        {
+            "row_max": 273,
+            "column_max": 321,
+            "row_min": 251,
+            "content": "$ 17 Shipped",
+            "id": 10,
+            "height": 22,
+            "column_min": 198,
+            "width": 123
+        },
+        {
+            "row_max": 498,
+            "column_max": 465,
+            "row_min": 479,
+            "content": "WHBM : Extra 40 % Off Sale",
+            "id": 11,
+            "height": 19,
+            "column_min": 197,
+            "width": 268
+        },
+        {
+            "row_max": 754,
+            "column_max": 482,
+            "row_min": 733,
+            "content": "12 Ribbed Cotton Tank Tops",
+            "id": 12,
+            "height": 21,
+            "column_min": 198,
+            "width": 284
+        },
+        {
+            "row_max": 782,
+            "column_max": 321,
+            "row_min": 759,
+            "content": "$ 25 Shipped",
+            "id": 13,
+            "height": 23,
+            "column_min": 199,
+            "width": 122
+        }
+    ],
     "img_shape": [
         837,
         520,
         3
-    ],
-    "texts": [
-        {
-            "row_min": 28,
-            "column_max": 144,
-            "content": "Deals",
-            "column_min": 81,
-            "height": 18,
-            "id": 0,
-            "width": 63,
-            "row_max": 46
-        },
-        {
-            "row_min": 96,
-            "column_max": 149,
-            "content": "NEW",
-            "column_min": 111,
-            "height": 14,
-            "id": 1,
-            "width": 38,
-            "row_max": 110
-        },
-        {
-            "row_min": 168,
-            "column_max": 129,
-            "content": "Lindsay",
-            "column_min": 75,
-            "height": 14,
-            "id": 2,
-            "width": 54,
-            "row_max": 182
-        },
-        {
-            "row_min": 188,
-            "column_max": 218,
-            "content": "Posted -172 minutes ago",
-            "column_min": 76,
-            "height": 12,
-            "id": 3,
-            "width": 142,
-            "row_max": 200
-        },
-        {
-            "row_min": 422,
-            "column_max": 109,
-            "content": "Julie",
-            "column_min": 75,
-            "height": 12,
-            "id": 4,
-            "width": 34,
-            "row_max": 434
-        },
-        {
-            "row_min": 442,
-            "column_max": 218,
-            "content": "Posted 147 minutes ago",
-            "column_min": 76,
-            "height": 12,
-            "id": 5,
-            "width": 142,
-            "row_max": 454
-        },
-        {
-            "row_min": 675,
-            "column_max": 111,
-            "content": "Chris",
-            "column_min": 76,
-            "height": 13,
-            "id": 6,
-            "width": 35,
-            "row_max": 688
-        },
-        {
-            "row_min": 696,
-            "column_max": 218,
-            "content": "Posted -106 minutes ago",
-            "column_min": 76,
-            "height": 12,
-            "id": 7,
-            "width": 142,
-            "row_max": 708
-        },
-        {
-            "row_min": 96,
-            "column_max": 430,
-            "content": "POPULAR",
-            "column_min": 352,
-            "height": 14,
-            "id": 8,
-            "width": 78,
-            "row_max": 110
-        },
-        {
-            "row_min": 227,
-            "column_max": 475,
-            "content": "BonTon : Pink Rose Dresses",
-            "column_min": 198,
-            "height": 16,
-            "id": 9,
-            "width": 277,
-            "row_max": 243
-        },
-        {
-            "row_min": 251,
-            "column_max": 321,
-            "content": "$ 17 Shipped",
-            "column_min": 198,
-            "height": 22,
-            "id": 10,
-            "width": 123,
-            "row_max": 273
-        },
-        {
-            "row_min": 479,
-            "column_max": 465,
-            "content": "WHBM : Extra 40 % Off Sale",
-            "column_min": 197,
-            "height": 19,
-            "id": 11,
-            "width": 268,
-            "row_max": 498
-        },
-        {
-            "row_min": 733,
-            "column_max": 482,
-            "content": "12 Ribbed Cotton Tank Tops",
-            "column_min": 198,
-            "height": 21,
-            "id": 12,
-            "width": 284,
-            "row_max": 754
-        },
-        {
-            "row_min": 759,
-            "column_max": 321,
-            "content": "$ 25 Shipped",
-            "column_min": 199,
-            "height": 23,
-            "id": 13,
-            "width": 122,
-            "row_max": 782
-        }
     ]
 }

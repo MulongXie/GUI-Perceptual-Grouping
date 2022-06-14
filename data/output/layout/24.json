@@ -1,0 +1,128 @@
+[
+    {
+        "children": [
+            {
+                "text_content": null,
+                "id": "c-1",
+                "class": "Compo",
+                "location": {
+                    "left": 47,
+                    "right": 150,
+                    "top": 510,
+                    "bottom": 614
+                }
+            },
+            {
+                "children": [
+                    {
+                        "text_content": "Bubble Shooter Deluxe",
+                        "id": "c-8",
+                        "class": "Text",
+                        "location": {
+                            "left": 173,
+                            "right": 473,
+                            "top": 523,
+                            "bottom": 543
+                        }
+                    },
+                    {
+                        "list_items": [
+                            [
+                                {
+                                    "text_content": null,
+                                    "id": "c-2",
+                                    "class": "Compo",
+                                    "location": {
+                                        "left": 172,
+                                        "right": 212,
+                                        "top": 568,
+                                        "bottom": 607
+                                    }
+                                }
+                            ],
+                            [
+                                {
+                                    "text_content": null,
+                                    "id": "c-3",
+                                    "class": "Compo",
+                                    "location": {
+                                        "left": 226,
+                                        "right": 265,
+                                        "top": 568,
+                                        "bottom": 607
+                                    }
+                                }
+                            ],
+                            [
+                                {
+                                    "text_content": null,
+                                    "id": "c-4",
+                                    "class": "Compo",
+                                    "location": {
+                                        "left": 278,
+                                        "right": 318,
+                                        "top": 568,
+                                        "bottom": 607
+                                    }
+                                }
+                            ],
+                            [
+                                {
+                                    "text_content": null,
+                                    "id": "c-5",
+                                    "class": "Compo",
+                                    "location": {
+                                        "left": 332,
+                                        "right": 370,
+                                        "top": 568,
+                                        "bottom": 607
+                                    }
+                                }
+                            ],
+                            [
+                                {
+                                    "text_content": null,
+                                    "id": "c-6",
+                                    "class": "Compo",
+                                    "location": {
+                                        "left": 384,
+                                        "right": 423,
+                                        "top": 568,
+                                        "bottom": 607
+                                    }
+                                }
+                            ]
+                        ],
+                        "text_content": null,
+                        "list_class": "single",
+                        "location": {
+                            "left": 172,
+                            "right": 423,
+                            "top": 568,
+                            "bottom": 607
+                        },
+                        "id": "l-0",
+                        "list_alignment": "h",
+                        "class": "List"
+                    }
+                ],
+                "id": "b-13",
+                "class": "Block",
+                "location": {
+                    "left": 172,
+                    "right": 473,
+                    "top": 523,
+                    "bottom": 607
+                }
+            }
+        ],
+        "id": "b-12",
+        "class": "Block",
+        "location": {
+            "left": 47,
+            "right": 473,
+            "top": 510,
+            "bottom": 614
+        }
+    }
+]

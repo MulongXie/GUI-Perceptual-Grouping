@@ -1,0 +1,249 @@
+{
+    "texts": [
+        {
+            "row_min": 57,
+            "height": 53,
+            "width": 459,
+            "column_max": 618,
+            "row_max": 110,
+            "id": 0,
+            "content": "Choose a meal plan",
+            "column_min": 159
+        },
+        {
+            "row_min": 194,
+            "height": 43,
+            "width": 763,
+            "column_max": 820,
+            "row_max": 237,
+            "id": 1,
+            "content": "Budget Saver : Tasty and Inexpensive",
+            "column_min": 57
+        },
+        {
+            "row_min": 244,
+            "height": 49,
+            "width": 270,
+            "column_max": 328,
+            "row_max": 293,
+            "id": 2,
+            "content": "Family Meals",
+            "column_min": 58
+        },
+        {
+            "row_min": 627,
+            "height": 37,
+            "width": 263,
+            "column_max": 569,
+            "row_max": 664,
+            "id": 3,
+            "content": "Scrambled Eggs",
+            "column_min": 306
+        },
+        {
+            "row_min": 693,
+            "height": 30,
+            "width": 339,
+            "column_max": 644,
+            "row_max": 723,
+            "id": 4,
+            "content": "Classic Monte Cristo",
+            "column_min": 305
+        },
+        {
+            "row_min": 734,
+            "height": 29,
+            "width": 58,
+            "column_max": 158,
+            "row_max": 763,
+            "id": 5,
+            "content": "MO",
+            "column_min": 100
+        },
+        {
+            "row_min": 761,
+            "height": 27,
+            "width": 462,
+            "column_max": 768,
+            "row_max": 788,
+            "id": 6,
+            "content": "Mini Cheddar Crescent Rolls",
+            "column_min": 306
+        },
+        {
+            "row_min": 823,
+            "height": 37,
+            "width": 317,
+            "column_max": 624,
+            "row_max": 860,
+            "id": 7,
+            "content": "Fried Chicken Thigh",
+            "column_min": 307
+        },
+        {
+            "row_min": 939,
+            "height": 46,
+            "width": 384,
+            "column_max": 440,
+            "row_max": 985,
+            "id": 8,
+            "content": "Weight Loss Menu",
+            "column_min": 56
+        },
+        {
+            "row_min": 1428,
+            "height": 29,
+            "width": 54,
+            "column_max": 154,
+            "row_max": 1457,
+            "id": 9,
+            "content": "MO",
+            "column_min": 100
+        },
+        {
+            "row_min": 1321,
+            "height": 36,
+            "width": 449,
+            "column_max": 755,
+            "row_max": 1357,
+            "id": 10,
+            "content": "Cottage cheese and tomato",
+            "column_min": 306
+        },
+        {
+            "row_min": 1390,
+            "height": 28,
+            "width": 517,
+            "column_max": 823,
+            "row_max": 1418,
+            "id": 11,
+            "content": "Grilled Chicken Salad with Sea ...",
+            "column_min": 306
+        },
+        {
+            "row_min": 1456,
+            "height": 27,
+            "width": 74,
+            "column_max": 381,
+            "row_max": 1483,
+            "id": 12,
+            "content": "Pear",
+            "column_min": 307
+        },
+        {
+            "row_min": 1496,
+            "height": 35,
+            "width": 72,
+            "column_max": 263,
+            "row_max": 1531,
+            "id": 13,
+            "content": "You",
+            "column_min": 191
+        },
+        {
+            "row_min": 1496,
+            "height": 53,
+            "width": 250,
+            "column_max": 527,
+            "row_max": 1549,
+            "id": 14,
+            "content": "must Baked register Wild",
+            "column_min": 277
+        },
+        {
+            "row_min": 1497,
+            "height": 38,
+            "width": 353,
+            "column_max": 886,
+            "row_max": 1535,
+            "id": 15,
+            "content": "to add new recipes",
+            "column_min": 533
+        },
+        {
+            "row_min": 1629,
+            "height": 25,
+            "width": 41,
+            "column_max": 189,
+            "row_max": 1654,
+            "id": 16,
+            "content": "Ad",
+            "column_min": 148
+        },
+        {
+            "row_min": 1692,
+            "height": 35,
+            "width": 152,
+            "column_max": 498,
+            "row_max": 1727,
+            "id": 17,
+            "content": "Circle Pay",
+            "column_min": 346
+        },
+        {
+            "row_min": 1696,
+            "height": 35,
+            "width": 188,
+            "column_max": 728,
+            "row_max": 1731,
+            "id": 18,
+            "content": "Send money",
+            "column_min": 540
+        },
+        {
+            "row_min": 1706,
+            "height": 26,
+            "width": 93,
+            "column_max": 886,
+            "row_max": 1732,
+            "id": 19,
+            "content": "Install",
+            "column_min": 793
+        },
+        {
+            "row_min": 733,
+            "height": 28,
+            "width": 44,
+            "column_max": 979,
+            "row_max": 761,
+            "id": 20,
+            "content": "TU",
+            "column_min": 935
+        },
+        {
+            "row_min": 1430,
+            "height": 27,
+            "width": 43,
+            "column_max": 977,
+            "row_max": 1457,
+            "id": 21,
+            "content": "TU",
+            "column_min": 934
+        },
+        {
+            "row_min": 227,
+            "height": 25,
+            "width": 62,
+            "column_max": 1052,
+            "row_max": 252,
+            "id": 22,
+            "content": "332",
+            "column_min": 990
+        },
+        {
+            "row_min": 945,
+            "height": 29,
+            "width": 65,
+            "column_max": 1054,
+            "row_max": 974,
+            "id": 23,
+            "content": "335",
+            "column_min": 989
+        }
+    ],
+    "img_shape": [
+        1747,
+        1080,
+        3
+    ]
+}

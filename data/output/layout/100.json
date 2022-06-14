@@ -1,0 +1,147 @@
+[
+    {
+        "class": "Block",
+        "id": "b-24",
+        "location": {
+            "left": 8,
+            "top": 367,
+            "bottom": 529,
+            "right": 459
+        },
+        "children": [
+            {
+                "class": "Block",
+                "id": "c-4",
+                "location": {
+                    "left": 8,
+                    "top": 367,
+                    "bottom": 529,
+                    "right": 459
+                },
+                "text_content": null
+            },
+            {
+                "class": "Text",
+                "id": "c-9",
+                "location": {
+                    "left": 35,
+                    "top": 430,
+                    "bottom": 473,
+                    "right": 384
+                },
+                "text_content": "Quickly see your account balance\nwithout logging on . Add an account to"
+            },
+            {
+                "class": "Text",
+                "id": "c-8",
+                "location": {
+                    "left": 36,
+                    "top": 396,
+                    "bottom": 416,
+                    "right": 186
+                },
+                "text_content": "Simple Balance"
+            },
+            {
+                "class": "Text",
+                "id": "c-10",
+                "location": {
+                    "left": 36,
+                    "top": 480,
+                    "bottom": 499,
+                    "right": 135
+                },
+                "text_content": "get started"
+            },
+            {
+                "class": "Compo",
+                "id": "c-5",
+                "location": {
+                    "left": 407,
+                    "top": 397,
+                    "bottom": 419,
+                    "right": 429
+                },
+                "text_content": null
+            }
+        ]
+    },
+    {
+        "class": "Block",
+        "id": "b-25",
+        "location": {
+            "left": 8,
+            "top": 539,
+            "bottom": 735,
+            "right": 460
+        },
+        "children": [
+            {
+                "class": "Block",
+                "id": "c-6",
+                "location": {
+                    "left": 8,
+                    "top": 539,
+                    "bottom": 735,
+                    "right": 460
+                },
+                "text_content": null
+            },
+            {
+                "class": "Text",
+                "id": "c-11",
+                "location": {
+                    "left": 36,
+                    "top": 568,
+                    "bottom": 583,
+                    "right": 215
+                },
+                "text_content": "Get Cardless Cash"
+            },
+            {
+                "class": "Text",
+                "id": "c-14",
+                "location": {
+                    "left": 110,
+                    "top": 676,
+                    "bottom": 691,
+                    "right": 155
+                },
+                "text_content": "$ 100"
+            },
+            {
+                "class": "Text",
+                "id": "c-12",
+                "location": {
+                    "left": 115,
+                    "top": 621,
+                    "bottom": 637,
+                    "right": 151
+                },
+                "text_content": "$ 20"
+            },
+            {
+                "class": "Text",
+                "id": "c-15",
+                "location": {
+                    "left": 310,
+                    "top": 676,
+                    "bottom": 691,
+                    "right": 361
+                },
+                "text_content": "Other"
+            },
+            {
+                "class": "Text",
+                "id": "c-13",
+                "location": {
+                    "left": 318,
+                    "top": 622,
+                    "bottom": 638,
+                    "right": 355
+                },
+                "text_content": "$ 50"
+            }
+        ]
+    }
+]
