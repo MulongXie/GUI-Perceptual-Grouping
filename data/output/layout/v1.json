@@ -1,0 +1,305 @@
+[
+    {
+        "class": "Block",
+        "children": [
+            {
+                "class": "Compo",
+                "location": {
+                    "right": 48,
+                    "bottom": 71,
+                    "top": 38,
+                    "left": 16
+                },
+                "id": "c-0",
+                "text_content": null
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 123,
+                    "bottom": 62,
+                    "top": 47,
+                    "left": 74
+                },
+                "id": "c-14",
+                "text_content": "Inbox"
+            }
+        ],
+        "location": {
+            "right": 123,
+            "bottom": 71,
+            "top": 38,
+            "left": 16
+        },
+        "id": "b-1"
+    },
+    {
+        "class": "Block",
+        "children": [
+            {
+                "class": "Compo",
+                "location": {
+                    "right": 158,
+                    "bottom": 126,
+                    "top": 91,
+                    "left": 15
+                },
+                "id": "c-1",
+                "text_content": null
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 336,
+                    "bottom": 113,
+                    "top": 100,
+                    "left": 303
+                },
+                "id": "c-31",
+                "text_content": "Filter"
+            }
+        ],
+        "location": {
+            "right": 336,
+            "bottom": 126,
+            "top": 91,
+            "left": 15
+        },
+        "id": "b-2"
+    },
+    {
+        "class": "Block",
+        "children": [
+            {
+                "list_class": "multi",
+                "list_alignment": "v",
+                "list_items": [
+                    [
+                        {
+                            "class": "Compo",
+                            "location": {
+                                "right": 57,
+                                "bottom": 190,
+                                "top": 148,
+                                "left": 15
+                            },
+                            "id": "c-2",
+                            "text_content": null
+                        },
+                        {
+                            "class": "Text",
+                            "location": {
+                                "right": 155,
+                                "bottom": 161,
+                                "top": 149,
+                                "left": 74
+                            },
+                            "id": "c-16",
+                            "text_content": "ICONSMAT"
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "location": {
+                                "right": 57,
+                                "bottom": 279,
+                                "top": 237,
+                                "left": 15
+                            },
+                            "id": "c-3",
+                            "text_content": null
+                        },
+                        {
+                            "class": "Text",
+                            "location": {
+                                "right": 156,
+                                "bottom": 252,
+                                "top": 237,
+                                "left": 73
+                            },
+                            "id": "c-19",
+                            "text_content": "Yiran Wang"
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "location": {
+                                "right": 57,
+                                "bottom": 367,
+                                "top": 326,
+                                "left": 15
+                            },
+                            "id": "c-4",
+                            "text_content": null
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "location": {
+                                "right": 57,
+                                "bottom": 457,
+                                "top": 414,
+                                "left": 15
+                            },
+                            "id": "c-5",
+                            "text_content": null
+                        },
+                        {
+                            "class": "Text",
+                            "location": {
+                                "right": 171,
+                                "bottom": 428,
+                                "top": 416,
+                                "left": 74
+                            },
+                            "id": "c-25",
+                            "text_content": "CGS Connect"
+                        }
+                    ],
+                    [
+                        {
+                            "class": "Compo",
+                            "location": {
+                                "right": 57,
+                                "bottom": 547,
+                                "top": 504,
+                                "left": 15
+                            },
+                            "id": "c-6",
+                            "text_content": null
+                        }
+                    ]
+                ],
+                "location": {
+                    "right": 171,
+                    "bottom": 547,
+                    "top": 148,
+                    "left": 15
+                },
+                "text_content": null,
+                "class": "List",
+                "id": "l-1"
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 352,
+                    "bottom": 381,
+                    "top": 323,
+                    "left": 72
+                },
+                "id": "c-24",
+                "text_content": "Wattle ( via Wattle\nWattle : forum digest\nThis is your daily digest of new posts from ...\n5:15 pm"
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 350,
+                    "bottom": 203,
+                    "top": 169,
+                    "left": 73
+                },
+                "id": "c-18",
+                "text_content": "2022 Scholarship Application\nOpen now ! View this email in your browser ..."
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 183,
+                    "bottom": 270,
+                    "top": 259,
+                    "left": 73
+                },
+                "id": "c-21",
+                "text_content": "Ass2 submission"
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 155,
+                    "bottom": 292,
+                    "top": 279,
+                    "left": 73
+                },
+                "id": "c-22",
+                "text_content": "Dear Dr Xing ,"
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 352,
+                    "bottom": 558,
+                    "top": 503,
+                    "left": 73
+                },
+                "id": "c-28",
+                "text_content": "7:37 am\nMagdalena Bekk , Universit ...\nPandemic and Digitalization : Study on th ...\nA study on how the COVID 19 pandemic a ..."
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 350,
+                    "bottom": 470,
+                    "top": 437,
+                    "left": 74
+                },
+                "id": "c-27",
+                "text_content": "My Daily Announcements from CGS Conn ...\nChanges to Enrolment Withdrawal From : ..."
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 345,
+                    "bottom": 292,
+                    "top": 279,
+                    "left": 167
+                },
+                "id": "c-23",
+                "text_content": "have successfully submit t ..."
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 352,
+                    "bottom": 162,
+                    "top": 149,
+                    "left": 307
+                },
+                "id": "c-17",
+                "text_content": "9:04 pm"
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 351,
+                    "bottom": 251,
+                    "top": 238,
+                    "left": 308
+                },
+                "id": "c-20",
+                "text_content": "6:36 pm"
+            },
+            {
+                "class": "Text",
+                "location": {
+                    "right": 352,
+                    "bottom": 429,
+                    "top": 416,
+                    "left": 308
+                },
+                "id": "c-26",
+                "text_content": "3:05 pm"
+            }
+        ],
+        "location": {
+            "right": 352,
+            "bottom": 558,
+            "top": 148,
+            "left": 15
+        },
+        "id": "b-3"
+    }
+]
