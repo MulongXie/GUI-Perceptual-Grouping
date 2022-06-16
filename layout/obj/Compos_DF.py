@@ -381,7 +381,7 @@ class ComposDF:
         # slip a group into several ones according to compo gaps if necessary
         self.regroup_compos_by_compos_gap()
         # search and add compos into a group according to compo gaps in the group
-        self.add_missed_compo_to_group_by_gaps(search_outside=False)
+        # self.add_missed_compo_to_group_by_gaps(search_outside=False)
         # check group validity by compos gaps in the group, the gaps among compos in a group should be similar
         self.check_group_validity_by_compos_gap()
 
@@ -643,7 +643,7 @@ class ComposDF:
                 gaps = list(group_compos['gap'])
 
                 # cluster compos gaps
-                eps = 20 if group_compos.iloc[0]['class'] == 'Text' else 10
+                eps = 30 if group_compos.iloc[0]['class'] == 'Text' else 10
                 clustering = DBSCAN(eps=eps, min_samples=1).fit(np.reshape(gaps[:-1], (-1, 1)))
                 gap_labels = list(clustering.labels_)
                 gap_label_count = dict((i, gap_labels.count(i)) for i in gap_labels)  # {label: frequency of label}
@@ -729,8 +729,8 @@ class ComposDF:
 
                         # find the potential missed compo through iou with the potential_missed_compo_area
                         missed_compo_id = pairing.find_missed_compo_by_iou_with_potential_area(potential_missed_compo_area, df)
-                        if missed_compo_id:
-                            print(missed_compo_id, p, i, j)
+                        if missed_compo_id and df.loc[missed_compo_id, 'class'] == group_compos.iloc[0]['class']:
+                            # print(df.loc[missed_compo_id, 'class'], group_compos.iloc[0]['class'], i, j)
                             df.loc[missed_compo_id, 'group_pair'] = p
                             df.loc[missed_compo_id, 'group'] = i
                             df.loc[missed_compo_id, 'list_item'] = j
