@@ -1,0 +1,323 @@
+{
+    "compos": [
+        {
+            "id": 0,
+            "position": {
+                "row_max": 219,
+                "column_min": 113,
+                "row_min": 81,
+                "column_max": 250
+            },
+            "width": 137,
+            "class": "Compo",
+            "height": 138
+        },
+        {
+            "id": 1,
+            "position": {
+                "row_max": 325,
+                "column_min": 328,
+                "row_min": 312,
+                "column_max": 336
+            },
+            "width": 8,
+            "class": "Compo",
+            "height": 13
+        },
+        {
+            "id": 2,
+            "position": {
+                "row_max": 366,
+                "column_min": 328,
+                "row_min": 352,
+                "column_max": 336
+            },
+            "width": 8,
+            "class": "Compo",
+            "height": 14
+        },
+        {
+            "id": 3,
+            "position": {
+                "row_max": 406,
+                "column_min": 328,
+                "row_min": 392,
+                "column_max": 336
+            },
+            "width": 8,
+            "class": "Compo",
+            "height": 14
+        },
+        {
+            "id": 4,
+            "position": {
+                "row_max": 446,
+                "column_min": 328,
+                "row_min": 432,
+                "column_max": 336
+            },
+            "width": 8,
+            "class": "Compo",
+            "height": 14
+        },
+        {
+            "id": 5,
+            "position": {
+                "row_max": 486,
+                "column_min": 328,
+                "row_min": 472,
+                "column_max": 336
+            },
+            "width": 8,
+            "class": "Compo",
+            "height": 14
+        },
+        {
+            "id": 6,
+            "position": {
+                "row_max": 526,
+                "column_min": 328,
+                "row_min": 513,
+                "column_max": 336
+            },
+            "width": 8,
+            "class": "Compo",
+            "height": 13
+        },
+        {
+            "id": 7,
+            "position": {
+                "row_max": 566,
+                "column_min": 328,
+                "row_min": 553,
+                "column_max": 336
+            },
+            "width": 8,
+            "class": "Compo",
+            "height": 13
+        },
+        {
+            "id": 8,
+            "position": {
+                "row_max": 753,
+                "column_min": 212,
+                "row_min": 735,
+                "column_max": 226
+            },
+            "width": 14,
+            "class": "Compo",
+            "height": 18
+        },
+        {
+            "id": 9,
+            "position": {
+                "row_max": 766,
+                "column_min": 274,
+                "row_min": 735,
+                "column_max": 305
+            },
+            "width": 31,
+            "class": "Compo",
+            "height": 31
+        },
+        {
+            "id": 10,
+            "position": {
+                "row_max": 766,
+                "column_min": 132,
+                "row_min": 735,
+                "column_max": 162
+            },
+            "width": 30,
+            "class": "Compo",
+            "height": 31
+        },
+        {
+            "position": {
+                "row_max": 21,
+                "column_min": 23,
+                "row_min": 11,
+                "column_max": 51
+            },
+            "id": 11,
+            "text_content": "9:41",
+            "width": 28,
+            "class": "Text",
+            "height": 10
+        },
+        {
+            "position": {
+                "row_max": 325,
+                "column_min": 20,
+                "row_min": 310,
+                "column_max": 79
+            },
+            "id": 12,
+            "text_content": "My Profile",
+            "width": 59,
+            "class": "Text",
+            "height": 15
+        },
+        {
+            "position": {
+                "row_max": 365,
+                "column_min": 21,
+                "row_min": 350,
+                "column_max": 132
+            },
+            "id": 13,
+            "text_content": "Change Password",
+            "width": 111,
+            "class": "Text",
+            "height": 15
+        },
+        {
+            "position": {
+                "row_max": 406,
+                "column_min": 21,
+                "row_min": 394,
+                "column_max": 130
+            },
+            "id": 14,
+            "text_content": "Payment Settings",
+            "width": 109,
+            "class": "Text",
+            "height": 12
+        },
+        {
+            "position": {
+                "row_max": 446,
+                "column_min": 21,
+                "row_min": 433,
+                "column_max": 93
+            },
+            "id": 15,
+            "text_content": "My Voucher",
+            "width": 72,
+            "class": "Text",
+            "height": 13
+        },
+        {
+            "position": {
+                "row_max": 484,
+                "column_min": 21,
+                "row_min": 473,
+                "column_max": 88
+            },
+            "id": 16,
+            "text_content": "Notification",
+            "width": 67,
+            "class": "Text",
+            "height": 11
+        },
+        {
+            "position": {
+                "row_max": 525,
+                "column_min": 20,
+                "row_min": 513,
+                "column_max": 75
+            },
+            "id": 17,
+            "text_content": "About Us",
+            "width": 55,
+            "class": "Text",
+            "height": 12
+        },
+        {
+            "position": {
+                "row_max": 565,
+                "column_min": 21,
+                "row_min": 552,
+                "column_max": 87
+            },
+            "id": 18,
+            "text_content": "Contact Us",
+            "width": 66,
+            "class": "Text",
+            "height": 13
+        },
+        {
+            "position": {
+                "row_max": 750,
+                "column_min": 64,
+                "row_min": 733,
+                "column_max": 78
+            },
+            "id": 19,
+            "text_content": "BE",
+            "width": 14,
+            "class": "Text",
+            "height": 17
+        },
+        {
+            "position": {
+                "row_max": 765,
+                "column_min": 59,
+                "row_min": 757,
+                "column_max": 88
+            },
+            "id": 20,
+            "text_content": "Home",
+            "width": 29,
+            "class": "Text",
+            "height": 8
+        },
+        {
+            "position": {
+                "row_max": 254,
+                "column_min": 167,
+                "row_min": 242,
+                "column_max": 196
+            },
+            "id": 21,
+            "text_content": "Itoh",
+            "width": 29,
+            "class": "Text",
+            "height": 12
+        },
+        {
+            "position": {
+                "row_max": 277,
+                "column_min": 135,
+                "row_min": 268,
+                "column_max": 228
+            },
+            "id": 22,
+            "text_content": "+1 11229382748",
+            "width": 93,
+            "class": "Text",
+            "height": 9
+        },
+        {
+            "position": {
+                "row_max": 667,
+                "column_min": 147,
+                "row_min": 652,
+                "column_max": 217
+            },
+            "id": 23,
+            "text_content": "Sign Out",
+            "width": 70,
+            "class": "Text",
+            "height": 15
+        },
+        {
+            "position": {
+                "row_max": 768,
+                "column_min": 202,
+                "row_min": 755,
+                "column_max": 237
+            },
+            "id": 24,
+            "text_content": "My List",
+            "width": 35,
+            "class": "Text",
+            "height": 13
+        }
+    ],
+    "img_shape": [
+        800,
+        367,
+        3
+    ]
+}

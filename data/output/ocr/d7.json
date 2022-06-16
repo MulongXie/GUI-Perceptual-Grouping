@@ -1,0 +1,219 @@
+{
+    "texts": [
+        {
+            "row_max": 19,
+            "content": "9:41",
+            "row_min": 10,
+            "column_max": 50,
+            "id": 0,
+            "column_min": 24,
+            "width": 26,
+            "height": 9
+        },
+        {
+            "row_max": 159,
+            "content": "CHER",
+            "row_min": 153,
+            "column_max": 58,
+            "id": 1,
+            "column_min": 36,
+            "width": 22,
+            "height": 6
+        },
+        {
+            "row_max": 244,
+            "content": "you",
+            "row_min": 236,
+            "column_max": 58,
+            "id": 2,
+            "column_min": 35,
+            "width": 23,
+            "height": 8
+        },
+        {
+            "row_max": 250,
+            "content": "CHER",
+            "row_min": 243,
+            "column_max": 58,
+            "id": 3,
+            "column_min": 36,
+            "width": 22,
+            "height": 7
+        },
+        {
+            "row_max": 341,
+            "content": "YOU",
+            "row_min": 326,
+            "column_max": 60,
+            "id": 4,
+            "column_min": 34,
+            "width": 26,
+            "height": 15
+        },
+        {
+            "row_max": 765,
+            "content": "Home",
+            "row_min": 758,
+            "column_max": 91,
+            "id": 5,
+            "column_min": 60,
+            "width": 31,
+            "height": 7
+        },
+        {
+            "row_max": 85,
+            "content": "My Voucher",
+            "row_min": 67,
+            "column_max": 232,
+            "id": 6,
+            "column_min": 134,
+            "width": 98,
+            "height": 18
+        },
+        {
+            "row_max": 131,
+            "content": "Sale off 30 % for Pizza",
+            "row_min": 121,
+            "column_max": 241,
+            "id": 7,
+            "column_min": 113,
+            "width": 128,
+            "height": 10
+        },
+        {
+            "row_max": 157,
+            "content": "Apr 10 Apr 30",
+            "row_min": 146,
+            "column_max": 200,
+            "id": 8,
+            "column_min": 131,
+            "width": 69,
+            "height": 11
+        },
+        {
+            "row_max": 183,
+            "content": "11 days left",
+            "row_min": 170,
+            "column_max": 179,
+            "id": 9,
+            "column_min": 113,
+            "width": 66,
+            "height": 13
+        },
+        {
+            "row_max": 222,
+            "content": "Sale off 30 % for Pizza",
+            "row_min": 212,
+            "column_max": 242,
+            "id": 10,
+            "column_min": 113,
+            "width": 129,
+            "height": 10
+        },
+        {
+            "row_max": 249,
+            "content": "Apr 10 Apr 30",
+            "row_min": 236,
+            "column_max": 199,
+            "id": 11,
+            "column_min": 131,
+            "width": 68,
+            "height": 13
+        },
+        {
+            "row_max": 275,
+            "content": "11 days left",
+            "row_min": 262,
+            "column_max": 178,
+            "id": 12,
+            "column_min": 113,
+            "width": 65,
+            "height": 13
+        },
+        {
+            "row_max": 315,
+            "content": "Sale off 30 % for Pizza",
+            "row_min": 302,
+            "column_max": 242,
+            "id": 13,
+            "column_min": 113,
+            "width": 129,
+            "height": 13
+        },
+        {
+            "row_max": 340,
+            "content": "Apr 10",
+            "row_min": 328,
+            "column_max": 160,
+            "id": 14,
+            "column_min": 131,
+            "width": 29,
+            "height": 12
+        },
+        {
+            "row_max": 339,
+            "content": "Apr 30",
+            "row_min": 328,
+            "column_max": 199,
+            "id": 15,
+            "column_min": 168,
+            "width": 31,
+            "height": 11
+        },
+        {
+            "row_max": 367,
+            "content": "11 days left",
+            "row_min": 352,
+            "column_max": 177,
+            "id": 16,
+            "column_min": 113,
+            "width": 64,
+            "height": 15
+        },
+        {
+            "row_max": 663,
+            "content": "Send",
+            "row_min": 651,
+            "column_max": 202,
+            "id": 17,
+            "column_min": 162,
+            "width": 40,
+            "height": 12
+        },
+        {
+            "row_max": 765,
+            "content": "Order",
+            "row_min": 757,
+            "column_max": 164,
+            "id": 18,
+            "column_min": 134,
+            "width": 30,
+            "height": 8
+        },
+        {
+            "row_max": 768,
+            "content": "My List",
+            "row_min": 755,
+            "column_max": 237,
+            "id": 19,
+            "column_min": 204,
+            "width": 33,
+            "height": 13
+        },
+        {
+            "row_max": 765,
+            "content": "Profile",
+            "row_min": 757,
+            "column_max": 307,
+            "id": 20,
+            "column_min": 276,
+            "width": 31,
+            "height": 8
+        }
+    ],
+    "img_shape": [
+        801,
+        368,
+        3
+    ]
+}

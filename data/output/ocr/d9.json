@@ -1,0 +1,239 @@
+{
+    "texts": [
+        {
+            "row_max": 24,
+            "content": "9:41",
+            "row_min": 15,
+            "column_max": 50,
+            "id": 0,
+            "column_min": 25,
+            "width": 25,
+            "height": 9
+        },
+        {
+            "row_max": 85,
+            "content": "Search",
+            "row_min": 73,
+            "column_max": 100,
+            "id": 1,
+            "column_min": 62,
+            "width": 38,
+            "height": 12
+        },
+        {
+            "row_max": 152,
+            "content": "Hip Hop",
+            "row_min": 136,
+            "column_max": 120,
+            "id": 2,
+            "column_min": 57,
+            "width": 63,
+            "height": 16
+        },
+        {
+            "row_max": 341,
+            "content": "Hard On Yourself",
+            "row_min": 331,
+            "column_max": 170,
+            "id": 3,
+            "column_min": 78,
+            "width": 92,
+            "height": 10
+        },
+        {
+            "row_max": 355,
+            "content": "2.879.453 played",
+            "row_min": 344,
+            "column_max": 153,
+            "id": 4,
+            "column_min": 77,
+            "width": 76,
+            "height": 11
+        },
+        {
+            "row_max": 387,
+            "content": "Solo",
+            "row_min": 376,
+            "column_max": 101,
+            "id": 5,
+            "column_min": 77,
+            "width": 24,
+            "height": 11
+        },
+        {
+            "row_max": 401,
+            "content": "2.879.453 played",
+            "row_min": 390,
+            "column_max": 152,
+            "id": 6,
+            "column_min": 77,
+            "width": 75,
+            "height": 11
+        },
+        {
+            "row_max": 433,
+            "content": "Waka Waka",
+            "row_min": 423,
+            "column_max": 140,
+            "id": 7,
+            "column_min": 77,
+            "width": 63,
+            "height": 10
+        },
+        {
+            "row_max": 447,
+            "content": "2.879.453 played",
+            "row_min": 436,
+            "column_max": 154,
+            "id": 8,
+            "column_min": 78,
+            "width": 76,
+            "height": 11
+        },
+        {
+            "row_max": 480,
+            "content": "Kings & Queens",
+            "row_min": 469,
+            "column_max": 160,
+            "id": 9,
+            "column_min": 78,
+            "width": 82,
+            "height": 11
+        },
+        {
+            "row_max": 494,
+            "content": "2.879.453 played",
+            "row_min": 483,
+            "column_max": 153,
+            "id": 10,
+            "column_min": 77,
+            "width": 76,
+            "height": 11
+        },
+        {
+            "row_max": 526,
+            "content": "Cheating On You",
+            "row_min": 515,
+            "column_max": 166,
+            "id": 11,
+            "column_min": 77,
+            "width": 89,
+            "height": 11
+        },
+        {
+            "row_max": 539,
+            "content": "2.879.453 played",
+            "row_min": 529,
+            "column_max": 153,
+            "id": 12,
+            "column_min": 77,
+            "width": 76,
+            "height": 10
+        },
+        {
+            "row_max": 572,
+            "content": "Way Back Home",
+            "row_min": 561,
+            "column_max": 164,
+            "id": 13,
+            "column_min": 77,
+            "width": 87,
+            "height": 11
+        },
+        {
+            "row_max": 585,
+            "content": "2.879.453 played",
+            "row_min": 574,
+            "column_max": 153,
+            "id": 14,
+            "column_min": 78,
+            "width": 75,
+            "height": 11
+        },
+        {
+            "row_max": 616,
+            "content": "Xue Mao Jiao",
+            "row_min": 607,
+            "column_max": 150,
+            "id": 15,
+            "column_min": 77,
+            "width": 73,
+            "height": 9
+        },
+        {
+            "row_max": 631,
+            "content": "2.879.453 played",
+            "row_min": 621,
+            "column_max": 153,
+            "id": 16,
+            "column_min": 77,
+            "width": 76,
+            "height": 10
+        },
+        {
+            "row_max": 665,
+            "content": "Be Alright",
+            "row_min": 654,
+            "column_max": 131,
+            "id": 17,
+            "column_min": 78,
+            "width": 53,
+            "height": 11
+        },
+        {
+            "row_max": 677,
+            "content": "2.879.453 played",
+            "row_min": 667,
+            "column_max": 153,
+            "id": 18,
+            "column_min": 77,
+            "width": 76,
+            "height": 10
+        },
+        {
+            "row_max": 756,
+            "content": "Home",
+            "row_min": 748,
+            "column_max": 102,
+            "id": 19,
+            "column_min": 76,
+            "width": 26,
+            "height": 8
+        },
+        {
+            "row_max": 756,
+            "content": "Search",
+            "row_min": 748,
+            "column_max": 195,
+            "id": 20,
+            "column_min": 165,
+            "width": 30,
+            "height": 8
+        },
+        {
+            "row_max": 152,
+            "content": "Pop",
+            "row_min": 135,
+            "column_max": 255,
+            "id": 21,
+            "column_min": 223,
+            "width": 32,
+            "height": 17
+        },
+        {
+            "row_max": 757,
+            "content": "Library",
+            "row_min": 747,
+            "column_max": 283,
+            "id": 22,
+            "column_min": 253,
+            "width": 30,
+            "height": 10
+        }
+    ],
+    "img_shape": [
+        779,
+        364,
+        3
+    ]
+}

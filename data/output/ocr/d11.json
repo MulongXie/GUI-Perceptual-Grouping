@@ -1,0 +1,349 @@
+{
+    "img_shape": [
+        796,
+        365,
+        3
+    ],
+    "texts": [
+        {
+            "column_min": 23,
+            "content": "9:41",
+            "id": 0,
+            "width": 27,
+            "height": 11,
+            "row_max": 24,
+            "row_min": 13,
+            "column_max": 50
+        },
+        {
+            "column_min": 48,
+            "content": "Game",
+            "id": 1,
+            "width": 50,
+            "height": 12,
+            "row_max": 81,
+            "row_min": 69,
+            "column_max": 98
+        },
+        {
+            "column_min": 23,
+            "content": "Choose Your Game",
+            "id": 2,
+            "width": 208,
+            "height": 16,
+            "row_max": 139,
+            "row_min": 123,
+            "column_max": 231
+        },
+        {
+            "column_min": 20,
+            "content": "Popular Game",
+            "id": 3,
+            "width": 116,
+            "height": 19,
+            "row_max": 345,
+            "row_min": 326,
+            "column_max": 136
+        },
+        {
+            "column_min": 122,
+            "content": "MOB\u0130L",
+            "id": 4,
+            "width": 35,
+            "height": 9,
+            "row_max": 398,
+            "row_min": 389,
+            "column_max": 157
+        },
+        {
+            "column_min": 122,
+            "content": "LEGENDS",
+            "id": 5,
+            "width": 40,
+            "height": 6,
+            "row_max": 406,
+            "row_min": 400,
+            "column_max": 162
+        },
+        {
+            "column_min": 42,
+            "content": "CALL DUTY",
+            "id": 6,
+            "width": 35,
+            "height": 7,
+            "row_max": 416,
+            "row_min": 409,
+            "column_max": 77
+        },
+        {
+            "column_min": 28,
+            "content": "CoD Mobile",
+            "id": 7,
+            "width": 64,
+            "height": 10,
+            "row_max": 452,
+            "row_min": 442,
+            "column_max": 92
+        },
+        {
+            "column_min": 127,
+            "content": "MLBB",
+            "id": 8,
+            "width": 32,
+            "height": 10,
+            "row_max": 452,
+            "row_min": 442,
+            "column_max": 159
+        },
+        {
+            "column_min": 113,
+            "content": "AAN ONLI",
+            "id": 9,
+            "width": 60,
+            "height": 11,
+            "row_max": 501,
+            "row_min": 490,
+            "column_max": 173
+        },
+        {
+            "column_min": 48,
+            "content": "ADV",
+            "id": 10,
+            "width": 23,
+            "height": 9,
+            "row_max": 558,
+            "row_min": 549,
+            "column_max": 71
+        },
+        {
+            "column_min": 125,
+            "content": "Toram",
+            "id": 11,
+            "width": 35,
+            "height": 9,
+            "row_max": 558,
+            "row_min": 549,
+            "column_max": 160
+        },
+        {
+            "column_min": 125,
+            "content": "Online",
+            "id": 12,
+            "width": 35,
+            "height": 12,
+            "row_max": 574,
+            "row_min": 562,
+            "column_max": 160
+        },
+        {
+            "column_min": 21,
+            "content": "Flash Game",
+            "id": 13,
+            "width": 96,
+            "height": 12,
+            "row_max": 622,
+            "row_min": 610,
+            "column_max": 117
+        },
+        {
+            "column_min": 25,
+            "content": "ALORANT LEAGUE LEGENDS",
+            "id": 14,
+            "width": 149,
+            "height": 23,
+            "row_max": 688,
+            "row_min": 665,
+            "column_max": 174
+        },
+        {
+            "column_min": 36,
+            "content": "Valorant",
+            "id": 15,
+            "width": 47,
+            "height": 10,
+            "row_max": 732,
+            "row_min": 722,
+            "column_max": 83
+        },
+        {
+            "column_min": 132,
+            "content": "LOL",
+            "id": 16,
+            "width": 20,
+            "height": 10,
+            "row_max": 732,
+            "row_min": 722,
+            "column_max": 152
+        },
+        {
+            "column_min": 194,
+            "content": "DISCOUNT",
+            "id": 17,
+            "width": 112,
+            "height": 14,
+            "row_max": 222,
+            "row_min": 208,
+            "column_max": 306
+        },
+        {
+            "column_min": 200,
+            "content": "50 %",
+            "id": 18,
+            "width": 88,
+            "height": 41,
+            "row_max": 269,
+            "row_min": 228,
+            "column_max": 288
+        },
+        {
+            "column_min": 188,
+            "content": "PUBG Mobile",
+            "id": 19,
+            "width": 73,
+            "height": 14,
+            "row_max": 453,
+            "row_min": 439,
+            "column_max": 261
+        },
+        {
+            "column_min": 194,
+            "content": "BIRCK DISTRI",
+            "id": 20,
+            "width": 62,
+            "height": 9,
+            "row_max": 530,
+            "row_min": 521,
+            "column_max": 256
+        },
+        {
+            "column_min": 214,
+            "content": "MOBILE",
+            "id": 21,
+            "width": 23,
+            "height": 8,
+            "row_max": 539,
+            "row_min": 531,
+            "column_max": 237
+        },
+        {
+            "column_min": 209,
+            "content": "Black",
+            "id": 22,
+            "width": 30,
+            "height": 10,
+            "row_max": 558,
+            "row_min": 548,
+            "column_max": 239
+        },
+        {
+            "column_min": 206,
+            "content": "Desert",
+            "id": 23,
+            "width": 37,
+            "height": 11,
+            "row_max": 574,
+            "row_min": 563,
+            "column_max": 243
+        },
+        {
+            "column_min": 191,
+            "content": "OFEAFTER",
+            "id": 24,
+            "width": 64,
+            "height": 25,
+            "row_max": 709,
+            "row_min": 684,
+            "column_max": 255
+        },
+        {
+            "column_min": 199,
+            "content": "Life After",
+            "id": 25,
+            "width": 51,
+            "height": 10,
+            "row_max": 732,
+            "row_min": 722,
+            "column_max": 250
+        },
+        {
+            "column_min": 274,
+            "content": "SUPERMECH",
+            "id": 26,
+            "width": 46,
+            "height": 7,
+            "row_max": 400,
+            "row_min": 393,
+            "column_max": 320
+        },
+        {
+            "column_min": 284,
+            "content": "LONGING",
+            "id": 27,
+            "width": 37,
+            "height": 7,
+            "row_max": 406,
+            "row_min": 399,
+            "column_max": 321
+        },
+        {
+            "column_min": 294,
+            "content": "SMC",
+            "id": 28,
+            "width": 27,
+            "height": 12,
+            "row_max": 452,
+            "row_min": 440,
+            "column_max": 321
+        },
+        {
+            "column_min": 276,
+            "content": "GERSHAN",
+            "id": 29,
+            "width": 43,
+            "height": 11,
+            "row_max": 519,
+            "row_min": 508,
+            "column_max": 319
+        },
+        {
+            "column_min": 285,
+            "content": "Genshin",
+            "id": 30,
+            "width": 43,
+            "height": 11,
+            "row_max": 559,
+            "row_min": 548,
+            "column_max": 328
+        },
+        {
+            "column_min": 288,
+            "content": "Impact",
+            "id": 31,
+            "width": 39,
+            "height": 12,
+            "row_max": 575,
+            "row_min": 563,
+            "column_max": 327
+        },
+        {
+            "column_min": 286,
+            "content": "GETRICH",
+            "id": 32,
+            "width": 44,
+            "height": 10,
+            "row_max": 667,
+            "row_min": 657,
+            "column_max": 330
+        },
+        {
+            "column_min": 287,
+            "content": "GetRich",
+            "id": 33,
+            "width": 41,
+            "height": 11,
+            "row_max": 733,
+            "row_min": 722,
+            "column_max": 328
+        }
+    ]
+}

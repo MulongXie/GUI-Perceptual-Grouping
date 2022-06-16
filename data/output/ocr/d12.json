@@ -1,0 +1,249 @@
+{
+    "img_shape": [
+        805,
+        378,
+        3
+    ],
+    "texts": [
+        {
+            "column_min": 26,
+            "content": "9:41",
+            "id": 0,
+            "width": 29,
+            "height": 10,
+            "row_max": 23,
+            "row_min": 13,
+            "column_max": 55
+        },
+        {
+            "column_min": 51,
+            "content": "Balance",
+            "id": 1,
+            "width": 69,
+            "height": 13,
+            "row_max": 81,
+            "row_min": 68,
+            "column_max": 120
+        },
+        {
+            "column_min": 57,
+            "content": "Balance",
+            "id": 2,
+            "width": 52,
+            "height": 10,
+            "row_max": 164,
+            "row_min": 154,
+            "column_max": 109
+        },
+        {
+            "column_min": 57,
+            "content": "$ 155.00",
+            "id": 3,
+            "width": 87,
+            "height": 16,
+            "row_max": 188,
+            "row_min": 172,
+            "column_max": 144
+        },
+        {
+            "column_min": 24,
+            "content": "Money History",
+            "id": 4,
+            "width": 120,
+            "height": 16,
+            "row_max": 278,
+            "row_min": 262,
+            "column_max": 144
+        },
+        {
+            "column_min": 45,
+            "content": "17 Agustus 2021",
+            "id": 5,
+            "width": 93,
+            "height": 12,
+            "row_max": 340,
+            "row_min": 328,
+            "column_max": 138
+        },
+        {
+            "column_min": 44,
+            "content": "17 Agustus 2021",
+            "id": 6,
+            "width": 94,
+            "height": 11,
+            "row_max": 405,
+            "row_min": 394,
+            "column_max": 138
+        },
+        {
+            "column_min": 44,
+            "content": "17 Agustus 2021",
+            "id": 7,
+            "width": 94,
+            "height": 13,
+            "row_max": 471,
+            "row_min": 458,
+            "column_max": 138
+        },
+        {
+            "column_min": 45,
+            "content": "16 Agustus 2021",
+            "id": 8,
+            "width": 92,
+            "height": 14,
+            "row_max": 538,
+            "row_min": 524,
+            "column_max": 137
+        },
+        {
+            "column_min": 44,
+            "content": "15 Agustus 2021",
+            "id": 9,
+            "width": 94,
+            "height": 11,
+            "row_max": 602,
+            "row_min": 591,
+            "column_max": 138
+        },
+        {
+            "column_min": 167,
+            "content": "Top Up",
+            "id": 10,
+            "width": 44,
+            "height": 12,
+            "row_max": 678,
+            "row_min": 666,
+            "column_max": 211
+        },
+        {
+            "column_min": 307,
+            "content": "all ?",
+            "id": 11,
+            "width": 33,
+            "height": 11,
+            "row_max": 22,
+            "row_min": 11,
+            "column_max": 340
+        },
+        {
+            "column_min": 304,
+            "content": "USD",
+            "id": 12,
+            "width": 18,
+            "height": 9,
+            "row_max": 188,
+            "row_min": 179,
+            "column_max": 322
+        },
+        {
+            "column_min": 317,
+            "content": "View All",
+            "id": 13,
+            "width": 37,
+            "height": 8,
+            "row_max": 273,
+            "row_min": 265,
+            "column_max": 354
+        },
+        {
+            "column_min": 239,
+            "content": "McDonald's",
+            "id": 14,
+            "width": 63,
+            "height": 9,
+            "row_max": 328,
+            "row_min": 319,
+            "column_max": 302
+        },
+        {
+            "column_min": 239,
+            "content": "$ 34.00",
+            "id": 15,
+            "width": 54,
+            "height": 15,
+            "row_max": 349,
+            "row_min": 334,
+            "column_max": 293
+        },
+        {
+            "column_min": 238,
+            "content": "Game",
+            "id": 16,
+            "width": 33,
+            "height": 12,
+            "row_max": 395,
+            "row_min": 383,
+            "column_max": 271
+        },
+        {
+            "column_min": 239,
+            "content": "$ 10.00",
+            "id": 17,
+            "width": 52,
+            "height": 15,
+            "row_max": 414,
+            "row_min": 399,
+            "column_max": 291
+        },
+        {
+            "column_min": 239,
+            "content": "Credit & Quota",
+            "id": 18,
+            "width": 80,
+            "height": 11,
+            "row_max": 461,
+            "row_min": 450,
+            "column_max": 319
+        },
+        {
+            "column_min": 239,
+            "content": "$ 34.00",
+            "id": 19,
+            "width": 53,
+            "height": 15,
+            "row_max": 480,
+            "row_min": 465,
+            "column_max": 292
+        },
+        {
+            "column_min": 239,
+            "content": "McDonald's",
+            "id": 20,
+            "width": 64,
+            "height": 9,
+            "row_max": 525,
+            "row_min": 516,
+            "column_max": 303
+        },
+        {
+            "column_min": 238,
+            "content": "$ 34.00",
+            "id": 21,
+            "width": 54,
+            "height": 14,
+            "row_max": 545,
+            "row_min": 531,
+            "column_max": 292
+        },
+        {
+            "column_min": 239,
+            "content": "McDonald's",
+            "id": 22,
+            "width": 65,
+            "height": 10,
+            "row_max": 591,
+            "row_min": 581,
+            "column_max": 304
+        },
+        {
+            "column_min": 239,
+            "content": "$ 34.00",
+            "id": 23,
+            "width": 54,
+            "height": 15,
+            "row_max": 611,
+            "row_min": 596,
+            "column_max": 293
+        }
+    ]
+}

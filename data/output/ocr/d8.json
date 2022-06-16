@@ -1,0 +1,259 @@
+{
+    "texts": [
+        {
+            "row_max": 26,
+            "content": "9:41",
+            "row_min": 18,
+            "column_max": 51,
+            "id": 0,
+            "column_min": 26,
+            "width": 25,
+            "height": 8
+        },
+        {
+            "row_max": 435,
+            "content": "All",
+            "row_min": 425,
+            "column_max": 37,
+            "id": 1,
+            "column_min": 24,
+            "width": 13,
+            "height": 10
+        },
+        {
+            "row_max": 437,
+            "content": "Song",
+            "row_min": 426,
+            "column_max": 63,
+            "id": 2,
+            "column_min": 37,
+            "width": 26,
+            "height": 11
+        },
+        {
+            "row_max": 86,
+            "content": "Artist Page",
+            "row_min": 72,
+            "column_max": 209,
+            "id": 3,
+            "column_min": 128,
+            "width": 81,
+            "height": 14
+        },
+        {
+            "row_max": 329,
+            "content": "Charlie Puth",
+            "row_min": 318,
+            "column_max": 213,
+            "id": 4,
+            "column_min": 124,
+            "width": 89,
+            "height": 11
+        },
+        {
+            "row_max": 347,
+            "content": "Free",
+            "row_min": 337,
+            "column_max": 180,
+            "id": 5,
+            "column_min": 158,
+            "width": 22,
+            "height": 10
+        },
+        {
+            "row_max": 392,
+            "content": "Play All",
+            "row_min": 380,
+            "column_max": 166,
+            "id": 6,
+            "column_min": 123,
+            "width": 43,
+            "height": 12
+        },
+        {
+            "row_max": 463,
+            "content": "Hard On Yourself",
+            "row_min": 454,
+            "column_max": 160,
+            "id": 7,
+            "column_min": 75,
+            "width": 85,
+            "height": 9
+        },
+        {
+            "row_max": 477,
+            "content": "2.879.453 played",
+            "row_min": 467,
+            "column_max": 145,
+            "id": 8,
+            "column_min": 74,
+            "width": 71,
+            "height": 10
+        },
+        {
+            "row_max": 506,
+            "content": "Girlfriend",
+            "row_min": 496,
+            "column_max": 119,
+            "id": 9,
+            "column_min": 75,
+            "width": 44,
+            "height": 10
+        },
+        {
+            "row_max": 519,
+            "content": "2.879.453 played",
+            "row_min": 509,
+            "column_max": 145,
+            "id": 10,
+            "column_min": 75,
+            "width": 70,
+            "height": 10
+        },
+        {
+            "row_max": 549,
+            "content": "Cheating On You",
+            "row_min": 538,
+            "column_max": 155,
+            "id": 11,
+            "column_min": 75,
+            "width": 80,
+            "height": 11
+        },
+        {
+            "row_max": 561,
+            "content": "2.879.453 played",
+            "row_min": 552,
+            "column_max": 144,
+            "id": 12,
+            "column_min": 74,
+            "width": 70,
+            "height": 9
+        },
+        {
+            "row_max": 591,
+            "content": "Warned My Self",
+            "row_min": 581,
+            "column_max": 159,
+            "id": 13,
+            "column_min": 80,
+            "width": 79,
+            "height": 10
+        },
+        {
+            "row_max": 604,
+            "content": "2.879.453 played",
+            "row_min": 594,
+            "column_max": 144,
+            "id": 14,
+            "column_min": 75,
+            "width": 69,
+            "height": 10
+        },
+        {
+            "row_max": 634,
+            "content": "The Way Am",
+            "row_min": 624,
+            "column_max": 142,
+            "id": 15,
+            "column_min": 75,
+            "width": 67,
+            "height": 10
+        },
+        {
+            "row_max": 647,
+            "content": "2.879.453 played",
+            "row_min": 636,
+            "column_max": 144,
+            "id": 16,
+            "column_min": 74,
+            "width": 70,
+            "height": 11
+        },
+        {
+            "row_max": 701,
+            "content": "Home",
+            "row_min": 694,
+            "column_max": 97,
+            "id": 17,
+            "column_min": 73,
+            "width": 24,
+            "height": 7
+        },
+        {
+            "row_max": 701,
+            "content": "Search",
+            "row_min": 694,
+            "column_max": 183,
+            "id": 18,
+            "column_min": 155,
+            "width": 28,
+            "height": 7
+        },
+        {
+            "row_max": 703,
+            "content": "Library",
+            "row_min": 694,
+            "column_max": 265,
+            "id": 19,
+            "column_min": 237,
+            "width": 28,
+            "height": 9
+        },
+        {
+            "row_max": 86,
+            "content": "...",
+            "row_min": 66,
+            "column_max": 313,
+            "id": 20,
+            "column_min": 309,
+            "width": 4,
+            "height": 20
+        },
+        {
+            "row_max": 473,
+            "content": "..",
+            "row_min": 458,
+            "column_max": 313,
+            "id": 21,
+            "column_min": 308,
+            "width": 5,
+            "height": 15
+        },
+        {
+            "row_max": 516,
+            "content": "...",
+            "row_min": 495,
+            "column_max": 314,
+            "id": 22,
+            "column_min": 308,
+            "width": 6,
+            "height": 21
+        },
+        {
+            "row_max": 601,
+            "content": "...",
+            "row_min": 581,
+            "column_max": 314,
+            "id": 23,
+            "column_min": 308,
+            "width": 6,
+            "height": 20
+        },
+        {
+            "row_max": 644,
+            "content": "...",
+            "row_min": 623,
+            "column_max": 313,
+            "id": 24,
+            "column_min": 308,
+            "width": 5,
+            "height": 21
+        }
+    ],
+    "img_shape": [
+        722,
+        337,
+        3
+    ]
+}

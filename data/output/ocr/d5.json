@@ -1,0 +1,239 @@
+{
+    "texts": [
+        {
+            "row_max": 17,
+            "content": "9:41",
+            "row_min": 7,
+            "column_max": 50,
+            "id": 0,
+            "column_min": 23,
+            "width": 27,
+            "height": 10
+        },
+        {
+            "row_max": 344,
+            "content": "Carh",
+            "row_min": 326,
+            "column_max": 49,
+            "id": 1,
+            "column_min": 39,
+            "width": 10,
+            "height": 18
+        },
+        {
+            "row_max": 752,
+            "content": "ED",
+            "row_min": 733,
+            "column_max": 81,
+            "id": 2,
+            "column_min": 65,
+            "width": 16,
+            "height": 19
+        },
+        {
+            "row_max": 762,
+            "content": "Home",
+            "row_min": 754,
+            "column_max": 89,
+            "id": 3,
+            "column_min": 58,
+            "width": 31,
+            "height": 8
+        },
+        {
+            "row_max": 79,
+            "content": "Review Food",
+            "row_min": 65,
+            "column_max": 231,
+            "id": 4,
+            "column_min": 131,
+            "width": 100,
+            "height": 14
+        },
+        {
+            "row_max": 130,
+            "content": "Dogmie jagong tutung",
+            "row_min": 117,
+            "column_max": 253,
+            "id": 5,
+            "column_min": 111,
+            "width": 142,
+            "height": 13
+        },
+        {
+            "row_max": 153,
+            "content": "999 +",
+            "row_min": 143,
+            "column_max": 154,
+            "id": 6,
+            "column_min": 128,
+            "width": 26,
+            "height": 10
+        },
+        {
+            "row_max": 153,
+            "content": "93 +",
+            "row_min": 143,
+            "column_max": 199,
+            "id": 7,
+            "column_min": 180,
+            "width": 19,
+            "height": 10
+        },
+        {
+            "row_max": 178,
+            "content": "$ 99.99",
+            "row_min": 165,
+            "column_max": 153,
+            "id": 8,
+            "column_min": 111,
+            "width": 42,
+            "height": 13
+        },
+        {
+            "row_max": 222,
+            "content": "Dogmie jagong tutung",
+            "row_min": 209,
+            "column_max": 253,
+            "id": 9,
+            "column_min": 111,
+            "width": 142,
+            "height": 13
+        },
+        {
+            "row_max": 244,
+            "content": "999+",
+            "row_min": 235,
+            "column_max": 154,
+            "id": 10,
+            "column_min": 129,
+            "width": 25,
+            "height": 9
+        },
+        {
+            "row_max": 244,
+            "content": "93+",
+            "row_min": 235,
+            "column_max": 199,
+            "id": 11,
+            "column_min": 180,
+            "width": 19,
+            "height": 9
+        },
+        {
+            "row_max": 270,
+            "content": "$ 99.99",
+            "row_min": 258,
+            "column_max": 153,
+            "id": 12,
+            "column_min": 111,
+            "width": 42,
+            "height": 12
+        },
+        {
+            "row_max": 312,
+            "content": "Dogmie jagong tutung",
+            "row_min": 300,
+            "column_max": 254,
+            "id": 13,
+            "column_min": 111,
+            "width": 143,
+            "height": 12
+        },
+        {
+            "row_max": 335,
+            "content": "999 +",
+            "row_min": 326,
+            "column_max": 153,
+            "id": 14,
+            "column_min": 129,
+            "width": 24,
+            "height": 9
+        },
+        {
+            "row_max": 335,
+            "content": "93 +",
+            "row_min": 326,
+            "column_max": 199,
+            "id": 15,
+            "column_min": 180,
+            "width": 19,
+            "height": 9
+        },
+        {
+            "row_max": 360,
+            "content": "$ 99.99",
+            "row_min": 347,
+            "column_max": 153,
+            "id": 16,
+            "column_min": 111,
+            "width": 42,
+            "height": 13
+        },
+        {
+            "row_max": 661,
+            "content": "Send",
+            "row_min": 647,
+            "column_max": 199,
+            "id": 17,
+            "column_min": 160,
+            "width": 39,
+            "height": 14
+        },
+        {
+            "row_max": 762,
+            "content": "Order",
+            "row_min": 753,
+            "column_max": 161,
+            "id": 18,
+            "column_min": 132,
+            "width": 29,
+            "height": 9
+        },
+        {
+            "row_max": 763,
+            "content": "My List",
+            "row_min": 751,
+            "column_max": 236,
+            "id": 19,
+            "column_min": 202,
+            "width": 34,
+            "height": 12
+        },
+        {
+            "row_max": 243,
+            "content": "LJ",
+            "row_min": 235,
+            "column_max": 315,
+            "id": 20,
+            "column_min": 302,
+            "width": 13,
+            "height": 8
+        },
+        {
+            "row_max": 761,
+            "content": "Profile",
+            "row_min": 753,
+            "column_max": 305,
+            "id": 21,
+            "column_min": 274,
+            "width": 31,
+            "height": 8
+        },
+        {
+            "row_max": 153,
+            "content": "( 1",
+            "row_min": 144,
+            "column_max": 335,
+            "id": 22,
+            "column_min": 327,
+            "width": 8,
+            "height": 9
+        }
+    ],
+    "img_shape": [
+        795,
+        365,
+        3
+    ]
+}

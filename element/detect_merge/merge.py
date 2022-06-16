@@ -66,7 +66,7 @@ def merge_text_line_to_paragraph(elements):
         for text_a in texts:
             merged = False
             for text_b in temp_set:
-                max_line_gap = min(text_a.height, text_b.height) // 2
+                max_line_gap = max(min(text_a.height, text_b.height) // 2, 7)
                 inter_area, _, _, _ = text_a.calc_intersection_area(text_b, bias=(0, max_line_gap))
                 if inter_area > 0:
                     text_b.element_merge(text_a)

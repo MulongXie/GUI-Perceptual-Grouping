@@ -1,0 +1,209 @@
+{
+    "texts": [
+        {
+            "row_max": 15,
+            "content": "9:41",
+            "row_min": 9,
+            "column_max": 38,
+            "id": 0,
+            "column_min": 19,
+            "width": 19,
+            "height": 6
+        },
+        {
+            "row_max": 44,
+            "content": "Event Details ,",
+            "row_min": 31,
+            "column_max": 129,
+            "id": 1,
+            "column_min": 35,
+            "width": 94,
+            "height": 13
+        },
+        {
+            "row_max": 139,
+            "content": "+20 Going",
+            "row_min": 129,
+            "column_max": 130,
+            "id": 2,
+            "column_min": 87,
+            "width": 43,
+            "height": 10
+        },
+        {
+            "row_max": 136,
+            "content": "Invite",
+            "row_min": 131,
+            "column_max": 184,
+            "id": 3,
+            "column_min": 165,
+            "width": 19,
+            "height": 5
+        },
+        {
+            "row_max": 186,
+            "content": "International Band",
+            "row_min": 169,
+            "column_max": 189,
+            "id": 4,
+            "column_min": 14,
+            "width": 175,
+            "height": 17
+        },
+        {
+            "row_max": 214,
+            "content": "Music Concert",
+            "row_min": 199,
+            "column_max": 156,
+            "id": 5,
+            "column_min": 14,
+            "width": 142,
+            "height": 15
+        },
+        {
+            "row_max": 246,
+            "content": "14 December , 2021",
+            "row_min": 237,
+            "column_max": 135,
+            "id": 6,
+            "column_min": 49,
+            "width": 86,
+            "height": 9
+        },
+        {
+            "row_max": 261,
+            "content": "Tuesday , 4:00 PM",
+            "row_min": 254,
+            "column_max": 105,
+            "id": 7,
+            "column_min": 50,
+            "width": 55,
+            "height": 7
+        },
+        {
+            "row_max": 261,
+            "content": "9:00 PM",
+            "row_min": 254,
+            "column_max": 136,
+            "id": 8,
+            "column_min": 111,
+            "width": 25,
+            "height": 7
+        },
+        {
+            "row_max": 312,
+            "content": "Share with friends",
+            "row_min": 299,
+            "column_max": 139,
+            "id": 9,
+            "column_min": 13,
+            "width": 126,
+            "height": 13
+        },
+        {
+            "row_max": 369,
+            "content": "Copy Link",
+            "row_min": 360,
+            "column_max": 56,
+            "id": 10,
+            "column_min": 21,
+            "width": 35,
+            "height": 9
+        },
+        {
+            "row_max": 369,
+            "content": "WhatsApp",
+            "row_min": 360,
+            "column_max": 109,
+            "id": 11,
+            "column_min": 69,
+            "width": 40,
+            "height": 9
+        },
+        {
+            "row_max": 369,
+            "content": "Facebook",
+            "row_min": 360,
+            "column_max": 159,
+            "id": 12,
+            "column_min": 123,
+            "width": 36,
+            "height": 9
+        },
+        {
+            "row_max": 370,
+            "content": "Messenger",
+            "row_min": 360,
+            "column_max": 211,
+            "id": 13,
+            "column_min": 171,
+            "width": 40,
+            "height": 10
+        },
+        {
+            "row_max": 422,
+            "content": "Twitter",
+            "row_min": 416,
+            "column_max": 52,
+            "id": 14,
+            "column_min": 25,
+            "width": 27,
+            "height": 6
+        },
+        {
+            "row_max": 423,
+            "content": "Instagram",
+            "row_min": 416,
+            "column_max": 107,
+            "id": 15,
+            "column_min": 71,
+            "width": 36,
+            "height": 7
+        },
+        {
+            "row_max": 424,
+            "content": "Skype",
+            "row_min": 414,
+            "column_max": 150,
+            "id": 16,
+            "column_min": 129,
+            "width": 21,
+            "height": 10
+        },
+        {
+            "row_max": 423,
+            "content": "Massage",
+            "row_min": 416,
+            "column_max": 206,
+            "id": 17,
+            "column_min": 175,
+            "width": 31,
+            "height": 7
+        },
+        {
+            "row_max": 466,
+            "content": "CANCEL",
+            "row_min": 459,
+            "column_max": 134,
+            "id": 18,
+            "column_min": 93,
+            "width": 41,
+            "height": 7
+        },
+        {
+            "row_max": 15,
+            "content": "all",
+            "row_min": 9,
+            "column_max": 188,
+            "id": 19,
+            "column_min": 177,
+            "width": 11,
+            "height": 6
+        }
+    ],
+    "img_shape": [
+        491,
+        225,
+        3
+    ]
+}

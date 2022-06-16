@@ -1,0 +1,169 @@
+{
+    "texts": [
+        {
+            "row_max": 21,
+            "content": "9:41",
+            "row_min": 11,
+            "column_max": 51,
+            "id": 0,
+            "column_min": 23,
+            "width": 28,
+            "height": 10
+        },
+        {
+            "row_max": 325,
+            "content": "My Profile",
+            "row_min": 310,
+            "column_max": 79,
+            "id": 1,
+            "column_min": 20,
+            "width": 59,
+            "height": 15
+        },
+        {
+            "row_max": 365,
+            "content": "Change Password",
+            "row_min": 350,
+            "column_max": 132,
+            "id": 2,
+            "column_min": 21,
+            "width": 111,
+            "height": 15
+        },
+        {
+            "row_max": 406,
+            "content": "Payment Settings",
+            "row_min": 394,
+            "column_max": 130,
+            "id": 3,
+            "column_min": 21,
+            "width": 109,
+            "height": 12
+        },
+        {
+            "row_max": 446,
+            "content": "My Voucher",
+            "row_min": 433,
+            "column_max": 93,
+            "id": 4,
+            "column_min": 21,
+            "width": 72,
+            "height": 13
+        },
+        {
+            "row_max": 484,
+            "content": "Notification",
+            "row_min": 473,
+            "column_max": 88,
+            "id": 5,
+            "column_min": 21,
+            "width": 67,
+            "height": 11
+        },
+        {
+            "row_max": 525,
+            "content": "About Us",
+            "row_min": 513,
+            "column_max": 75,
+            "id": 6,
+            "column_min": 20,
+            "width": 55,
+            "height": 12
+        },
+        {
+            "row_max": 565,
+            "content": "Contact Us",
+            "row_min": 552,
+            "column_max": 87,
+            "id": 7,
+            "column_min": 21,
+            "width": 66,
+            "height": 13
+        },
+        {
+            "row_max": 750,
+            "content": "BE",
+            "row_min": 733,
+            "column_max": 78,
+            "id": 8,
+            "column_min": 64,
+            "width": 14,
+            "height": 17
+        },
+        {
+            "row_max": 765,
+            "content": "Home",
+            "row_min": 757,
+            "column_max": 88,
+            "id": 9,
+            "column_min": 59,
+            "width": 29,
+            "height": 8
+        },
+        {
+            "row_max": 254,
+            "content": "Itoh",
+            "row_min": 242,
+            "column_max": 196,
+            "id": 10,
+            "column_min": 167,
+            "width": 29,
+            "height": 12
+        },
+        {
+            "row_max": 277,
+            "content": "+1 11229382748",
+            "row_min": 268,
+            "column_max": 228,
+            "id": 11,
+            "column_min": 135,
+            "width": 93,
+            "height": 9
+        },
+        {
+            "row_max": 667,
+            "content": "Sign Out",
+            "row_min": 652,
+            "column_max": 217,
+            "id": 12,
+            "column_min": 147,
+            "width": 70,
+            "height": 15
+        },
+        {
+            "row_max": 767,
+            "content": "Order",
+            "row_min": 757,
+            "column_max": 162,
+            "id": 13,
+            "column_min": 133,
+            "width": 29,
+            "height": 10
+        },
+        {
+            "row_max": 768,
+            "content": "My List",
+            "row_min": 755,
+            "column_max": 237,
+            "id": 14,
+            "column_min": 202,
+            "width": 35,
+            "height": 13
+        },
+        {
+            "row_max": 765,
+            "content": "Profile",
+            "row_min": 757,
+            "column_max": 305,
+            "id": 15,
+            "column_min": 275,
+            "width": 30,
+            "height": 8
+        }
+    ],
+    "img_shape": [
+        800,
+        367,
+        3
+    ]
+}

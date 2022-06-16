@@ -1,0 +1,160 @@
+[
+    {
+        "class": "Block",
+        "id": "b-1",
+        "location": {
+            "top": 10,
+            "bottom": 22,
+            "right": 367,
+            "left": 25
+        },
+        "children": [
+            {
+                "class": "Text",
+                "id": "c-15",
+                "location": {
+                    "top": 12,
+                    "bottom": 22,
+                    "right": 54,
+                    "left": 25
+                },
+                "text_content": "9:41"
+            },
+            {
+                "class": "Text",
+                "id": "c-25",
+                "location": {
+                    "top": 10,
+                    "bottom": 21,
+                    "right": 337,
+                    "left": 305
+                },
+                "text_content": "all ?"
+            },
+            {
+                "class": "Compo",
+                "id": "c-0",
+                "location": {
+                    "top": 11,
+                    "bottom": 22,
+                    "right": 367,
+                    "left": 344
+                },
+                "text_content": null
+            }
+        ]
+    },
+    {
+        "class": "Block",
+        "id": "b-2",
+        "location": {
+            "top": 67,
+            "bottom": 82,
+            "right": 119,
+            "left": 25
+        },
+        "children": [
+            {
+                "class": "Compo",
+                "id": "c-1",
+                "location": {
+                    "top": 68,
+                    "bottom": 82,
+                    "right": 39,
+                    "left": 25
+                },
+                "text_content": null
+            },
+            {
+                "class": "Text",
+                "id": "c-16",
+                "location": {
+                    "top": 67,
+                    "bottom": 80,
+                    "right": 119,
+                    "left": 50
+                },
+                "text_content": "Balance"
+            }
+        ]
+    },
+    {
+        "class": "Block",
+        "id": "b-3",
+        "location": {
+            "top": 170,
+            "bottom": 191,
+            "right": 327,
+            "left": 56
+        },
+        "children": [
+            {
+                "class": "Text",
+                "id": "c-18",
+                "location": {
+                    "top": 170,
+                    "bottom": 186,
+                    "right": 143,
+                    "left": 56
+                },
+                "text_content": "$ 155.00"
+            },
+            {
+                "class": "Compo",
+                "id": "c-2",
+                "location": {
+                    "top": 174,
+                    "bottom": 189,
+                    "right": 173,
+                    "left": 152
+                },
+                "text_content": null
+            },
+            {
+                "class": "Compo",
+                "id": "c-3",
+                "location": {
+                    "top": 172,
+                    "bottom": 191,
+                    "right": 327,
+                    "left": 275
+                },
+                "text_content": null
+            }
+        ]
+    },
+    {
+        "class": "Block",
+        "id": "b-4",
+        "location": {
+            "top": 260,
+            "bottom": 276,
+            "right": 351,
+            "left": 23
+        },
+        "children": [
+            {
+                "class": "Text",
+                "id": "c-19",
+                "location": {
+                    "top": 260,
+                    "bottom": 276,
+                    "right": 143,
+                    "left": 23
+                },
+                "text_content": "Money History"
+            },
+            {
+                "class": "Text",
+                "id": "c-26",
+                "location": {
+                    "top": 263,
+                    "bottom": 271,
+                    "right": 351,
+                    "left": 315
+                },
+                "text_content": "View All"
+            }
+        ]
+    }
+]

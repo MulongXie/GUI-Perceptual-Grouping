@@ -1,0 +1,249 @@
+[
+    {
+        "id": "b-4",
+        "location": {
+            "left": 138,
+            "bottom": 359,
+            "top": 344,
+            "right": 332
+        },
+        "class": "Block",
+        "children": [
+            {
+                "id": "c-14",
+                "text_content": "DALIA MONTERO",
+                "class": "Text",
+                "location": {
+                    "left": 138,
+                    "bottom": 359,
+                    "top": 344,
+                    "right": 314
+                }
+            },
+            {
+                "id": "c-1",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 322,
+                    "bottom": 358,
+                    "top": 348,
+                    "right": 332
+                }
+            }
+        ]
+    },
+    {
+        "id": "b-5",
+        "location": {
+            "left": 146,
+            "bottom": 401,
+            "top": 382,
+            "right": 301
+        },
+        "class": "Block",
+        "children": [
+            {
+                "id": "c-2",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 146,
+                    "bottom": 401,
+                    "top": 382,
+                    "right": 161
+                }
+            },
+            {
+                "id": "c-15",
+                "text_content": "+91 912 512 368",
+                "class": "Text",
+                "location": {
+                    "left": 190,
+                    "bottom": 395,
+                    "top": 384,
+                    "right": 301
+                }
+            }
+        ]
+    },
+    {
+        "id": "b-6",
+        "location": {
+            "left": 23,
+            "bottom": 659,
+            "top": 587,
+            "right": 466
+        },
+        "class": "Block",
+        "children": [
+            {
+                "id": "c-7",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 23,
+                    "bottom": 652,
+                    "top": 594,
+                    "right": 78
+                }
+            },
+            {
+                "id": "c-16",
+                "text_content": "PHOTOS",
+                "class": "Text",
+                "location": {
+                    "left": 93,
+                    "bottom": 629,
+                    "top": 617,
+                    "right": 161
+                }
+            },
+            {
+                "id": "c-4",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 179,
+                    "bottom": 659,
+                    "top": 587,
+                    "right": 251
+                }
+            },
+            {
+                "id": "c-5",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 256,
+                    "bottom": 659,
+                    "top": 588,
+                    "right": 327
+                }
+            },
+            {
+                "id": "c-8",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 337,
+                    "bottom": 659,
+                    "top": 608,
+                    "right": 392
+                }
+            },
+            {
+                "id": "c-6",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 413,
+                    "bottom": 659,
+                    "top": 588,
+                    "right": 466
+                }
+            }
+        ]
+    },
+    {
+        "id": "b-7",
+        "location": {
+            "left": 23,
+            "bottom": 763,
+            "top": 691,
+            "right": 466
+        },
+        "class": "Block",
+        "children": [
+            {
+                "id": "c-13",
+                "text_content": null,
+                "class": "Compo",
+                "location": {
+                    "left": 23,
+                    "bottom": 756,
+                    "top": 699,
+                    "right": 78
+                }
+            },
+            {
+                "id": "c-17",
+                "text_content": "VIDEOS",
+                "class": "Text",
+                "location": {
+                    "left": 94,
+                    "bottom": 731,
+                    "top": 720,
+                    "right": 157
+                }
+            },
+            {
+                "list_items": [
+                    [
+                        {
+                            "id": "c-9",
+                            "text_content": null,
+                            "class": "Compo",
+                            "location": {
+                                "left": 179,
+                                "bottom": 763,
+                                "top": 691,
+                                "right": 248
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-10",
+                            "text_content": null,
+                            "class": "Compo",
+                            "location": {
+                                "left": 256,
+                                "bottom": 763,
+                                "top": 691,
+                                "right": 327
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-11",
+                            "text_content": null,
+                            "class": "Compo",
+                            "location": {
+                                "left": 333,
+                                "bottom": 763,
+                                "top": 691,
+                                "right": 404
+                            }
+                        }
+                    ],
+                    [
+                        {
+                            "id": "c-12",
+                            "text_content": null,
+                            "class": "Compo",
+                            "location": {
+                                "left": 412,
+                                "bottom": 762,
+                                "top": 691,
+                                "right": 466
+                            }
+                        }
+                    ]
+                ],
+                "list_alignment": "h",
+                "location": {
+                    "left": 179,
+                    "bottom": 763,
+                    "top": 691,
+                    "right": 466
+                },
+                "id": "l-0",
+                "text_content": null,
+                "class": "List",
+                "list_class": "single"
+            }
+        ]
+    }
+]
