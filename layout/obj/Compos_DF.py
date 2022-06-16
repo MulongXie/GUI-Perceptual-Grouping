@@ -139,7 +139,7 @@ class ComposDF:
             compo_i = self.compos_dataframe.iloc[i]
             for j in range(i + 1, len(self.compos_dataframe)):
                 compo_j = self.compos_dataframe.iloc[j]
-                if max(compo_i['area'], compo_j['area']) < min(compo_i['area'], compo_j['area']) * 2:
+                if max(compo_i['area'], compo_j['area']) < min(compo_i['area'], compo_j['area']) * 1.8:
                     if compo_i['cluster_area'] != -1:
                         self.compos_dataframe.loc[compo_j['id'], 'cluster_area'] = compo_i['cluster_area']
                     elif compo_j['cluster_area'] != -1:
@@ -591,15 +591,30 @@ class ComposDF:
     def check_unpaired_group_of_two_compos_validity_by_min_area(self, show=False, show_method='block'):
         groups = self.compos_dataframe.groupby('group').groups
         for i in groups:
-            # if the group only has two elements, check if it's valid by elements' areas
+            # if the group is unpaired and only has two elements, check if it's valid by elements' areas
             if i != -1 and len(groups[i]) == 2:
                 compos = self.compos_dataframe.loc[groups[i]]
                 if compos.iloc[0]['group_pair'] == -1:
+                    # if the two elements are in vertical alignment, then remove the group
                     if compos.iloc[0]['alignment_in_group'] == 'v':
                         self.compos_dataframe.loc[groups[i], 'group'] = -1
                     # if the two are too different in area, mark the group as invalid
                     elif compos['area'].min() < 150 or compos['area'].max() / compos['area'].min() > 1.5:
                         self.compos_dataframe.loc[groups[i], 'group'] = -1
+        if show:
+            if show_method == 'line':
+                self.visualize(gather_attr='group', name='valid-two-compos')
+            elif show_method == 'block':
+                self.visualize_fill(gather_attr='group', name='valid-two-compos')
+
+    def remove_unpaired_group_of_two_compos(self, show=False, show_method='block'):
+        groups = self.compos_dataframe.groupby('group').groups
+        for i in groups:
+            # if the group is unpaired and only has two elements, remove the group
+            if i != -1 and len(groups[i]) == 2:
+                compos = self.compos_dataframe.loc[groups[i]]
+                if compos.iloc[0]['group_pair'] == -1:
+                    self.compos_dataframe.loc[groups[i], 'group'] = -1
         if show:
             if show_method == 'line':
                 self.visualize(gather_attr='group', name='valid-two-compos')
@@ -680,7 +695,8 @@ class ComposDF:
                         compos.loc[groups[i], 'group'] = -1
 
     def remove_invalid_groups(self):
-        self.check_unpaired_group_of_two_compos_validity_by_min_area()
+        # self.check_unpaired_group_of_two_compos_validity_by_min_area()
+        self.remove_unpaired_group_of_two_compos()
         self.check_unpaired_group_validity_by_interleaving()
 
     def add_missed_compos_by_checking_group_item(self):
