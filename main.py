@@ -1,7 +1,7 @@
 from GUI import GUI
 
 
-input_path = 'data/input/10.jpg'
+input_path = 'data/input/2.jpg'
 output_root = 'data/output'
 
 gui = GUI(img_file=input_path, output_dir=output_root)
