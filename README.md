@@ -74,7 +74,7 @@ Gestalt principles also greatly influence UI design, but they may be represented
 
 ## How to use it?
 
-The GUI Perceptual Grouping is based on the UIED to detect the GUI element, but both UIED and the grouping approach are unsupervised that requires NO traning process and massive data preparation to deploy extremly easily.
+The GUI Perceptual Grouping is based on the [UIED](https://github.com/MulongXie/UIED) to detect the GUI element, but both UIED and the grouping approach are unsupervised that requires NO traning process and massive data preparation to deploy extremly easily.
 
 ### Dependency
 - Python
