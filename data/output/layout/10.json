@@ -1,0 +1,138 @@
+[
+    {
+        "class": "Block",
+        "children": [
+            {
+                "class": "Text",
+                "text_content": "Learn",
+                "location": {
+                    "bottom": 65,
+                    "left": 17,
+                    "right": 71,
+                    "top": 49
+                },
+                "id": "c-23"
+            },
+            {
+                "class": "Compo",
+                "text_content": null,
+                "location": {
+                    "bottom": 67,
+                    "left": 423,
+                    "right": 429,
+                    "top": 48
+                },
+                "id": "c-0"
+            }
+        ],
+        "location": {
+            "bottom": 67,
+            "left": 17,
+            "right": 429,
+            "top": 48
+        },
+        "id": "b-1"
+    },
+    {
+        "class": "Block",
+        "children": [
+            {
+                "class": "Text",
+                "text_content": "Every second month you stay in the\nChallenge you unlock a new random workout .\nMonth",
+                "location": {
+                    "bottom": 158,
+                    "left": 35,
+                    "right": 413,
+                    "top": 119
+                },
+                "id": "c-24"
+            },
+            {
+                "class": "Compo",
+                "text_content": null,
+                "location": {
+                    "bottom": 134,
+                    "left": 339,
+                    "right": 349,
+                    "top": 120
+                },
+                "id": "c-1"
+            }
+        ],
+        "location": {
+            "bottom": 158,
+            "left": 35,
+            "right": 413,
+            "top": 119
+        },
+        "id": "b-2"
+    },
+    {
+        "class": "Block",
+        "children": [
+            {
+                "class": "Block",
+                "children": [
+                    {
+                        "class": "Text",
+                        "text_content": "\u0628\u06be\u06cc",
+                        "location": {
+                            "bottom": 661,
+                            "left": 50,
+                            "right": 110,
+                            "top": 613
+                        },
+                        "id": "c-32"
+                    },
+                    {
+                        "class": "Text",
+                        "text_content": "Stroteh",
+                        "location": {
+                            "bottom": 686,
+                            "left": 51,
+                            "right": 108,
+                            "top": 679
+                        },
+                        "id": "c-33"
+                    }
+                ],
+                "location": {
+                    "bottom": 686,
+                    "left": 50,
+                    "right": 110,
+                    "top": 613
+                },
+                "id": "b-4"
+            },
+            {
+                "class": "Compo",
+                "text_content": null,
+                "location": {
+                    "bottom": 685,
+                    "left": 111,
+                    "right": 156,
+                    "top": 592
+                },
+                "id": "c-17"
+            },
+            {
+                "class": "Compo",
+                "text_content": null,
+                "location": {
+                    "bottom": 685,
+                    "left": 182,
+                    "right": 296,
+                    "top": 593
+                },
+                "id": "c-18"
+            }
+        ],
+        "location": {
+            "bottom": 686,
+            "left": 50,
+            "right": 296,
+            "top": 592
+        },
+        "id": "b-3"
+    }
+]
